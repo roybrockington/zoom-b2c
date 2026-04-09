@@ -6,6 +6,42 @@ import { useState } from "react";
 
 export default function Footer() {
 
+type footerBadge = {
+  altText: string;
+  linkUrl: string;
+  imageUrl: string;
+};
+
+const paymentMethods: footerBadge[] = [
+  {
+    altText: "PayPal",
+    linkUrl: "/payment-methods",
+    imageUrl: "https://media.sound-service.eu/zoom/payment/paypal-std.png",
+  },
+  {
+    altText: "Klarna",
+    linkUrl: "/payment-methods",
+    imageUrl: "https://media.sound-service.eu/zoom/payment/klarna.png",
+  },
+  {
+    altText: "Payment in advance",
+    linkUrl: "/payment-methods",
+    imageUrl: "https://media.sound-service.eu/zoom/payment/vorkasse-en.png",
+  }
+];
+const shippingMethods: footerBadge[] = [
+  {
+    altText: "DHL",
+    linkUrl: "/",
+    imageUrl: "https://media.sound-service.eu/zoom/shipping/dhl.png",
+  },
+  {
+    altText: "UPS",
+    linkUrl: "/",
+    imageUrl: "https://media.sound-service.eu/zoom/shipping/ups.png",
+  }
+];
+
     return (
         <footer className="w-full border-b border-zinc-200 dark:border-zinc-800 bg-gray-700 dark:bg-zinc-950 py-8">
             {/* Top bar: logo, search, icons */}
@@ -38,7 +74,7 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div className="flex flex-col md:w-1/4 gap-4">
-                        <h4 className="font-bold list-none">Our Advantages</h4>
+                        <h4 className="font-bold list-none">About Us</h4>
                         <ul className="list-none flex flex-col gap-1">
                             <li>Filmmaking</li>
                             <li>Music</li>
@@ -61,16 +97,25 @@ export default function Footer() {
                     <div className="flex flex-col md:w-1/2 gap-4">
                         <h4 className="text-xl font-bold">Payment Methods</h4>
                         <ul className="list-none flex gap-3">
-                            <li>PayPal</li>
-                            <li>Klarna</li>
-                            <li>Payment in advance</li>
+                            {paymentMethods.map(method =>
+                                <li key={method.altText}>
+                                    <Link href={method.linkUrl}>
+                                        <Image src={method.imageUrl} width={120} height={90} alt={method.altText} />
+                                    </Link>
+                                </li>
+                            )}
                         </ul>
                     </div>
                     <div className="flex flex-col md:w-1/2 gap-4">
                         <h4 className="text-xl font-bold">Shipping Methods</h4>
                         <ul className="list-none flex gap-3">
-                            <li>DHL</li>
-                            <li>UPS</li>
+                            {shippingMethods.map(method =>
+                                <li key={method.altText}>
+                                    <Link href={method.linkUrl}>
+                                        <Image src={method.imageUrl} width={120} height={90} alt={method.altText} />
+                                    </Link>
+                                </li>
+                            )}
                         </ul>
                     </div>
                 </div>

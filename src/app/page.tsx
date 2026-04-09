@@ -1,5 +1,6 @@
 import HeroSlider from "./components/HeroSlider";
 import MostWanted from "./components/MostWanted";
+import WebshopProse from "./components/WebshopProse";
 
 export default function Home() {
   return (
@@ -22,9 +23,7 @@ export default function Home() {
         <section className="mt-4 text-zinc-500 dark:text-zinc-400 w-full h-48 border border-zinc-200 rounded-lg flex items-center justify-center">
           Creator prose
         </section>
-        <section className="mt-4 text-zinc-500 dark:text-zinc-400 w-full h-48 border border-zinc-200 rounded-lg flex items-center justify-center">
-          Web shop prose
-        </section>
+                <WebshopProse />
       </div>
     </div>
   );
