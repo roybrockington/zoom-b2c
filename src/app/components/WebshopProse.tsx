@@ -1,11 +1,7 @@
-
-import Image from "next/image";
-import Link from "next/link";
-
 const WebshopProse = () => {
 
     return (
-        <section className="py-10">
+        <section className="py-10 ">
             <h2 className="mb-6 text-2xl font-normal text-zinc-900 dark:text-white">
                 WE ARE THE OFFICIAL <span className="font-black">ZOOM EUROPE WEBSHOP</span>
             </h2>
