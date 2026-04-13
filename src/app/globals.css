@@ -25,3 +25,23 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.prose iframe {
+  @apply w-full h-full;
+}
+
+.feature-tiles {
+    @apply flex flex-col md:flex-row gap-4;
+}
+
+.tile {
+    @apply md:w-1/4;
+}
+
+.feature-benefit {
+    @apply w-full grid grid-cols-2 items-center gap-4;
+}
+
+.feature-benefit:nth-child(even) > *:first-child {
+    @apply order-last;
+}
