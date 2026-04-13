@@ -5,6 +5,7 @@ import Newsletter from "./components/Newsletter";
 import Warranty from "./components/Warranty";
 import WebshopProse from "./components/WebshopProse";
 import Creators from "./components/Creators";
+import CreatorProse from "./components/CreatorProse";
 
 export default function Home() {
   return (
@@ -18,9 +19,7 @@ export default function Home() {
                 <Warranty />
                 <Newsletter />
         </section>
-        <section className="mt-4 text-zinc-500 dark:text-zinc-400 w-full h-48 border border-zinc-200 rounded-lg flex items-center justify-center">
-          Creator prose
-        </section>
+                <CreatorProse />
                 <WebshopProse />
       </div>
     </div>

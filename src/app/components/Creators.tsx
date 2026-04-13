@@ -26,7 +26,7 @@ export default async function Creators() {
           return (
             <div
               key={tile.name}
-              className="md:w-1/2 h-64 relative bg-cover bg-center"
+              className="md:w-1/2 h-72 relative bg-cover bg-center border border-white"
               style={{ backgroundImage: `url(${IMG_BASE}${tile.image})` }}
             >
               <Link href={tile.link} className="absolute inset-0 flex items-center gap-2 px-4 py-2 bg-black/40 text-white hover:bg-black/60 transition-colors justify-center">
