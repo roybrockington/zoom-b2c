@@ -111,7 +111,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                     href={`/products/${product.slug}`}
                     className="group flex flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
                   >
-                    <div className="relative aspect-[278/148] w-full bg-zinc-100 dark:bg-zinc-800">
+                    <div className="relative aspect-[278/148] w-full dark:bg-zinc-800">
                       {imgSrc ? (
                         <Image
                           src={imgSrc}
