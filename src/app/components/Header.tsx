@@ -5,6 +5,9 @@ import Link from "next/link";
 import { useState, useRef } from "react";
 import { currencies, useCurrency } from "./CurrencyContext";
 import LanguageSelector from "./LanguageSelector";
+import { useTranslations } from "next-intl";
+import { useAuth } from "./AuthContext";
+import { useCart } from "./CartContext";
 
 export type Category = {
   id: number;
@@ -13,19 +16,22 @@ export type Category = {
   children?: Category[];
 };
 
-const navLinks = [
-  { label: "Podcasting", href: "/podcasting" },
-  { label: "Music", href: "/music" },
-  { label: "Filmmaking", href: "/filmmaking" },
-  { label: "Sound Design", href: "/sound-design" },
-  { label: "Sale", href: "/sale" },
-];
-
 export default function Header({ categories }: { categories: Category[] }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [currencyOpen, setCurrencyOpen] = useState(false);
   const { currency: selectedCurrency, setCurrency: setSelectedCurrency } = useCurrency();
+  const { user } = useAuth();
+  const { totalItems, hydrated: cartHydrated } = useCart();
+  const t = useTranslations();
+
+  const navLinks = [
+    { label: t("nav.podcasting"), href: "/podcasting" },
+    { label: t("nav.music"),      href: "/music" },
+    { label: t("nav.filmmaking"), href: "/filmmaking" },
+    { label: t("nav.soundDesign"), href: "/sound-design" },
+    { label: t("nav.sale"),       href: "/sale", isSale: true },
+  ];
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currencyCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -66,7 +72,7 @@ export default function Header({ categories }: { categories: Category[] }) {
             </span>
             <input
               type="search"
-              placeholder="Search products…"
+              placeholder={t("header.searchPlaceholder")}
               className="w-full rounded-full border border-zinc-300 bg-zinc-50 py-2 pl-9 pr-4 text-sm text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:placeholder-zinc-500 dark:focus:border-zinc-500 dark:focus:ring-zinc-800"
             />
           </div>
@@ -77,7 +83,7 @@ export default function Header({ categories }: { categories: Category[] }) {
           {/* Cart */}
           <Link
             href="/cart"
-            aria-label="Cart"
+            aria-label={t("header.cartLabel")}
             className="relative rounded-full p-2 text-zinc-600 transition hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -86,7 +92,7 @@ export default function Header({ categories }: { categories: Category[] }) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M16 10a4 4 0 0 1-8 0" />
             </svg>
             <span className="absolute right-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-900 text-[10px] font-semibold text-white dark:bg-white dark:text-zinc-900">
-              0
+              {cartHydrated ? (totalItems > 99 ? "99+" : totalItems) : 0}
             </span>
           </Link>
 
@@ -97,7 +103,7 @@ export default function Header({ categories }: { categories: Category[] }) {
             onMouseLeave={closeCurrency}
           >
             <button
-              aria-label="Select currency"
+              aria-label={t("header.selectCurrency")}
               className="inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-zinc-600 transition hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
             >
               {selectedCurrency.symbol} {selectedCurrency.code}
@@ -140,8 +146,8 @@ export default function Header({ categories }: { categories: Category[] }) {
 
           {/* Account */}
           <Link
-            href="/account"
-            aria-label="Account"
+            href={user ? "/account" : "/login"}
+            aria-label={t("header.accountLabel")}
             className="rounded-full p-2 text-zinc-600 transition hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -153,7 +159,7 @@ export default function Header({ categories }: { categories: Category[] }) {
           {/* Mobile hamburger */}
           <button
             className="ml-1 rounded-full p-2 text-zinc-600 transition hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800 sm:hidden"
-            aria-label="Toggle menu"
+            aria-label={t("header.toggleMenu")}
             onClick={() => setMenuOpen((o) => !o)}
           >
             {menuOpen ? (
@@ -183,7 +189,7 @@ export default function Header({ categories }: { categories: Category[] }) {
               href="/categories"
               className="inline-flex items-center gap-1 px-4 py-3 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
             >
-              Categories
+              {t("nav.categories")}
               <svg xmlns="http://www.w3.org/2000/svg" className={`h-3.5 w-3.5 transition-transform duration-200 ${categoriesOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
@@ -214,7 +220,7 @@ export default function Header({ categories }: { categories: Category[] }) {
               <Link
                 href={link.href}
                 className={`inline-block px-4 py-3 text-sm font-medium transition-colors hover:text-zinc-900 dark:hover:text-white ${
-                  link.label === "Sale"
+                  link.isSale
                     ? "text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-400"
                     : "text-zinc-600 dark:text-zinc-400"
                 }`}
@@ -236,7 +242,7 @@ export default function Header({ categories }: { categories: Category[] }) {
                 onClick={() => setCategoriesOpen((o) => !o)}
                 className="flex w-full items-center justify-between px-6 py-3 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:text-zinc-300 dark:hover:bg-zinc-900"
               >
-                Categories
+                {t("nav.categories")}
                 <svg xmlns="http://www.w3.org/2000/svg" className={`h-3.5 w-3.5 transition-transform duration-200 ${categoriesOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
@@ -264,7 +270,7 @@ export default function Header({ categories }: { categories: Category[] }) {
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
                   className={`block px-6 py-3 text-sm font-medium transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900 ${
-                    link.label === "Sale"
+                    link.isSale
                       ? "text-red-600 dark:text-red-500"
                       : "text-zinc-700 dark:text-zinc-300"
                   }`}

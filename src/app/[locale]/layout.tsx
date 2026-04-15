@@ -5,6 +5,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import type { Category } from "../components/Header";
 import { CurrencyProvider } from "../components/CurrencyContext";
+import { AuthProvider } from "../components/AuthContext";
+import { CartProvider } from "../components/CartContext";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { routing } from "../../i18n/routing";
@@ -63,11 +65,15 @@ export default async function LocaleLayout({
     >
       <body className="min-h-full flex flex-col bg-white dark:bg-zinc-950">
         <NextIntlClientProvider messages={messages}>
-          <CurrencyProvider>
-            <Header categories={categories} />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </CurrencyProvider>
+          <AuthProvider>
+            <CartProvider>
+              <CurrencyProvider>
+                <Header categories={categories} />
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </CurrencyProvider>
+            </CartProvider>
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>

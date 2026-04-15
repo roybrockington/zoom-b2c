@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import ImageGallery from "./ImageGallery";
 import ProductPagePrice from "./ProductPagePrice";
+import AddToCartButton from "./AddToCartButton";
 
 type ProductDescriptions = {
   description: string | null;
@@ -25,6 +26,7 @@ type Product = {
   sale_price: string | null;
   effective_price: string;
   price_uk: string | null;
+  in_stock: boolean;
   sku: string | null;
   stock_quantity: number;
   in_stock: boolean;
@@ -188,12 +190,15 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
 
           {/* Add to cart */}
           <div className="flex gap-3">
-            <button
-              disabled={!product.in_stock}
-              className="flex-1 rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-40 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
-            >
-              Add to Cart
-            </button>
+            <AddToCartButton
+              id={product.id}
+              slug={product.slug}
+              name={product.name}
+              price={product.effective_price}
+              price_uk={product.price_uk}
+              img={product.img1}
+              inStock={product.in_stock}
+            />
           </div>
 
           {/* Meta */}
