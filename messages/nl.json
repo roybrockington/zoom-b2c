@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "categories": "Categorieën",
+    "podcasting": "Podcasting",
+    "music": "Muziek",
+    "filmmaking": "Filmmaken",
+    "soundDesign": "Sound Design",
+    "sale": "Sale"
+  },
+  "header": {
+    "searchPlaceholder": "Producten zoeken…",
+    "cartLabel": "Winkelwagen",
+    "accountLabel": "Account",
+    "toggleMenu": "Menu wisselen",
+    "selectCurrency": "Valuta kiezen",
+    "selectLanguage": "Taal kiezen"
+  },
+  "product": {
+    "inStock": "Op voorraad",
+    "outOfStock": "Niet op voorraad",
+    "addToCart": "In winkelwagen",
+    "sku": "Artikelnummer",
+    "category": "Categorie",
+    "weight": "Gewicht",
+    "productDetails": "Productdetails",
+    "noImage": "Geen afbeelding"
+  },
+  "category": {
+    "products": "producten",
+    "product": "product",
+    "noProducts": "Geen producten gevonden in deze categorie."
+  },
+  "mostWanted": {
+    "title": "Meest gevraagd"
+  }
+}

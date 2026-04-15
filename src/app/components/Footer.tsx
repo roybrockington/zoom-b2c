@@ -6,11 +6,16 @@ import { useState } from "react";
 
 export default function Footer() {
 
-type footerBadge = {
-  altText: string;
-  linkUrl: string;
-  imageUrl: string;
-};
+    type footerBadge = {
+        altText: string;
+        linkUrl: string;
+        imageUrl: string;
+    }
+
+    type menuItem = {
+        name: string;
+        link: string;
+    }
 
 const paymentMethods: footerBadge[] = [
   {
@@ -28,7 +33,8 @@ const paymentMethods: footerBadge[] = [
     linkUrl: "/payment-methods",
     imageUrl: "https://media.sound-service.eu/zoom/payment/vorkasse-en.png",
   }
-];
+]
+
 const shippingMethods: footerBadge[] = [
   {
     altText: "DHL",
@@ -40,7 +46,18 @@ const shippingMethods: footerBadge[] = [
     linkUrl: "/",
     imageUrl: "https://media.sound-service.eu/zoom/shipping/ups.png",
   }
-];
+]
+
+    const faqMenu: menuItem[] = [
+        {name: "Returns & Retours", link: "/returns"},
+        {name: "Sales Support", link: "/sales-support"},
+        {name: "Technical Support", link: "/technical-support"},
+        {name: "Product Registration", link: "/warranty-extension"},
+        {name: "How can I pay?", link: "/payment-methods"},
+        {name: "Shipping & Delivery", link: "/returns"},
+    ]
+
+
 
     return (
         <footer className="w-full border-b border-zinc-200 dark:border-zinc-800 bg-gray-700 dark:bg-zinc-950 py-8">
@@ -55,12 +72,9 @@ const shippingMethods: footerBadge[] = [
                     <div className="flex flex-col md:w-1/4 gap-4">
                         <h4 className="text-xl font-bold">FAQ</h4>
                         <ul className="list-none flex flex-col gap-1">
-                            <li>Returns &amp; Retours</li>
-                            <li>Sales Support</li>
-                            <li>Technical Support</li>
-                            <li>Product Registration</li>
-                            <li>How can I pay?</li>
-                            <li>Shipping &amp; Delivery</li>
+                            {faqMenu.map(faq =>
+                                <li key={faq.name}><Link href={faq.link}>{faq.name}</Link></li>
+                            )}
                         </ul>
                     </div>
                     <div className="flex flex-col md:w-1/4 gap-4">

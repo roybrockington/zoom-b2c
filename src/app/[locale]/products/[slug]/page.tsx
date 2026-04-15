@@ -2,12 +2,25 @@ import { notFound } from "next/navigation";
 import ImageGallery from "./ImageGallery";
 import ProductPagePrice from "./ProductPagePrice";
 
+type ProductDescriptions = {
+  description: string | null;
+  short_description: string | null;
+  description_de: string | null;
+  short_description_de: string | null;
+  description_fr: string | null;
+  description_nl: string | null;
+  description_cz: string | null;
+  description_pl: string | null;
+  short_description_fr: string | null;
+  short_description_nl: string | null;
+  short_description_cz: string | null;
+  short_description_pl: string | null;
+};
+
 type Product = {
   id: number;
   name: string;
   slug: string;
-  description: string | null;
-  short_description: string | null;
   price: string;
   sale_price: string | null;
   effective_price: string;
@@ -25,11 +38,12 @@ type Product = {
   img5: string | null;
   img6: string | null;
   category: { id: number; name: string; slug: string } | null;
+  descriptions: ProductDescriptions | null;
 };
 
 async function getProduct(slug: string): Promise<Product | null> {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/products/${slug}?include=category`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/products/${slug}?include=category,productDescription`,
     { next: { revalidate: 300 } }
   );
   if (res.status === 404) return null;
@@ -38,17 +52,58 @@ async function getProduct(slug: string): Promise<Product | null> {
   return json.data ?? null;
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+function resolveDescriptions(
+  descriptions: ProductDescriptions | null,
+  locale: string
+): { description: string | null; short_description: string | null } {
+  if (!descriptions) return { description: null, short_description: null };
+
+  switch (locale) {
+    case "de":
+      return {
+        description: descriptions.description_de ?? descriptions.description ?? null,
+        short_description: descriptions.short_description_de ?? descriptions.short_description ?? null,
+      };
+    case "fr":
+      return {
+        description: descriptions.description_fr ?? descriptions.description ?? null,
+        short_description: descriptions.short_description_fr ?? descriptions.short_description ?? null,
+      };
+    case "nl":
+      return {
+        description: descriptions.description_nl ?? descriptions.description ?? null,
+        short_description: descriptions.short_description_nl ?? descriptions.short_description ?? null,
+      };
+    case "cz":
+      return {
+        description: descriptions.description_cz ?? descriptions.description ?? null,
+        short_description: descriptions.short_description_cz ?? descriptions.short_description ?? null,
+      };
+    case "pl":
+      return {
+        description: descriptions.description_pl ?? descriptions.description ?? null,
+        short_description: descriptions.short_description_pl ?? descriptions.short_description ?? null,
+      };
+    default: // en
+      return {
+        description: descriptions.description ?? null,
+        short_description: descriptions.short_description ?? null,
+      };
+  }
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { slug, locale } = await params;
   const product = await getProduct(slug);
+  const { short_description } = resolveDescriptions(product?.descriptions ?? null, locale);
   return {
     title: product ? `Zoom ${product.name} — Zoom` : "Product — Zoom",
-    description: product?.short_description ?? undefined,
+    description: short_description ?? undefined,
   };
 }
 
-export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default async function ProductPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { slug, locale } = await params;
   const product = await getProduct(slug);
 
   if (!product) notFound();
@@ -58,11 +113,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     ? Math.round((1 - parseFloat(product.sale_price!) / parseFloat(product.price)) * 100)
     : null;
 
-  // Collect non-empty image filenames
   const images = [
     product.img1, product.img2, product.img3,
     product.img4, product.img5, product.img6,
   ].filter((img): img is string => !!img);
+
+  const { description, short_description } = resolveDescriptions(product.descriptions, locale);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
@@ -100,9 +156,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">
               {product.name}
             </h1>
-            {product.short_description && (
+            {short_description && (
               <p className="mt-2 text-base text-zinc-500 dark:text-zinc-400">
-                {product.short_description}
+                {short_description}
               </p>
             )}
           </div>
@@ -178,12 +234,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       </div>
 
       {/* Description */}
-      {product.description && (
+      {description && (
         <div className="mt-16 border-t border-zinc-100 pt-10 dark:border-zinc-800">
           <h2 className="mb-6 text-xl font-bold text-zinc-900 dark:text-white">Product Details</h2>
           <div
             className="prose prose-zinc max-w-none dark:prose-invert"
-            dangerouslySetInnerHTML={{ __html: product.description }}
+            dangerouslySetInnerHTML={{ __html: description }}
           />
         </div>
       )}

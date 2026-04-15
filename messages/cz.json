@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "categories": "Kategorie",
+    "podcasting": "Podcasty",
+    "music": "Hudba",
+    "filmmaking": "Filmování",
+    "soundDesign": "Sound Design",
+    "sale": "Výprodej"
+  },
+  "header": {
+    "searchPlaceholder": "Hledat produkty…",
+    "cartLabel": "Košík",
+    "accountLabel": "Účet",
+    "toggleMenu": "Přepnout menu",
+    "selectCurrency": "Vybrat měnu",
+    "selectLanguage": "Vybrat jazyk"
+  },
+  "product": {
+    "inStock": "Skladem",
+    "outOfStock": "Není skladem",
+    "addToCart": "Přidat do košíku",
+    "sku": "Katalogové číslo",
+    "category": "Kategorie",
+    "weight": "Hmotnost",
+    "productDetails": "Detaily produktu",
+    "noImage": "Žádný obrázek"
+  },
+  "category": {
+    "products": "produktů",
+    "product": "produkt",
+    "noProducts": "V této kategorii nebyly nalezeny žádné produkty."
+  },
+  "mostWanted": {
+    "title": "Nejžádanější"
+  }
+}

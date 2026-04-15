@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
+import { currencies, useCurrency } from "./CurrencyContext";
+import LanguageSelector from "./LanguageSelector";
 
 export type Category = {
   id: number;
@@ -19,15 +21,11 @@ const navLinks = [
   { label: "Sale", href: "/sale" },
 ];
 
-const currencies = [
-  { code: "EUR", symbol: "€", label: "Euro" },
-];
-
 export default function Header({ categories }: { categories: Category[] }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [currencyOpen, setCurrencyOpen] = useState(false);
-  const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
+  const { currency: selectedCurrency, setCurrency: setSelectedCurrency } = useCurrency();
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currencyCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -136,6 +134,9 @@ export default function Header({ categories }: { categories: Category[] }) {
               </div>
             )}
           </div>
+
+          {/* Language selector */}
+          <LanguageSelector />
 
           {/* Account */}
           <Link

@@ -1,16 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import ProductPrice from "./ProductPrice";
 
 const IMG_BASE = "https://media.sound-service.eu/Artikelbilder/Shopsystem/278x148/";
 
 type Product = {
   id: number;
   name: string;
-  short_description : string | null;
+  short_description: string | null;
   slug: string;
   price: string;
   sale_price: string | null;
   effective_price: string;
+  price_uk: string | null;
   img1: string | null;
 };
 
@@ -38,10 +40,7 @@ export default async function MostWanted() {
       </h2>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
         {products.map((product) => {
-          const hasDiscount = product.sale_price !== null;
-          const imgSrc = product.img1
-            ? `${IMG_BASE}${product.img1}`
-            : null;
+          const imgSrc = product.img1 ? `${IMG_BASE}${product.img1}` : null;
 
           return (
             <Link
@@ -71,16 +70,13 @@ export default async function MostWanted() {
                 <p className="line-clamp-2 text-lg font-bold leading-snug text-zinc-800 dark:text-zinc-100">
                   Zoom {product.name}
                 </p>
-                                <p className="text-sm">{product.short_description}</p>
-                <div className="mt-auto flex items-baseline gap-1.5">
-                  <span className="text-sm font-semibold text-zinc-900 dark:text-white">
-                    €{product.effective_price}
-                  </span>
-                  {hasDiscount && (
-                    <span className="text-xs text-zinc-400 line-through">
-                      €{product.price}
-                    </span>
-                  )}
+                <p className="text-sm">{product.short_description}</p>
+                <div className="mt-auto pt-2">
+                  <ProductPrice
+                    price={product.price}
+                    salePrice={product.sale_price}
+                    priceUk={product.price_uk}
+                  />
                 </div>
               </div>
             </Link>

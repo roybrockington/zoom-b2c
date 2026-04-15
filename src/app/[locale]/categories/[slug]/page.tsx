@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ProductPrice from "../../components/ProductPrice";
+import ProductPrice from "../../../components/ProductPrice";
 
 const IMG_BASE = "https://media.sound-service.eu/Artikelbilder/Shopsystem/278x148/";
 
@@ -47,7 +47,7 @@ async function getCategoryProducts(categoryId: number): Promise<Product[]> {
   return json.data ?? [];
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { slug } = await params;
   const category = await getCategory(slug);
   return {
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function CategoryPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { slug } = await params;
   const category = await getCategory(slug);
 

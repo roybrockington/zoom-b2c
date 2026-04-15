@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "categories": "Catégories",
+    "podcasting": "Podcasting",
+    "music": "Musique",
+    "filmmaking": "Cinéma",
+    "soundDesign": "Sound Design",
+    "sale": "Soldes"
+  },
+  "header": {
+    "searchPlaceholder": "Rechercher des produits…",
+    "cartLabel": "Panier",
+    "accountLabel": "Compte",
+    "toggleMenu": "Basculer le menu",
+    "selectCurrency": "Choisir la devise",
+    "selectLanguage": "Choisir la langue"
+  },
+  "product": {
+    "inStock": "En stock",
+    "outOfStock": "Rupture de stock",
+    "addToCart": "Ajouter au panier",
+    "sku": "Référence",
+    "category": "Catégorie",
+    "weight": "Poids",
+    "productDetails": "Détails du produit",
+    "noImage": "Pas d'image"
+  },
+  "category": {
+    "products": "produits",
+    "product": "produit",
+    "noProducts": "Aucun produit trouvé dans cette catégorie."
+  },
+  "mostWanted": {
+    "title": "Les plus demandés"
+  }
+}

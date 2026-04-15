@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "categories": "Categories",
+    "podcasting": "Podcasting",
+    "music": "Music",
+    "filmmaking": "Filmmaking",
+    "soundDesign": "Sound Design",
+    "sale": "Sale"
+  },
+  "header": {
+    "searchPlaceholder": "Search products…",
+    "cartLabel": "Cart",
+    "accountLabel": "Account",
+    "toggleMenu": "Toggle menu",
+    "selectCurrency": "Select currency",
+    "selectLanguage": "Select language"
+  },
+  "product": {
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "addToCart": "Add to Cart",
+    "sku": "SKU",
+    "category": "Category",
+    "weight": "Weight",
+    "productDetails": "Product Details",
+    "noImage": "No image"
+  },
+  "category": {
+    "products": "products",
+    "product": "product",
+    "noProducts": "No products found in this category."
+  },
+  "mostWanted": {
+    "title": "Most Wanted"
+  }
+}

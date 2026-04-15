@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GetInspired from "../components/GetInspired";
+import GetInspired from "../../components/GetInspired";
 
 export const metadata = {
   title: "Sound Design — Zoom",
@@ -25,18 +25,18 @@ export default function SoundDesignPage() {
               Sound Design
             </h1>
             <p className="mt-3 max-w-xl text-sm text-zinc-300 sm:text-base">
-                Creativity and imagination take you to many different places in the world in search of new sounds. With our Handy Recorders, Field Recorders and iOS/Android microphones, you have reliable partners to accompany you on your sound journeys.
+              Creativity and imagination take you to many different places in the world in search of new sounds. With our Handy Recorders, Field Recorders and iOS/Android microphones, you have reliable partners to accompany you on your sound journeys.
             </p>
           </div>
         </div>
       </div>
 
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-                <p className="text-zinc-500 dark:text-zinc-400">Interface Essentials</p>
-                <p className="text-zinc-500 dark:text-zinc-400">Mircrophone Essentials</p>
-                <p className="text-zinc-500 dark:text-zinc-400">Recording Essentials</p>
-                <p className="text-zinc-500 dark:text-zinc-400">Essentials</p>
-                <GetInspired />
+        <p className="text-zinc-500 dark:text-zinc-400">Interface Essentials</p>
+        <p className="text-zinc-500 dark:text-zinc-400">Microphone Essentials</p>
+        <p className="text-zinc-500 dark:text-zinc-400">Recording Essentials</p>
+        <p className="text-zinc-500 dark:text-zinc-400">Essentials</p>
+        <GetInspired />
       </div>
     </div>
   );
