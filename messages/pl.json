@@ -32,5 +32,14 @@
   },
   "mostWanted": {
     "title": "Najchętniej kupowane"
+  },
+  "search": {
+    "title": "Wyniki wyszukiwania",
+    "resultsFor": "wyników dla",
+    "noResults": "Nie znaleziono produktów dla",
+    "searching": "Szukanie…",
+    "emptyQuery": "Wpisz wyszukiwaną frazę, aby znaleźć produkty.",
+    "tryDifferent": "Spróbuj innego wyszukiwania.",
+    "noImage": "Brak zdjęcia"
   }
 }

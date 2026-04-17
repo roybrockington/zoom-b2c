@@ -32,5 +32,14 @@
   },
   "mostWanted": {
     "title": "Most Wanted"
+  },
+  "search": {
+    "title": "Search Results",
+    "resultsFor": "results for",
+    "noResults": "No products found for",
+    "searching": "Searching…",
+    "emptyQuery": "Enter a search term to find products.",
+    "tryDifferent": "Try a different search term.",
+    "noImage": "No image"
   }
 }

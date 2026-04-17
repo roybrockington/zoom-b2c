@@ -32,5 +32,14 @@
   },
   "mostWanted": {
     "title": "Nejžádanější"
+  },
+  "search": {
+    "title": "Výsledky hledání",
+    "resultsFor": "výsledků pro",
+    "noResults": "Žádné produkty nenalezeny pro",
+    "searching": "Hledání…",
+    "emptyQuery": "Zadejte hledaný výraz pro nalezení produktů.",
+    "tryDifferent": "Zkuste jiný hledaný výraz.",
+    "noImage": "Žádný obrázek"
   }
 }

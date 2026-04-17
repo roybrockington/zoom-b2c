@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { currencies, useCurrency } from "./CurrencyContext";
 import LanguageSelector from "./LanguageSelector";
 import { useTranslations } from "next-intl";
@@ -20,6 +21,20 @@ export default function Header({ categories }: { categories: Category[] }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [currencyOpen, setCurrencyOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const LOCALE_PREFIXES = ["de", "fr", "nl", "pl", "cz"];
+  const pathLocale = pathname.split("/")[1];
+  const localeBase = LOCALE_PREFIXES.includes(pathLocale) ? `/${pathLocale}` : "";
+
+  function handleSearch(e: React.FormEvent) {
+    e.preventDefault();
+    const q = searchQuery.trim();
+    if (!q) return;
+    router.push(`${localeBase}/search?q=${encodeURIComponent(q)}`);
+  }
   const { currency: selectedCurrency, setCurrency: setSelectedCurrency } = useCurrency();
   const { user } = useAuth();
   const { totalItems, hydrated: cartHydrated } = useCart();
@@ -63,7 +78,7 @@ export default function Header({ categories }: { categories: Category[] }) {
         </Link>
 
         {/* Search bar */}
-        <div className="flex flex-1 items-center mx-3">
+        <form onSubmit={handleSearch} className="flex flex-1 items-center mx-3">
           <div className="relative w-full max-w-xl">
             <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-zinc-400">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -72,11 +87,13 @@ export default function Header({ categories }: { categories: Category[] }) {
             </span>
             <input
               type="search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t("header.searchPlaceholder")}
               className="w-full rounded-full border border-zinc-300 bg-zinc-50 py-2 pl-9 pr-4 text-sm text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:placeholder-zinc-500 dark:focus:border-zinc-500 dark:focus:ring-zinc-800"
             />
           </div>
-        </div>
+        </form>
 
         {/* Icon buttons */}
         <div className="flex items-center gap-1">

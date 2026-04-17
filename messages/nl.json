@@ -32,5 +32,14 @@
   },
   "mostWanted": {
     "title": "Meest gevraagd"
+  },
+  "search": {
+    "title": "Zoekresultaten",
+    "resultsFor": "resultaten voor",
+    "noResults": "Geen producten gevonden voor",
+    "searching": "Zoeken…",
+    "emptyQuery": "Voer een zoekterm in om producten te vinden.",
+    "tryDifferent": "Probeer een andere zoekterm.",
+    "noImage": "Geen afbeelding"
   }
 }
