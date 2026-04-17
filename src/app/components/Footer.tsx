@@ -54,9 +54,16 @@ const shippingMethods: footerBadge[] = [
         {name: "Technical Support", link: "/technical-support"},
         {name: "Product Registration", link: "/warranty-extension"},
         {name: "How can I pay?", link: "/payment-methods"},
-        {name: "Shipping & Delivery", link: "/returns"},
+        {name: "Shipping & Delivery", link: "/shipping-and-delivery"},
     ]
 
+    const aboutUsMenu: menuItem[] = [
+        {name: "Filmmaking", link: "/filmmaking"},
+        {name: "Music", link: "/music"},
+        {name: "Podcasting", link: "/podcasting"},
+        {name: "Sound Design", link: "/sound-design"},
+        {name: "About Us", link: "/about-us"},
+    ]
 
 
     return (
@@ -90,11 +97,9 @@ const shippingMethods: footerBadge[] = [
                     <div className="flex flex-col md:w-1/4 gap-4">
                         <h4 className="font-bold list-none">About Us</h4>
                         <ul className="list-none flex flex-col gap-1">
-                            <li>Filmmaking</li>
-                            <li>Music</li>
-                            <li>Podcasting</li>
-                            <li>Sound Design</li>
-                            <li>About us</li>
+                            {aboutUsMenu.map(about =>
+                                <li key={about.name}><Link href={about.link}>{about.name}</Link></li>
+                            )}
                         </ul>
                     </div>
                     <div className="flex flex-col md:w-1/4 gap-4">
