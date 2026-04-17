@@ -1,9 +1,8 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname } from "../../i18n/navigation";
 import { useRef, useState } from "react";
-import { routing } from "../../i18n/routing";
 
 const languages = [
   { code: "en", label: "English",    flagCode: "gb" },
@@ -34,25 +33,7 @@ export default function LanguageSelector() {
 
   function switchLocale(code: string) {
     setOpen(false);
-
-    // Strip the current locale prefix from the pathname (if present)
-    const defaultLocale = routing.defaultLocale;
-    let strippedPath = pathname;
-
-    for (const loc of routing.locales) {
-      if (loc === defaultLocale) continue; // default has no prefix
-      if (pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`) {
-        strippedPath = pathname.slice(loc.length + 1) || "/";
-        break;
-      }
-    }
-
-    // Build the new path
-    const newPath = code === defaultLocale
-      ? strippedPath
-      : `/${code}${strippedPath === "/" ? "" : strippedPath}`;
-
-    router.push(newPath);
+    router.push(pathname, { locale: code });
   }
 
   return (
