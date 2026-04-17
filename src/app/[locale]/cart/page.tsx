@@ -5,10 +5,12 @@ import { useAuth } from "../../components/AuthContext";
 import { useCurrency, formatPrice } from "../../components/CurrencyContext";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const IMG_BASE = "https://media.sound-service.eu/Artikelbilder/Shopsystem/278x148/";
 
 export default function CartPage() {
+  const t = useTranslations("cart");
   const { items, removeItem, updateQty, totalItems } = useCart();
   const { user } = useAuth();
   const { currency } = useCurrency();
@@ -23,13 +25,13 @@ export default function CartPage() {
   if (totalItems === 0) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-24 text-center sm:px-6 lg:px-8">
-        <h1 className="mb-3 text-2xl font-bold text-zinc-900 dark:text-white">Your cart is empty</h1>
-        <p className="mb-8 text-zinc-500 dark:text-zinc-400">Add some products to get started.</p>
+        <h1 className="mb-3 text-2xl font-bold text-zinc-900 dark:text-white">{t("empty")}</h1>
+        <p className="mb-8 text-zinc-500 dark:text-zinc-400">{t("emptyMessage")}</p>
         <Link
           href="/"
           className="inline-block rounded-full bg-zinc-900 px-8 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
         >
-          Continue Shopping
+          {t("continueShopping")}
         </Link>
       </div>
     );
@@ -37,7 +39,7 @@ export default function CartPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-      <h1 className="mb-8 text-2xl font-bold text-zinc-900 dark:text-white">Your Cart</h1>
+      <h1 className="mb-8 text-2xl font-bold text-zinc-900 dark:text-white">{t("title")}</h1>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
 
@@ -65,7 +67,7 @@ export default function CartPage() {
                       />
                     ) : (
                       <div className="flex h-full items-center justify-center text-xs text-zinc-400">
-                        No image
+                        {t("noImage")}
                       </div>
                     )}
                   </div>
@@ -79,7 +81,7 @@ export default function CartPage() {
                       Zoom {item.name}
                     </Link>
                     <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                      {currency.symbol}{unitPrice.toLocaleString(currency.code === "GBP" ? "en-GB" : "de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} each
+                      {currency.symbol}{unitPrice.toLocaleString(currency.code === "GBP" ? "en-GB" : "de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {t("each")}
                     </p>
 
                     {/* Qty controls */}
@@ -88,7 +90,7 @@ export default function CartPage() {
                         <button
                           onClick={() => updateQty(item.id, item.quantity - 1)}
                           className="px-3 py-1 text-lg text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
-                          aria-label="Decrease quantity"
+                          aria-label={t("decreaseQty")}
                         >
                           −
                         </button>
@@ -98,7 +100,7 @@ export default function CartPage() {
                         <button
                           onClick={() => updateQty(item.id, item.quantity + 1)}
                           className="px-3 py-1 text-lg text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
-                          aria-label="Increase quantity"
+                          aria-label={t("increaseQty")}
                         >
                           +
                         </button>
@@ -107,7 +109,7 @@ export default function CartPage() {
                         onClick={() => removeItem(item.id)}
                         className="text-xs text-zinc-400 underline transition hover:text-red-500 dark:hover:text-red-400"
                       >
-                        Remove
+                        {t("remove")}
                       </button>
                     </div>
                   </div>
@@ -128,27 +130,27 @@ export default function CartPage() {
         <div className="lg:col-span-1">
           <div className="sticky top-6 rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
             <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-              Order Summary
+              {t("orderSummary")}
             </h2>
 
             <dl className="mb-6 space-y-2 text-sm">
               <div className="flex justify-between">
                 <dt className="text-zinc-500 dark:text-zinc-400">
-                  Subtotal ({totalItems} {totalItems === 1 ? "item" : "items"})
+                  {t("subtotal")} ({totalItems} {totalItems === 1 ? t("item") : t("items")})
                 </dt>
                 <dd className="font-semibold text-zinc-900 dark:text-white">
                   {currency.symbol}{subtotal.toLocaleString(currency.code === "GBP" ? "en-GB" : "de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-zinc-500 dark:text-zinc-400">Shipping</dt>
-                <dd className="text-zinc-500 dark:text-zinc-400">Calculated at checkout</dd>
+                <dt className="text-zinc-500 dark:text-zinc-400">{t("shipping")}</dt>
+                <dd className="text-zinc-500 dark:text-zinc-400">{t("shippingCalculated")}</dd>
               </div>
             </dl>
 
             <div className="mb-6 border-t border-zinc-100 pt-4 dark:border-zinc-800">
               <div className="flex justify-between text-base font-bold">
-                <span className="text-zinc-900 dark:text-white">Total</span>
+                <span className="text-zinc-900 dark:text-white">{t("total")}</span>
                 <span className="text-zinc-900 dark:text-white">
                   {currency.symbol}{subtotal.toLocaleString(currency.code === "GBP" ? "en-GB" : "de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
@@ -160,7 +162,7 @@ export default function CartPage() {
                 href="/checkout"
                 className="block w-full rounded-full bg-zinc-900 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
               >
-                Proceed to Checkout
+                {t("proceedToCheckout")}
               </Link>
             ) : (
               <div className="flex flex-col gap-3">
@@ -168,16 +170,16 @@ export default function CartPage() {
                   href="/login"
                   className="block w-full rounded-full bg-zinc-900 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
                 >
-                  Sign in to Checkout
+                  {t("signInToCheckout")}
                 </Link>
                 <Link
                   href="/register"
                   className="block w-full rounded-full border border-zinc-300 px-6 py-3 text-center text-sm font-semibold text-zinc-700 transition hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
                 >
-                  Create an Account
+                  {t("createAccount")}
                 </Link>
                 <p className="text-center text-xs text-zinc-400 dark:text-zinc-500">
-                  You must be signed in to complete your purchase.
+                  {t("signInRequired")}
                 </p>
               </div>
             )}

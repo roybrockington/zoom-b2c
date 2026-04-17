@@ -30,6 +30,28 @@
     "product": "produit",
     "noProducts": "Aucun produit trouvé dans cette catégorie."
   },
+  "cart": {
+    "title": "Votre panier",
+    "empty": "Votre panier est vide",
+    "emptyMessage": "Ajoutez des produits pour commencer.",
+    "continueShopping": "Continuer vos achats",
+    "noImage": "Pas d'image",
+    "each": "l'unité",
+    "remove": "Supprimer",
+    "decreaseQty": "Diminuer la quantité",
+    "increaseQty": "Augmenter la quantité",
+    "orderSummary": "Récapitulatif de la commande",
+    "subtotal": "Sous-total",
+    "item": "article",
+    "items": "articles",
+    "shipping": "Livraison",
+    "shippingCalculated": "Calculée à la caisse",
+    "total": "Total",
+    "proceedToCheckout": "Passer à la caisse",
+    "signInToCheckout": "Se connecter pour payer",
+    "createAccount": "Créer un compte",
+    "signInRequired": "Vous devez être connecté pour finaliser votre achat."
+  },
   "mostWanted": {
     "title": "Les plus demandés"
   },

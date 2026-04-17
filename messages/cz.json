@@ -30,6 +30,28 @@
     "product": "produkt",
     "noProducts": "V této kategorii nebyly nalezeny žádné produkty."
   },
+  "cart": {
+    "title": "Váš košík",
+    "empty": "Váš košík je prázdný",
+    "emptyMessage": "Přidejte produkty pro začátek.",
+    "continueShopping": "Pokračovat v nákupu",
+    "noImage": "Žádný obrázek",
+    "each": "ks",
+    "remove": "Odebrat",
+    "decreaseQty": "Snížit množství",
+    "increaseQty": "Zvýšit množství",
+    "orderSummary": "Přehled objednávky",
+    "subtotal": "Mezisoučet",
+    "item": "položka",
+    "items": "položek",
+    "shipping": "Doprava",
+    "shippingCalculated": "Vypočítáno při platbě",
+    "total": "Celkem",
+    "proceedToCheckout": "Přejít k pokladně",
+    "signInToCheckout": "Přihlásit se a zaplatit",
+    "createAccount": "Vytvořit účet",
+    "signInRequired": "Pro dokončení nákupu musíte být přihlášeni."
+  },
   "mostWanted": {
     "title": "Nejžádanější"
   },

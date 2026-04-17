@@ -30,6 +30,28 @@
     "product": "product",
     "noProducts": "Geen producten gevonden in deze categorie."
   },
+  "cart": {
+    "title": "Uw winkelwagen",
+    "empty": "Uw winkelwagen is leeg",
+    "emptyMessage": "Voeg producten toe om te beginnen.",
+    "continueShopping": "Verder winkelen",
+    "noImage": "Geen afbeelding",
+    "each": "per stuk",
+    "remove": "Verwijderen",
+    "decreaseQty": "Aantal verminderen",
+    "increaseQty": "Aantal verhogen",
+    "orderSummary": "Besteloverzicht",
+    "subtotal": "Subtotaal",
+    "item": "artikel",
+    "items": "artikelen",
+    "shipping": "Verzending",
+    "shippingCalculated": "Berekend bij afrekenen",
+    "total": "Totaal",
+    "proceedToCheckout": "Naar de kassa",
+    "signInToCheckout": "Inloggen om af te rekenen",
+    "createAccount": "Account aanmaken",
+    "signInRequired": "U moet ingelogd zijn om uw aankoop te voltooien."
+  },
   "mostWanted": {
     "title": "Meest gevraagd"
   },
