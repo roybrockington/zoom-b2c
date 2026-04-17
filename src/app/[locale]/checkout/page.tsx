@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import AddressAutocomplete from "../../components/AddressAutocomplete";
 
 const IMG_BASE = "https://media.sound-service.eu/Artikelbilder/Shopsystem/278x148/";
 
@@ -85,7 +86,12 @@ function AddressForm({
         </div>
         <div className="col-span-2">
           <label className={labelClass}>Address</label>
-          <input required className={inputClass} placeholder="Street and number" value={values.address_line_1} onChange={(e) => set("address_line_1", e.target.value)} />
+          <AddressAutocomplete
+            value={values.address_line_1}
+            onChange={(raw) => set("address_line_1", raw)}
+            onSelect={(fields) => onChange({ ...values, ...fields })}
+            inputClass={inputClass}
+          />
         </div>
         <div className="col-span-2">
           <input className={inputClass} placeholder="Apartment, suite, etc. (optional)" value={values.address_line_2} onChange={(e) => set("address_line_2", e.target.value)} />
