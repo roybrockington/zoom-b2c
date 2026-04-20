@@ -3,6 +3,7 @@
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useAuth } from "../../components/AuthContext";
 import { useCart } from "../../components/CartContext";
+import { useCurrency } from "../../components/CurrencyContext";
 import { useRouter } from "next/navigation";
 
 type Props = {
@@ -13,6 +14,7 @@ type Props = {
 export default function PayPalButton({ orderId, onError }: Props) {
   const { token } = useAuth();
   const { clearCart } = useCart();
+  const { currency } = useCurrency();
   const router = useRouter();
 
   async function createPayPalOrder() {
@@ -20,6 +22,7 @@ export default function PayPalButton({ orderId, onError }: Props) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Accept": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ order_id: orderId }),
@@ -34,6 +37,7 @@ export default function PayPalButton({ orderId, onError }: Props) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Accept": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ paypal_order_id: data.orderID }),
@@ -47,7 +51,7 @@ export default function PayPalButton({ orderId, onError }: Props) {
   }
 
   return (
-    <PayPalScriptProvider options={{ clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ?? "", currency: "EUR" }}>
+    <PayPalScriptProvider options={{ clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ?? "", currency: currency.code }}>
       <PayPalButtons
         style={{ layout: "vertical", shape: "pill", label: "pay" }}
         createOrder={createPayPalOrder}

@@ -130,6 +130,11 @@ export default function CheckoutPage() {
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
 
+  const [couponInput, setCouponInput] = useState("");
+  const [appliedCoupon, setAppliedCoupon] = useState<{ code: string; type: "percentage" | "sum"; value: string } | null>(null);
+  const [couponError, setCouponError] = useState<string | null>(null);
+  const [applyingCoupon, setApplyingCoupon] = useState(false);
+
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [createdOrderId, setCreatedOrderId] = useState<number | null>(null);
@@ -148,6 +153,35 @@ export default function CheckoutPage() {
       : parseFloat(item.price);
     return sum + price * item.quantity;
   }, 0);
+
+  const discount = appliedCoupon
+    ? appliedCoupon.type === "percentage"
+      ? subtotal * (parseFloat(appliedCoupon.value) / 100)
+      : Math.min(parseFloat(appliedCoupon.value), subtotal)
+    : 0;
+
+  async function applyCoupon() {
+    const code = couponInput.trim().toUpperCase();
+    if (!code) return;
+    setCouponError(null);
+    setApplyingCoupon(true);
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/coupons/check`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ code }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message ?? "Invalid coupon.");
+      setAppliedCoupon(data);
+      setCouponInput("");
+    } catch (err) {
+      setCouponError(err instanceof Error ? err.message : "Invalid coupon.");
+      setAppliedCoupon(null);
+    } finally {
+      setApplyingCoupon(false);
+    }
+  }
 
   function fmt(n: number) {
     return n.toLocaleString(currency.code === "GBP" ? "en-GB" : "de-DE", {
@@ -168,6 +202,7 @@ export default function CheckoutPage() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept": "application/json",
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
@@ -177,6 +212,7 @@ export default function CheckoutPage() {
           currency: currency.code,
           shipping: 0,
           tax_rate: 0,
+          coupon_code: appliedCoupon?.code ?? null,
           notes: notes || null,
           shipping_address: shipping,
           billing_address: billingAddress,
@@ -294,6 +330,54 @@ export default function CheckoutPage() {
                 />
               </div>
 
+              {/* Coupon */}
+              <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+                <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+                  Coupon Code
+                </h3>
+                {appliedCoupon ? (
+                  <div className="flex items-center justify-between rounded-lg bg-green-50 px-4 py-3 dark:bg-green-900/20">
+                    <div className="text-sm">
+                      <span className="font-mono font-semibold text-green-700 dark:text-green-400">{appliedCoupon.code}</span>
+                      <span className="ml-2 text-green-600 dark:text-green-500">
+                        {appliedCoupon.type === "percentage"
+                          ? `−${parseFloat(appliedCoupon.value)}%`
+                          : `−${currency.symbol}${fmt(Math.min(parseFloat(appliedCoupon.value), subtotal))}`}
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setAppliedCoupon(null)}
+                      className="text-xs text-zinc-400 underline hover:text-red-500"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={couponInput}
+                      onChange={(e) => { setCouponInput(e.target.value.toUpperCase()); setCouponError(null); }}
+                      onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), applyCoupon())}
+                      placeholder="Enter code…"
+                      className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none transition focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:focus:border-zinc-500"
+                    />
+                    <button
+                      type="button"
+                      onClick={applyCoupon}
+                      disabled={applyingCoupon || !couponInput.trim()}
+                      className="shrink-0 rounded-lg bg-zinc-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-zinc-700 disabled:opacity-50 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+                    >
+                      {applyingCoupon ? "…" : "Apply"}
+                    </button>
+                  </div>
+                )}
+                {couponError && (
+                  <p className="mt-2 text-xs text-red-500">{couponError}</p>
+                )}
+              </div>
+
               {error && (
                 <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400">
                   {error}
@@ -362,13 +446,22 @@ export default function CheckoutPage() {
                 <dt className="text-zinc-500 dark:text-zinc-400">Subtotal</dt>
                 <dd className="font-medium text-zinc-900 dark:text-white">{currency.symbol}{fmt(subtotal)}</dd>
               </div>
+              {discount > 0 && (
+                <div className="flex justify-between">
+                  <dt className="text-green-600 dark:text-green-400">
+                    Discount
+                    {appliedCoupon && <span className="ml-1 font-mono text-xs">({appliedCoupon.code})</span>}
+                  </dt>
+                  <dd className="font-medium text-green-600 dark:text-green-400">−{currency.symbol}{fmt(discount)}</dd>
+                </div>
+              )}
               <div className="flex justify-between">
                 <dt className="text-zinc-500 dark:text-zinc-400">Shipping</dt>
                 <dd className="text-zinc-400">Calculated at payment</dd>
               </div>
               <div className="flex justify-between border-t border-zinc-100 pt-3 text-base font-bold dark:border-zinc-800">
                 <dt className="text-zinc-900 dark:text-white">Total</dt>
-                <dd className="text-zinc-900 dark:text-white">{currency.symbol}{fmt(subtotal)}</dd>
+                <dd className="text-zinc-900 dark:text-white">{currency.symbol}{fmt(Math.max(0, subtotal - discount))}</dd>
               </div>
             </dl>
           </div>

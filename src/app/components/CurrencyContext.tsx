@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export type Currency = {
   code: "EUR" | "GBP";
@@ -24,7 +24,19 @@ const CurrencyContext = createContext<CurrencyContextValue>({
 });
 
 export function CurrencyProvider({ children }: { children: React.ReactNode }) {
-  const [currency, setCurrency] = useState<Currency>(currencies[0]);
+  const [currency, setCurrencyState] = useState<Currency>(currencies[0]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("currency");
+    const found = currencies.find((c) => c.code === saved);
+    if (found) setCurrencyState(found);
+  }, []);
+
+  function setCurrency(c: Currency) {
+    localStorage.setItem("currency", c.code);
+    setCurrencyState(c);
+  }
+
   return (
     <CurrencyContext.Provider value={{ currency, setCurrency }}>
       {children}
