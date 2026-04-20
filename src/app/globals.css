@@ -50,3 +50,20 @@ body {
 .feature-benefit:nth-child(even) > *:first-child {
     @apply order-last;
 }
+
+.feature-image {
+    @apply flex flex-col md:flex-row md:w-full;
+}
+
+.feature-image > ol {
+    @apply list-none;
+}
+
+.feature-image > ol > li {
+    @apply flex items-center gap-4 font-bold;
+}
+
+.feature-image > ol > li > p {
+    @apply border rounded-full w-8 h-8 flex items-center justify-center text-blue-600 font-bold;
+}
+
