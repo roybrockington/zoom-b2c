@@ -121,8 +121,9 @@ export default function AdminCouponsPage() {
   const [formError, setFormError] = useState<string | null>(null);
 
   const today = new Date().toISOString().slice(0, 10);
-  const active = coupons.filter(isActive);
-  const expired = coupons.filter((c) => !isActive(c));
+  const active    = coupons.filter(isActive);
+  const expired   = coupons.filter((c) => !isActive(c) && c.end < today);
+  const exhausted = coupons.filter((c) => !isActive(c) && c.end >= today);
 
   useEffect(() => {
     if (!token) return;
@@ -259,10 +260,20 @@ export default function AdminCouponsPage() {
         <CouponTable coupons={active} onDelete={handleDelete} />
       </div>
 
+      {/* Exhausted */}
+      {exhausted.length > 0 && (
+        <div>
+          <h2 className="mb-3 text-base font-semibold text-zinc-900 dark:text-white">
+            Exhausted <span className="ml-1 text-sm font-normal text-zinc-400">({exhausted.length})</span>
+          </h2>
+          <CouponTable coupons={exhausted} onDelete={handleDelete} />
+        </div>
+      )}
+
       {/* Expired */}
       <div>
         <h2 className="mb-3 text-base font-semibold text-zinc-900 dark:text-white">
-          Expired / Exhausted <span className="ml-1 text-sm font-normal text-zinc-400">({expired.length})</span>
+          Expired <span className="ml-1 text-sm font-normal text-zinc-400">({expired.length})</span>
         </h2>
         <CouponTable coupons={expired} onDelete={handleDelete} />
       </div>
