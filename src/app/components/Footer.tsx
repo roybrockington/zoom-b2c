@@ -50,8 +50,7 @@ const shippingMethods: footerBadge[] = [
 
     const faqMenu: menuItem[] = [
         {name: "Returns & Retours", link: "/returns"},
-        {name: "Sales Support", link: "/sales-support"},
-        {name: "Technical Support", link: "/technical-support"},
+        {name: "Support", link: "/support"},
         {name: "Product Registration", link: "/warranty-extension"},
         {name: "How can I pay?", link: "/payment-methods"},
         {name: "Shipping & Delivery", link: "/shipping-and-delivery"},
