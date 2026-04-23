@@ -8,9 +8,10 @@ export type Currency = {
   label: string;
 };
 
+// GBP temporarily hidden — re-add when UK store launches
 export const currencies: Currency[] = [
   { code: "EUR", symbol: "€", label: "Euro" },
-  { code: "GBP", symbol: "£", label: "British Pound" },
+  // { code: "GBP", symbol: "£", label: "British Pound" },
 ];
 
 type CurrencyContextValue = {

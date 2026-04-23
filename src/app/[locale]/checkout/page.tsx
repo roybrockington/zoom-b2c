@@ -35,32 +35,25 @@ const emptyAddress = (): AddressFields => ({
   country: "",
 });
 
-const COUNTRIES = [
-  { code: "DE", name: "Germany" },
-  { code: "FR", name: "France" },
-  { code: "NL", name: "Netherlands" },
-  { code: "PL", name: "Poland" },
-  { code: "CZ", name: "Czech Republic" },
-  { code: "GB", name: "United Kingdom" },
-  { code: "AT", name: "Austria" },
-  { code: "BE", name: "Belgium" },
-  { code: "CH", name: "Switzerland" },
-  { code: "ES", name: "Spain" },
-  { code: "IT", name: "Italy" },
-  { code: "SE", name: "Sweden" },
-  { code: "DK", name: "Denmark" },
-  { code: "NO", name: "Norway" },
-  { code: "FI", name: "Finland" },
-];
+type CountryRate = {
+  code: string;
+  name: string;
+  carriage_eur: string;
+  carriage_gbp: string;
+  free_over: string | null;
+  vat_rate: string;
+};
 
 function AddressForm({
   title,
   values,
   onChange,
+  countries = [],
 }: {
   title: string;
   values: AddressFields;
   onChange: (f: AddressFields) => void;
+  countries?: CountryRate[];
 }) {
   function set(key: keyof AddressFields, val: string) {
     onChange({ ...values, [key]: val });
@@ -108,7 +101,7 @@ function AddressForm({
           <label className={labelClass}>Country</label>
           <select required className={inputClass} value={values.country} onChange={(e) => set("country", e.target.value)}>
             <option value="">Select country…</option>
-            {COUNTRIES.map((c) => (
+            {countries.map((c) => (
               <option key={c.code} value={c.code}>{c.name}</option>
             ))}
           </select>
@@ -139,13 +132,8 @@ export default function CheckoutPage() {
   const [error, setError] = useState<string | null>(null);
   const [createdOrderId, setCreatedOrderId] = useState<number | null>(null);
 
-  useEffect(() => {
-    if (!authLoading && !user) router.replace("/login");
-  }, [user, authLoading, router]);
-
-  useEffect(() => {
-    if (!authLoading && totalItems === 0 && !createdOrderId) router.replace("/cart");
-  }, [authLoading, totalItems, createdOrderId, router]);
+  const [countries, setCountries] = useState<CountryRate[]>([]);
+  const [shippingCost, setShippingCost] = useState<number>(0);
 
   const subtotal = items.reduce((sum, item) => {
     const price = currency.code === "GBP" && item.price_uk
@@ -159,6 +147,40 @@ export default function CheckoutPage() {
       ? subtotal * (parseFloat(appliedCoupon.value) / 100)
       : Math.min(parseFloat(appliedCoupon.value), subtotal)
     : 0;
+
+  const selectedCountry = countries.find((c) => c.code === shipping.country) ?? null;
+  const vatRate = selectedCountry ? parseFloat(selectedCountry.vat_rate) : 0;
+  // Prices are VAT-inclusive; back-calculate the embedded VAT on the taxable amount (subtotal minus any discount)
+  const taxableAmount = subtotal - discount;
+  const vatAmount = vatRate > 0 ? taxableAmount - taxableAmount / (1 + vatRate) : 0;
+
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/countries`)
+      .then((r) => r.json())
+      .then(setCountries)
+      .catch(() => {});
+  }, []);
+
+  // Recalculate shipping whenever the shipping country or subtotal changes
+  useEffect(() => {
+    const country = countries.find((c) => c.code === shipping.country);
+    if (!country) { setShippingCost(0); return; }
+
+    const carriage = currency.code === "GBP"
+      ? parseFloat(country.carriage_gbp)
+      : parseFloat(country.carriage_eur);
+    const freeOver = country.free_over ? parseFloat(country.free_over) : null;
+
+    setShippingCost(freeOver !== null && subtotal >= freeOver ? 0 : carriage);
+  }, [shipping.country, countries, currency.code, subtotal]);
+
+  useEffect(() => {
+    if (!authLoading && !user) router.replace("/login");
+  }, [user, authLoading, router]);
+
+  useEffect(() => {
+    if (!authLoading && totalItems === 0 && !createdOrderId) router.replace("/cart");
+  }, [authLoading, totalItems, createdOrderId, router]);
 
   async function applyCoupon() {
     const code = couponInput.trim().toUpperCase();
@@ -210,8 +232,7 @@ export default function CheckoutPage() {
           customer_email: user!.email,
           customer_phone: phone || null,
           currency: currency.code,
-          shipping: 0,
-          tax_rate: 0,
+          shipping: shippingCost,
           coupon_code: appliedCoupon?.code ?? null,
           notes: notes || null,
           shipping_address: shipping,
@@ -289,7 +310,7 @@ export default function CheckoutPage() {
 
               {/* Shipping address */}
               <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-                <AddressForm title="Shipping Address" values={shipping} onChange={setShipping} />
+                <AddressForm title="Shipping Address" values={shipping} onChange={setShipping} countries={countries} />
               </div>
 
               {/* Billing address */}
@@ -309,7 +330,7 @@ export default function CheckoutPage() {
                   </label>
                 </div>
                 {!billingSameAsShipping && (
-                  <AddressForm title="" values={billing} onChange={setBilling} />
+                  <AddressForm title="" values={billing} onChange={setBilling} countries={countries} />
                 )}
                 {billingSameAsShipping && (
                   <p className="text-sm text-zinc-400 dark:text-zinc-500">Using shipping address.</p>
@@ -457,11 +478,25 @@ export default function CheckoutPage() {
               )}
               <div className="flex justify-between">
                 <dt className="text-zinc-500 dark:text-zinc-400">Shipping</dt>
-                <dd className="text-zinc-400">Calculated at payment</dd>
+                <dd className="text-zinc-500 dark:text-zinc-400">
+                  {shipping.country
+                    ? shippingCost === 0
+                      ? "Free"
+                      : `${currency.symbol}${fmt(shippingCost)}`
+                    : "Select a country"}
+                </dd>
               </div>
+              {vatAmount > 0 && (
+                <div className="flex justify-between">
+                  <dt className="text-zinc-500 dark:text-zinc-400">
+                    VAT ({Math.round(vatRate * 100)}%) included
+                  </dt>
+                  <dd className="text-zinc-500 dark:text-zinc-400">{currency.symbol}{fmt(vatAmount)}</dd>
+                </div>
+              )}
               <div className="flex justify-between border-t border-zinc-100 pt-3 text-base font-bold dark:border-zinc-800">
                 <dt className="text-zinc-900 dark:text-white">Total</dt>
-                <dd className="text-zinc-900 dark:text-white">{currency.symbol}{fmt(Math.max(0, subtotal - discount))}</dd>
+                <dd className="text-zinc-900 dark:text-white">{currency.symbol}{fmt(Math.max(0, subtotal - discount + shippingCost))}</dd>
               </div>
             </dl>
           </div>
