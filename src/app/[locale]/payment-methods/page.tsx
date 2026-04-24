@@ -5,9 +5,9 @@ const IMG_BASE = "https://media.sound-service.eu/zoom/payment"
 const PaymentMethodsPage = () => {
 
     return (
-        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 flex gap-8 flex-col">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 flex gap-4 flex-col">
             <h1 className="mb-2 text-2xl font-bold text-zinc-900 dark:text-white">Payment Methods</h1>
-            <hr className="w-full bg-neutral-quaternary" />
+            <hr className="w-full text-gray-200" />
             <div className="w-full flex gap-4 items-start py-4">
                 <Image src={`${IMG_BASE}/vorkasse-en.webp`} alt="Prepayment" width={200} height={100} />
                 <div className="flex flex-col gap-4">
@@ -25,7 +25,7 @@ const PaymentMethodsPage = () => {
 
                 </div>
             </div>
-            <hr className="w-full bg-neutral-quaternary" />
+            <hr className="w-full text-gray-200" />
             <div className="w-full flex gap-4 items-start py-4">
                 <Image src={`${IMG_BASE}/paypal-std.webp`} alt="PayPal" width={200} height={100} />
                 <div className="flex flex-col gap-4">
@@ -33,7 +33,7 @@ const PaymentMethodsPage = () => {
                     <p>Via PayPal you can easily pay via your PayPal account without having to provide us with your bank details.</p>
                 </div>
             </div>
-            <hr className="w-full text-gray-600" />
+            <hr className="w-full text-gray-200" />
             <div className="w-full flex gap-4 items-start py-4">
                 <Image src={`${IMG_BASE}/klarna.webp`} alt="PayPal" width={200} height={100} />
                 <div className="flex flex-col gap-4">
