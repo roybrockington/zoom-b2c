@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import { Check } from "lucide-react";
+import Image from "next/image"
+import Link from "next/link"
 
 export default function Footer() {
 
@@ -56,6 +56,14 @@ const shippingMethods: footerBadge[] = [
         {name: "Shipping & Delivery", link: "/shipping-and-delivery"},
     ]
 
+    const imprintMenu: menuItem[] = [
+        {name: "Terms", link: "/terms"},
+        {name: "Imprint", link: "/imprint"},
+        {name: "Withdrawal", link: "/withdrawal"},
+        {name: "Privacy Policy", link: "/privacy-policy"},
+        {name: "Cookie Settings", link: "/cookie-settings"},
+    ]
+
     const aboutUsMenu: menuItem[] = [
         {name: "Filmmaking", link: "/filmmaking"},
         {name: "Music", link: "/music"},
@@ -86,11 +94,11 @@ const shippingMethods: footerBadge[] = [
                     <div className="flex flex-col md:w-1/4 gap-4">
                         <h4 className="font-bold list-none">Our Advantages</h4>
                         <ul className="list-none flex flex-col gap-1">
-                            <li>Leading in Europe</li>
-                            <li>Excellent stocking</li>
-                            <li>Secure shopping</li>
-                            <li>Modern Logistics</li>
-                            <li>International distribution</li>
+                            <li className="flex items-center gap-2"><Check width={10} height={10} /> Leading in Europe</li>
+                            <li className="flex items-center gap-2"><Check width={10} height={10} /> Excellent Stocking</li>
+                            <li className="flex items-center gap-2"><Check width={10} height={10} /> Secure Shopping</li>
+                            <li className="flex items-center gap-2"><Check width={10} height={10} /> Modern Logistics</li>
+                            <li className="flex items-center gap-2"><Check width={10} height={10} /> International Distribution</li>
                         </ul>
                     </div>
                     <div className="flex flex-col md:w-1/4 gap-4">
@@ -132,18 +140,20 @@ const shippingMethods: footerBadge[] = [
                                     <Link href={method.linkUrl}>
                                         <Image src={method.imageUrl} width={120} height={90} alt={method.altText} />
                                     </Link>
-                                </li>
+                                </li> 
                             )}
                         </ul>
                     </div>
                 </div>
                 <div className="w-full flex gap-4 flex-col md:flex-row text-white">
                     <div className="flex flex-col w-1/2 gap-4 text-sm">
-                        GTC | 
-Imprint | 
-Withdrawal | 
-Data protection | 
-Cookie settings
+                        <ul className="list-none flex">
+                            {imprintMenu.map(imprint =>
+                                <li key={imprint.name} className="px-2 border-r border-r-white last:border-r-0">
+                                    <Link href={imprint.link}>{imprint.name}</Link>
+                                </li>
+                            )}
+                        </ul>
                     </div>
                     <div className="flex flex-col w-1/2 text-xs">
                         <p>All prices incl. VAT plus possible shipping costs.</p>
