@@ -77,8 +77,8 @@ export default function Header({ categories }: { categories: Category[] }) {
           <Image src="/logo.svg" alt="Zoom Europe" width={180} height={80} className="py-6" />
         </Link>
 
-        {/* Search bar */}
-        <form onSubmit={handleSearch} className="flex flex-1 items-center mx-3">
+        {/* Search bar — hidden on mobile, shown from sm up */}
+        <form onSubmit={handleSearch} className="hidden sm:flex flex-1 min-w-0 items-center mx-3">
           <div className="relative w-full max-w-xl">
             <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-zinc-400">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -96,7 +96,7 @@ export default function Header({ categories }: { categories: Category[] }) {
         </form>
 
         {/* Icon buttons */}
-        <div className="flex items-center gap-1">
+        <div className="flex shrink-0 items-center gap-1">
           {/* Cart */}
           <Link
             href="/cart"
@@ -113,9 +113,9 @@ export default function Header({ categories }: { categories: Category[] }) {
             </span>
           </Link>
 
-          {/* Currency selector */}
+          {/* Currency selector — desktop only */}
           <div
-            className="relative"
+            className="relative hidden sm:block"
             onMouseEnter={openCurrency}
             onMouseLeave={closeCurrency}
           >
@@ -158,8 +158,8 @@ export default function Header({ categories }: { categories: Category[] }) {
             )}
           </div>
 
-          {/* Language selector */}
-          <LanguageSelector />
+          {/* Language selector — desktop only */}
+          <div className="hidden sm:block"><LanguageSelector /></div>
 
           {/* Account */}
           <Link
@@ -251,7 +251,46 @@ export default function Header({ categories }: { categories: Category[] }) {
 
       {/* Nav menu — mobile drawer */}
       {menuOpen && (
-        <nav className="border-t border-zinc-100 dark:border-zinc-800 sm:hidden">
+        <nav className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-zinc-100 bg-white dark:border-zinc-800 dark:bg-zinc-950 sm:hidden">
+
+          {/* Search */}
+          <div className="border-b border-zinc-100 px-4 py-3 dark:border-zinc-800">
+            <form onSubmit={(e) => { handleSearch(e); setMenuOpen(false); }} className="relative">
+              <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-zinc-400">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+                </svg>
+              </span>
+              <input
+                type="search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={t("header.searchPlaceholder")}
+                className="w-full rounded-full border border-zinc-300 bg-zinc-50 py-2 pl-9 pr-4 text-sm text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:placeholder-zinc-500"
+              />
+            </form>
+          </div>
+
+          {/* Language + Currency */}
+          <div className="flex items-center gap-3 border-b border-zinc-100 px-4 py-3 dark:border-zinc-800">
+            <LanguageSelector />
+            <div className="flex items-center gap-1">
+              {currencies.map((c) => (
+                <button
+                  key={c.code}
+                  onClick={() => setSelectedCurrency(c)}
+                  className={`rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
+                    c.code === selectedCurrency.code
+                      ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
+                      : "text-zinc-600 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800"
+                  }`}
+                >
+                  {c.symbol} {c.code}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <ul className="flex flex-col">
             {/* Categories expandable on mobile */}
             <li>
