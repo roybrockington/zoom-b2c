@@ -27,9 +27,9 @@ type Product = {
   img1: string | null;
 };
 
-async function getCategory(slug: string): Promise<Category | null> {
+async function getCategory(slug: string, locale: string): Promise<Category | null> {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/categories/${slug}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/categories/${slug}?locale=${locale}`,
     { next: { revalidate: 300 } }
   );
   if (res.status === 404) return null;
@@ -49,8 +49,8 @@ async function getCategoryProducts(categoryId: number): Promise<Product[]> {
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
-  const { slug } = await params;
-  const category = await getCategory(slug);
+  const { locale, slug } = await params;
+  const category = await getCategory(slug, locale);
   return {
     title: category ? `${category.name} — Zoom` : "Category — Zoom",
     description: category?.description ?? undefined,
@@ -58,8 +58,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function CategoryPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
-  const { slug } = await params;
-  const [category, t] = await Promise.all([getCategory(slug), getTranslations("category")]);
+  const { locale, slug } = await params;
+  const [category, t] = await Promise.all([getCategory(slug, locale), getTranslations("category")]);
 
   if (!category) notFound();
 
