@@ -1,0 +1,27 @@
+import Link from "next/link";
+
+export default function WithdrawalPage() {
+    return (
+
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 flex gap-4 flex-col">
+            <h1 className="mb-2 text-2xl font-bold text-zinc-900 dark:text-white">Cancellation policy for goods</h1>
+            <hr className="w-full text-gray-200" />
+            <div className="w-full flex flex-col gap-4 items-start py-4">
+                <h2 className="text-lg font-semibold">Right of withdrawal</h2>
+                <p>If the Customer is a consumer (Section 13 BGB), he or she has the right to withdraw from this contract without stating the reason. In the case of contracts for the delivery of goods, the withdrawal period is 14 days from the day on which you or a third party named by you, who is not the carrier, took possession of the last goods.</p><p>To exercise your right of withdrawal, you must inform us (ZOOM Europe / Sound Service GmbH, Moriz-Seeler-Strasse 3, 12489 Berlin, Germany, Tel: +49 (0) 30 707 130-0, email: <a href="mailto:info@zoom-europe.com">info@zoom-europe.com</a>) of your decision to withdraw from this contract by means of a clear declaration (e.g. a letter sent by post, fax or email). You can use the enclosed <a href="#">sample withdrawal</a> form for this purpose, although this is not mandatory.</p><p>To comply with the withdrawal period, all that is required is that you send the notification exercising your right of withdrawal before the end of the withdrawal period.</p>
+                <h2 className="text-lg font-semibold">Consequences of withdrawal</h2>
+                <p>If you withdraw from this contract, we must refund all payments we have received from you, including delivery costs (with the exception of additional costs resulting from the fact that you have chosen a type of delivery other than the cheapest standard delivery offered by us), without delay and no later than within fourteen days of the day on which we received notification of your withdrawal from this contract. We will use the same payment method for this refund as you used for the original transaction, unless expressly agreed otherwise with you; under no circumstances will you be charged for this refund.</p><p>For contracts for the supply of goods, we may refuse to refund you until we have received the goods back or until you have provided proof that you have returned the goods, whichever occurs earlier.</p><p>You must return or hand over the goods to us immediately and in any case no later than fourteen days from the day on which you notify us of your withdrawal from this contract. The deadline will be met if you send the goods before the end of the fourteen-day period.</p><p>We will cover the cost of returning the goods.</p><p>You will only have to pay for any loss in value of the goods if this is due to any handling of the goods that is not necessary in order to test the quality, characteristics and functioning of the goods.</p>
+                <h2 className="text-lg font-semibold">Exclusion or premature expiry of the right of withdrawal</h2>
+                <p>The right of withdrawal does not apply to contracts for the delivery of goods that are not prefabricated and whose manufacture is based on a custom selection or specification by the consumer or that are clearly tailored to the consumer’s personal needs.</p><p>The right of withdrawal does not apply to contracts for the delivery of newspapers, periodicals or magazines, with the exception of subscription contracts.</p><p>The right of withdrawal will expire prematurely for contracts for the delivery of sealed goods which are not suitable for return for reasons of health protection or hygiene if their seal has been removed after delivery.</p><p>The right of withdrawal will expire prematurely for contracts for the delivery of sound or video recordings or computer software in a sealed package if the seal has been removed after delivery.</p>
+
+                <h2 className="text-lg font-semibold">Sample withdrawal form</h2><p>If you want to cancel the contract, please fill out <Link href="http://media.sound-service.eu/zoom/Zoom_Muster_WiderrufEN.pdf" target="_blank">this form</Link> and send it back.</p>
+                <h2 className="text-lg font-semibold">Special notes</h2><p>If you finance this contract by means of a loan and later revoke it, you are also no longer bound by the loan agreement, provided that both contracts form an economic unit. This is to be assumed in particular if we are your lender at the same time or if your lender makes use of our cooperation with regard to the financing. If the loan has already accrued to us when the revocation takes effect, your lender shall be subrogated to our rights and obligations under the financed contract in relation to you with regard to the legal consequences of the revocation or return. The latter shall not apply if the subject matter of the present contract is the acquisition of financial instruments (e.g. securities, foreign exchange or derivatives). If you wish to avoid a contractual obligation as far as possible, exercise your right of revocation and also revoke the loan agreement if you are also entitled to a right of revocation for this.</p>
+            </div>
+        </div>
+    )
+}
+
+
+
+
+

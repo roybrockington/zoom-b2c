@@ -45,7 +45,7 @@ export default function Header({ categories }: { categories: Category[] }) {
     { label: t("nav.music"),      href: "/music" },
     { label: t("nav.filmmaking"), href: "/filmmaking" },
     { label: t("nav.soundDesign"), href: "/sound-design" },
-    { label: t("nav.sale"),       href: "/sale", isSale: true },
+    { label: t("nav.sale"),       href: "/categories/sale", isSale: true },
   ];
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currencyCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);

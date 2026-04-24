@@ -1,5 +1,6 @@
 import Image from "next/image";
 import GetInspired from "../../components/GetInspired";
+import PageBlocks from "../../components/PageBlocks";
 
 export const metadata = {
   title: "Music — Zoom",
@@ -32,10 +33,7 @@ export default function MusicPage() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <p className="text-zinc-500 dark:text-zinc-400">Essentials for Guitarists</p>
-        <p className="text-zinc-500 dark:text-zinc-400">Essentials for Bassplayers</p>
-        <p className="text-zinc-500 dark:text-zinc-400">Essentials for Acousticians & Vocalists</p>
-        <p className="text-zinc-500 dark:text-zinc-400">Essentials for Guitarists</p>
+        <PageBlocks page="music" />
         <GetInspired />
       </div>
     </div>

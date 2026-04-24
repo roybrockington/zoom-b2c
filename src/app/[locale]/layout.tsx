@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import CookieBar from "../components/CookieBar";
 import type { Category } from "../components/Header";
 import { CurrencyProvider } from "../components/CurrencyContext";
 import { AuthProvider } from "../components/AuthContext";
@@ -71,6 +72,7 @@ export default async function LocaleLayout({
                 <Header categories={categories} />
                 <main className="flex-1">{children}</main>
                 <Footer />
+                <CookieBar />
               </CurrencyProvider>
             </CartProvider>
           </AuthProvider>
