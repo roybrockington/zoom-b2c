@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import GetInspired from "../../components/GetInspired";
 import PageBlocks from "../../components/PageBlocks";
 
@@ -7,13 +8,15 @@ export const metadata = {
   description: "Zoom gear for musicians.",
 };
 
-export default function MusicPage() {
+export default async function MusicPage() {
+  const t = await getTranslations("pages.music");
+
   return (
     <div>
       <div className="relative h-56 w-full overflow-hidden bg-zinc-900 sm:h-72 lg:h-80">
         <Image
           src="https://media.sound-service.eu/zoom/pages/zoom-musician-head.webp"
-          alt="Music"
+          alt={t("title")}
           fill
           priority
           className="object-cover"
@@ -23,10 +26,10 @@ export default function MusicPage() {
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-16">
             <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-              Music
+              {t("title")}
             </h1>
             <p className="mt-3 max-w-xl text-sm text-zinc-300 sm:text-base">
-              The right sound and excellent sound quality are essential components of any hit album. With our multi-effects processors, recorders, mixers, portable studios and audio interfaces, we help you realise your potential in your music and share it with the world.
+              {t("description")}
             </p>
           </div>
         </div>

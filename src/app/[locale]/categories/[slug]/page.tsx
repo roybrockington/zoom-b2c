@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import ProductPrice from "../../../components/ProductPrice";
 
 const IMG_BASE = "https://media.sound-service.eu/Artikelbilder/Shopsystem/278x148/";
@@ -58,7 +59,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function CategoryPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { slug } = await params;
-  const category = await getCategory(slug);
+  const [category, t] = await Promise.all([getCategory(slug), getTranslations("category")]);
 
   if (!category) notFound();
 
@@ -96,11 +97,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
       {/* Products */}
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         {products.length === 0 ? (
-          <p className="text-zinc-500 dark:text-zinc-400">No products found in this category.</p>
+          <p className="text-zinc-500 dark:text-zinc-400">{t("noProducts")}</p>
         ) : (
           <>
             <p className="mb-6 text-sm text-zinc-500 dark:text-zinc-400">
-              {products.length} {products.length === 1 ? "product" : "products"}
+              {products.length} {products.length === 1 ? t("product") : t("products")}
             </p>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
               {products.map((product) => {
@@ -123,7 +124,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
                         />
                       ) : (
                         <div className="flex h-full items-center justify-center text-xs text-zinc-400">
-                          No image
+                          {t("noImage")}
                         </div>
                       )}
                     </div>

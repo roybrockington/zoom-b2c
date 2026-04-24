@@ -28,7 +28,8 @@
   "category": {
     "products": "producten",
     "product": "product",
-    "noProducts": "Geen producten gevonden in deze categorie."
+    "noProducts": "Geen producten gevonden in deze categorie.",
+    "noImage": "Geen afbeelding"
   },
   "cart": {
     "title": "Uw winkelwagen",
@@ -51,6 +52,24 @@
     "signInToCheckout": "Inloggen om af te rekenen",
     "createAccount": "Account aanmaken",
     "signInRequired": "U moet ingelogd zijn om uw aankoop te voltooien."
+  },
+  "pages": {
+    "podcasting": {
+      "title": "Podcasting",
+      "description": "Vertel uw verhaal en laat uw mening horen in uw podcast. Met onze mobiele podcastrecorders en podcaststudio's bent u op alles voorbereid en kunt u uw eigen podcast altijd en overal opnemen en produceren met uitzendkwaliteitsgeluid."
+    },
+    "music": {
+      "title": "Muziek",
+      "description": "Het juiste geluid en uitstekende geluidskwaliteit zijn essentiële componenten van elk hitalbum. Met onze multi-effectprocessors, recorders, mixers, draagbare studio's en audio-interfaces helpen wij u uw potentieel in uw muziek te realiseren en te delen met de wereld."
+    },
+    "filmmaking": {
+      "title": "Filmmaken",
+      "description": "Het geluid voor uw video of film speelt een belangrijke rol. Met onze Handy Recorders en Field Recorders beschikt u over de juiste hulpmiddelen om Hollywood-kwaliteitsgeluid voor uw filmproject te creëren en op te nemen."
+    },
+    "soundDesign": {
+      "title": "Sound Design",
+      "description": "Creativiteit en verbeelding brengen u naar vele verschillende plaatsen in de wereld op zoek naar nieuwe geluiden. Met onze Handy Recorders, Field Recorders en iOS/Android-microfoons heeft u betrouwbare partners om u te begeleiden op uw geluidsreizen."
+    }
   },
   "mostWanted": {
     "title": "Meest gevraagd"

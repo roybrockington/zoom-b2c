@@ -28,7 +28,8 @@
   "category": {
     "products": "produits",
     "product": "produit",
-    "noProducts": "Aucun produit trouvé dans cette catégorie."
+    "noProducts": "Aucun produit trouvé dans cette catégorie.",
+    "noImage": "Pas d'image"
   },
   "cart": {
     "title": "Votre panier",
@@ -51,6 +52,24 @@
     "signInToCheckout": "Se connecter pour payer",
     "createAccount": "Créer un compte",
     "signInRequired": "Vous devez être connecté pour finaliser votre achat."
+  },
+  "pages": {
+    "podcasting": {
+      "title": "Podcasting",
+      "description": "Racontez votre histoire et faites entendre votre opinion dans votre podcast. Avec nos enregistreurs de podcast mobiles et nos studios de podcast, vous êtes prêt pour tout et pouvez enregistrer et produire votre propre podcast avec un son de qualité professionnelle à tout moment et n'importe où."
+    },
+    "music": {
+      "title": "Musique",
+      "description": "Le bon son et une excellente qualité sonore sont des composantes essentielles de tout album à succès. Avec nos processeurs multi-effets, enregistreurs, mixeurs, studios portables et interfaces audio, nous vous aidons à réaliser votre potentiel musical et à le partager avec le monde."
+    },
+    "filmmaking": {
+      "title": "Cinéma",
+      "description": "Le son de votre vidéo ou film joue un rôle important. Avec nos enregistreurs Handy et Field, vous disposez des bons outils pour créer et enregistrer un son de qualité hollywoodienne pour votre projet cinématographique."
+    },
+    "soundDesign": {
+      "title": "Sound Design",
+      "description": "La créativité et l'imagination vous emmènent dans de nombreux endroits du monde à la recherche de nouveaux sons. Avec nos enregistreurs Handy, Field et microphones iOS/Android, vous avez des partenaires fiables pour vous accompagner dans vos voyages sonores."
+    }
   },
   "mostWanted": {
     "title": "Les plus demandés"

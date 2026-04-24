@@ -28,7 +28,8 @@
   "category": {
     "products": "Produkte",
     "product": "Produkt",
-    "noProducts": "Keine Produkte in dieser Kategorie gefunden."
+    "noProducts": "Keine Produkte in dieser Kategorie gefunden.",
+    "noImage": "Kein Bild"
   },
   "cart": {
     "title": "Ihr Warenkorb",
@@ -51,6 +52,24 @@
     "signInToCheckout": "Anmelden und zur Kasse",
     "createAccount": "Konto erstellen",
     "signInRequired": "Sie müssen angemeldet sein, um Ihren Kauf abzuschließen."
+  },
+  "pages": {
+    "podcasting": {
+      "title": "Podcasting",
+      "description": "Erzählen Sie Ihre Geschichte und lassen Sie Ihre Meinung in Ihrem Podcast hören. Mit unseren mobilen Podcast-Recordern und Podcast-Studios sind Sie für alles gerüstet und können Ihren eigenen Podcast jederzeit und überall in Rundfunkqualität aufnehmen und produzieren."
+    },
+    "music": {
+      "title": "Musik",
+      "description": "Der richtige Sound und eine ausgezeichnete Klangqualität sind wesentliche Bestandteile jedes Hitalbums. Mit unseren Multi-Effektprozessoren, Recordern, Mischpulten, portablen Studios und Audiointerfaces helfen wir Ihnen, Ihr Potenzial in Ihrer Musik zu entfalten und mit der Welt zu teilen."
+    },
+    "filmmaking": {
+      "title": "Filmproduktion",
+      "description": "Der Ton für Ihr Video oder Ihren Film spielt eine wichtige Rolle. Mit unseren Handy-Recordern und Field-Recordern haben Sie die richtigen Werkzeuge, um Hollywood-qualitativ hochwertigen Ton für Ihr Filmprojekt zu erstellen und aufzunehmen."
+    },
+    "soundDesign": {
+      "title": "Sound Design",
+      "description": "Kreativität und Vorstellungskraft führen Sie an viele verschiedene Orte der Welt auf der Suche nach neuen Klängen. Mit unseren Handy-Recordern, Field-Recordern und iOS/Android-Mikrofonen haben Sie zuverlässige Partner, die Sie auf Ihren Klangreisen begleiten."
+    }
   },
   "mostWanted": {
     "title": "Meistgesucht"

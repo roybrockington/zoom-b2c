@@ -28,7 +28,8 @@
   "category": {
     "products": "products",
     "product": "product",
-    "noProducts": "No products found in this category."
+    "noProducts": "No products found in this category.",
+    "noImage": "No image"
   },
   "mostWanted": {
     "title": "Most Wanted"
@@ -63,5 +64,63 @@
     "emptyQuery": "Enter a search term to find products.",
     "tryDifferent": "Try a different search term.",
     "noImage": "No image"
+  },
+  "pages": {
+    "podcasting": {
+      "title": "Podcasting",
+      "description": "Tell your story and make your opinion heard in your podcast. With our mobile podcast recorders and podcast studios, you are ready for anything and can record and produce your own podcast with broadcast-quality sound anytime and anywhere."
+    },
+    "music": {
+      "title": "Music",
+      "description": "The right sound and excellent sound quality are essential components of any hit album. With our multi-effects processors, recorders, mixers, portable studios and audio interfaces, we help you realise your potential in your music and share it with the world."
+    },
+    "filmmaking": {
+      "title": "Filmmaking",
+      "description": "The sound for your video or film plays an important role. With our Handy Recorders and Field Recorders, you have the right tools to create and record Hollywood-quality sound for your film project."
+    },
+    "soundDesign": {
+      "title": "Sound Design",
+      "description": "Creativity and imagination take you to many different places in the world in search of new sounds. With our Handy Recorders, Field Recorders and iOS/Android microphones, you have reliable partners to accompany you on your sound journeys."
+    }
+  },
+  "imprint": {
+    "title": "Imprint",
+    "companyName": "Sound Service Musikanlagen-Vertriebsgesellschaft mbH",
+    "disclaimer": "Disclaimer",
+    "disclaimerText": "In the event of direct or indirect links to other websites (\"hyperlinks\"), which lie outside the responsibility of the author, liability would only come into effect if the author is aware of the content and it would have been technically possible and reasonable for the author to prevent the use of illegal content. The author hereby expressly declares that, at the time of linking, no illegal contents were recognisable on the linked websites. The author has no control whatsoever over the current and future design, contents or authorship of the linked websites. Therefore, he hereby explicitly distances himself from all contents of linked/connected websites which were changed after the links were placed. This statement applies to all links and references within the author's own website as well as for third-party entries in guest books, discussion forums, lists of links and mailing lists set up by the author and in all other forms of databases whereby content can be written externally. The owner of the linked website is solely liable for illegal, inaccurate or incomplete contents and particularly for damages resulting from the use or non-use of such provided information, not the person who merely made the link to the publication in question.",
+    "copyright": "Copyright & Trademark Rights",
+    "copyrightText1": "The author strives to observe the copyright of all images, graphics, sound files, video sequences and texts used in all publications, to use images, graphics, sound files, video sequences and texts he created himself or to utilise royalty-free graphics, sound files, video sequences and texts. All protected brand names and trademarks of third parties mentioned within the website are unrestrictedly subject to the terms of the respective and valid trademark law and the ownership rights of the respective registered owners. Simply mentioning the name is not sufficient reason to assume that the brand names are not protected by the legal rights of third parties! The copyright for published objects produced by the author himself remains the property of the author of the pages. Duplication or use of such graphics, sound files, video sequences and texts in other electronic or printed publications is not permitted without the explicit consent of the author.",
+    "copyrightText2": "Responsible party within the meaning of § 18 para. 2 MStV: Joachim Stock, Sound Service Musikanlagen-Vertriebsgesellschaft mbH, Moriz-Seeler-Straße 3, 12489 Berlin, Germany",
+    "ceo": "CEO: Dipl.-Kfm. Joachim Stock",
+    "registerCourt": "Register court: Charlottenburg local court",
+    "registerNumber": "Register number: HRB 20782",
+    "vatId": "VAT identification number in accordance with section 27 a of the German Value Added Tax Act (Umsatzsteuergesetz): DE 136600697",
+    "wIdNr": "W-IdNr.: DE136600697-00001",
+    "weee": "WEEE Reg. No.: DE 18189133",
+    "odrLabel": "EU Commission platform for online dispute resolution:",
+    "noArbitration": "We are neither obligated nor willing to participate in dispute settlement proceedings before a consumer arbitration board."
+  },
+  "withdrawal": {
+    "title": "Cancellation policy for goods",
+    "rightTitle": "Right of withdrawal",
+    "rightText1": "If the Customer is a consumer (Section 13 BGB), he or she has the right to withdraw from this contract without stating the reason. In the case of contracts for the delivery of goods, the withdrawal period is 14 days from the day on which you or a third party named by you, who is not the carrier, took possession of the last goods.",
+    "rightText2": "To exercise your right of withdrawal, you must inform us (ZOOM Europe / Sound Service GmbH, Moriz-Seeler-Strasse 3, 12489 Berlin, Germany, Tel: +49 (0) 30 707 130-0, email: info@zoom-europe.com) of your decision to withdraw from this contract by means of a clear declaration (e.g. a letter sent by post, fax or email). You can use the enclosed sample withdrawal form for this purpose, although this is not mandatory.",
+    "rightText3": "To comply with the withdrawal period, all that is required is that you send the notification exercising your right of withdrawal before the end of the withdrawal period.",
+    "consequencesTitle": "Consequences of withdrawal",
+    "consequencesText1": "If you withdraw from this contract, we must refund all payments we have received from you, including delivery costs (with the exception of additional costs resulting from the fact that you have chosen a type of delivery other than the cheapest standard delivery offered by us), without delay and no later than within fourteen days of the day on which we received notification of your withdrawal from this contract. We will use the same payment method for this refund as you used for the original transaction, unless expressly agreed otherwise with you; under no circumstances will you be charged for this refund.",
+    "consequencesText2": "For contracts for the supply of goods, we may refuse to refund you until we have received the goods back or until you have provided proof that you have returned the goods, whichever occurs earlier.",
+    "consequencesText3": "You must return or hand over the goods to us immediately and in any case no later than fourteen days from the day on which you notify us of your withdrawal from this contract. The deadline will be met if you send the goods before the end of the fourteen-day period.",
+    "consequencesText4": "We will cover the cost of returning the goods.",
+    "consequencesText5": "You will only have to pay for any loss in value of the goods if this is due to any handling of the goods that is not necessary in order to test the quality, characteristics and functioning of the goods.",
+    "exclusionTitle": "Exclusion or premature expiry of the right of withdrawal",
+    "exclusionText1": "The right of withdrawal does not apply to contracts for the delivery of goods that are not prefabricated and whose manufacture is based on a custom selection or specification by the consumer or that are clearly tailored to the consumer's personal needs.",
+    "exclusionText2": "The right of withdrawal does not apply to contracts for the delivery of newspapers, periodicals or magazines, with the exception of subscription contracts.",
+    "exclusionText3": "The right of withdrawal will expire prematurely for contracts for the delivery of sealed goods which are not suitable for return for reasons of health protection or hygiene if their seal has been removed after delivery.",
+    "exclusionText4": "The right of withdrawal will expire prematurely for contracts for the delivery of sound or video recordings or computer software in a sealed package if the seal has been removed after delivery.",
+    "formTitle": "Sample withdrawal form",
+    "formText": "If you want to cancel the contract, please fill out this form and send it back.",
+    "formLink": "this form",
+    "specialTitle": "Special notes",
+    "specialText": "If you finance this contract by means of a loan and later revoke it, you are also no longer bound by the loan agreement, provided that both contracts form an economic unit. This is to be assumed in particular if we are your lender at the same time or if your lender makes use of our cooperation with regard to the financing. If the loan has already accrued to us when the revocation takes effect, your lender shall be subrogated to our rights and obligations under the financed contract in relation to you with regard to the legal consequences of the revocation or return. The latter shall not apply if the subject matter of the present contract is the acquisition of financial instruments (e.g. securities, foreign exchange or derivatives). If you wish to avoid a contractual obligation as far as possible, exercise your right of revocation and also revoke the loan agreement if you are also entitled to a right of revocation for this."
   }
 }

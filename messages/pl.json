@@ -28,7 +28,8 @@
   "category": {
     "products": "produktów",
     "product": "produkt",
-    "noProducts": "Nie znaleziono produktów w tej kategorii."
+    "noProducts": "Nie znaleziono produktów w tej kategorii.",
+    "noImage": "Brak zdjęcia"
   },
   "cart": {
     "title": "Twój koszyk",
@@ -51,6 +52,24 @@
     "signInToCheckout": "Zaloguj się, aby zapłacić",
     "createAccount": "Utwórz konto",
     "signInRequired": "Musisz być zalogowany, aby sfinalizować zakup."
+  },
+  "pages": {
+    "podcasting": {
+      "title": "Podcasting",
+      "description": "Opowiedz swoją historię i daj się usłyszeć w swoim podcastcie. Dzięki naszym mobilnym rejestratorom podcastów i studiom podcastowym jesteś gotowy na wszystko i możesz nagrywać oraz produkować własny podcast w jakości studyjnej w dowolnym miejscu i czasie."
+    },
+    "music": {
+      "title": "Muzyka",
+      "description": "Właściwe brzmienie i doskonała jakość dźwięku są kluczowymi składnikami każdego przebojowego albumu. Dzięki naszym procesorom multiefektów, rejestratorom, mikserom, przenośnym studiom i interfejsom audio pomagamy Ci realizować swój potencjał muzyczny i dzielić się nim ze światem."
+    },
+    "filmmaking": {
+      "title": "Filmowanie",
+      "description": "Dźwięk do Twojego wideo lub filmu odgrywa ważną rolę. Dzięki naszym rejestratorom Handy i Field masz odpowiednie narzędzia do tworzenia i nagrywania dźwięku w jakości hollywoodzkiej dla Twojego projektu filmowego."
+    },
+    "soundDesign": {
+      "title": "Sound Design",
+      "description": "Kreatywność i wyobraźnia prowadzą Cię w wiele różnych miejsc na świecie w poszukiwaniu nowych dźwięków. Dzięki naszym rejestratorom Handy, Field i mikrofonom iOS/Android masz niezawodnych partnerów, którzy będą Ci towarzyszyć w Twoich dźwiękowych podróżach."
+    }
   },
   "mostWanted": {
     "title": "Najchętniej kupowane"

@@ -28,7 +28,8 @@
   "category": {
     "products": "produktů",
     "product": "produkt",
-    "noProducts": "V této kategorii nebyly nalezeny žádné produkty."
+    "noProducts": "V této kategorii nebyly nalezeny žádné produkty.",
+    "noImage": "Žádný obrázek"
   },
   "cart": {
     "title": "Váš košík",
@@ -51,6 +52,24 @@
     "signInToCheckout": "Přihlásit se a zaplatit",
     "createAccount": "Vytvořit účet",
     "signInRequired": "Pro dokončení nákupu musíte být přihlášeni."
+  },
+  "pages": {
+    "podcasting": {
+      "title": "Podcasting",
+      "description": "Vyprávějte svůj příběh a nechte slyšet svůj názor ve svém podcastu. S našimi mobilními rekordéry pro podcasty a podcastovými studii jste připraveni na vše a můžete kdykoli a kdekoli nahrávat a produkovat vlastní podcast ve studijní kvalitě."
+    },
+    "music": {
+      "title": "Hudba",
+      "description": "Správný zvuk a vynikající kvalita zvuku jsou základními součástmi každého hitového alba. S našimi multi-efektovými procesory, rekordéry, mixážními pulty, přenosnými studii a audio rozhraními vám pomáháme realizovat váš hudební potenciál a sdílet jej se světem."
+    },
+    "filmmaking": {
+      "title": "Filmování",
+      "description": "Zvuk pro vaše video nebo film hraje důležitou roli. S našimi rekordéry Handy a Field máte správné nástroje pro vytváření a nahrávání zvuku hollywoodské kvality pro váš filmový projekt."
+    },
+    "soundDesign": {
+      "title": "Sound Design",
+      "description": "Kreativita a představivost vás zavedou na mnoho různých míst světa při hledání nových zvuků. S našimi rekordéry Handy, Field a mikrofony pro iOS/Android máte spolehlivé partnery, kteří vás budou doprovázet na vašich zvukových cestách."
+    }
   },
   "mostWanted": {
     "title": "Nejžádanější"
