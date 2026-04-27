@@ -215,6 +215,12 @@ export default function CheckoutPage() {
   async function handlePlaceOrder(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
+
+    if (!token) {
+      setError("Your session has expired. Please log in again.");
+      return;
+    }
+
     setSubmitting(true);
 
     const billingAddress = billingSameAsShipping ? shipping : billing;
@@ -407,7 +413,7 @@ export default function CheckoutPage() {
 
               <button
                 type="submit"
-                disabled={submitting}
+                disabled={submitting || authLoading || !token}
                 className="w-full rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
               >
                 {submitting ? "Placing order…" : "Continue to Payment"}
