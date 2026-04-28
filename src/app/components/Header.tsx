@@ -203,7 +203,7 @@ export default function Header({ categories }: { categories: Category[] }) {
             onMouseLeave={closeDropdown}
           >
             <Link
-              href="/categories"
+              href="#"
               className="inline-flex items-center gap-1 px-4 py-3 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
             >
               {t("nav.categories")}
@@ -221,7 +221,7 @@ export default function Header({ categories }: { categories: Category[] }) {
                 {categories.map((cat) => (
                   <Link
                     key={cat.id}
-                    href={`/categories/${cat.slug}`}
+                    href={`${localeBase}/categories/${cat.slug}`}
                     className="block px-4 py-2 text-sm text-zinc-700 transition-colors hover:bg-zinc-50 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-white"
                   >
                     {cat.name}
@@ -235,7 +235,7 @@ export default function Header({ categories }: { categories: Category[] }) {
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
-                href={link.href}
+                href={`${localeBase}${link.href}`}
                 className={`inline-block px-4 py-3 text-sm font-medium transition-colors hover:text-zinc-900 dark:hover:text-white ${
                   link.isSale
                     ? "text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-400"
@@ -308,7 +308,7 @@ export default function Header({ categories }: { categories: Category[] }) {
                   {categories.map((cat) => (
                     <li key={cat.id}>
                       <Link
-                        href={`/categories/${cat.slug}`}
+                        href={`${localeBase}/categories/${cat.slug}`}
                         onClick={() => setMenuOpen(false)}
                         className="block py-2 pl-10 pr-6 text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
                       >
@@ -323,7 +323,7 @@ export default function Header({ categories }: { categories: Category[] }) {
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
-                  href={link.href}
+                  href={`${localeBase}${link.href}`}
                   onClick={() => setMenuOpen(false)}
                   className={`block px-6 py-3 text-sm font-medium transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900 ${
                     link.isSale
