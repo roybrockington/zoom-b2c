@@ -17,14 +17,14 @@ const slides: Slide[] = [
     heading: "ESSENTIAL SERIES",
     subheading: "32-Bit-Float",
     linkText: "Show More",
-    linkUrl: "/",
+    linkUrl: "/categories/handy-recorders",
     imageUrl: "https://media.sound-service.eu/zoom/home-slides/HARessential.webp",
   },
   {
     heading: "L6 LIVETRAK",
     subheading: "10-TRACK DIGITAL MIXER/RECORDER",
     linkText: "Show More",
-    linkUrl: "/",
+    linkUrl: "/products/livetrak-l6-eu-10-channel-mixer-recorder-eu",
     imageUrl: "https://media.sound-service.eu/zoom/home-slides/L6_Livetrak_Banner.webp",
   }
 ];
