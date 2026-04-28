@@ -30,7 +30,6 @@ type Product = {
     in_stock: boolean;
     sku: string | null;
     stock_quantity: number;
-    in_stock: boolean;
     manage_stock: boolean;
     weight: string | null;
     attributes: Record<string, string> | null;
