@@ -23,11 +23,12 @@ const paymentMethods: footerBadge[] = [
     linkUrl: "/payment-methods",
     imageUrl: "https://media.sound-service.eu/zoom/payment/paypal-std.png",
   },
+        /*
   {
     altText: "Klarna",
     linkUrl: "/payment-methods",
     imageUrl: "https://media.sound-service.eu/zoom/payment/klarna.png",
-  },
+  }, */
   {
     altText: "Payment in advance",
     linkUrl: "/payment-methods",

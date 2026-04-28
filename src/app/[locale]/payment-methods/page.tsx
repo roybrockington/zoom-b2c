@@ -33,6 +33,7 @@ const PaymentMethodsPage = () => {
                     <p>Via PayPal you can easily pay via your PayPal account without having to provide us with your bank details.</p>
                 </div>
             </div>
+            {/*
             <hr className="w-full text-gray-200" />
             <div className="w-full flex gap-4 items-start py-4">
                 <Image src={`${IMG_BASE}/klarna.webp`} alt="PayPal" width={200} height={100} />
@@ -41,6 +42,7 @@ const PaymentMethodsPage = () => {
                     <p>With KLARNA, paying online is easier than ever! You have the choice between the options <span className="font-bold">"Pay now"</span> (payment by immediate bank transfer, direct debit or credit card), <span className="font-bold">"Pay later"</span> (purchase on account) and <span className="font-bold">"Instalment purchase"</span> (financing). Conveniently use your familiar online banking data and be on the safe side.</p>
                 </div>
             </div>
+            */}
         </div>
     )
 }
