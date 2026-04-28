@@ -162,7 +162,7 @@ export default function AdminCouponsPage() {
 
       if (!res.ok) {
         const data = await res.json();
-        const msg = Object.values(data?.errors ?? {})?.[0]?.[0] ?? data?.message ?? "Failed to save.";
+        const msg = (Object.values(data?.errors ?? {}) as string[][])?.[0]?.[0] ?? data?.message ?? "Failed to save.";
         throw new Error(msg as string);
       }
 

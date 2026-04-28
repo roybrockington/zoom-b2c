@@ -46,7 +46,7 @@ export default function RegisterPage() {
       if (!res.ok) {
         const data = await res.json();
         const firstError =
-          Object.values(data?.errors ?? {})?.[0]?.[0] ??
+          (Object.values(data?.errors ?? {}) as string[][])?.[0]?.[0] ??
           data?.message ??
           "Registration failed.";
         throw new Error(firstError as string);

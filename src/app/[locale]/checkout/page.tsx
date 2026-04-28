@@ -258,7 +258,7 @@ export default function CheckoutPage() {
       if (!res.ok) {
         const data = await res.json();
         const msg =
-          Object.values(data?.errors ?? {})?.[0]?.[0] ??
+          (Object.values(data?.errors ?? {}) as string[][])?.[0]?.[0] ??
           data?.message ??
           "Failed to place order.";
         throw new Error(msg as string);

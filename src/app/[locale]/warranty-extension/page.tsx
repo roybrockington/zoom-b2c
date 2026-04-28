@@ -174,7 +174,7 @@ export default function WarrantyExtensionPage() {
       });
       if (!res.ok) {
         const data = await res.json();
-        const msg = Object.values(data?.errors ?? {})?.[0]?.[0] ?? data?.message ?? "Submission failed.";
+        const msg = (Object.values(data?.errors ?? {}) as string[][])?.[0]?.[0] ?? data?.message ?? "Submission failed.";
         throw new Error(msg as string);
       }
       setSuccess(true);

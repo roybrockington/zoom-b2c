@@ -143,7 +143,7 @@ export default function TechnicalSupportPage() {
 
       const data = await res.json();
       if (!res.ok) {
-        const msg = Object.values(data?.errors ?? {})?.[0]?.[0] ?? data?.message ?? "Submission failed.";
+        const msg = (Object.values(data?.errors ?? {}) as string[][])?.[0]?.[0] ?? data?.message ?? "Submission failed.";
         throw new Error(msg as string);
       }
       setSuccess(data.ticket_id);
