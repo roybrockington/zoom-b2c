@@ -10,7 +10,7 @@ const Newsletter = () => {
             <p className="my-3">
                 Stay informed about partner artists, groundbreaking news and the latest technological developments.
             </p>
-            <Link href="/" className="py-3 px-6 mx-12 bg-white text-zinc-900 font-bold flex my-6 justify-center rounded-full hover:bg-black hover:text-white transition duration-300">Sign Up</Link>
+            <Link href="/newsletter" className="py-3 px-6 mx-12 bg-white text-zinc-900 font-bold flex my-6 justify-center rounded-full hover:bg-black hover:text-white transition duration-300">Sign Up</Link>
         </section>
     );
 }

@@ -10,7 +10,7 @@ const Warranty = () => {
             <p className="my-3">
                 By registering your product within three months from the date of purchase (as indicated on the proof of purchase), you will receive a 1-year warranty extension on your ZOOM product. A free customer account in our web shop is required for product registration.
             </p>
-            <Link href="/" className="py-3 px-6 mx-12 bg-white text-zinc-900 font-bold flex my-6 justify-center rounded-full hover:bg-black hover:text-white transition duration-300">Register Products</Link>
+            <Link href="/warranty-extension" className="py-3 px-6 mx-12 bg-white text-zinc-900 font-bold flex my-6 justify-center rounded-full hover:bg-black hover:text-white transition duration-300">Register Products</Link>
         </section>
     );
 }
