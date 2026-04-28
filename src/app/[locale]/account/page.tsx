@@ -14,6 +14,21 @@ type OrderItem = {
   total: string;
 };
 
+type Address = {
+  id: number;
+  type: string;
+  first_name: string;
+  last_name: string;
+  company: string | null;
+  address_line_1: string;
+  address_line_2: string | null;
+  city: string;
+  state: string | null;
+  postcode: string;
+  country: string;
+  phone: string | null;
+};
+
 type Order = {
   id: number;
   order_number: string;
@@ -46,6 +61,8 @@ export default function AccountPage() {
   const [ordersLoading, setOrdersLoading] = useState(true);
   const [expandedOrder, setExpandedOrder] = useState<number | null>(null);
 
+  const [billingAddress, setBillingAddress] = useState<Address | null>(null);
+
   useEffect(() => {
     if (!loading && !user) {
       router.replace("/login");
@@ -61,6 +78,13 @@ export default function AccountPage() {
       .then((data) => setOrders(data.data ?? []))
       .catch(() => {})
       .finally(() => setOrdersLoading(false));
+
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/addresses`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((r) => r.json())
+      .then((data: Address[]) => setBillingAddress(data.find((a) => a.type === "billing") ?? null))
+      .catch(() => {});
   }, [token]);
 
   if (loading || !user) return null;
@@ -105,6 +129,28 @@ export default function AccountPage() {
             </dd>
           </div>
         </dl>
+      </div>
+
+      {/* Billing address */}
+      <div className="mb-8 rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+        <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+          Billing Address
+        </h2>
+        {billingAddress ? (
+          <address className="not-italic text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+            <span className="font-medium text-zinc-900 dark:text-white">
+              {billingAddress.first_name} {billingAddress.last_name}
+            </span>
+            {billingAddress.company && <><br />{billingAddress.company}</>}
+            <br />{billingAddress.address_line_1}
+            {billingAddress.address_line_2 && <><br />{billingAddress.address_line_2}</>}
+            <br />{billingAddress.city}{billingAddress.state ? `, ${billingAddress.state}` : ""} {billingAddress.postcode}
+            <br />{billingAddress.country}
+            {billingAddress.phone && <><br />{billingAddress.phone}</>}
+          </address>
+        ) : (
+          <p className="text-sm text-zinc-400 dark:text-zinc-500">No billing address on file.</p>
+        )}
       </div>
 
       {/* Orders */}

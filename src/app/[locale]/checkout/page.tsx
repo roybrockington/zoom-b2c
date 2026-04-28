@@ -113,7 +113,7 @@ function AddressForm({
 
 export default function CheckoutPage() {
   const { user, token, loading: authLoading } = useAuth();
-  const { items, totalItems } = useCart();
+  const { items, totalItems, clearCart } = useCart();
   const { currency } = useCurrency();
   const router = useRouter();
 
@@ -128,9 +128,13 @@ export default function CheckoutPage() {
   const [couponError, setCouponError] = useState<string | null>(null);
   const [applyingCoupon, setApplyingCoupon] = useState(false);
 
+  const [paymentMethod, setPaymentMethod] = useState<"paypal" | "prepayment">("paypal");
+
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [createdOrderId, setCreatedOrderId] = useState<number | null>(null);
+  const [createdOrderNumber, setCreatedOrderNumber] = useState<string | null>(null);
+  const [confirmedTotal, setConfirmedTotal] = useState<number | null>(null);
 
   const [countries, setCountries] = useState<CountryRate[]>([]);
   const [shippingCost, setShippingCost] = useState<number>(0);
@@ -240,6 +244,7 @@ export default function CheckoutPage() {
           currency: currency.code,
           shipping: shippingCost,
           coupon_code: appliedCoupon?.code ?? null,
+          payment_method: paymentMethod,
           notes: notes || null,
           shipping_address: shipping,
           billing_address: billingAddress,
@@ -261,6 +266,8 @@ export default function CheckoutPage() {
 
       const data = await res.json();
       setCreatedOrderId(data.data.id);
+      setCreatedOrderNumber(data.data.order_number);
+      setConfirmedTotal(Math.max(0, subtotal - discount + shippingCost));
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Failed to place order.");
     } finally {
@@ -405,6 +412,37 @@ export default function CheckoutPage() {
                 )}
               </div>
 
+              {/* Payment method */}
+              <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+                <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+                  Payment Method
+                </h3>
+                <div className="flex flex-col gap-3">
+                  <label className={`flex cursor-pointer items-center gap-3 rounded-xl border p-4 transition ${paymentMethod === "paypal" ? "border-zinc-900 dark:border-white" : "border-zinc-200 dark:border-zinc-700"}`}>
+                    <input
+                      type="radio"
+                      name="payment_method"
+                      value="paypal"
+                      checked={paymentMethod === "paypal"}
+                      onChange={() => setPaymentMethod("paypal")}
+                      className="accent-zinc-900 dark:accent-white"
+                    />
+                    <span className="text-sm font-medium text-zinc-900 dark:text-white">PayPal</span>
+                  </label>
+                  <label className={`flex cursor-pointer items-center gap-3 rounded-xl border p-4 transition ${paymentMethod === "prepayment" ? "border-zinc-900 dark:border-white" : "border-zinc-200 dark:border-zinc-700"}`}>
+                    <input
+                      type="radio"
+                      name="payment_method"
+                      value="prepayment"
+                      checked={paymentMethod === "prepayment"}
+                      onChange={() => setPaymentMethod("prepayment")}
+                      className="accent-zinc-900 dark:accent-white"
+                    />
+                    <span className="text-sm font-medium text-zinc-900 dark:text-white">Prepayment (Bank Transfer)</span>
+                  </label>
+                </div>
+              </div>
+
               {error && (
                 <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400">
                   {error}
@@ -419,6 +457,48 @@ export default function CheckoutPage() {
                 {submitting ? "Placing order…" : "Continue to Payment"}
               </button>
             </form>
+          ) : paymentMethod === "prepayment" ? (
+            /* Prepayment confirmation */
+            <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <div className="mb-4 flex items-center gap-3">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-lg">✓</span>
+                <h2 className="text-lg font-bold text-zinc-900 dark:text-white">Order confirmed</h2>
+              </div>
+              <p className="mb-6 text-sm text-zinc-500 dark:text-zinc-400">
+                Please transfer the order total to our bank account using your order number as the payment reference.
+              </p>
+              <div className="mb-6 rounded-xl bg-zinc-50 p-4 dark:bg-zinc-800">
+                <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Payment reference</p>
+                <p className="font-mono text-lg font-bold text-zinc-900 dark:text-white">{createdOrderNumber}</p>
+              </div>
+              <dl className="space-y-2 text-sm">
+                <div className="flex justify-between">
+                  <dt className="text-zinc-500 dark:text-zinc-400">Receiver</dt>
+                  <dd className="font-medium text-zinc-900 dark:text-white">Sound Service GmbH</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt className="text-zinc-500 dark:text-zinc-400">Bank</dt>
+                  <dd className="font-medium text-zinc-900 dark:text-white">Deutsche Bank AG</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt className="text-zinc-500 dark:text-zinc-400">IBAN</dt>
+                  <dd className="font-mono font-medium text-zinc-900 dark:text-white">DE80 1007 0000 0650 2900 00</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt className="text-zinc-500 dark:text-zinc-400">BIC</dt>
+                  <dd className="font-mono font-medium text-zinc-900 dark:text-white">DEUTDEBBXXX</dd>
+                </div>
+              </dl>
+              <p className="mt-6 text-xs text-zinc-400 dark:text-zinc-500">
+                Your order will be shipped once payment has been received. A confirmation email will be sent to {user.email}.
+              </p>
+              <button
+                onClick={() => { clearCart(); router.push("/"); }}
+                className="mt-6 w-full rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+              >
+                Continue shopping
+              </button>
+            </div>
           ) : (
             /* PayPal payment step */
             <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
@@ -502,7 +582,7 @@ export default function CheckoutPage() {
               )}
               <div className="flex justify-between border-t border-zinc-100 pt-3 text-base font-bold dark:border-zinc-800">
                 <dt className="text-zinc-900 dark:text-white">Total</dt>
-                <dd className="text-zinc-900 dark:text-white">{currency.symbol}{fmt(Math.max(0, subtotal - discount + shippingCost))}</dd>
+                <dd className="text-zinc-900 dark:text-white">{currency.symbol}{fmt(confirmedTotal ?? Math.max(0, subtotal - discount + shippingCost))}</dd>
               </div>
             </dl>
           </div>

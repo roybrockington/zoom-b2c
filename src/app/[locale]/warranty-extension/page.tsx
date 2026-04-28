@@ -10,11 +10,28 @@ type ProductResult = {
   sku: string | null;
 };
 
+type Address = {
+  id: number;
+  type: string;
+  first_name: string;
+  last_name: string;
+  company: string | null;
+  address_line_1: string;
+  address_line_2: string | null;
+  city: string;
+  state: string | null;
+  postcode: string;
+  country: string;
+  phone: string | null;
+};
+
 const API = process.env.NEXT_PUBLIC_API_URL;
 
 export default function WarrantyExtensionPage() {
   const { user, token, loading: authLoading } = useAuth();
   const router = useRouter();
+
+  const [billingAddress, setBillingAddress] = useState<Address | null | undefined>(undefined); // undefined = loading
 
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<ProductResult[]>([]);
@@ -28,13 +45,37 @@ export default function WarrantyExtensionPage() {
   const [retailer, setRetailer] = useState("");
   const [purchasedAt, setPurchasedAt] = useState("");
 
+  // Address fields (only used when no billing address on file)
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [addressLine1, setAddressLine1] = useState("");
+  const [addressLine2, setAddressLine2] = useState("");
+  const [city, setCity] = useState("");
+  const [postcode, setPostcode] = useState("");
+  const [country, setCountry] = useState("");
+  const [phone, setPhone] = useState("");
+
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!authLoading && !user) router.replace("/login");
+    if (!authLoading && !user) router.replace("/login?redirect=/warranty-extension");
   }, [user, authLoading, router]);
+
+  // Fetch addresses once auth is ready
+  useEffect(() => {
+    if (!token) return;
+    fetch(`${API}/api/addresses`, {
+      headers: { Authorization: `Bearer ${token}`, Accept: "application/json" },
+    })
+      .then((r) => r.json())
+      .then((data: Address[]) => {
+        const billing = data.find((a) => a.type === "billing") ?? null;
+        setBillingAddress(billing);
+      })
+      .catch(() => setBillingAddress(null));
+  }, [token]);
 
   useEffect(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
@@ -103,6 +144,25 @@ export default function WarrantyExtensionPage() {
     setError(null);
     setSubmitting(true);
     try {
+      const body: Record<string, unknown> = {
+        product_id: selectedProduct.id,
+        serial_number: serialNumber,
+        retailer,
+        purchased_at: purchasedAt,
+      };
+
+      // Include address fields when none are on file
+      if (billingAddress === null) {
+        body.first_name = firstName;
+        body.last_name = lastName;
+        body.address_line_1 = addressLine1;
+        body.address_line_2 = addressLine2 || null;
+        body.city = city;
+        body.postcode = postcode;
+        body.country = country;
+        body.phone = phone || null;
+      }
+
       const res = await fetch(`${API}/api/warranty`, {
         method: "POST",
         headers: {
@@ -110,12 +170,7 @@ export default function WarrantyExtensionPage() {
           Accept: "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({
-          product_id: selectedProduct.id,
-          serial_number: serialNumber,
-          retailer,
-          purchased_at: purchasedAt,
-        }),
+        body: JSON.stringify(body),
       });
       if (!res.ok) {
         const data = await res.json();
@@ -130,7 +185,7 @@ export default function WarrantyExtensionPage() {
     }
   }
 
-  if (authLoading || !user) return null;
+  if (authLoading || !user || billingAddress === undefined) return null;
 
   const inputClass =
     "w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500 dark:focus:border-zinc-500 dark:focus:ring-zinc-700";
@@ -158,6 +213,14 @@ export default function WarrantyExtensionPage() {
               setSerialNumber("");
               setRetailer("");
               setPurchasedAt("");
+              setFirstName("");
+              setLastName("");
+              setAddressLine1("");
+              setAddressLine2("");
+              setCity("");
+              setPostcode("");
+              setCountry("");
+              setPhone("");
             }}
             className="mt-6 rounded-full bg-green-700 px-5 py-2 text-sm font-semibold text-white transition hover:bg-green-800 dark:bg-green-600 dark:hover:bg-green-500"
           >
@@ -166,6 +229,52 @@ export default function WarrantyExtensionPage() {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+
+          {/* Address fields — only shown when no billing address on file */}
+          {billingAddress === null && (
+            <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <h2 className="mb-4 text-sm font-semibold text-zinc-700 dark:text-zinc-300">Your details</h2>
+              <div className="flex flex-col gap-5">
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className={labelClass}>First name</label>
+                    <input required type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Jane" className={inputClass} />
+                  </div>
+                  <div>
+                    <label className={labelClass}>Last name</label>
+                    <input required type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Smith" className={inputClass} />
+                  </div>
+                </div>
+                <div>
+                  <label className={labelClass}>Address</label>
+                  <input required type="text" value={addressLine1} onChange={(e) => setAddressLine1(e.target.value)} placeholder="123 Main St" className={inputClass} />
+                </div>
+                <div>
+                  <label className={labelClass}>Apartment, suite, etc. <span className="text-zinc-400">(optional)</span></label>
+                  <input type="text" value={addressLine2} onChange={(e) => setAddressLine2(e.target.value)} placeholder="" className={inputClass} />
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className={labelClass}>City</label>
+                    <input required type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Berlin" className={inputClass} />
+                  </div>
+                  <div>
+                    <label className={labelClass}>Postcode</label>
+                    <input required type="text" value={postcode} onChange={(e) => setPostcode(e.target.value)} placeholder="10115" className={inputClass} />
+                  </div>
+                </div>
+                <div>
+                  <label className={labelClass}>Country</label>
+                  <input required type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="DE" className={inputClass} />
+                </div>
+                <div>
+                  <label className={labelClass}>Phone <span className="text-zinc-400">(optional)</span></label>
+                  <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+49 30 12345678" className={inputClass} />
+                </div>
+              </div>
+            </div>
+          )}
+
           <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
             <div className="flex flex-col gap-5">
 
