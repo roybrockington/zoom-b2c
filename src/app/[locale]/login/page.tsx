@@ -10,7 +10,7 @@ export default function LoginPage() {
   const { login, user, loading } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const redirect = searchParams.get("redirect") ?? "/account";
+  const redirect = searchParams.get("redirect") ?? null;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +19,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (!loading && user) {
-      router.replace(redirect);
+      router.replace(redirect ?? (user.is_admin ? "/admin" : "/account"));
     }
   }, [user, loading, router, redirect]);
 
@@ -28,8 +28,8 @@ export default function LoginPage() {
     setError(null);
     setSubmitting(true);
     try {
-      await login(email, password);
-      router.push(redirect);
+      const loggedInUser = await login(email, password);
+      router.push(redirect ?? (loggedInUser?.is_admin ? "/admin" : "/account"));
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Login failed.");
     } finally {
