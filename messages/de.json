@@ -124,6 +124,86 @@
     "odrLabel": "Informationspflichten gemäß §18 Abs. 4 Satz 3 ElektroG:",
     "noArbitration": "Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit."
   },
+  "home": {
+    "heroSlider": {
+      "showMore": "Mehr anzeigen"
+    },
+    "creators": {
+      "title": "Wir sind für Creator",
+      "body": "Bereits in der Entwicklungsphase schauen wir, wie unsere Produkte Creatorn helfen können, ihre Kreativität zu entfalten.",
+      "bodyBold": "Wählen Sie hier Ihren Beruf",
+      "bodyEnd": "oder scrollen Sie nach unten, um nach Produktkategorie zu filtern.",
+      "podcasting": "Podcasting",
+      "filmmaking": "Filmproduktion",
+      "music": "Musik",
+      "soundDesign": "Sound Design"
+    },
+    "newsletter": {
+      "title": "Unser",
+      "titleBold": "Newsletter",
+      "body": "Bleiben Sie über Partnerkünstler, bahnbrechende Neuigkeiten und die neuesten technologischen Entwicklungen informiert.",
+      "cta": "Anmelden"
+    },
+    "warranty": {
+      "title": "Garantie",
+      "titleBold": "Verlängerung",
+      "body": "Durch die Registrierung Ihres Produkts innerhalb von drei Monaten nach dem Kaufdatum (wie auf dem Kaufbeleg angegeben) erhalten Sie eine 1-jährige Garantieverlängerung auf Ihr ZOOM-Produkt. Für die Produktregistrierung ist ein kostenloses Kundenkonto in unserem Webshop erforderlich.",
+      "cta": "Produkte registrieren"
+    },
+    "webshopProse": {
+      "title": "WIR SIND DER OFFIZIELLE",
+      "titleBold": "ZOOM EUROPE WEBSHOP",
+      "p1": "Wir haben immer alle ZOOM-Produkte auf Lager, und Sie erhalten bei uns immer als Erster die neuesten Zoom-Produkte und profitieren von Sonderangeboten von ZOOM. In unserem Online-Shop können Sie entweder nach Produktkategorie stöbern oder sich von uns beraten lassen – wählen Sie einfach Ihre Leidenschaft und wir zeigen Ihnen die perfekten Produkte.",
+      "p2": "Als Hersteller kennen wir unsere Produkte in- und auswendig und können daher das perfekte Produkt für Ihre Anwendung empfehlen oder Ihnen Vorschläge für mögliche Einsatzmöglichkeiten unserer Produkte machen. Besitzen Sie bereits ein ZOOM-Gerät und suchen nach dem richtigen Originalzubehör? Wir halten alle Zubehörartikel dauerhaft auf Lager und zeigen Ihnen in unserem Shop das für Ihr Zoom-Produkt geeignete Zubehör.",
+      "p3": "Haben Sie eine technische Frage zu Ihrem in unserem Online-Shop erworbenen Zoom-Produkt? Unsere Experten, ZOOM-Produktmanager und ZOOM-Produktspezialisten, stehen Ihnen wochentags von 10 bis 18 Uhr beratend zur Verfügung."
+    },
+    "creatorProse": {
+      "heading": "UND WIR SIND FÜR CREATOR.",
+      "headingBold": "WIR SIND ZOOM.",
+      "intro1": "Willkommen im offiziellen ZOOM-Europe Online-Shop! Wir bieten die perfekte Ausrüstung für Musiker, Podcaster, Filmemacher, Sound-Designer und Streamer – wir möchten Ihnen helfen, Ihre kreativen Ideen mit unseren Produkten zum Leben zu erwecken.",
+      "intro2": "Zoom produziert eine breite Palette von Produkten für kreative Profis aller Art, darunter mobile Recorder für Musiker, Journalisten und Filmemacher, professionelle Mehrspur-Recorder für Sound-Designer und Filmemacher, Multi-Effektprozessoren für Gitarristen und Bassisten, digitale Mischpulte für Bands, Solokünstler, Tonstudios und Podcaster, Audiointerfaces für Musiker, Live-Streamer und Content-Creator, All-in-One-Kompaktstudios für Musiker, Videokameras für Content-Creator aller Art, Mikrofone für Android- und iOS-Smartphone-Nutzer, Vokalprozessoren für Sänger, analoge und USB-Mikrofone für verschiedenste Anwendungen sowie Podcast-Recorder und Podcast-Studios speziell für Podcaster.",
+      "handyRecorders": {
+        "name": "Handy Recorder",
+        "text": "Die bekanntesten ZOOM-Produkte sind wohl unsere Handy Recorder. Wie der Name schon sagt, sind diese Recorder äußerst praktisch und handlich. Handy Recorder ermöglichen digitale Audioaufnahmen und können für vielfältige Anwendungen eingesetzt werden. Sie können einen Handy Recorder zum Beispiel genauso nutzen wie früher einen Kassettenrekorder. Handy Recorder haben auch eingebaute Mikrofone, sodass sie unterwegs ohne zusätzliches Equipment aufnehmen können. Als Musiker können Sie damit sich selbst oder Ihre Band aufnehmen. Oder Sie gehen in die Natur und nehmen einfach Klänge auf. Das könnte das Zirpen einer Grille, das Rauschen des Meeres oder sogar der Lärm einer Baustelle sein. Wenn Sie Filmemacher sind oder gerne Videos produzieren, können Sie einen Handy Recorder auf dem Blitzschuh Ihrer Kamera befestigen und den perfekten Ton für Ihr Video aufnehmen."
+      },
+      "fieldRecorders": {
+        "name": "Field Recorder",
+        "text": "Field Recorder sind professionelle Audioaufnahmegeräte für Außenaufnahmen in professionellen Umgebungen wie Filmproduktionen, Fernsehaufnahmen, Rundfunkproduktionen und Nachrichtenberichten. Field Recorder sind oft Mehrspur-Recorder und verfügen über mehrere Eingänge und Aufnahmespuren. Im Gegensatz zu unseren Handy Recordern haben Field Recorder kein eingebautes Mikrofon und sind hauptsächlich für den Einsatz mit externen Mikrofonen ausgelegt. Field Recorder sind Werkzeuge, die dem täglichen Dauerbetrieb in einem professionellen Umfeld standhalten müssen und daher äußerst robust gebaut und auf Betriebssicherheit ausgelegt sind. Sie ermöglichen das automatische Erstellen zusätzlicher Backup-Aufnahmen auf extra Spuren oder die gleichzeitige Aufnahme des Audiomaterials auf zwei Speicherkarten."
+      },
+      "podcastRecorders": {
+        "name": "Podcast Recorder",
+        "text": "Podcast-Recorder und Podcast-Studios sind Audiorecorder, die speziell für die Podcast-Aufnahme und -Produktion entwickelt wurden. Podcast-Recorder sind so einfach und intuitiv wie möglich zu bedienen. Sie bieten in der Regel mehrere Mikrofoneingänge und Aufnahmespuren, sodass Sie ein Interview mit zwei oder mehr Personen gleichzeitig aufnehmen können. Wenn die interviewte Person oder der Talkshow-Gast nicht im selben Raum ist, bieten Podcast-Recorder die Möglichkeit, ein Smartphone anzuschließen und so einen Gast per Telefon zuzuschalten. Der Anrufer wird dann normal aufgenommen, als ob er im Raum sitzen würde, erhält aber über die Telefonleitung als Monitorsignal ein Mix-Minus-Signal zurück."
+      },
+      "handyVideoRecorders": {
+        "name": "Handy Video Recorder",
+        "text": "Handy Video Recorder sind eine von uns geschaffene eigene Produktkategorie. Unsere Handy Video Recorder erweitern unsere beliebten Handy Recorder um Videoaufnahmefähigkeiten. Sie sind im Grunde Handy Recorder mit einer integrierten Videokamera. Sie sind genauso handlich, kompakt und einfach zu bedienen wie ein Handy Recorder und damit perfekt für Musiker, die auch für ihre Videoaufnahmen höchste Audioqualität erwarten. Im Gegensatz zu Smartphones oder Digitalkameras verfügen Handy Video Recorder über eingebaute oder sogar wechselbare Stereomikrofone in Studioqualität und können neben dem Videosignal Audio mit bis zu 24-Bit/96 kHz auf zwei oder vier Spuren aufnehmen."
+      },
+      "iosAndroidMicrophones": {
+        "name": "iOS / Android Mikrofone",
+        "text": "Unsere Stereomikrofone für iPhone, iPad, iPod und Android-Smartphones sind das perfekte Zubehör für jeden Content-Creator mit Smartphone. Ein Smartphone kann heutzutage unglaublich viel, aber gerade bei der Audioaufnahmequalität muss man naturgemäß mit Abstrichen rechnen. Das ist durchaus verständlich, da die Größe eines Smartphones keinen Platz für professionelle Mikrofonkapseln mit ausreichendem Membrandurchmesser lässt. Unsere iOS/Android-Mikrofone sind die perfekte Lösung für dieses Problem. Basierend auf der Mikrofontechnologie unserer beliebten Handy Recorder fügen die Mikrofone jedem Smartphone ein Stereomikrofon für professionelle Audioaufnahmen hinzu. So können Sie Ihr Smartphone in einen mobilen Audiorecorder verwandeln."
+      },
+      "audioInterfaces": {
+        "name": "Audiointerfaces",
+        "text": "Audiointerfaces sind die professionelle Version der Soundkarte oder des Soundchips, die in den meisten Computern bereits vorhanden sind. Meist als externes, kompaktes Desktop-Gerät oder 19\"-Rack-Einheit erhältlich, erweitern diese Interfaces die Audiofunktionalität eines Computers erheblich. Sie werden in der Regel per USB angeschlossen, obwohl es auch Geräte gibt, die andere Schnittstellen unterstützen. Darüber hinaus verfügen Audiointerfaces häufig auch über eingebaute Mikrofonvorverstärker wie in einem Mischpult, sodass Sie professionelle Studiomikrofone oder Instrumente direkt anschließen können. Die Ein- und Ausgänge sind in der Regel 3-polige XLR- oder 6,3-mm-Klinkenbuchsen. Audiointerfaces sind daher ideal, wenn Sie Audioaufnahmen mit Ihrem Computer machen oder Audioanwendungen wie Audiobearbeitungssoftware, DAW-Software oder DJ-Software auf Ihrem Computer nutzen möchten."
+      },
+      "digitalMixers": {
+        "name": "Digitale Mischpulte & Mehrspur-Recorder",
+        "text": "Digitale Mischpulte sind – wie der Name schon sagt – die digitale Version eines Audiomixers. Die Hauptaufgabe eines Mixers besteht darin, mehrere Audiosignale zu einem Signal zu mischen oder zu summieren. Beim Mischen werden die Lautstärkeverhältnisse der ursprünglichen Einzelsignale im Mixer, meist über Fader, aufeinander abgestimmt, und der Klang der Einzelsignale kann mit verschiedenen Werkzeugen wie Equalizern oder Regelverstärkern bearbeitet werden. Ein digitales Mischpult verfügt über einen oder mehrere interne Prozessoren, sodass viele Werkzeuge wie Equalizer, Kompressoren oder sogar Effekte wie Hall, Chorus und Delay darauf gerechnet werden können, ohne dass zusätzliche externe Geräte benötigt werden. Das Design eines digitalen Mischpults ähnelt dem eines Audiointerfaces. Studiomikrofone, Handmikrofone und Instrumente können alle direkt über professionelle XLR-Eingänge oder Klinkenbuchsen angeschlossen werden."
+      },
+      "multiEffects": {
+        "name": "Multi-Effekte",
+        "text": "Multi-Effekte sind Effektprozessoren, die im Wesentlichen mehrere Effektgeräte in einem einzigen Gerät kombinieren. Multi-Effektprozessoren sind digitale Geräte mit einem internen Prozessor und können so mehrere verschiedene Effekte gleichzeitig erzeugen. Die einzelnen Effekte werden auf dem DSP mit Effektalgorithmen gerendert, sodass Sie je nach Prozessorleistung auch mehrere Effektalgorithmen in beliebiger Reihenfolge miteinander kombinieren können. Der Vorteil eines digitalen Multi-Effektprozessors liegt darin, dass der interne DSP neben Effekten wie Hall, Chorus, Delay, Overdrive, Distortion, Pitch Shifter, Wah-Wah und vielen mehr auch andere Funktionen übernehmen kann. Einige Multi-Effektprozessoren bieten zum Beispiel Algorithmen, die einen Gitarren- und/oder Bassverstärker simulieren (Amp Modeling). Dazu sind in der Regel Lautsprecheremulationen (Cab Emulatoren) verfügbar, die Gitarristen und Bassisten alles bieten, was sie brauchen, um in einem einzigen Gerät ihren persönlichen Gitarren- oder Bassklang zu kreieren."
+      },
+      "vocalProcessors": {
+        "name": "Vokalprozessoren",
+        "text": "Vokalprozessoren sind Multi-Effektgeräte, die spezielle Effekte für Vocals bieten. Wie ein Multi-Effektprozessor für Gitarre verwendet ein Vokalprozessor oder Stimmenprozessor Effektalgorithmen auf einem DSP, sodass Effekte einfach umgeschaltet und sogar mehrere Effekte gleichzeitig genutzt werden können. In diesem Fall sind die verwendeten Effektalgorithmen jedoch besonders für Vocals geeignet und entsprechend optimiert. Vokalprozessoren werden meist eingesetzt, um die Stimme und den Gesang auf der Bühne, im Proberaum oder im Studio zu verbessern. Je nach verwendetem Effekt kann ein Vokalprozessor auch dazu genutzt werden, die Stimme stark zu verzerren und zu verändern, sodass Sie Vokaleffekte als kreatives Stilmittel für Ihre Gesangsdarbietung einsetzen können."
+      },
+      "microphones": {
+        "name": "Mikrofone",
+        "text": "Ein Mikrofon ist ein Schallwandler, der akustische Signale in ein elektrisches Signal umwandelt, das dann aufgezeichnet, verarbeitet oder verstärkt und wiedergegeben werden kann. Das Herzstück eines Mikrofons ist die Mikrofonkapsel. Die Mikrofonkapsel hat eine Membran, die durch den Schall bewegt wird und dann ein elektrisches Signal erzeugt. Dies geschieht je nach Bauart des Mikrofons unterschiedlich. Die bekanntesten Mikrofontypen sind das dynamische Mikrofon und das Kondensatormikrofon. Dynamische Mikrofone sind in der Regel robuster und daher für den Live-Einsatz auf der Bühne oder bei Veranstaltungen beliebt. Kondensatormikrofone sind in ihrer Konstruktion aufwendiger und benötigen für den Betrieb Phantomspeisung. Diese beträgt in der Regel 48 V und wird vom Mikrofonvorverstärker, Mischpult, Vokalprozessor oder Audiointerface geliefert."
+      }
+    }
+  },
   "cookie": {
     "message": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Wenn Sie weiter surfen, stimmen Sie unserer",
     "privacyPolicy": "Datenschutzerklärung",

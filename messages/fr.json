@@ -107,6 +107,86 @@
     "tryDifferent": "Essayez un autre terme de recherche.",
     "noImage": "Pas d'image"
   },
+  "home": {
+    "heroSlider": {
+      "showMore": "En savoir plus"
+    },
+    "creators": {
+      "title": "Nous sommes pour les créateurs",
+      "body": "Dès la phase de développement, nous étudions comment nos produits peuvent aider les créateurs à libérer leur créativité.",
+      "bodyBold": "Sélectionnez votre profession ici",
+      "bodyEnd": "ou faites défiler vers le bas pour filtrer par catégorie de produit.",
+      "podcasting": "Podcasting",
+      "filmmaking": "Réalisation",
+      "music": "Musique",
+      "soundDesign": "Design sonore"
+    },
+    "newsletter": {
+      "title": "Notre",
+      "titleBold": "Newsletter",
+      "body": "Restez informé des artistes partenaires, des nouvelles révolutionnaires et des derniers développements technologiques.",
+      "cta": "S'inscrire"
+    },
+    "warranty": {
+      "title": "Extension de",
+      "titleBold": "Garantie",
+      "body": "En enregistrant votre produit dans les trois mois suivant la date d'achat (telle qu'indiquée sur le justificatif d'achat), vous bénéficierez d'une extension de garantie d'1 an sur votre produit ZOOM. Un compte client gratuit dans notre boutique en ligne est requis pour l'enregistrement du produit.",
+      "cta": "Enregistrer des produits"
+    },
+    "webshopProse": {
+      "title": "NOUS SOMMES LA BOUTIQUE EN LIGNE OFFICIELLE",
+      "titleBold": "ZOOM EUROPE",
+      "p1": "Nous avons toujours tous les produits ZOOM en stock, et vous serez toujours le premier à recevoir les derniers produits Zoom et à bénéficier des offres spéciales de ZOOM lorsque vous achetez chez nous. Dans notre boutique en ligne, vous pouvez soit parcourir par catégorie de produit, soit vous laisser conseiller en sélectionnant simplement votre passion et nous vous montrerons les produits parfaits.",
+      "p2": "En tant que fabricant, nous connaissons nos produits sur le bout des doigts et pouvons donc recommander le produit parfait pour votre application ou vous suggérer des façons d'utiliser nos produits. Vous possédez déjà un appareil ZOOM et cherchez les bons accessoires d'origine ? Nous maintenons tous les accessoires en stock en permanence et vous montrerons les accessoires adaptés à votre produit Zoom dans notre boutique.",
+      "p3": "Vous avez une question technique sur votre produit Zoom acheté dans notre boutique en ligne ? Nos experts, responsables produit ZOOM et spécialistes produit ZOOM, sont disponibles pour vous conseiller en semaine de 10h à 18h."
+    },
+    "creatorProse": {
+      "heading": "ET NOUS SOMMES POUR LES CRÉATEURS.",
+      "headingBold": "NOUS SOMMES ZOOM.",
+      "intro1": "Bienvenue dans la boutique en ligne officielle ZOOM-Europe ! Nous offrons l'équipement parfait pour les musiciens, les podcasteurs, les cinéastes, les designers sonores et les streamers – nous voulons vous aider à donner vie à vos idées créatives avec nos produits.",
+      "intro2": "Zoom produit une large gamme de produits pour les professionnels créatifs de tous types, notamment des enregistreurs mobiles pour les musiciens, les journalistes et les cinéastes, des enregistreurs multipistes professionnels pour les designers sonores et les cinéastes, des processeurs multi-effets pour les guitaristes et les bassistes, des tables de mixage numériques pour les groupes, les artistes solo, les studios d'enregistrement et les podcasteurs, des interfaces audio pour les musiciens, les streamers en direct et les créateurs de contenu, des studios compacts tout-en-un pour les musiciens, des caméras vidéo pour les créateurs de contenu de tous types, des microphones pour les utilisateurs de smartphones Android et iOS, des processeurs vocaux pour les chanteurs, des microphones analogiques et USB pour diverses applications, ainsi que des enregistreurs de podcasts et des studios de podcasts conçus spécialement pour les podcasteurs.",
+      "handyRecorders": {
+        "name": "Enregistreurs portables",
+        "text": "Les produits ZOOM les plus connus sont probablement nos enregistreurs portables. Comme leur nom l'indique, ces enregistreurs sont super pratiques et maniables. Les enregistreurs portables vous permettent de créer des enregistrements audio numériques et peuvent être utilisés pour diverses applications. Par exemple, vous pouvez utiliser un enregistreur portable comme vous auriez utilisé un magnétophone à cassettes. Les enregistreurs portables ont également des microphones intégrés, ce qui leur permet d'enregistrer en déplacement sans équipement supplémentaire. Si vous êtes musicien, vous pouvez les utiliser pour vous enregistrer vous-même ou votre groupe. Ou vous pouvez sortir dans la nature et simplement enregistrer des sons."
+      },
+      "fieldRecorders": {
+        "name": "Enregistreurs de terrain",
+        "text": "Les enregistreurs de terrain sont des dispositifs d'enregistrement audio professionnels pour les enregistrements en extérieur dans des contextes professionnels tels que les productions cinématographiques, les enregistrements télévisés, les productions de radiodiffusion et les reportages. Les enregistreurs de terrain sont souvent des enregistreurs multipistes et disposent de plusieurs entrées et pistes d'enregistrement. Contrairement à nos enregistreurs portables, les enregistreurs de terrain n'ont pas de microphone intégré et sont principalement conçus pour fonctionner avec des microphones externes."
+      },
+      "podcastRecorders": {
+        "name": "Enregistreurs de podcasts",
+        "text": "Les enregistreurs de podcasts et les studios de podcasts sont des enregistreurs audio conçus spécialement pour l'enregistrement et la production de podcasts. Les enregistreurs de podcasts sont conçus pour être aussi simples et intuitifs que possible. Ils offrent généralement plusieurs entrées microphone et pistes d'enregistrement, ce qui vous permet d'enregistrer une interview avec deux personnes ou plus en même temps."
+      },
+      "handyVideoRecorders": {
+        "name": "Enregistreurs vidéo portables",
+        "text": "Les enregistreurs vidéo portables sont une catégorie de produits distincte créée par nous. Nos enregistreurs vidéo portables ajoutent des capacités d'enregistrement vidéo à nos enregistreurs portables populaires. Ils sont donc essentiellement des enregistreurs portables avec une caméra vidéo intégrée. Ils sont tout aussi maniables, compacts et faciles à utiliser qu'un enregistreur portable, ce qui les rend parfaits pour les musiciens qui attendent également la meilleure qualité audio pour leurs enregistrements vidéo."
+      },
+      "iosAndroidMicrophones": {
+        "name": "Microphones iOS / Android",
+        "text": "Nos microphones stéréo pour iPhone, iPad, iPod et smartphones Android sont l'accessoire parfait pour tout créateur de contenu possédant un smartphone. Un smartphone peut faire énormément de nos jours, mais en ce qui concerne la qualité d'enregistrement audio en particulier, il est naturel de s'attendre à une réduction de qualité. Nos microphones iOS/Android sont la solution parfaite à ce problème, ajoutant un microphone stéréo à n'importe quel smartphone pour un enregistrement audio de qualité professionnelle."
+      },
+      "audioInterfaces": {
+        "name": "Interfaces audio",
+        "text": "Les interfaces audio sont la version professionnelle de la carte son ou de la puce son déjà présente dans la plupart des ordinateurs. Généralement disponibles sous forme d'unité de bureau externe et compacte ou d'unité de rack 19\", ces interfaces améliorent et étendent considérablement les fonctionnalités audio d'un ordinateur. Elles sont généralement connectées via USB. Les interfaces audio sont idéales si vous souhaitez effectuer des enregistrements audio avec votre ordinateur ou utiliser des applications audio telles que des logiciels d'édition audio, des logiciels DAW ou des logiciels DJ."
+      },
+      "digitalMixers": {
+        "name": "Tables de mixage numériques & enregistreurs multipistes",
+        "text": "Les tables de mixage numériques sont – comme leur nom l'indique – la version numérique d'une table de mixage audio. La tâche principale d'une table de mixage est de mélanger – ou de sommer – plusieurs signaux audio en un seul signal. Une table de mixage numérique dispose d'un ou plusieurs processeurs internes, ce qui signifie que de nombreux outils tels que les égaliseurs, les compresseurs ou même les effets comme la réverbération, le chorus et le delay peuvent y être rendus, sans nécessiter d'appareils externes supplémentaires."
+      },
+      "multiEffects": {
+        "name": "Multi-effets",
+        "text": "Les multi-effets sont des processeurs d'effets qui combinent essentiellement plusieurs unités d'effets dans un seul appareil. Les processeurs multi-effets sont des appareils numériques avec un processeur interne et peuvent ainsi produire plusieurs effets différents simultanément. L'avantage d'un processeur multi-effets numérique est que le DSP interne peut également gérer des fonctionnalités autres que les effets tels que la réverbération, le chorus, le delay, l'overdrive, la distorsion, le pitch shifter, le wah-wah, et bien d'autres."
+      },
+      "vocalProcessors": {
+        "name": "Processeurs vocaux",
+        "text": "Les processeurs vocaux sont des unités multi-effets qui offrent des effets spéciaux pour les voix. Comme un processeur multi-effets pour guitare, un processeur vocal utilise des algorithmes d'effets sur un DSP afin que les effets puissent être changés facilement, et plusieurs effets peuvent même être utilisés simultanément. Dans ce cas, les algorithmes d'effets utilisés sont particulièrement adaptés aux voix et ont été optimisés en conséquence."
+      },
+      "microphones": {
+        "name": "Microphones",
+        "text": "Un microphone est un transducteur sonore qui convertit les signaux acoustiques en un signal électrique afin qu'il puisse ensuite être enregistré, traité ou amplifié et lu. Au cœur d'un microphone se trouve la capsule du microphone. Les types de microphones les plus connus sont le microphone dynamique et le microphone à condensateur. Les microphones dynamiques sont généralement plus robustes et sont donc populaires pour une utilisation en direct sur scène ou lors d'événements."
+      }
+    }
+  },
   "cookie": {
     "message": "Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre",
     "privacyPolicy": "Politique de confidentialité",

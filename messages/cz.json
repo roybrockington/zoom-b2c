@@ -107,6 +107,86 @@
     "tryDifferent": "Zkuste jiný hledaný výraz.",
     "noImage": "Žádný obrázek"
   },
+  "home": {
+    "heroSlider": {
+      "showMore": "Zobrazit více"
+    },
+    "creators": {
+      "title": "Jsme pro tvůrce",
+      "body": "Již ve fázi vývoje zkoumáme, jak mohou naše produkty pomoci tvůrcům uvolnit jejich kreativitu.",
+      "bodyBold": "Vyberte zde svou profesi",
+      "bodyEnd": "nebo přejděte dolů a filtrujte podle kategorie produktu.",
+      "podcasting": "Podcasting",
+      "filmmaking": "Filmová tvorba",
+      "music": "Hudba",
+      "soundDesign": "Zvukový design"
+    },
+    "newsletter": {
+      "title": "Náš",
+      "titleBold": "Newsletter",
+      "body": "Zůstaňte informováni o partnerských umělcích, průlomových novinkách a nejnovějším technologickém vývoji.",
+      "cta": "Přihlásit se"
+    },
+    "warranty": {
+      "title": "Prodloužení",
+      "titleBold": "záruky",
+      "body": "Registrací svého produktu do tří měsíců od data nákupu (jak je uvedeno na dokladu o koupi) získáte 1roční prodloužení záruky na váš produkt ZOOM. K registraci produktu je nutný bezplatný zákaznický účet v našem webovém obchodě.",
+      "cta": "Registrovat produkty"
+    },
+    "webshopProse": {
+      "title": "JSME OFICIÁLNÍ",
+      "titleBold": "ZOOM EUROPE WEBSHOP",
+      "p1": "Vždy máme všechny produkty ZOOM skladem a u nás budete vždy první, kdo obdrží nejnovější produkty Zoom a využije speciálních nabídek ZOOM. V našem online obchodě můžete procházet podle kategorie produktu nebo se nechat poradit výběrem vaší vášně a my vám ukážeme perfektní produkty.",
+      "p2": "Jako výrobce své produkty dokonale známe a můžeme proto doporučit perfektní produkt pro vaši aplikaci nebo vám navrhnout možné způsoby použití našich produktů. Vlastníte již zařízení ZOOM a hledáte správné originální příslušenství? Veškeré příslušenství máme trvale skladem a v našem obchodě vám ukážeme příslušenství vhodné pro váš produkt Zoom.",
+      "p3": "Máte technický dotaz ohledně produktu Zoom zakoupeného v našem online obchodě? Naši odborníci, produktoví manažeři a specialisté ZOOM, jsou vám k dispozici k poradenství ve všední dny od 10 do 18 hodin."
+    },
+    "creatorProse": {
+      "heading": "A JSME PRO TVŮRCE.",
+      "headingBold": "JSME ZOOM.",
+      "intro1": "Vítejte v oficiálním online obchodě ZOOM-Europe! Nabízíme perfektní vybavení pro hudebníky, podcastery, filmaře, zvukové designéry a streamery – chceme vám pomoci oživit vaše kreativní nápady s našimi produkty.",
+      "intro2": "Zoom vyrábí širokou škálu produktů pro kreativní profesionály všeho druhu, včetně mobilních rekordérů pro hudebníky, novináře a filmaře, profesionálních vícestopých rekordérů pro zvukové designéry a filmaře, multi-efektových procesorů pro kytaristy a basisty, digitálních mixpultů pro kapely, sólové umělce, nahrávací studia a podcastery, audio rozhraní pro hudebníky, živé streamery a tvůrce obsahu.",
+      "handyRecorders": {
+        "name": "Handy Rekordéry",
+        "text": "Nejznámějšími produkty ZOOM jsou pravděpodobně naše Handy Rekordéry. Jak název napovídá, tyto rekordéry jsou velmi praktické a pohodlné. Handy Rekordéry umožňují vytvářet digitální zvukové nahrávky a lze je použít pro různé aplikace. Mají také vestavěné mikrofony, takže mohou nahrávat za pochodu bez dalšího vybavení."
+      },
+      "fieldRecorders": {
+        "name": "Field Rekordéry",
+        "text": "Field Rekordéry jsou profesionální zvuková nahrávací zařízení pro venkovní nahrávání v profesionálních prostředích, jako jsou filmové produkce, televizní nahrávky, rozhlasové produkce a zpravodajství. Na rozdíl od našich Handy Rekordérů nemají Field Rekordéry vestavěný mikrofon a jsou určeny především pro práci s externími mikrofony."
+      },
+      "podcastRecorders": {
+        "name": "Podcast Rekordéry",
+        "text": "Podcast rekordéry a podcast studia jsou audio rekordéry navržené speciálně pro nahrávání a produkci podcastů. Jsou navrženy tak, aby byly co nejjednodušší a nejintuitivnější. Obvykle nabízejí více vstupů pro mikrofony a nahrávací stopy, takže můžete nahrávat rozhovor se dvěma nebo více osobami současně."
+      },
+      "handyVideoRecorders": {
+        "name": "Handy Video Rekordéry",
+        "text": "Handy Video Rekordéry jsou samostatná kategorie produktů, kterou jsme vytvořili. Naše Handy Video Rekordéry přidávají možnosti nahrávání videa k našim oblíbeným Handy Rekordérům. Jsou tedy v podstatě Handy Rekordéry s integrovanou videokamerou, stejně pohodlné, kompaktní a snadno použitelné."
+      },
+      "iosAndroidMicrophones": {
+        "name": "iOS / Android Mikrofony",
+        "text": "Naše stereo mikrofony pro iPhone, iPad, iPod a Android smartphony jsou perfektním příslušenstvím pro každého tvůrce obsahu vlastnícího smartphone. Naše iOS/Android mikrofony jsou perfektním řešením – přidávají stereo mikrofon k libovolnému smartphonu pro profesionální kvalitu zvukového nahrávání."
+      },
+      "audioInterfaces": {
+        "name": "Audio Rozhraní",
+        "text": "Audio rozhraní jsou profesionální verzí zvukové karty nebo zvukového čipu, které jsou již součástí většiny počítačů. Tato rozhraní výrazně zlepšují a rozšiřují audio funkčnost počítače. Jsou ideální, pokud chcete nahrávat zvuk pomocí počítače nebo používat audio aplikace, jako je software pro úpravu zvuku, DAW software nebo DJ software."
+      },
+      "digitalMixers": {
+        "name": "Digitální Mixpulty & Vícestopé Rekordéry",
+        "text": "Digitální mixpulty jsou – jak název napovídá – digitální verzí audio mixéru. Hlavním úkolem mixéru je mixovat – nebo sčítat – několik audio signálů do jednoho signálu. Digitální mixpult má jeden nebo více interních procesorů, takže na něm lze renderovat mnoho nástrojů, jako jsou ekvalizéry, kompresory nebo dokonce efekty jako reverb, chorus a delay."
+      },
+      "multiEffects": {
+        "name": "Multi Efekty",
+        "text": "Multi-efekty jsou efektové procesory, které v podstatě kombinují několik efektových jednotek do jediného zařízení. Multi-efektové procesory jsou digitální zařízení s interním procesorem a mohou tak produkovat více různých efektů současně. Výhodou digitálního multi-efektového procesoru je, že interní DSP zvládá funkce jako reverb, chorus, delay, overdrive, distortion, pitch shifter, wah-wah a mnoho dalšího."
+      },
+      "vocalProcessors": {
+        "name": "Vokální Procesory",
+        "text": "Vokální procesory jsou multi-efektové jednotky, které nabízejí speciální efekty pro zpěv. Stejně jako multi-efektový procesor pro kytaru používá vokální procesor efektové algoritmy na DSP, takže efekty lze snadno přepínat a lze dokonce používat více efektů současně. Použité efektové algoritmy jsou zvláště vhodné pro zpěv a jsou odpovídajícím způsobem optimalizovány."
+      },
+      "microphones": {
+        "name": "Mikrofony",
+        "text": "Mikrofon je zvukový měnič, který převádí akustické signály na elektrický signál, aby jej bylo možné nahrávat, zpracovávat nebo zesilovat a přehrávat. Nejznámějšími typy mikrofonů jsou dynamický mikrofon a kondenzátorový mikrofon. Dynamické mikrofony jsou obvykle robustnější a jsou proto oblíbené pro živé použití na jevišti nebo na akcích."
+      }
+    }
+  },
   "cookie": {
     "message": "Používáme soubory cookie ke zlepšení vašeho zážitku na našem webu. Pokračováním v procházení souhlasíte s naší",
     "privacyPolicy": "Zásadami ochrany osobních údajů",

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ProductPrice from "./ProductPrice";
+import { getTranslations } from "next-intl/server";
 
 const IMG_BASE = "https://media.sound-service.eu/Artikelbilder/Shopsystem/278x148/";
 
@@ -29,14 +30,14 @@ async function getWantedProducts(): Promise<Product[]> {
 }
 
 export default async function MostWanted() {
-  const products = await getWantedProducts();
+  const [products, t] = await Promise.all([getWantedProducts(), getTranslations("mostWanted")]);
 
   if (products.length === 0) return null;
 
   return (
     <section id="mostWanted" className="py-10">
       <h2 className="mb-6 text-xl font-bold text-zinc-900 dark:text-white">
-        Most Wanted
+        {t("title")}
       </h2>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
         {products.map((product) => {

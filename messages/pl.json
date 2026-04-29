@@ -107,6 +107,86 @@
     "tryDifferent": "Spróbuj innego wyszukiwania.",
     "noImage": "Brak zdjęcia"
   },
+  "home": {
+    "heroSlider": {
+      "showMore": "Pokaż więcej"
+    },
+    "creators": {
+      "title": "Jesteśmy dla twórców",
+      "body": "Już na etapie projektowania zastanawiamy się, jak nasze produkty mogą pomóc twórcom uwolnić ich kreatywność.",
+      "bodyBold": "Wybierz tutaj swój zawód",
+      "bodyEnd": "lub przewiń w dół, aby filtrować według kategorii produktów.",
+      "podcasting": "Podcasting",
+      "filmmaking": "Filmowanie",
+      "music": "Muzyka",
+      "soundDesign": "Projektowanie dźwięku"
+    },
+    "newsletter": {
+      "title": "Nasz",
+      "titleBold": "Newsletter",
+      "body": "Bądź na bieżąco z partnerskimi artystami, przełomowymi wiadomościami i najnowszymi osiągnięciami technologicznymi.",
+      "cta": "Zapisz się"
+    },
+    "warranty": {
+      "title": "Przedłużenie",
+      "titleBold": "gwarancji",
+      "body": "Rejestrując swój produkt w ciągu trzech miesięcy od daty zakupu (zgodnie z dowodem zakupu), otrzymasz roczne przedłużenie gwarancji na produkt ZOOM. Do rejestracji produktu wymagane jest bezpłatne konto klienta w naszym sklepie internetowym.",
+      "cta": "Zarejestruj produkty"
+    },
+    "webshopProse": {
+      "title": "JESTEŚMY OFICJALNYM",
+      "titleBold": "SKLEPEM ZOOM EUROPE",
+      "p1": "Zawsze mamy wszystkie produkty ZOOM w magazynie i zawsze będziesz pierwszym, który otrzyma najnowsze produkty Zoom i skorzysta ze specjalnych ofert ZOOM, robiąc zakupy u nas. W naszym sklepie internetowym możesz przeglądać według kategorii produktów lub pozwolić nam doradzić, po prostu wybierając swoją pasję, a my pokażemy Ci idealne produkty.",
+      "p2": "Jako producent znamy nasze produkty od podszewki i możemy zatem polecić idealny produkt dla Twojej aplikacji lub zasugerować możliwe sposoby korzystania z naszych produktów. Czy masz już urządzenie ZOOM i szukasz właściwych oryginalnych akcesoriów? Wszystkie akcesoria mamy stale w magazynie i pokażemy Ci akcesoria odpowiednie dla Twojego produktu Zoom w naszym sklepie.",
+      "p3": "Masz pytanie techniczne dotyczące produktu Zoom zakupionego w naszym sklepie internetowym? Nasi eksperci, menedżerowie produktów ZOOM i specjaliści produktów ZOOM, są dostępni, aby doradzić Ci w dni robocze od 10:00 do 18:00."
+    },
+    "creatorProse": {
+      "heading": "I JESTEŚMY DLA TWÓRCÓW.",
+      "headingBold": "JESTEŚMY ZOOM.",
+      "intro1": "Witamy w oficjalnym sklepie internetowym ZOOM-Europe! Oferujemy doskonały sprzęt dla muzyków, podcasterów, filmowców, projektantów dźwięku i streamerów – chcemy pomóc Ci wcielić Twoje kreatywne pomysły w życie dzięki naszym produktom.",
+      "intro2": "Zoom produkuje szeroką gamę produktów dla kreatywnych profesjonalistów wszelkiego rodzaju, w tym mobilne rejestratory dla muzyków, dziennikarzy i filmowców, profesjonalne wielościeżkowe rejestratory dla projektantów dźwięku i filmowców, procesory multi-efektów dla gitarzystów i basistów, cyfrowe mikserów dla zespołów, solistów, studiów nagraniowych i podcasterów, interfejsy audio dla muzyków, streamerów na żywo i twórców treści.",
+      "handyRecorders": {
+        "name": "Rejestratory kieszonkowe",
+        "text": "Najbardziej znane produkty ZOOM to prawdopodobnie nasze rejestratory kieszonkowe. Jak sama nazwa wskazuje, te rejestratory są niezwykle praktyczne i poręczne. Rejestratory kieszonkowe umożliwiają tworzenie cyfrowych nagrań audio i mogą być używane do różnych zastosowań. Mają również wbudowane mikrofony, więc mogą nagrywać w podróży bez dodatkowego sprzętu."
+      },
+      "fieldRecorders": {
+        "name": "Rejestratory terenowe",
+        "text": "Rejestratory terenowe to profesjonalne urządzenia do nagrywania dźwięku na zewnątrz w profesjonalnych środowiskach, takich jak produkcje filmowe, nagrania telewizyjne, produkcje radiowe i reportaże. W odróżnieniu od naszych rejestratorów kieszonkowych, rejestratory terenowe nie mają wbudowanego mikrofonu i są przeznaczone głównie do pracy z zewnętrznymi mikrofonami."
+      },
+      "podcastRecorders": {
+        "name": "Rejestratory podcastów",
+        "text": "Rejestratory podcastów i studia podcastów to rejestratory audio zaprojektowane specjalnie do nagrywania i produkcji podcastów. Są zaprojektowane tak, aby były jak najprostsze i intuicyjne w użyciu. Zazwyczaj oferują wiele wejść mikrofonowych i ścieżek nagrywania, dzięki czemu możesz nagrywać wywiad z dwiema lub więcej osobami jednocześnie."
+      },
+      "handyVideoRecorders": {
+        "name": "Kieszonkowe rejestratory wideo",
+        "text": "Kieszonkowe rejestratory wideo to oddzielna kategoria produktów stworzona przez nas. Nasze kieszonkowe rejestratory wideo dodają możliwości nagrywania wideo do naszych popularnych rejestratorów kieszonkowych. Są więc w zasadzie rejestratorami kieszonkowymi ze zintegrowaną kamerą wideo, równie poręcznymi i łatwymi w użyciu."
+      },
+      "iosAndroidMicrophones": {
+        "name": "Mikrofony iOS / Android",
+        "text": "Nasze mikrofony stereo do iPhone, iPad, iPod i smartfonów Android są idealnym akcesorium dla każdego twórcy treści posiadającego smartfon. Nasze mikrofony iOS/Android stanowią doskonałe rozwiązanie – dodają mikrofon stereo do dowolnego smartfona, zapewniając profesjonalną jakość nagrywania dźwięku."
+      },
+      "audioInterfaces": {
+        "name": "Interfejsy audio",
+        "text": "Interfejsy audio to profesjonalna wersja karty dźwiękowej lub chipa dźwiękowego, które są już obecne w większości komputerów. Interfejsy te znacznie ulepszają i rozszerzają funkcjonalność audio komputera. Są idealne, jeśli chcesz nagrywać dźwięk za pomocą komputera lub korzystać z aplikacji audio, takich jak oprogramowanie do edycji dźwięku, oprogramowanie DAW lub oprogramowanie DJ."
+      },
+      "digitalMixers": {
+        "name": "Cyfrowe miksery & wielościeżkowe rejestratory",
+        "text": "Cyfrowe miksery to – jak sama nazwa wskazuje – cyfrowa wersja miksera audio. Głównym zadaniem miksera jest miksowanie – lub sumowanie – kilku sygnałów audio w jeden sygnał. Cyfrowy mikser ma jeden lub więcej wewnętrznych procesorów, dzięki czemu wiele narzędzi, takich jak korektory, kompresory lub nawet efekty, jak pogłos, chorus i delay, można na nim renderować bez potrzeby dodatkowych zewnętrznych urządzeń."
+      },
+      "multiEffects": {
+        "name": "Multi-efekty",
+        "text": "Multi-efekty to procesory efektów, które łączą kilka jednostek efektów w jednym urządzeniu. Procesory multi-efektów to urządzenia cyfrowe z wewnętrznym procesorem i mogą jednocześnie produkować wiele różnych efektów. Zaletą cyfrowego procesora multi-efektów jest to, że wewnętrzny DSP może obsługiwać funkcje takie jak pogłos, chorus, delay, overdrive, distortion, pitch shifter, wah-wah i wiele innych."
+      },
+      "vocalProcessors": {
+        "name": "Procesory wokalne",
+        "text": "Procesory wokalne to jednostki multi-efektów oferujące specjalne efekty dla wokalu. Podobnie jak procesor multi-efektów do gitary, procesor wokalny używa algorytmów efektów na DSP, dzięki czemu efekty można łatwo przełączać, a nawet używać wielu efektów jednocześnie. Używane algorytmy efektów są szczególnie odpowiednie dla wokalu i zostały odpowiednio zoptymalizowane."
+      },
+      "microphones": {
+        "name": "Mikrofony",
+        "text": "Mikrofon to przetwornik dźwięku, który przekształca sygnały akustyczne w sygnał elektryczny, aby następnie można go było nagrać, przetworzyć lub wzmocnić i odtworzyć. Najbardziej znane typy mikrofonów to mikrofon dynamiczny i mikrofon pojemnościowy. Mikrofony dynamiczne są zazwyczaj bardziej wytrzymałe i dlatego są popularne do użytku na żywo na scenie lub na imprezach."
+      }
+    }
+  },
   "cookie": {
     "message": "Używamy plików cookie, aby poprawić Twoje doświadczenie na naszej stronie. Kontynuując przeglądanie, zgadzasz się z naszą",
     "privacyPolicy": "Polityką prywatności",

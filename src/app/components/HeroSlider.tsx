@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
+import { useTranslations } from "next-intl";
 
 type Slide = {
   heading: string;
@@ -12,18 +13,16 @@ type Slide = {
   imageUrl: string;
 };
 
-const slides: Slide[] = [
+const slideData = [
   {
     heading: "ESSENTIAL SERIES",
     subheading: "32-Bit-Float",
-    linkText: "Show More",
     linkUrl: "/categories/handy-recorders",
     imageUrl: "https://media.sound-service.eu/zoom/home-slides/HARessential.webp",
   },
   {
     heading: "L6 LIVETRAK",
     subheading: "10-TRACK DIGITAL MIXER/RECORDER",
-    linkText: "Show More",
     linkUrl: "/products/livetrak-l6-eu-10-channel-mixer-recorder-eu",
     imageUrl: "https://media.sound-service.eu/zoom/home-slides/L6_Livetrak_Banner.webp",
   }
@@ -34,6 +33,8 @@ const AUTOPLAY_INTERVAL = 5000;
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
+  const t = useTranslations("home.heroSlider");
+  const slides = slideData.map(s => ({ ...s, linkText: t("showMore") }));
 
   const prev = useCallback(() => {
     setCurrent((c) => (c - 1 + slides.length) % slides.length);

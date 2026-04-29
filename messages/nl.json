@@ -107,6 +107,86 @@
     "tryDifferent": "Probeer een andere zoekterm.",
     "noImage": "Geen afbeelding"
   },
+  "home": {
+    "heroSlider": {
+      "showMore": "Meer tonen"
+    },
+    "creators": {
+      "title": "Wij zijn voor creators",
+      "body": "Al in de ontwikkelingsfase kijken we hoe onze producten creators kunnen helpen hun creativiteit te ontketenen.",
+      "bodyBold": "Selecteer hier uw beroep",
+      "bodyEnd": "of scroll naar beneden om op productcategorie te filteren.",
+      "podcasting": "Podcasting",
+      "filmmaking": "Filmproductie",
+      "music": "Muziek",
+      "soundDesign": "Geluidsonwerp"
+    },
+    "newsletter": {
+      "title": "Onze",
+      "titleBold": "Nieuwsbrief",
+      "body": "Blijf op de hoogte van partnerartisten, baanbrekend nieuws en de nieuwste technologische ontwikkelingen.",
+      "cta": "Aanmelden"
+    },
+    "warranty": {
+      "title": "Garantie",
+      "titleBold": "Verlenging",
+      "body": "Door uw product binnen drie maanden na de aankoopdatum (zoals vermeld op het aankoopbewijs) te registreren, ontvangt u een garantieverlenging van 1 jaar op uw ZOOM-product. Voor productregistratie is een gratis klantaccount in onze webshop vereist.",
+      "cta": "Producten registreren"
+    },
+    "webshopProse": {
+      "title": "WIJ ZIJN DE OFFICIËLE",
+      "titleBold": "ZOOM EUROPE WEBSHOP",
+      "p1": "Wij hebben altijd alle ZOOM-producten op voorraad en u ontvangt bij ons altijd als eerste de nieuwste Zoom-producten en profiteert van speciale aanbiedingen van ZOOM. In onze online winkel kunt u bladeren op productcategorie of u laten adviseren door eenvoudig uw passie te selecteren en wij tonen u de perfecte producten.",
+      "p2": "Als fabrikant kennen wij onze producten door en door en kunnen wij daarom het perfecte product voor uw toepassing aanbevelen of u suggesties geven voor mogelijke gebruiksmogelijkheden van onze producten. Heeft u al een ZOOM-apparaat en bent u op zoek naar de juiste originele accessoires? Wij houden alle accessoireartikelen permanent op voorraad en tonen u in onze winkel de bij uw Zoom-product passende accessoires.",
+      "p3": "Heeft u een technische vraag over uw in onze online winkel gekochte Zoom-product? Onze experts, ZOOM-productmanagers en ZOOM-productspecialisten, staan u op weekdagen van 10.00 tot 18.00 uur ter beschikking voor advies."
+    },
+    "creatorProse": {
+      "heading": "EN WIJ ZIJN VOOR CREATORS.",
+      "headingBold": "WIJ ZIJN ZOOM.",
+      "intro1": "Welkom in de officiële ZOOM-Europe online winkel! Wij bieden de perfecte uitrusting voor muzikanten, podcasters, filmmakers, geluidsontwerpers en streamers – wij willen u helpen uw creatieve ideeën tot leven te brengen met onze producten.",
+      "intro2": "Zoom produceert een breed scala aan producten voor creatieve professionals van allerlei aard, waaronder mobiele recorders voor muzikanten, journalisten en filmmakers, professionele meersporenrecorders voor geluidsontwerpers en filmmakers, multi-effectprocessors voor gitaristen en bassisten, digitale mixers voor bands, soloartiesten, opnamestudio's en podcasters, audio-interfaces voor muzikanten, live streamers en contentmakers.",
+      "handyRecorders": {
+        "name": "Handy Recorders",
+        "text": "De bekendste ZOOM-producten zijn waarschijnlijk onze Handy Recorders. Zoals de naam al zegt, zijn deze recorders super praktisch en handig. Handy Recorders laten u digitale audio-opnames maken en kunnen voor diverse toepassingen worden gebruikt. U kunt een Handy Recorder bijvoorbeeld gebruiken zoals u vroeger een cassetterecorder zou hebben gebruikt. Handy Recorders hebben ook ingebouwde microfoons, zodat ze onderweg kunnen opnemen zonder extra apparatuur."
+      },
+      "fieldRecorders": {
+        "name": "Field Recorders",
+        "text": "Field Recorders zijn professionele audio-opnameapparaten voor buitenopnames in professionele omgevingen zoals filmproducties, televisie-opnames, omroepproducties en nieuwsberichten. Field recorders zijn vaak meersporenrecorders en hebben meerdere ingangen en opnamesporen. In tegenstelling tot onze Handy Recorders hebben Field Recorders geen ingebouwde microfoon en zijn ze voornamelijk ontworpen voor gebruik met externe microfoons."
+      },
+      "podcastRecorders": {
+        "name": "Podcast Recorders",
+        "text": "Podcast recorders en podcast studio's zijn audio recorders die speciaal zijn ontworpen voor podcast opname en productie. Podcast recorders zijn ontworpen om zo eenvoudig en intuïtief mogelijk te zijn. Ze bieden doorgaans meerdere microfooningangen en opnamesporen, zodat u een interview met twee of meer personen tegelijk kunt opnemen."
+      },
+      "handyVideoRecorders": {
+        "name": "Handy Video Recorders",
+        "text": "Handy Video Recorders zijn een aparte productcategorie die door ons is gecreëerd. Onze Handy Video Recorders voegen videomogelijkheden toe aan onze populaire Handy Recorders. Ze zijn dus in wezen Handy Recorders met een geïntegreerde videocamera. Ze zijn even handig, compact en eenvoudig te gebruiken als een Handy Recorder, waardoor ze perfect zijn voor muzikanten die ook de hoogste audiokwaliteit verwachten voor hun video-opnames."
+      },
+      "iosAndroidMicrophones": {
+        "name": "iOS / Android Microfoons",
+        "text": "Onze stereomicrofoons voor iPhone, iPad, iPod en Android-smartphones zijn het perfecte accessoire voor elke contentmaker met een smartphone. Onze iOS/Android-microfoons zijn de perfecte oplossing: gebaseerd op de microfontechnologie van onze populaire Handy Recorders voegen ze een stereomicrofoon toe aan elke smartphone voor professionele audiokwaliteit."
+      },
+      "audioInterfaces": {
+        "name": "Audio-interfaces",
+        "text": "Audio-interfaces zijn de professionele versie van de geluidskaart of geluidschip die al in de meeste computers aanwezig zijn. Meestal beschikbaar als externe, compacte desktopunit of 19\"-rackunit, verbeteren en uitbreiden deze interfaces de audiofunctionaliteit van een computer aanzienlijk. Ze zijn ideaal als u audio-opnames wilt maken met uw computer of audioapplicaties wilt gebruiken."
+      },
+      "digitalMixers": {
+        "name": "Digitale Mixers & Meersporenrecorders",
+        "text": "Digitale mixers zijn – zoals de naam al zegt – de digitale versie van een audiomixer. De hoofdtaak van een mixer is het mixen – of sommeren – van meerdere audiosignalen tot één signaal. Een digitale mixer heeft één of meer interne processors, waardoor veel hulpmiddelen zoals equalizers, compressors of zelfs effecten zoals reverb, chorus en delay erop kunnen worden berekend, zodat u geen extra externe apparaten nodig heeft."
+      },
+      "multiEffects": {
+        "name": "Multi-effecten",
+        "text": "Multi-effecten zijn effectprocessors die in wezen meerdere effectunits in één apparaat combineren. Multi-effectprocessors zijn digitale apparaten met een interne processor en kunnen zo meerdere verschillende effecten tegelijk produceren. Het voordeel van een digitale multi-effectprocessor is dat de interne DSP ook functies kan verwerken naast effecten zoals reverb, chorus, delay, overdrive, distortion, pitch shifter, wah-wah en nog veel meer."
+      },
+      "vocalProcessors": {
+        "name": "Vocaalprocessors",
+        "text": "Vocaalprocessors zijn multi-effectunits die speciale effecten voor zang bieden. Net als een multi-effectprocessor voor gitaar, gebruikt een vocaalprocessor effectalgoritmen op een DSP zodat effecten gemakkelijk kunnen worden omgeschakeld en zelfs meerdere effecten tegelijk kunnen worden gebruikt. De gebruikte effectalgoritmen zijn echter bijzonder geschikt voor zang en zijn dienovereenkomstig geoptimaliseerd."
+      },
+      "microphones": {
+        "name": "Microfoons",
+        "text": "Een microfoon is een geluidsomzetter die akoestische signalen omzet in een elektrisch signaal zodat het vervolgens kan worden opgenomen, verwerkt of versterkt en afgespeeld. De bekendste typen microfoons zijn de dynamische microfoon en de condensatormicrofoon. Dynamische microfoons zijn doorgaans robuuster en zijn daarom populair voor live gebruik op het podium of bij evenementen."
+      }
+    }
+  },
   "cookie": {
     "message": "Wij gebruiken cookies om uw ervaring op onze site te verbeteren. Door verder te bladeren gaat u akkoord met ons",
     "privacyPolicy": "Privacybeleid",
