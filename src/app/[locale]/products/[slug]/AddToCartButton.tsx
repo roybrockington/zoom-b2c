@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useCart } from "../../../components/CartContext";
+import { useTranslations } from "next-intl";
 
 type Props = {
   id: number;
@@ -16,6 +17,7 @@ type Props = {
 export default function AddToCartButton({ id, slug, name, price, price_uk, img, inStock }: Props) {
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);
+  const t = useTranslations("product");
 
   function handleAdd() {
     addItem({ id, slug, name, price, price_uk, img });
@@ -28,7 +30,7 @@ export default function AddToCartButton({ id, slug, name, price, price_uk, img, 
       onClick={handleAdd}
       className="flex-1 rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
     >
-      {added ? "Added!" : "Add to Cart"}
+      {added ? t("added") : t("addToCart")}
     </button>
   );
 }

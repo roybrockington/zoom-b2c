@@ -179,12 +179,12 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
                         {product.in_stock ? (
                             <>
                                 <span className="h-2 w-2 rounded-full bg-green-500" />
-                                <span className="text-green-600 dark:text-green-400">In stock</span>
+                                <span className="text-green-600 dark:text-green-400">{t("inStock")}</span>
                             </>
                         ) : (
                                 <>
                                     <span className="h-2 w-2 rounded-full bg-red-500" />
-                                    <span className="text-red-600 dark:text-red-400">Out of stock</span>
+                                    <span className="text-red-600 dark:text-red-400">{t("outOfStock")}</span>
                                 </>
                             )}
                     </div>
