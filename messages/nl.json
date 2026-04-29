@@ -106,5 +106,12 @@
     "emptyQuery": "Voer een zoekterm in om producten te vinden.",
     "tryDifferent": "Probeer een andere zoekterm.",
     "noImage": "Geen afbeelding"
+  },
+  "cookie": {
+    "message": "Wij gebruiken cookies om uw ervaring op onze site te verbeteren. Door verder te bladeren gaat u akkoord met ons",
+    "privacyPolicy": "Privacybeleid",
+    "seeAlso": "Zie ook ons",
+    "imprint": "Impressum",
+    "accept": "Accepteren & sluiten"
   }
 }

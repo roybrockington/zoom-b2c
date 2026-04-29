@@ -106,5 +106,12 @@
     "emptyQuery": "Entrez un terme pour trouver des produits.",
     "tryDifferent": "Essayez un autre terme de recherche.",
     "noImage": "Pas d'image"
+  },
+  "cookie": {
+    "message": "Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre",
+    "privacyPolicy": "Politique de confidentialité",
+    "seeAlso": "Voir aussi notre",
+    "imprint": "Mentions légales",
+    "accept": "Accepter & fermer"
   }
 }

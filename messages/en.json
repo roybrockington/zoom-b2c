@@ -124,6 +124,13 @@
     "odrLabel": "EU Commission platform for online dispute resolution:",
     "noArbitration": "We are neither obligated nor willing to participate in dispute settlement proceedings before a consumer arbitration board."
   },
+  "cookie": {
+    "message": "We use cookies to improve your experience on our site. By continuing to browse you agree to our",
+    "privacyPolicy": "Privacy Policy",
+    "seeAlso": "See also our",
+    "imprint": "Imprint",
+    "accept": "Accept & close"
+  },
   "withdrawal": {
     "title": "Cancellation policy for goods",
     "rightTitle": "Right of withdrawal",

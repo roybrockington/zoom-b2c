@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function CookieBar() {
   const [visible, setVisible] = useState(false);
+  const t = useTranslations("cookie");
 
   useEffect(() => {
     if (!localStorage.getItem("cookie_consent")) {
@@ -23,14 +25,13 @@ export default function CookieBar() {
     <div className="fixed bottom-0 inset-x-0 z-50 border-t border-zinc-200 bg-white px-4 py-4 shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          We use cookies to improve your experience on our site.{" "}
-          By continuing to browse you agree to our{" "}
+          {t("message")}{" "}
           <Link href="/privacy-policy" className="underline hover:text-zinc-900 dark:hover:text-white">
-            Privacy Policy
+            {t("privacyPolicy")}
           </Link>
-          . See also our{" "}
+          {". "}{t("seeAlso")}{" "}
           <Link href="/imprint" className="underline hover:text-zinc-900 dark:hover:text-white">
-            Imprint
+            {t("imprint")}
           </Link>
           .
         </p>
@@ -38,7 +39,7 @@ export default function CookieBar() {
           onClick={accept}
           className="shrink-0 rounded-full bg-zinc-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
         >
-          Accept & close
+          {t("accept")}
         </button>
       </div>
     </div>

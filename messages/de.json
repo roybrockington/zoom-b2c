@@ -106,5 +106,30 @@
     "emptyQuery": "Suchbegriff eingeben, um Produkte zu finden.",
     "tryDifferent": "Versuche einen anderen Suchbegriff.",
     "noImage": "Kein Bild"
+  },
+    "imprint": {
+    "title": "Impressum",
+    "companyName": "Sound Service Musikanlagen-Vertriebsgesellschaft mbH",
+    "disclaimer": "Haftungsausschluss",
+    "disclaimerText": "Bei direkten oder indirekten Verweisen auf fremde Webseiten („Hyperlinks“), die außerhalb des Verantwortungsbereiches des Autors liegen, würde eine Haftungsverpflichtung ausschließlich in dem Fall in Kraft treten, in dem der Autor von den Inhalten Kenntnis hat und es ihm technisch möglich und zumutbar wäre, die Nutzung im Falle rechtswidriger Inhalte zu verhindern. Der Autor erklärt hiermit ausdrücklich, dass zum Zeitpunkt der Linksetzung keine illegalen Inhalte auf den zu verlinkenden Seiten erkennbar waren. Auf die aktuelle und zukünftige Gestaltung, die Inhalte oder die Urheberschaft der verlinkten/verknüpften Seiten hat der Autor keinerlei Einfluss. Deshalb distanziert er sich hiermit ausdrücklich von allen Inhalten aller verlinkten /verknüpften Seiten, die nach der Linksetzung verändert wurden. Diese Feststellung gilt für alle innerhalb des eigenen Internetangebotes gesetzten Links und Verweise sowie für Fremdeinträge in vom Autor eingerichteten Gästebüchern, Diskussionsforen, Linkverzeichnissen, Mailinglisten und in allen anderen Formen von Datenbanken, auf deren Inhalt externe Schreibzugriffe möglich sind. Für illegale, fehlerhafte oder unvollständige Inhalte und insbesondere für Schäden, die aus der Nutzung oder Nichtnutzung solcherart dargebotener Informationen entstehen, haftet allein der Anbieter der Seite, auf welche verwiesen wurde, nicht derjenige, der über Links auf die jeweilige Veröffentlichung lediglich verweist.",
+    "copyright": "Urheber- und Kennzeichenrecht",
+    "copyrightText1": "Der Autor ist bestrebt, in allen Publikationen die Urheberrechte der verwendeten Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu beachten, von ihm selbst erstellte Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente, Videosequenzen und Texte zurückzugreifen. Alle innerhalb des Internetangebotes genannten und ggf. durch Dritte geschützten Marken- und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümer. Allein aufgrund der bloßen Nennung ist nicht der Schluss zu ziehen, dass Markenzeichen nicht durch Rechte Dritter geschützt sind! Das Copyright für veröffentlichte, vom Autor selbst erstellte Objekte bleibt allein beim Autor der Seiten. Eine Vervielfältigung oder Verwendung solcher Grafiken, Tondokumente, Videosequenzen und Texte in anderen elektronischen oder gedruckten Publikationen ist ohne ausdrückliche Zustimmung des Autors nicht gestattet.",
+    "copyrightText2": "Verantwortliche/r i.S.d. § 18 Abs. 2 MStV: Joachim Stock, Sound Service Musikanlagen-Vertriebsgesellschaft mbH, Moriz-Seeler-Straße 3, 12489 Berlin, Deutschland",
+    "ceo": "Geschäftsführer: Dipl.-Kfm. Joachim Stock",
+    "registerCourt": "Registergericht: Amtsgericht Charlottenburg",
+    "registerNumber": "Registernummer: HRB 20782",
+    "vatId": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE 13660069",
+    "wIdNr": "W-IdNr.: DE136600697-00001",
+    "weee": "WEEE Reg. Nr.: DE 18189133",
+    "odrLabel": "Informationspflichten gemäß §18 Abs. 4 Satz 3 ElektroG:",
+    "noArbitration": "Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit."
+  },
+  "cookie": {
+    "message": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Wenn Sie weiter surfen, stimmen Sie unserer",
+    "privacyPolicy": "Datenschutzerklärung",
+    "seeAlso": "Siehe auch unser",
+    "imprint": "Impressum",
+    "accept": "Akzeptieren & schließen"
   }
+
 }

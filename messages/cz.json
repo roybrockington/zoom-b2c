@@ -106,5 +106,12 @@
     "emptyQuery": "Zadejte hledaný výraz pro nalezení produktů.",
     "tryDifferent": "Zkuste jiný hledaný výraz.",
     "noImage": "Žádný obrázek"
+  },
+  "cookie": {
+    "message": "Používáme soubory cookie ke zlepšení vašeho zážitku na našem webu. Pokračováním v procházení souhlasíte s naší",
+    "privacyPolicy": "Zásadami ochrany osobních údajů",
+    "seeAlso": "Viz také naše",
+    "imprint": "Tiráž",
+    "accept": "Přijmout & zavřít"
   }
 }
