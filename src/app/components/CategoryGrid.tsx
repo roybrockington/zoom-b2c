@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const LOCALE_PREFIXES = ["de", "fr", "nl", "pl", "cz"];
+
 type Category = {
   id: number;
   name: string;
@@ -8,8 +10,8 @@ type Category = {
   img: string | null;
 };
 
-async function getCategories(): Promise<Category[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/categories`, {
+async function getCategories(locale: string): Promise<Category[]> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/categories?locale=${locale}`, {
     next: { revalidate: 300 },
   });
   if (!res.ok) return [];
@@ -17,8 +19,9 @@ async function getCategories(): Promise<Category[]> {
   return json.data ?? [];
 }
 
-export default async function CategoryGrid() {
-  const categories = await getCategories();
+export default async function CategoryGrid({ locale = "en" }: { locale?: string }) {
+  const categories = await getCategories(locale);
+  const localeBase = LOCALE_PREFIXES.includes(locale) ? `/${locale}` : "";
   if (categories.length === 0) return null;
 
   return (
@@ -30,7 +33,7 @@ export default async function CategoryGrid() {
         {categories.map((cat) => (
           <Link
             key={cat.id}
-            href={`/categories/${cat.slug}`}
+            href={`${localeBase}/categories/${cat.slug}`}
             className="group relative overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800"
           >
             {/* Image */}

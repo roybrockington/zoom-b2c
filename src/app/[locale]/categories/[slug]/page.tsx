@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale, slug } = await params;
   const category = await getCategory(slug, locale);
   return {
-    title: category ? `${category.name} — Zoom` : "Category — Zoom",
+    title: category ? `${category.name} - ZOOM EUROPE` : "Category - ZOOM EUROPE",
     description: category?.description ?? undefined,
   };
 }

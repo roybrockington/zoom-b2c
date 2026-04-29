@@ -23,6 +23,10 @@
     "category": "Kategorie",
     "weight": "Hmotnost",
     "productDetails": "Detaily produktu",
+    "articleOrigin": "Původ článku",
+    "manufacturer": "Výrobce",
+    "importer": "Dovozce",
+    "responsibleOffice": "Odpovědné místo",
     "noImage": "Žádný obrázek"
   },
   "category": {

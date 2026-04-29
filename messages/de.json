@@ -23,6 +23,10 @@
     "category": "Kategorie",
     "weight": "Gewicht",
     "productDetails": "Produktdetails",
+    "articleOrigin": "Artikelherkunft",
+    "manufacturer": "Hersteller",
+    "importer": "Importeur",
+    "responsibleOffice": "Verantwortliche Stelle",
     "noImage": "Kein Bild"
   },
   "category": {

@@ -14,6 +14,19 @@ type OrderItem = {
   total: string;
 };
 
+type WarrantyRegistration = {
+  id: number;
+  serial_number: string;
+  retailer: string;
+  purchased_at: string;
+  created_at: string;
+  product: {
+    id: number;
+    name: string;
+    sku: string | null;
+  } | null;
+};
+
 type Address = {
   id: number;
   type: string;
@@ -62,6 +75,8 @@ export default function AccountPage() {
   const [expandedOrder, setExpandedOrder] = useState<number | null>(null);
 
   const [billingAddress, setBillingAddress] = useState<Address | null>(null);
+  const [warranties, setWarranties] = useState<WarrantyRegistration[]>([]);
+  const [warrantiesLoading, setWarrantiesLoading] = useState(true);
 
   useEffect(() => {
     if (!loading && !user) {
@@ -85,6 +100,14 @@ export default function AccountPage() {
       .then((r) => r.json())
       .then((data: Address[]) => setBillingAddress(data.find((a) => a.type === "billing") ?? null))
       .catch(() => {});
+
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/warranty`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((r) => r.json())
+      .then((data) => setWarranties(data ?? []))
+      .catch(() => {})
+      .finally(() => setWarrantiesLoading(false));
   }, [token]);
 
   if (loading || !user) return null;
@@ -150,6 +173,69 @@ export default function AccountPage() {
           </address>
         ) : (
           <p className="text-sm text-zinc-400 dark:text-zinc-500">No billing address on file.</p>
+        )}
+      </div>
+
+      {/* Warranty Registrations */}
+      <div className="mb-8 rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+        <div className="border-b border-zinc-200 px-6 py-4 dark:border-zinc-800 flex items-center justify-between">
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+            Warranty Registrations
+          </h2>
+          <Link
+            href="/warranty-extension"
+            className="text-xs font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white underline"
+          >
+            Register a product
+          </Link>
+        </div>
+
+        {warrantiesLoading ? (
+          <div className="px-6 py-12 text-center text-sm text-zinc-400">Loading…</div>
+        ) : warranties.length === 0 ? (
+          <div className="px-6 py-12 text-center">
+            <p className="text-sm text-zinc-500 dark:text-zinc-400">No products registered yet.</p>
+          </div>
+        ) : (
+          <ul className="divide-y divide-zinc-100 dark:divide-zinc-800">
+            {warranties.map((w) => (
+              <li key={w.id} className="px-6 py-4">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-medium text-zinc-900 dark:text-white">
+                      {w.product?.name ?? "Unknown product"}
+                    </p>
+                    {w.product?.sku && (
+                      <p className="text-xs text-zinc-400 dark:text-zinc-500">SKU: {w.product.sku}</p>
+                    )}
+                    <dl className="mt-2 grid grid-cols-1 gap-x-6 gap-y-1 text-sm sm:grid-cols-3">
+                      <div>
+                        <dt className="text-xs text-zinc-400 dark:text-zinc-500">Serial number</dt>
+                        <dd className="font-mono text-zinc-700 dark:text-zinc-300">{w.serial_number}</dd>
+                      </div>
+                      <div>
+                        <dt className="text-xs text-zinc-400 dark:text-zinc-500">Purchased</dt>
+                        <dd className="text-zinc-700 dark:text-zinc-300">
+                          {new Date(w.purchased_at).toLocaleDateString("en-GB", {
+                            day: "numeric", month: "short", year: "numeric",
+                          })}
+                        </dd>
+                      </div>
+                      <div>
+                        <dt className="text-xs text-zinc-400 dark:text-zinc-500">Retailer</dt>
+                        <dd className="text-zinc-700 dark:text-zinc-300">{w.retailer}</dd>
+                      </div>
+                    </dl>
+                  </div>
+                  <div className="shrink-0">
+                    <span className="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                      Registered
+                    </span>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
         )}
       </div>
 

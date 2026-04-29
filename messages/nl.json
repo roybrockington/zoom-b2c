@@ -23,6 +23,10 @@
     "category": "Categorie",
     "weight": "Gewicht",
     "productDetails": "Productdetails",
+    "articleOrigin": "Artikelherkomst",
+    "manufacturer": "Fabrikant",
+    "importer": "Importeur",
+    "responsibleOffice": "Verantwoordelijk kantoor",
     "noImage": "Geen afbeelding"
   },
   "category": {

@@ -23,6 +23,10 @@
     "category": "Category",
     "weight": "Weight",
     "productDetails": "Product Details",
+    "articleOrigin": "Article Origin",
+    "manufacturer": "Manufacturer",
+    "importer": "Importer",
+    "responsibleOffice": "Responsible Office",
     "noImage": "No image"
   },
   "category": {

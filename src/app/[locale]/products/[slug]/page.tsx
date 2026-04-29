@@ -3,6 +3,7 @@ import ImageGallery from "./ImageGallery";
 import ProductPagePrice from "./ProductPagePrice";
 import AddToCartButton from "./AddToCartButton";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 type ProductDescriptions = {
     description: string | null;
@@ -99,14 +100,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     const product = await getProduct(slug);
     const { short_description } = resolveDescriptions(product?.descriptions ?? null, locale);
     return {
-        title: product ? `Zoom ${product.name} — Zoom` : "Product — Zoom",
+        title: product ? `${product.name} - ZOOM EUROPE` : "Product - ZOOM EUROPE",
         description: short_description ?? undefined,
     };
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
     const { slug, locale } = await params;
-    const product = await getProduct(slug);
+    const [product, t] = await Promise.all([getProduct(slug), getTranslations("product")]);
 
     if (!product) notFound();
 
@@ -241,7 +242,7 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
             {/* Description */}
             {description && (
                 <div className="mt-16 border-t border-zinc-100 pt-10 dark:border-zinc-800">
-                    <h2 className="mb-6 text-xl font-bold text-zinc-900 dark:text-white">Product Details</h2>
+                    <h2 className="mb-6 text-xl font-bold text-zinc-900 dark:text-white">{t("productDetails")}</h2>
                     <div
                         className="prose prose-zinc max-w-none dark:prose-invert"
                         dangerouslySetInnerHTML={{ __html: description }}
@@ -251,10 +252,10 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
 
             {/* Article Origin */}
             <div className="mt-16 border-t border-zinc-100 pt-10 dark:border-zinc-800">
-                <h2 className="mb-6 text-xl font-bold text-zinc-900 dark:text-white">Article Origin</h2>
+                <h2 className="mb-6 text-xl font-bold text-zinc-900 dark:text-white">{t("articleOrigin")}</h2>
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
                     <div className="rounded-xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
-                        <h3>Manufacturer</h3>
+                        <h3>{t("manufacturer")}</h3>
                         <ul className="mb-1 text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 py-3">
                             <li>Firma</li> 
                             <li>Zoom Corporation</li> 
@@ -266,7 +267,7 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
                         </ul>
                     </div>
                     <div className="rounded-xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
-                        <h3>Importer</h3>
+                        <h3>{t("importer")}</h3>
                         <ul className="mb-1 text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 py-3">
                             <li>Firma</li> 
                             <li>Sound-Service Musikanlagen-Vertr.-Ges. mbH</li> 
@@ -278,7 +279,7 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
                         </ul>
                     </div>
                     <div className="rounded-xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
-                        <h3>Responsible Office</h3>
+                        <h3>{t("responsibleOffice")}</h3>
                         <ul className="mb-1 text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 py-3">
                             <li>Firma</li> 
                             <li>Sound-Service Musikanlagen-Vertr.-Ges. mbH</li> 

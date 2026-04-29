@@ -7,14 +7,15 @@ import WebshopProse from "../components/WebshopProse";
 import Creators from "../components/Creators";
 import CreatorProse from "../components/CreatorProse";
 
-export default function Home() {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   return (
     <div>
       <HeroSlider />
       <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
         <MostWanted />
         <Creators />
-        <CategoryGrid />
+        <CategoryGrid locale={locale} />
         <section className="flex gap-6 md:flex-row flex-col">
           <Warranty />
           <Newsletter />

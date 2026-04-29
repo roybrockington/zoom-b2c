@@ -24,13 +24,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zoom",
+  title: "Welcome to ZOOM - ZOOM EUROPE",
   description: "Professional audio & video gear",
 };
 
-async function getCategories(): Promise<Category[]> {
+async function getCategories(locale: string): Promise<Category[]> {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/categories`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/categories?locale=${locale}`, {
       next: { revalidate: 300 },
     });
     if (!res.ok) return [];
@@ -55,7 +55,7 @@ export default async function LocaleLayout({
   }
 
   const [categories, messages] = await Promise.all([
-    getCategories(),
+    getCategories(locale),
     getMessages(),
   ]);
 
