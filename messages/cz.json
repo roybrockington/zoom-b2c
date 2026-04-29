@@ -196,6 +196,11 @@
       }
     }
   },
+  "sale": {
+    "title": "Výprodej",
+    "description": "End-of-Life a B-Stock* položky od ZOOM ve VÝPRODEJI za speciální ceny! Zajistěte si slevu nyní!",
+    "footnote": "* Testovaný, technicky bezchybný produkt s kompletním příslušenstvím a plnou zárukou. Případně s minimálními stopami používání nebo poškozeným obalem."
+  },
   "cookie": {
     "message": "Používáme soubory cookie ke zlepšení vašeho zážitku na našem webu. Pokračováním v procházení souhlasíte s naší",
     "privacyPolicy": "Zásadami ochrany osobních údajů",

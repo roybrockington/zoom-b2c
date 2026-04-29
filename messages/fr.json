@@ -196,6 +196,11 @@
       }
     }
   },
+  "sale": {
+    "title": "Soldes",
+    "description": "Articles End-of-Life et B-Stock* de ZOOM en SOLDES à des prix spéciaux ! Profitez des réductions maintenant !",
+    "footnote": "* Produit testé, techniquement irréprochable avec accessoires complets et garantie complète. Éventuellement avec des traces d'utilisation minimes ou un emballage abîmé."
+  },
   "cookie": {
     "message": "Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre",
     "privacyPolicy": "Politique de confidentialité",

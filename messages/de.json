@@ -213,6 +213,11 @@
       }
     }
   },
+  "sale": {
+    "title": "Sale",
+    "description": "End-of-Life- und B-Stock*-Artikel von ZOOM im SALE zu Sonderpreisen! Jetzt Rabatt sichern!",
+    "footnote": "* Geprüftes, technisch einwandfreies Produkt mit vollständigem Zubehör und voller Garantie. Möglicherweise mit minimalen Gebrauchsspuren oder beschädigter Verpackung."
+  },
   "cookie": {
     "message": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Wenn Sie weiter surfen, stimmen Sie unserer",
     "privacyPolicy": "Datenschutzerklärung",

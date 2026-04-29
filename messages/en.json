@@ -213,6 +213,11 @@
       }
     }
   },
+  "sale": {
+    "title": "Sale",
+    "description": "End-Of-Life and B-Stock* items from ZOOM on SALE at special prices! Secure discount now!",
+    "footnote": "* Tested, technically flawless product with complete accessories and full warranty. Possibly with minimal signs of usage or chipped packaging."
+  },
   "cookie": {
     "message": "We use cookies to improve your experience on our site. By continuing to browse you agree to our",
     "privacyPolicy": "Privacy Policy",

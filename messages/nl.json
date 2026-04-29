@@ -196,6 +196,11 @@
       }
     }
   },
+  "sale": {
+    "title": "Sale",
+    "description": "End-of-Life en B-Stock* artikelen van ZOOM in de SALE tegen speciale prijzen! Profiteer nu van de korting!",
+    "footnote": "* Getest, technisch perfect product met complete accessoires en volledige garantie. Mogelijk met minimale gebruikssporen of beschadigde verpakking."
+  },
   "cookie": {
     "message": "Wij gebruiken cookies om uw ervaring op onze site te verbeteren. Door verder te bladeren gaat u akkoord met ons",
     "privacyPolicy": "Privacybeleid",

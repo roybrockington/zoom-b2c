@@ -196,6 +196,11 @@
       }
     }
   },
+  "sale": {
+    "title": "Wyprzedaż",
+    "description": "Produkty End-of-Life i B-Stock* od ZOOM w WYPRZEDAŻY w specjalnych cenach! Skorzystaj z rabatu teraz!",
+    "footnote": "* Przetestowany, technicznie sprawny produkt z kompletnym wyposażeniem i pełną gwarancją. Ewentualnie z minimalnymi śladami użytkowania lub uszkodzonym opakowaniem."
+  },
   "cookie": {
     "message": "Używamy plików cookie, aby poprawić Twoje doświadczenie na naszej stronie. Kontynuując przeglądanie, zgadzasz się z naszą",
     "privacyPolicy": "Polityką prywatności",

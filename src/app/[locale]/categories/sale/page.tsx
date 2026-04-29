@@ -34,7 +34,7 @@ export async function generateMetadata() {
 }
 
 export default async function SalePage() {
-  const [products, t] = await Promise.all([getSaleProducts(), getTranslations("category")]);
+  const [products, t, ts] = await Promise.all([getSaleProducts(), getTranslations("category"), getTranslations("sale")]);
 
   return (
     <div>
@@ -52,13 +52,13 @@ export default async function SalePage() {
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-16">
             <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-              Sale
+              {ts("title")}
             </h1>
             <p className="mt-3 max-w-xl text-sm text-zinc-300 sm:text-base">
-              End-Of-Life and B-Stock* items from ZOOM on SALE at special prices! Secure discount now!
+              {ts("description")}
             </p>
             <p className="mt-2 max-w-xl text-xs text-zinc-400">
-              * Tested, technically flawless product with complete accessories and full warranty. Possibly with minimal signs of usage or chipped packaging.
+              {ts("footnote")}
             </p>
           </div>
         </div>
