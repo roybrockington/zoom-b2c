@@ -3,8 +3,10 @@
 import { Check } from "lucide-react";
 import Image from "next/image"
 import Link from "next/link"
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+    const t = useTranslations("footer");
 
     type footerBadge = {
         altText: string;
@@ -50,11 +52,11 @@ const shippingMethods: footerBadge[] = [
 ]
 
     const faqMenu: menuItem[] = [
-        {name: "Returns & Retours", link: "/returns"},
-        {name: "Support", link: "/support"},
-        {name: "Product Registration", link: "/warranty-extension"},
-        {name: "How can I pay?", link: "/payment-methods"},
-        {name: "Shipping & Delivery", link: "/shipping-and-delivery"},
+        {name: t("returns"), link: "/returns"},
+        {name: t("support"), link: "/support"},
+        {name: t("productRegistration"), link: "/warranty-extension"},
+        {name: t("howCanIPay"), link: "/payment-methods"},
+        {name: t("shippingAndDelivery"), link: "/shipping-and-delivery"},
     ]
 
     const imprintMenu: menuItem[] = [
@@ -69,7 +71,7 @@ const shippingMethods: footerBadge[] = [
         {name: "Music", link: "/music"},
         {name: "Podcasting", link: "/podcasting"},
         {name: "Sound Design", link: "/sound-design"},
-        {name: "About Us", link: "/about-us"},
+        {name: t("aboutUs"), link: "/about-us"},
     ]
 
 
@@ -84,7 +86,7 @@ const shippingMethods: footerBadge[] = [
 
                 <div className="w-full flex gap-6 flex-col md:flex-row text-white">
                     <div className="flex flex-col md:w-1/4 gap-4">
-                        <h4 className="text-xl font-bold">FAQ</h4>
+                        <h4 className="text-xl font-bold">{t("faq")}</h4>
                         <ul className="list-none flex flex-col gap-1">
                             {faqMenu.map(faq =>
                                 <li key={faq.name}><Link href={faq.link}>{faq.name}</Link></li>
@@ -92,17 +94,17 @@ const shippingMethods: footerBadge[] = [
                         </ul>
                     </div>
                     <div className="flex flex-col md:w-1/4 gap-4">
-                        <h4 className="font-bold list-none">Our Advantages</h4>
+                        <h4 className="font-bold list-none">{t("ourAdvantages")}</h4>
                         <ul className="list-none flex flex-col gap-1">
-                            <li className="flex items-center gap-2"><Check width={10} height={10} /> Leading in Europe</li>
-                            <li className="flex items-center gap-2"><Check width={10} height={10} /> Excellent Stocking</li>
-                            <li className="flex items-center gap-2"><Check width={10} height={10} /> Secure Shopping</li>
-                            <li className="flex items-center gap-2"><Check width={10} height={10} /> Modern Logistics</li>
-                            <li className="flex items-center gap-2"><Check width={10} height={10} /> International Distribution</li>
+                            <li className="flex items-center gap-2"><Check width={10} height={10} /> {t("leadingInEurope")}</li>
+                            <li className="flex items-center gap-2"><Check width={10} height={10} /> {t("excellentStocking")}</li>
+                            <li className="flex items-center gap-2"><Check width={10} height={10} /> {t("secureShopping")}</li>
+                            <li className="flex items-center gap-2"><Check width={10} height={10} /> {t("modernLogistics")}</li>
+                            <li className="flex items-center gap-2"><Check width={10} height={10} /> {t("internationalDistribution")}</li>
                         </ul>
                     </div>
                     <div className="flex flex-col md:w-1/4 gap-4">
-                        <h4 className="font-bold list-none">About Us</h4>
+                        <h4 className="font-bold list-none">{t("aboutUs")}</h4>
                         <ul className="list-none flex flex-col gap-1">
                             {aboutUsMenu.map(about =>
                                 <li key={about.name}><Link href={about.link}>{about.name}</Link></li>
@@ -110,7 +112,7 @@ const shippingMethods: footerBadge[] = [
                         </ul>
                     </div>
                     <div className="flex flex-col md:w-1/4 gap-4">
-                        <h4 className="font-bold list-none">Social Media</h4>
+                        <h4 className="font-bold list-none">{t("socialMedia")}</h4>
                         <ul className="list-none flex gap-4">
                             <li>
                                 <a href="https://www.facebook.com/zoomeuropeofficial" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white hover:text-zinc-300 transition-colors">
@@ -139,7 +141,7 @@ const shippingMethods: footerBadge[] = [
                 </div>
                 <div className="w-full flex gap-4 flex-col md:flex-row text-white my-5">
                     <div className="flex flex-col md:w-1/2 gap-4">
-                        <h4 className="text-xl font-bold">Payment Methods</h4>
+                        <h4 className="text-xl font-bold">{t("paymentMethods")}</h4>
                         <ul className="list-none flex gap-3">
                             {paymentMethods.map(method =>
                                 <li key={method.altText}>
@@ -151,7 +153,7 @@ const shippingMethods: footerBadge[] = [
                         </ul>
                     </div>
                     <div className="flex flex-col md:w-1/2 gap-4">
-                        <h4 className="text-xl font-bold">Shipping Methods</h4>
+                        <h4 className="text-xl font-bold">{t("shippingMethods")}</h4>
                         <ul className="list-none flex gap-3">
                             {shippingMethods.map(method =>
                                 <li key={method.altText}>
@@ -174,8 +176,8 @@ const shippingMethods: footerBadge[] = [
                         </ul>
                     </div>
                     <div className="flex flex-col w-1/2 text-xs">
-                        <p>All prices incl. VAT plus possible shipping costs.</p>
-                        <p>Errors and omissions excepted © 2026 Sound Service GmbH - All rights reserved.</p>
+                        <p>{t("allPricesVat")}</p>
+                        <p>{t("copyright")}</p>
                     </div>
                 </div>
             </div>

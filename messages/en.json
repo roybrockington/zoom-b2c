@@ -87,6 +87,26 @@
       "description": "Creativity and imagination take you to many different places in the world in search of new sounds. With our Handy Recorders, Field Recorders and iOS/Android microphones, you have reliable partners to accompany you on your sound journeys."
     }
   },
+  "footer": {
+    "faq": "FAQ",
+    "returns": "Returns & Retours",
+    "support": "Support",
+    "productRegistration": "Product Registration",
+    "howCanIPay": "How can I pay?",
+    "shippingAndDelivery": "Shipping & Delivery",
+    "ourAdvantages": "Our Advantages",
+    "leadingInEurope": "Leading in Europe",
+    "excellentStocking": "Excellent Stocking",
+    "secureShopping": "Secure Shopping",
+    "modernLogistics": "Modern Logistics",
+    "internationalDistribution": "International Distribution",
+    "aboutUs": "About Us",
+    "socialMedia": "Social Media",
+    "paymentMethods": "Payment Methods",
+    "shippingMethods": "Shipping Methods",
+    "allPricesVat": "All prices incl. VAT plus possible shipping costs.",
+    "copyright": "Errors and omissions excepted © 2026 Sound Service GmbH - All rights reserved."
+  },
   "imprint": {
     "title": "Imprint",
     "companyName": "Sound Service Musikanlagen-Vertriebsgesellschaft mbH",

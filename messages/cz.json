@@ -57,6 +57,26 @@
     "createAccount": "Vytvořit účet",
     "signInRequired": "Pro dokončení nákupu musíte být přihlášeni."
   },
+  "footer": {
+    "faq": "Časté dotazy",
+    "returns": "Vrácení zboží",
+    "support": "Podpora",
+    "productRegistration": "Registrace produktu",
+    "howCanIPay": "Jak mohu platit?",
+    "shippingAndDelivery": "Doprava & Doručení",
+    "ourAdvantages": "Naše výhody",
+    "leadingInEurope": "Vedoucí v Evropě",
+    "excellentStocking": "Výborné zásoby",
+    "secureShopping": "Bezpečné nakupování",
+    "modernLogistics": "Moderní logistika",
+    "internationalDistribution": "Mezinárodní distribuce",
+    "aboutUs": "O nás",
+    "socialMedia": "Sociální sítě",
+    "paymentMethods": "Způsoby platby",
+    "shippingMethods": "Způsoby doručení",
+    "allPricesVat": "Všechny ceny včetně DPH plus případné náklady na dopravu.",
+    "copyright": "Chyby a opomenutí vyhrazeny © 2026 Sound Service GmbH - Všechna práva vyhrazena."
+  },
   "pages": {
     "podcasting": {
       "title": "Podcasting",

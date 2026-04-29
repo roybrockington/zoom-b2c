@@ -57,6 +57,26 @@
     "createAccount": "Konto erstellen",
     "signInRequired": "Sie müssen angemeldet sein, um Ihren Kauf abzuschließen."
   },
+  "footer": {
+    "faq": "FAQ",
+    "returns": "Rücksendungen & Retouren",
+    "support": "Support",
+    "productRegistration": "Produktregistrierung",
+    "howCanIPay": "Wie kann ich bezahlen?",
+    "shippingAndDelivery": "Versand & Lieferung",
+    "ourAdvantages": "Unsere Vorteile",
+    "leadingInEurope": "Führend in Europa",
+    "excellentStocking": "Hervorragende Lagerhaltung",
+    "secureShopping": "Sicheres Einkaufen",
+    "modernLogistics": "Moderne Logistik",
+    "internationalDistribution": "Internationaler Vertrieb",
+    "aboutUs": "Über uns",
+    "socialMedia": "Social Media",
+    "paymentMethods": "Zahlungsmethoden",
+    "shippingMethods": "Versandmethoden",
+    "allPricesVat": "Alle Preise inkl. MwSt. zzgl. eventueller Versandkosten.",
+    "copyright": "Irrtümer und Auslassungen vorbehalten © 2026 Sound Service GmbH - Alle Rechte vorbehalten."
+  },
   "pages": {
     "podcasting": {
       "title": "Podcasting",

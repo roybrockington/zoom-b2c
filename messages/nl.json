@@ -57,6 +57,26 @@
     "createAccount": "Account aanmaken",
     "signInRequired": "U moet ingelogd zijn om uw aankoop te voltooien."
   },
+  "footer": {
+    "faq": "FAQ",
+    "returns": "Retourzendingen",
+    "support": "Support",
+    "productRegistration": "Productregistratie",
+    "howCanIPay": "Hoe kan ik betalen?",
+    "shippingAndDelivery": "Verzending & Levering",
+    "ourAdvantages": "Onze voordelen",
+    "leadingInEurope": "Toonaangevend in Europa",
+    "excellentStocking": "Uitstekende voorraad",
+    "secureShopping": "Veilig winkelen",
+    "modernLogistics": "Moderne logistiek",
+    "internationalDistribution": "Internationale distributie",
+    "aboutUs": "Over ons",
+    "socialMedia": "Social media",
+    "paymentMethods": "Betaalmethoden",
+    "shippingMethods": "Verzendmethoden",
+    "allPricesVat": "Alle prijzen incl. btw plus eventuele verzendkosten.",
+    "copyright": "Vergissingen en omissies voorbehouden © 2026 Sound Service GmbH - Alle rechten voorbehouden."
+  },
   "pages": {
     "podcasting": {
       "title": "Podcasting",
