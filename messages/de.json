@@ -157,6 +157,14 @@
       "p2": "Als Hersteller kennen wir unsere Produkte in- und auswendig und können daher das perfekte Produkt für Ihre Anwendung empfehlen oder Ihnen Vorschläge für mögliche Einsatzmöglichkeiten unserer Produkte machen. Besitzen Sie bereits ein ZOOM-Gerät und suchen nach dem richtigen Originalzubehör? Wir halten alle Zubehörartikel dauerhaft auf Lager und zeigen Ihnen in unserem Shop das für Ihr Zoom-Produkt geeignete Zubehör.",
       "p3": "Haben Sie eine technische Frage zu Ihrem in unserem Online-Shop erworbenen Zoom-Produkt? Unsere Experten, ZOOM-Produktmanager und ZOOM-Produktspezialisten, stehen Ihnen wochentags von 10 bis 18 Uhr beratend zur Verfügung."
     },
+    "getInspired": {
+      "title": "Lass dich inspirieren",
+      "music": { "name": "Musik", "description": "Musiker hören nie auf zu kreieren, zu sampeln, aufzunehmen, zu mixen und zu hören." },
+      "podcasting": { "name": "Podcasting", "description": "Creator entwickeln sich weiter – und wir auch." },
+      "filmmaking": { "name": "Filmproduktion", "description": "Sound ist ein wesentlicher Teil Ihrer Arbeit." },
+      "soundDesign": { "name": "Sound Design", "description": "Design ist, wie es funktioniert." },
+      "aboutUs": { "name": "Über uns", "description": "Wir sind ZOOM. Und wir sind für Creator." }
+    },
     "creatorProse": {
       "heading": "UND WIR SIND FÜR CREATOR.",
       "headingBold": "WIR SIND ZOOM.",

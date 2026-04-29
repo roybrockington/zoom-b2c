@@ -140,6 +140,14 @@
       "p2": "En tant que fabricant, nous connaissons nos produits sur le bout des doigts et pouvons donc recommander le produit parfait pour votre application ou vous suggérer des façons d'utiliser nos produits. Vous possédez déjà un appareil ZOOM et cherchez les bons accessoires d'origine ? Nous maintenons tous les accessoires en stock en permanence et vous montrerons les accessoires adaptés à votre produit Zoom dans notre boutique.",
       "p3": "Vous avez une question technique sur votre produit Zoom acheté dans notre boutique en ligne ? Nos experts, responsables produit ZOOM et spécialistes produit ZOOM, sont disponibles pour vous conseiller en semaine de 10h à 18h."
     },
+    "getInspired": {
+      "title": "Trouvez l'inspiration",
+      "music": { "name": "Musique", "description": "Les musiciens ne cessent jamais de créer, d'échantillonner, d'enregistrer, de mixer et d'écouter." },
+      "podcasting": { "name": "Podcasting", "description": "Les créateurs évoluent – et nous aussi." },
+      "filmmaking": { "name": "Réalisation", "description": "Le son est une partie essentielle de votre travail." },
+      "soundDesign": { "name": "Design sonore", "description": "Le design, c'est comment ça fonctionne." },
+      "aboutUs": { "name": "À propos", "description": "Nous sommes ZOOM. Et nous sommes pour les créateurs." }
+    },
     "creatorProse": {
       "heading": "ET NOUS SOMMES POUR LES CRÉATEURS.",
       "headingBold": "NOUS SOMMES ZOOM.",

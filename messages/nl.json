@@ -140,6 +140,14 @@
       "p2": "Als fabrikant kennen wij onze producten door en door en kunnen wij daarom het perfecte product voor uw toepassing aanbevelen of u suggesties geven voor mogelijke gebruiksmogelijkheden van onze producten. Heeft u al een ZOOM-apparaat en bent u op zoek naar de juiste originele accessoires? Wij houden alle accessoireartikelen permanent op voorraad en tonen u in onze winkel de bij uw Zoom-product passende accessoires.",
       "p3": "Heeft u een technische vraag over uw in onze online winkel gekochte Zoom-product? Onze experts, ZOOM-productmanagers en ZOOM-productspecialisten, staan u op weekdagen van 10.00 tot 18.00 uur ter beschikking voor advies."
     },
+    "getInspired": {
+      "title": "Laat je inspireren",
+      "music": { "name": "Muziek", "description": "Muzikanten stoppen nooit met creëren, samplen, opnemen, mixen en luisteren." },
+      "podcasting": { "name": "Podcasting", "description": "Creators evolueren – en wij ook." },
+      "filmmaking": { "name": "Filmproductie", "description": "Geluid is een essentieel onderdeel van uw werk." },
+      "soundDesign": { "name": "Geluidsontwerp", "description": "Design is hoe het werkt." },
+      "aboutUs": { "name": "Over ons", "description": "Wij zijn ZOOM. En wij zijn voor creators." }
+    },
     "creatorProse": {
       "heading": "EN WIJ ZIJN VOOR CREATORS.",
       "headingBold": "WIJ ZIJN ZOOM.",

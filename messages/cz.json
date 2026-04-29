@@ -140,6 +140,14 @@
       "p2": "Jako výrobce své produkty dokonale známe a můžeme proto doporučit perfektní produkt pro vaši aplikaci nebo vám navrhnout možné způsoby použití našich produktů. Vlastníte již zařízení ZOOM a hledáte správné originální příslušenství? Veškeré příslušenství máme trvale skladem a v našem obchodě vám ukážeme příslušenství vhodné pro váš produkt Zoom.",
       "p3": "Máte technický dotaz ohledně produktu Zoom zakoupeného v našem online obchodě? Naši odborníci, produktoví manažeři a specialisté ZOOM, jsou vám k dispozici k poradenství ve všední dny od 10 do 18 hodin."
     },
+    "getInspired": {
+      "title": "Nechte se inspirovat",
+      "music": { "name": "Hudba", "description": "Hudebníci nikdy nepřestanou tvořit, vzorkovat, nahrávat, mixovat a poslouchat." },
+      "podcasting": { "name": "Podcasting", "description": "Tvůrci se vyvíjejí – a my také." },
+      "filmmaking": { "name": "Filmová tvorba", "description": "Zvuk je zásadní součástí vaší práce." },
+      "soundDesign": { "name": "Zvukový design", "description": "Design je způsob, jakým to funguje." },
+      "aboutUs": { "name": "O nás", "description": "Jsme ZOOM. A jsme pro tvůrce." }
+    },
     "creatorProse": {
       "heading": "A JSME PRO TVŮRCE.",
       "headingBold": "JSME ZOOM.",
