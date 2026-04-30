@@ -201,6 +201,10 @@
     "description": "End-of-Life a B-Stock* položky od ZOOM ve VÝPRODEJI za speciální ceny! Zajistěte si slevu nyní!",
     "footnote": "* Testovaný, technicky bezchybný produkt s kompletním příslušenstvím a plnou zárukou. Případně s minimálními stopami používání nebo poškozeným obalem."
   },
+  "construction": {
+    "line1": "Po nedávných změnách na našem webu je tato sekce právě přestavována.",
+    "line2": "Brzy se vraťte, až bude náš formulář plně funkční."
+  },
   "paymentMethods": {
     "title": "Způsoby platby",
     "prepaymentTitle": "Platba předem",

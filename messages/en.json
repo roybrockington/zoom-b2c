@@ -225,6 +225,10 @@
     "imprint": "Imprint",
     "accept": "Accept & close"
   },
+  "construction": {
+    "line1": "Following recent changes to our site, this area is currently in the process of being rebuilt.",
+    "line2": "Please check back soon when our form will be fully operational."
+  },
   "paymentMethods": {
     "title": "Payment Methods",
     "prepaymentTitle": "Payment in advance",

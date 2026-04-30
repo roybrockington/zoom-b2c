@@ -130,7 +130,7 @@
       "showMore": "Mehr anzeigen"
     },
     "creators": {
-      "title": "Wir sind für Creator",
+      "title": "We're for Creators",
       "body": "Bereits in der Entwicklungsphase schauen wir, wie unsere Produkte Creatorn helfen können, ihre Kreativität zu entfalten.",
       "bodyBold": "Wählen Sie hier Ihren Beruf",
       "bodyEnd": "oder scrollen Sie nach unten, um nach Produktkategorie zu filtern.",
@@ -217,6 +217,10 @@
     "title": "Sale",
     "description": "End-of-Life- und B-Stock*-Artikel von ZOOM im SALE zu Sonderpreisen! Jetzt Rabatt sichern!",
     "footnote": "* Geprüftes, technisch einwandfreies Produkt mit vollständigem Zubehör und voller Garantie. Möglicherweise mit minimalen Gebrauchsspuren oder beschädigter Verpackung."
+  },
+  "construction": {
+    "line1": "Nach kürzlichen Änderungen an unserer Website wird dieser Bereich derzeit neu aufgebaut.",
+    "line2": "Bitte schauen Sie bald wieder vorbei, wenn unser Formular vollständig betriebsbereit ist."
   },
   "paymentMethods": {
     "title": "Zahlungsmethoden",

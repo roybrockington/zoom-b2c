@@ -1,3 +1,5 @@
+import Construction from "@/app/components/Construction";
+
 export const metadata = {
   title: "Returns — Zoom",
   description: "Returns policy and information.",
@@ -9,10 +11,12 @@ export default function ReturnsPage() {
       <h1 className="text-3xl font-bold text-zinc-900 dark:text-white sm:text-4xl">
         Returns
       </h1>
-      <iframe
+            <Construction />
+{/*      <iframe
         className="embed-responsive-item lazyload mt-4 w-full h-screen"
         src="https://return.4sellers.de/?key=WVQYQAKKKL&displayMode=1&lang=EN"
       />
+      */}
     </div>
   );
 }

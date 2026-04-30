@@ -201,6 +201,10 @@
     "description": "End-of-Life en B-Stock* artikelen van ZOOM in de SALE tegen speciale prijzen! Profiteer nu van de korting!",
     "footnote": "* Getest, technisch perfect product met complete accessoires en volledige garantie. Mogelijk met minimale gebruikssporen of beschadigde verpakking."
   },
+  "construction": {
+    "line1": "Na recente wijzigingen aan onze site wordt dit gedeelte momenteel opnieuw opgebouwd.",
+    "line2": "Kom binnenkort terug wanneer ons formulier volledig operationeel is."
+  },
   "paymentMethods": {
     "title": "Betaalmethoden",
     "prepaymentTitle": "Vooruitbetaling",

@@ -201,6 +201,10 @@
     "description": "Produkty End-of-Life i B-Stock* od ZOOM w WYPRZEDAŻY w specjalnych cenach! Skorzystaj z rabatu teraz!",
     "footnote": "* Przetestowany, technicznie sprawny produkt z kompletnym wyposażeniem i pełną gwarancją. Ewentualnie z minimalnymi śladami użytkowania lub uszkodzonym opakowaniem."
   },
+  "construction": {
+    "line1": "W związku z niedawnymi zmianami na naszej stronie, ta sekcja jest obecnie przebudowywana.",
+    "line2": "Zapraszamy wkrótce, gdy nasz formularz będzie w pełni sprawny."
+  },
   "paymentMethods": {
     "title": "Metody płatności",
     "prepaymentTitle": "Przedpłata",

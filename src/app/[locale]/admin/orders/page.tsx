@@ -12,6 +12,7 @@ type Order = {
   currency: string;
   status: string;
   payment_status: string;
+  payment_method: string;
   created_at: string;
 };
 
@@ -87,7 +88,10 @@ export default function AdminOrdersPage() {
                   {o.currency} {parseFloat(o.total).toFixed(2)}
                 </td>
                 <td className="px-4 py-3"><Badge label={o.status} colours={STATUS_COLOURS} /></td>
-                <td className="px-4 py-3"><Badge label={o.payment_status} colours={PAYMENT_COLOURS} /></td>
+                <td className="px-4 py-3">
+                  <Badge label={o.payment_status} colours={PAYMENT_COLOURS} />
+                  <div className="mt-1 text-xs text-zinc-400 capitalize">{o.payment_method === "paypal" ? "PayPal" : "Prepayment"}</div>
+                </td>
                 <td className="px-4 py-3 text-zinc-500 dark:text-zinc-400 text-xs">
                   {new Date(o.created_at).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
                 </td>

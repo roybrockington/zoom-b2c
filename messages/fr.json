@@ -201,6 +201,10 @@
     "description": "Articles End-of-Life et B-Stock* de ZOOM en SOLDES à des prix spéciaux ! Profitez des réductions maintenant !",
     "footnote": "* Produit testé, techniquement irréprochable avec accessoires complets et garantie complète. Éventuellement avec des traces d'utilisation minimes ou un emballage abîmé."
   },
+  "construction": {
+    "line1": "Suite à des modifications récentes de notre site, cette section est actuellement en cours de reconstruction.",
+    "line2": "Revenez bientôt, notre formulaire sera bientôt pleinement opérationnel."
+  },
   "paymentMethods": {
     "title": "Modes de paiement",
     "prepaymentTitle": "Paiement anticipé",
