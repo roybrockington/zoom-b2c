@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../components/AuthContext";
+import Link from "next/link";
 
 type Order = {
   id: number;
@@ -79,7 +80,9 @@ export default function AdminOrdersPage() {
           <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800 bg-white dark:bg-zinc-950">
             {orders.map((o) => (
               <tr key={o.id} className="hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors">
-                <td className="px-4 py-3 font-mono text-xs font-medium text-zinc-900 dark:text-white">{o.order_number}</td>
+                <td className="px-4 py-3 font-mono text-xs font-medium text-zinc-900 dark:text-white">
+                  <Link href={`/admin/orders/${o.id}`} className="hover:underline">{o.order_number}</Link>
+                </td>
                 <td className="px-4 py-3">
                   <div className="font-medium text-zinc-900 dark:text-white">{o.customer_name}</div>
                   <div className="text-xs text-zinc-400">{o.customer_email}</div>
