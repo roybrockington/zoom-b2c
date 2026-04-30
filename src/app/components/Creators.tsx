@@ -17,14 +17,14 @@ export default async function Creators() {
   if (tiles.length === 0) return null;
 
   return (
-    <section id="mostWanted" className="py-10">
+    <section id="creators" className="py-10">
       <h2 className="mb-6 text-xl font-bold text-zinc-900 dark:text-white">
         {t("title")}
       </h2>
       <p className="my-7">
         {t("body")} <strong>{t("bodyBold")}</strong> {t("bodyEnd")}
       </p>
-      <div className="w-full flex flex-wrap">
+      <div className="w-full flex flex-col md:flex-row flex-wrap">
         {tiles.map(tile => {
           const Icon = tile.icon;
           return (

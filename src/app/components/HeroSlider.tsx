@@ -62,7 +62,7 @@ export default function HeroSlider() {
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {slides.map((slide, i) => (
-          <div key={i} className="relative min-w-full">
+          <div key={i} className="relative w-full shrink-0">
             <div className="relative h-[420px] w-full sm:h-[500px] lg:h-[560px]">
               <Image
                 src={slide.imageUrl}

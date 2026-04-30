@@ -167,7 +167,7 @@ const shippingMethods: footerBadge[] = [
                 </div>
                 <div className="w-full flex gap-4 flex-col md:flex-row text-white">
                     <div className="flex flex-col w-1/2 gap-4 text-sm">
-                        <ul className="list-none flex">
+                        <ul className="list-none flex items-center">
                             {imprintMenu.map(imprint =>
                                 <li key={imprint.name} className="px-2 border-r border-r-white last:border-r-0">
                                     <Link href={imprint.link}>{imprint.name}</Link>

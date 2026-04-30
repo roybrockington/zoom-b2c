@@ -10,7 +10,7 @@ import CreatorProse from "../components/CreatorProse";
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   return (
-    <div>
+    <div className="w-full overflow-x-hidden">
       <HeroSlider />
       <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
         <MostWanted />
