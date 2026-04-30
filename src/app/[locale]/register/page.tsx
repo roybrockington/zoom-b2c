@@ -1,10 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAuth } from "../../components/AuthContext";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+
+const TURNSTILE_SITE_KEY = "0x4AAAAAADGXBHifGNNPydMV";
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (container: string | HTMLElement, options: Record<string, unknown>) => string;
+      reset: (widgetId: string) => void;
+      remove: (widgetId: string) => void;
+    };
+  }
+}
 
 export default function RegisterPage() {
   const { login, user, loading } = useAuth();
@@ -16,10 +28,46 @@ export default function RegisterPage() {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+
+  const widgetRef = useRef<string | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!loading && user) router.replace("/account");
   }, [user, loading, router]);
+
+  useEffect(() => {
+    const scriptId = "cf-turnstile-script";
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement("script");
+      script.id = scriptId;
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    const interval = setInterval(() => {
+      if (window.turnstile && containerRef.current && !widgetRef.current) {
+        widgetRef.current = window.turnstile.render(containerRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => setTurnstileToken(token),
+          "expired-callback": () => setTurnstileToken(null),
+          "error-callback": () => setTurnstileToken(null),
+        });
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => {
+      clearInterval(interval);
+      if (window.turnstile && widgetRef.current) {
+        window.turnstile.remove(widgetRef.current);
+        widgetRef.current = null;
+      }
+    };
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -27,6 +75,11 @@ export default function RegisterPage() {
 
     if (password !== passwordConfirmation) {
       setError("Passwords do not match.");
+      return;
+    }
+
+    if (!turnstileToken) {
+      setError("Please complete the human verification.");
       return;
     }
 
@@ -40,6 +93,7 @@ export default function RegisterPage() {
           email,
           password,
           password_confirmation: passwordConfirmation,
+          cf_turnstile_response: turnstileToken,
         }),
       });
 
@@ -49,10 +103,14 @@ export default function RegisterPage() {
           (Object.values(data?.errors ?? {}) as string[][])?.[0]?.[0] ??
           data?.message ??
           "Registration failed.";
+        // Reset widget on failure so user can retry
+        if (window.turnstile && widgetRef.current) {
+          window.turnstile.reset(widgetRef.current);
+          setTurnstileToken(null);
+        }
         throw new Error(firstError as string);
       }
 
-      // Auto-login after successful registration
       await login(email, password);
       router.push("/account");
     } catch (err: unknown) {
@@ -144,6 +202,9 @@ export default function RegisterPage() {
               />
             </div>
 
+            {/* Turnstile widget */}
+            <div ref={containerRef} />
+
             {error && (
               <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400">
                 {error}
@@ -152,7 +213,7 @@ export default function RegisterPage() {
 
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || !turnstileToken}
               className="mt-1 w-full rounded-full bg-zinc-900 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
             >
               {submitting ? "Creating account…" : "Create account"}
