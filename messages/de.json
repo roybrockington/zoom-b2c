@@ -218,6 +218,33 @@
     "description": "End-of-Life- und B-Stock*-Artikel von ZOOM im SALE zu Sonderpreisen! Jetzt Rabatt sichern!",
     "footnote": "* Geprüftes, technisch einwandfreies Produkt mit vollständigem Zubehör und voller Garantie. Möglicherweise mit minimalen Gebrauchsspuren oder beschädigter Verpackung."
   },
+  "paymentMethods": {
+    "title": "Zahlungsmethoden",
+    "prepaymentTitle": "Vorkasse",
+    "prepaymentImg": "vorkasse.png",
+    "prepaymentIntro": "Wenn Sie für Ihre Bestellung die Zahlungsart Vorkasse gewählt haben, überweisen Sie bitte nach Erhalt der Bestellbestätigung den Rechnungsbetrag auf unser Bankkonto:",
+    "prepaymentOutro": "Bitte geben Sie Ihre Bestellnummer als Verwendungszweck an, damit wir Ihre Zahlung zuordnen können. Nach Zahlungseingang werden Ihre bestellten Waren versandt und Sie erhalten eine Versandbestätigung.",
+    "paypalTitle": "PayPal",
+    "paypalText": "Über PayPal können Sie bequem über Ihr PayPal-Konto bezahlen, ohne uns Ihre Bankdaten mitteilen zu müssen."
+  },
+  "shipping": {
+    "title": "Versand & Lieferung",
+    "subtitle": "Wir liefern weltweit. Lieferzeiten und Versandkosten variieren je nach Zielort.",
+    "footnote": "Alle Preise verstehen sich inkl. MwSt. Lieferzeiten sind Schätzungen und können variieren. Express-Lieferung ist für die meisten Ziele am nächsten Werktag.",
+    "colRegion": "Region",
+    "colCarrier": "Spediteur",
+    "colStandard": "Standard",
+    "colExpress": "Express",
+    "colFreeOver": "Kostenlos ab",
+    "regionUK": "Vereinigtes Königreich",
+    "regionDE": "Deutschland",
+    "regionFR": "Frankreich",
+    "regionNL": "Niederlande",
+    "regionPL": "Polen",
+    "regionCZ": "Tschechien",
+    "regionEU": "Übriges Europa",
+    "regionWorld": "Übriger Weltmarkt"
+  },
   "cookie": {
     "message": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Wenn Sie weiter surfen, stimmen Sie unserer",
     "privacyPolicy": "Datenschutzerklärung",

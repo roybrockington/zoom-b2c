@@ -201,6 +201,33 @@
     "description": "End-of-Life en B-Stock* artikelen van ZOOM in de SALE tegen speciale prijzen! Profiteer nu van de korting!",
     "footnote": "* Getest, technisch perfect product met complete accessoires en volledige garantie. Mogelijk met minimale gebruikssporen of beschadigde verpakking."
   },
+  "paymentMethods": {
+    "title": "Betaalmethoden",
+    "prepaymentTitle": "Vooruitbetaling",
+    "prepaymentImg": "vorkasse-en.webp",
+    "prepaymentIntro": "Als u voor uw bestelling de betaalmethode vooruitbetaling heeft gekozen, verzoeken wij u na ontvangst van de orderbevestiging het factuurbedrag over te maken naar onze bankrekening:",
+    "prepaymentOutro": "Vermeld uw bestelnummer als betalingskenmerk zodat wij uw betaling kunnen verwerken. Na ontvangst van uw betaling worden uw bestelde goederen verzonden en ontvangt u een verzendbevestiging.",
+    "paypalTitle": "PayPal",
+    "paypalText": "Via PayPal betaalt u eenvoudig met uw PayPal-account zonder uw bankgegevens aan ons te hoeven verstrekken."
+  },
+  "shipping": {
+    "title": "Verzending & Levering",
+    "subtitle": "Wij verzenden wereldwijd. Levertijden en verzendkosten variëren per bestemming.",
+    "footnote": "Alle prijzen zijn inclusief btw waar van toepassing. Levertijden zijn schattingen en kunnen variëren. Expreslevering is de volgende werkdag voor de meeste bestemmingen.",
+    "colRegion": "Regio",
+    "colCarrier": "Vervoerder",
+    "colStandard": "Standaard",
+    "colExpress": "Express",
+    "colFreeOver": "Gratis vanaf",
+    "regionUK": "Verenigd Koninkrijk",
+    "regionDE": "Duitsland",
+    "regionFR": "Frankrijk",
+    "regionNL": "Nederland",
+    "regionPL": "Polen",
+    "regionCZ": "Tsjechië",
+    "regionEU": "Rest van Europa",
+    "regionWorld": "Rest van de wereld"
+  },
   "cookie": {
     "message": "Wij gebruiken cookies om uw ervaring op onze site te verbeteren. Door verder te bladeren gaat u akkoord met ons",
     "privacyPolicy": "Privacybeleid",

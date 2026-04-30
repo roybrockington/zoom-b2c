@@ -201,6 +201,33 @@
     "description": "Produkty End-of-Life i B-Stock* od ZOOM w WYPRZEDAŻY w specjalnych cenach! Skorzystaj z rabatu teraz!",
     "footnote": "* Przetestowany, technicznie sprawny produkt z kompletnym wyposażeniem i pełną gwarancją. Ewentualnie z minimalnymi śladami użytkowania lub uszkodzonym opakowaniem."
   },
+  "paymentMethods": {
+    "title": "Metody płatności",
+    "prepaymentTitle": "Przedpłata",
+    "prepaymentImg": "vorkasse-en.webp",
+    "prepaymentIntro": "Jeśli wybrałeś metodę płatności z góry, prosimy po otrzymaniu potwierdzenia zamówienia przelać kwotę faktury na nasze konto bankowe:",
+    "prepaymentOutro": "Prosimy podać numer zamówienia jako tytuł przelewu, abyśmy mogli przypisać Twoją płatność. Po otrzymaniu płatności zamówione towary zostaną wysłane, a Ty otrzymasz potwierdzenie wysyłki.",
+    "paypalTitle": "PayPal",
+    "paypalText": "Przez PayPal możesz łatwo zapłacić za pomocą swojego konta PayPal bez konieczności podawania nam danych bankowych."
+  },
+  "shipping": {
+    "title": "Wysyłka i dostawa",
+    "subtitle": "Wysyłamy na cały świat. Czas dostawy i koszty wysyłki różnią się w zależności od miejsca docelowego.",
+    "footnote": "Wszystkie ceny zawierają VAT tam, gdzie ma to zastosowanie. Czasy dostawy są szacunkowe i mogą się różnić. Dostawa ekspresowa następuje następnego dnia roboczego dla większości miejsc.",
+    "colRegion": "Region",
+    "colCarrier": "Przewoźnik",
+    "colStandard": "Standardowa",
+    "colExpress": "Ekspresowa",
+    "colFreeOver": "Darmowa od",
+    "regionUK": "Wielka Brytania",
+    "regionDE": "Niemcy",
+    "regionFR": "Francja",
+    "regionNL": "Holandia",
+    "regionPL": "Polska",
+    "regionCZ": "Czechy",
+    "regionEU": "Reszta Europy",
+    "regionWorld": "Reszta świata"
+  },
   "cookie": {
     "message": "Używamy plików cookie, aby poprawić Twoje doświadczenie na naszej stronie. Kontynuując przeglądanie, zgadzasz się z naszą",
     "privacyPolicy": "Polityką prywatności",

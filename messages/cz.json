@@ -201,6 +201,33 @@
     "description": "End-of-Life a B-Stock* položky od ZOOM ve VÝPRODEJI za speciální ceny! Zajistěte si slevu nyní!",
     "footnote": "* Testovaný, technicky bezchybný produkt s kompletním příslušenstvím a plnou zárukou. Případně s minimálními stopami používání nebo poškozeným obalem."
   },
+  "paymentMethods": {
+    "title": "Způsoby platby",
+    "prepaymentTitle": "Platba předem",
+    "prepaymentImg": "vorkasse-en.webp",
+    "prepaymentIntro": "Pokud jste pro svou objednávku zvolili způsob platby předem, převeďte prosím po obdržení potvrzení objednávky částku faktury na náš bankovní účet:",
+    "prepaymentOutro": "Jako důvod platby prosím uveďte číslo objednávky, abychom mohli vaši platbu přiřadit. Po přijetí platby bude vaše objednané zboží odesláno a obdržíte potvrzení o odeslání.",
+    "paypalTitle": "PayPal",
+    "paypalText": "Přes PayPal můžete snadno zaplatit prostřednictvím svého účtu PayPal, aniž byste nám museli sdělovat své bankovní údaje."
+  },
+  "shipping": {
+    "title": "Doprava a doručení",
+    "subtitle": "Odesíláme po celém světě. Doba doručení a poštovné se liší podle místa určení.",
+    "footnote": "Všechny ceny jsou uvedeny včetně DPH tam, kde to platí. Doby doručení jsou orientační a mohou se lišit. Expresní doručení probíhá následující pracovní den pro většinu destinací.",
+    "colRegion": "Region",
+    "colCarrier": "Dopravce",
+    "colStandard": "Standardní",
+    "colExpress": "Expresní",
+    "colFreeOver": "Zdarma od",
+    "regionUK": "Velká Británie",
+    "regionDE": "Německo",
+    "regionFR": "Francie",
+    "regionNL": "Nizozemsko",
+    "regionPL": "Polsko",
+    "regionCZ": "Česká republika",
+    "regionEU": "Zbytek Evropy",
+    "regionWorld": "Zbytek světa"
+  },
   "cookie": {
     "message": "Používáme soubory cookie ke zlepšení vašeho zážitku na našem webu. Pokračováním v procházení souhlasíte s naší",
     "privacyPolicy": "Zásadami ochrany osobních údajů",

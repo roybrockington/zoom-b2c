@@ -201,6 +201,33 @@
     "description": "Articles End-of-Life et B-Stock* de ZOOM en SOLDES à des prix spéciaux ! Profitez des réductions maintenant !",
     "footnote": "* Produit testé, techniquement irréprochable avec accessoires complets et garantie complète. Éventuellement avec des traces d'utilisation minimes ou un emballage abîmé."
   },
+  "paymentMethods": {
+    "title": "Modes de paiement",
+    "prepaymentTitle": "Paiement anticipé",
+    "prepaymentImg": "vorkasse-en.webp",
+    "prepaymentIntro": "Si vous avez choisi le mode de paiement anticipé pour votre commande, veuillez virer le montant de la facture sur notre compte bancaire après réception de la confirmation de commande :",
+    "prepaymentOutro": "Veuillez indiquer votre numéro de commande comme motif de paiement afin que nous puissions affecter votre règlement. Après réception du paiement, vos marchandises commandées seront expédiées et vous recevrez une confirmation d'expédition.",
+    "paypalTitle": "PayPal",
+    "paypalText": "Via PayPal, vous pouvez facilement payer depuis votre compte PayPal sans avoir à nous communiquer vos coordonnées bancaires."
+  },
+  "shipping": {
+    "title": "Expédition & Livraison",
+    "subtitle": "Nous expédions dans le monde entier. Les délais et frais de livraison varient selon la destination.",
+    "footnote": "Tous les prix incluent la TVA le cas échéant. Les délais de livraison sont indicatifs et peuvent varier. La livraison express s'effectue le jour ouvrable suivant pour la plupart des destinations.",
+    "colRegion": "Région",
+    "colCarrier": "Transporteur",
+    "colStandard": "Standard",
+    "colExpress": "Express",
+    "colFreeOver": "Gratuit à partir de",
+    "regionUK": "Royaume-Uni",
+    "regionDE": "Allemagne",
+    "regionFR": "France",
+    "regionNL": "Pays-Bas",
+    "regionPL": "Pologne",
+    "regionCZ": "République tchèque",
+    "regionEU": "Reste de l'Europe",
+    "regionWorld": "Reste du monde"
+  },
   "cookie": {
     "message": "Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à naviguer, vous acceptez notre",
     "privacyPolicy": "Politique de confidentialité",

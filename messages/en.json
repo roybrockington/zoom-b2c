@@ -225,6 +225,33 @@
     "imprint": "Imprint",
     "accept": "Accept & close"
   },
+  "paymentMethods": {
+    "title": "Payment Methods",
+    "prepaymentTitle": "Payment in advance",
+    "prepaymentImg": "vorkasse-en.webp",
+    "prepaymentIntro": "If you have selected the payment method payment in advance for your order, please transfer the invoice amount to our bank account after receiving the order confirmation:",
+    "prepaymentOutro": "Please state your order number as the reason for payment so that we can allocate your payment. After receipt of payment, your ordered goods will be shipped and you will receive a shipping confirmation.",
+    "paypalTitle": "PayPal",
+    "paypalText": "Via PayPal you can easily pay via your PayPal account without having to provide us with your bank details."
+  },
+  "shipping": {
+    "title": "Shipping & Delivery",
+    "subtitle": "We ship worldwide. Delivery times and carriage charges vary by destination.",
+    "footnote": "All prices include VAT where applicable. Delivery times are estimates and may vary. Express delivery is next working day for most destinations.",
+    "colRegion": "Region",
+    "colCarrier": "Carrier",
+    "colStandard": "Standard",
+    "colExpress": "Express",
+    "colFreeOver": "Free over",
+    "regionUK": "United Kingdom",
+    "regionDE": "Germany",
+    "regionFR": "France",
+    "regionNL": "Netherlands",
+    "regionPL": "Poland",
+    "regionCZ": "Czech Republic",
+    "regionEU": "Rest of Europe",
+    "regionWorld": "Rest of World"
+  },
   "withdrawal": {
     "title": "Cancellation policy for goods",
     "rightTitle": "Right of withdrawal",
