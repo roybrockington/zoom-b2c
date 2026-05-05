@@ -45,7 +45,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   async function login(email: string, password: string): Promise<User> {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/login`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify({ email, password }),
     });
 
@@ -70,6 +70,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         headers: {
           "Authorization": `Bearer ${token}`,
           "Content-Type": "application/json",
+          "Accept": "application/json",
         },
       }).catch(() => {});
     }

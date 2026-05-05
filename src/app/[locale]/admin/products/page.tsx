@@ -80,7 +80,7 @@ function UncategorisedRow({
       `${process.env.NEXT_PUBLIC_API_URL}/api/admin/products/${product.id}`,
       {
         method: "PATCH",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        headers: { "Content-Type": "application/json", "Accept": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ category_id: parseInt(selected) }),
       }
     );

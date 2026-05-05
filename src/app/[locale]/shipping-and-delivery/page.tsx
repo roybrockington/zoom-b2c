@@ -9,14 +9,14 @@ export default async function ShippingAndDeliveryPage() {
   const t = await getTranslations("shipping");
 
   const shippingRates = [
-    { regionKey: "regionUK", carrier: "DHL / UPS", standard: "£4.99", express: "£9.99", freeOver: "£50" },
-    { regionKey: "regionDE", carrier: "DHL",        standard: "€3.99", express: "€7.99", freeOver: "€50" },
-    { regionKey: "regionFR", carrier: "DHL",        standard: "€5.99", express: "€10.99", freeOver: "€75" },
-    { regionKey: "regionNL", carrier: "DHL",        standard: "€4.99", express: "€8.99", freeOver: "€50" },
-    { regionKey: "regionPL", carrier: "DHL / UPS",  standard: "€5.99", express: "€11.99", freeOver: "€75" },
-    { regionKey: "regionCZ", carrier: "DHL / UPS",  standard: "€5.99", express: "€11.99", freeOver: "€75" },
-    { regionKey: "regionEU", carrier: "DHL / UPS",  standard: "€8.99", express: "€14.99", freeOver: "€100" },
-    { regionKey: "regionWorld", carrier: "UPS",     standard: "€14.99", express: "€24.99", freeOver: "—" },
+//    { regionKey: "regionUK", carrier: "DHL / UPS", standard: "£4.99", express: "£9.99", freeOver: "£50" },
+    { regionKey: "regionDE", carrier: "DHL",        standard: "€5.99", freeOver: "€50" },
+    { regionKey: "regionFR", carrier: "DHL",        standard: "€5.99", freeOver: "€75" },
+    { regionKey: "regionNL", carrier: "DHL",        standard: "€5.99", freeOver: "€50" },
+    { regionKey: "regionPL", carrier: "DHL / UPS",  standard: "€5.99", freeOver: "€75" },
+    { regionKey: "regionCZ", carrier: "DHL / UPS",  standard: "€5.99", freeOver: "€75" },
+    { regionKey: "regionEU", carrier: "DHL / UPS",  standard: "€5.99", freeOver: "€100" },
+//    { regionKey: "regionWorld", carrier: "UPS",     standard: "€14.99", freeOver: "—" },
   ];
 
   return (
@@ -45,7 +45,6 @@ export default async function ShippingAndDeliveryPage() {
                 <td className="px-6 py-4 font-medium text-zinc-900 dark:text-white">{t(row.regionKey as Parameters<typeof t>[0])}</td>
                 <td className="px-6 py-4 text-zinc-500 dark:text-zinc-400">{row.carrier}</td>
                 <td className="px-6 py-4 text-zinc-700 dark:text-zinc-300">{row.standard}</td>
-                <td className="px-6 py-4 text-zinc-700 dark:text-zinc-300">{row.express}</td>
                 <td className="px-6 py-4 text-zinc-500 dark:text-zinc-400">{row.freeOver}</td>
               </tr>
             ))}
