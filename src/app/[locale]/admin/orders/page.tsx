@@ -41,11 +41,21 @@ function Badge({ label, colours }: { label: string; colours: Record<string, stri
   );
 }
 
+const PAYMENT_FILTER_OPTIONS = [
+  { value: "all",               label: "All payments" },
+  { value: "paid",              label: "Paid" },
+  { value: "unpaid",            label: "Unpaid" },
+  { value: "partially_refunded", label: "Partially refunded" },
+  { value: "refunded",          label: "Refunded" },
+];
+
 export default function AdminOrdersPage() {
   const { token } = useAuth();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [paymentFilter, setPaymentFilter] = useState("paid");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     if (!token) return;
@@ -58,14 +68,43 @@ export default function AdminOrdersPage() {
       .finally(() => setLoading(false));
   }, [token]);
 
+  const filtered = orders.filter((o) => {
+    const matchesPayment = paymentFilter === "all" || o.payment_status === paymentFilter;
+    const q = search.trim().toLowerCase();
+    const matchesSearch = !q ||
+      o.customer_name.toLowerCase().includes(q) ||
+      o.customer_email.toLowerCase().includes(q);
+    return matchesPayment && matchesSearch;
+  });
+
   if (loading) return <p className="text-sm text-zinc-400">Loading…</p>;
   if (error) return <p className="text-sm text-red-500">{error}</p>;
 
   return (
     <div>
       <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-white">
-        Orders <span className="ml-1 text-sm font-normal text-zinc-400">({orders.length})</span>
+        Orders <span className="ml-1 text-sm font-normal text-zinc-400">({filtered.length})</span>
       </h2>
+
+      <div className="mb-4 flex flex-wrap gap-3">
+        <input
+          type="search"
+          placeholder="Search by customer name or email…"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-72 rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 outline-none transition focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500 dark:focus:border-zinc-500 dark:focus:ring-zinc-700"
+        />
+        <select
+          value={paymentFilter}
+          onChange={(e) => setPaymentFilter(e.target.value)}
+          className="rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none transition focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:focus:border-zinc-500 dark:focus:ring-zinc-700"
+        >
+          {PAYMENT_FILTER_OPTIONS.map((o) => (
+            <option key={o.value} value={o.value}>{o.label}</option>
+          ))}
+        </select>
+      </div>
+
       <div className="overflow-x-auto rounded-xl border border-zinc-200 dark:border-zinc-800">
         <table className="min-w-full divide-y divide-zinc-200 dark:divide-zinc-800 text-sm">
           <thead className="bg-zinc-50 dark:bg-zinc-900">
@@ -78,7 +117,7 @@ export default function AdminOrdersPage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800 bg-white dark:bg-zinc-950">
-            {orders.map((o) => (
+            {filtered.map((o) => (
               <tr key={o.id} className="hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors">
                 <td className="px-4 py-3 font-mono text-xs font-medium text-zinc-900 dark:text-white">
                   <Link href={`/admin/orders/${o.id}`} className="hover:underline">{o.order_number}</Link>
@@ -102,8 +141,10 @@ export default function AdminOrdersPage() {
             ))}
           </tbody>
         </table>
-        {orders.length === 0 && (
-          <p className="px-4 py-8 text-center text-sm text-zinc-400">No orders yet.</p>
+        {filtered.length === 0 && (
+          <p className="px-4 py-8 text-center text-sm text-zinc-400">
+            {orders.length === 0 ? "No orders yet." : "No orders match the current filters."}
+          </p>
         )}
       </div>
     </div>
