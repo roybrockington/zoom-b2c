@@ -1,7 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-
-const LOCALE_PREFIXES = ["de", "fr", "nl", "pl", "cz"];
+import { Link } from "../../i18n/navigation";
 
 type Category = {
   id: number;
@@ -21,7 +19,6 @@ async function getCategories(locale: string): Promise<Category[]> {
 
 export default async function CategoryGrid({ locale = "en" }: { locale?: string }) {
   const categories = await getCategories(locale);
-  const localeBase = LOCALE_PREFIXES.includes(locale) ? `/${locale}` : "";
   if (categories.length === 0) return null;
 
   return (
@@ -33,7 +30,7 @@ export default async function CategoryGrid({ locale = "en" }: { locale?: string 
         {categories.map((cat) => (
           <Link
             key={cat.id}
-            href={`${localeBase}/categories/${cat.slug}`}
+            href={{ pathname: "/categories/[slug]", params: { slug: cat.slug } }}
             className="group relative overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800"
           >
             {/* Image */}

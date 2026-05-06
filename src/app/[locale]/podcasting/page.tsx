@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import GetInspired from "../../components/GetInspired";
 import PageBlocks from "../../components/PageBlocks";
 
@@ -9,6 +9,7 @@ export const metadata = {
 };
 
 export default async function PodcastingPage() {
+  const locale = await getLocale();
   const t = await getTranslations("pages.podcasting");
 
   return (
@@ -36,7 +37,7 @@ export default async function PodcastingPage() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <PageBlocks page="podcasting" />
+        <PageBlocks page="podcasting" locale={locale} />
         <GetInspired />
       </div>
     </div>

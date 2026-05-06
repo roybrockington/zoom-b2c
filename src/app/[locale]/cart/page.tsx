@@ -4,7 +4,7 @@ import { useCart } from "../../components/CartContext";
 import { useAuth } from "../../components/AuthContext";
 import { useCurrency, formatPrice } from "../../components/CurrencyContext";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "../../i18n/navigation";
 import { useTranslations } from "next-intl";
 
 const IMG_BASE = "https://media.sound-service.eu/Artikelbilder/Shopsystem/278x148/";

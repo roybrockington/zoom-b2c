@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import ImageGallery from "./ImageGallery";
 import ProductPagePrice from "./ProductPagePrice";
 import AddToCartButton from "./AddToCartButton";
-import Link from "next/link";
+import { Link } from "../../../../i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
 type ProductDescriptions = {
@@ -18,7 +18,26 @@ type ProductDescriptions = {
     short_description_nl: string | null;
     short_description_cz: string | null;
     short_description_pl: string | null;
+    slug_de: string | null;
+    slug_fr: string | null;
+    slug_nl: string | null;
+    slug_pl: string | null;
+    slug_cz: string | null;
 };
+
+function resolveSlug(product: Product, locale: string): string {
+    if (product.descriptions) {
+        const localeSlug: Record<string, string | null> = {
+            de: product.descriptions.slug_de,
+            fr: product.descriptions.slug_fr,
+            nl: product.descriptions.slug_nl,
+            pl: product.descriptions.slug_pl,
+            cz: product.descriptions.slug_cz,
+        };
+        if (localeSlug[locale]) return localeSlug[locale]!;
+    }
+    return product.slug;
+}
 
 type Product = {
     id: number;
@@ -44,9 +63,9 @@ type Product = {
     descriptions: ProductDescriptions | null;
 };
 
-async function getProduct(slug: string): Promise<Product | null> {
+async function getProduct(slug: string, locale: string): Promise<Product | null> {
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/products/${slug}?include=category,productDescription`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/products/${slug}?include=category,productDescription&locale=${locale}`,
         { next: { revalidate: 300 } }
     );
     if (res.status === 404) return null;
@@ -97,7 +116,7 @@ function resolveDescriptions(
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
     const { slug, locale } = await params;
-    const product = await getProduct(slug);
+    const product = await getProduct(slug, locale);
     const { short_description } = resolveDescriptions(product?.descriptions ?? null, locale);
     return {
         title: product ? `${product.name} - ZOOM EUROPE` : "Product - ZOOM EUROPE",
@@ -107,7 +126,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function ProductPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
     const { slug, locale } = await params;
-    const [product, t] = await Promise.all([getProduct(slug), getTranslations("product")]);
+    const [product, t] = await Promise.all([getProduct(slug, locale), getTranslations("product")]);
 
     if (!product) notFound();
 
@@ -132,12 +151,12 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
                 <span>/</span>
                 {product.category && (
                     <>
-                        <a
-                            href={`/categories/${product.category.slug}`}
+                        <Link
+                            href={{ pathname: "/categories/[slug]", params: { slug: product.category.slug } }}
                             className="hover:text-zinc-600 dark:hover:text-zinc-300"
                         >
                             {product.category.name}
-                        </a>
+                        </Link>
                         <span>/</span>
                     </>
                 )}
@@ -214,12 +233,12 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
                             <div className="flex justify-between py-2.5">
                                 <dt className="text-zinc-500 dark:text-zinc-400">Category</dt>
                                 <dd>
-                                    <a
-                                        href={`/categories/${product.category.slug}`}
+                                    <Link
+                                        href={{ pathname: "/categories/[slug]", params: { slug: product.category.slug } }}
                                         className="font-medium text-zinc-900 hover:underline dark:text-white"
                                     >
                                         {product.category.name}
-                                    </a>
+                                    </Link>
                                 </dd>
                             </div>
                         )}

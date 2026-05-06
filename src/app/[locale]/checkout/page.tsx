@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../components/AuthContext";
 import { useCart } from "../../components/CartContext";
 import { useCurrency } from "../../components/CurrencyContext";
-import { useRouter } from "next/navigation";
+import { useRouter } from "../../../i18n/navigation";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "../../../i18n/navigation";
 import dynamic from "next/dynamic";
 import AddressAutocomplete from "../../components/AddressAutocomplete";
 

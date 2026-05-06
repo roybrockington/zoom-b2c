@@ -13,7 +13,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     <div className="w-full overflow-x-hidden">
       <HeroSlider />
       <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-        <MostWanted />
+        <MostWanted locale={locale} />
         <Creators />
         <CategoryGrid locale={locale} />
         <section className="flex gap-6 md:flex-row flex-col">

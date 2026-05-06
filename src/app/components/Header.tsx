@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "../../i18n/navigation";
 import { useState, useRef } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname } from "../../i18n/navigation";
 import { currencies, useCurrency } from "./CurrencyContext";
 import LanguageSelector from "./LanguageSelector";
 import { useTranslations } from "next-intl";
@@ -14,6 +14,7 @@ export type Category = {
   id: number;
   name: string;
   slug: string;
+  slug_en?: string;
   children?: Category[];
 };
 
@@ -221,7 +222,7 @@ export default function Header({ categories }: { categories: Category[] }) {
                 {categories.map((cat) => (
                   <Link
                     key={cat.id}
-                    href={`${localeBase}/categories/${cat.slug}`}
+                    href={{ pathname: "/categories/[slug]", params: { slug: cat.slug } }}
                     className="block px-4 py-2 text-sm text-zinc-700 transition-colors hover:bg-zinc-50 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-white"
                   >
                     {cat.name}
@@ -308,7 +309,7 @@ export default function Header({ categories }: { categories: Category[] }) {
                   {categories.map((cat) => (
                     <li key={cat.id}>
                       <Link
-                        href={`${localeBase}/categories/${cat.slug}`}
+                        href={{ pathname: "/categories/[slug]", params: { slug: cat.slug } }}
                         onClick={() => setMenuOpen(false)}
                         className="block py-2 pl-10 pr-6 text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
                       >

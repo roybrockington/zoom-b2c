@@ -4,7 +4,7 @@ import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useAuth } from "../../components/AuthContext";
 import { useCart } from "../../components/CartContext";
 import { useCurrency } from "../../components/CurrencyContext";
-import { useRouter } from "next/navigation";
+import { useRouter } from "../../../i18n/navigation";
 
 type Props = {
   orderId: number;

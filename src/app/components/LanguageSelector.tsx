@@ -2,6 +2,7 @@
 
 import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "../../i18n/navigation";
+import { useParams } from "next/navigation";
 import { useRef, useState } from "react";
 
 const languages = [
@@ -17,6 +18,7 @@ export default function LanguageSelector() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  const params = useParams();
   const [open, setOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -33,7 +35,8 @@ export default function LanguageSelector() {
 
   function switchLocale(code: string) {
     setOpen(false);
-    router.push(pathname, { locale: code });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    router.push({ pathname, params: params as any }, { locale: code });
   }
 
   return (

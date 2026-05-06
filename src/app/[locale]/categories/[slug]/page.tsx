@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "../../../../i18n/navigation";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import ProductPrice from "../../../components/ProductPrice";
@@ -25,7 +25,33 @@ type Product = {
   effective_price: string;
   price_uk: string | null;
   img1: string | null;
+  descriptions: {
+    slug_de: string | null; slug_fr: string | null; slug_nl: string | null; slug_pl: string | null; slug_cz: string | null;
+    short_description_de: string | null; short_description_fr: string | null; short_description_nl: string | null; short_description_pl: string | null; short_description_cz: string | null;
+  } | null;
 };
+
+function resolveProductSlug(product: Product, locale: string): string {
+  const map: Record<string, string | null | undefined> = {
+    de: product.descriptions?.slug_de,
+    fr: product.descriptions?.slug_fr,
+    nl: product.descriptions?.slug_nl,
+    pl: product.descriptions?.slug_pl,
+    cz: product.descriptions?.slug_cz,
+  };
+  return map[locale] ?? product.slug;
+}
+
+function resolveShortDescription(product: Product, locale: string): string | null {
+  const map: Record<string, string | null | undefined> = {
+    de: product.descriptions?.short_description_de,
+    fr: product.descriptions?.short_description_fr,
+    nl: product.descriptions?.short_description_nl,
+    pl: product.descriptions?.short_description_pl,
+    cz: product.descriptions?.short_description_cz,
+  };
+  return map[locale] ?? product.short_description;
+}
 
 async function getCategory(slug: string, locale: string): Promise<Category | null> {
   const res = await fetch(
@@ -40,7 +66,7 @@ async function getCategory(slug: string, locale: string): Promise<Category | nul
 
 async function getCategoryProducts(categoryId: number): Promise<Product[]> {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/products?filter[category_id]=${categoryId}&per_page=100`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/products?filter[category_id]=${categoryId}&per_page=100&include=productDescription`,
     { next: { revalidate: 300 } }
   );
   if (!res.ok) return [];
@@ -110,7 +136,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
                 return (
                   <Link
                     key={product.id}
-                    href={`/products/${product.slug}`}
+                    href={`/products/${resolveProductSlug(product, locale)}`}
                     className="group flex flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
                   >
                     <div className="relative aspect-[278/148] w-full dark:bg-zinc-800">
@@ -132,9 +158,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
                       <p className="line-clamp-2 text-lg font-bold leading-snug text-zinc-800 dark:text-zinc-100">
                         Zoom {product.name}
                       </p>
-                      {product.short_description && (
+                      {resolveShortDescription(product, locale) && (
                         <p className="line-clamp-2 text-sm text-zinc-500 dark:text-zinc-400">
-                          {product.short_description}
+                          {resolveShortDescription(product, locale)}
                         </p>
                       )}
                       <div className="mt-auto pt-2">

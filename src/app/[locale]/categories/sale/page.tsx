@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "../../../../i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import ProductPrice from "../../../components/ProductPrice";
 
@@ -15,11 +15,37 @@ type Product = {
   effective_price: string;
   price_uk: string | null;
   img1: string | null;
+  descriptions: {
+    slug_de: string | null; slug_fr: string | null; slug_nl: string | null; slug_pl: string | null; slug_cz: string | null;
+    short_description_de: string | null; short_description_fr: string | null; short_description_nl: string | null; short_description_pl: string | null; short_description_cz: string | null;
+  } | null;
 };
+
+function resolveSlug(product: Product, locale: string): string {
+  const map: Record<string, string | null | undefined> = {
+    de: product.descriptions?.slug_de,
+    fr: product.descriptions?.slug_fr,
+    nl: product.descriptions?.slug_nl,
+    pl: product.descriptions?.slug_pl,
+    cz: product.descriptions?.slug_cz,
+  };
+  return map[locale] ?? product.slug;
+}
+
+function resolveShortDescription(product: Product, locale: string): string | null {
+  const map: Record<string, string | null | undefined> = {
+    de: product.descriptions?.short_description_de,
+    fr: product.descriptions?.short_description_fr,
+    nl: product.descriptions?.short_description_nl,
+    pl: product.descriptions?.short_description_pl,
+    cz: product.descriptions?.short_description_cz,
+  };
+  return map[locale] ?? product.short_description;
+}
 
 async function getSaleProducts(): Promise<Product[]> {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/products?filter[sale]=1&per_page=200`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/products?filter[sale]=1&per_page=200&include=productDescription`,
     { next: { revalidate: 300 } }
   );
   if (!res.ok) return [];
@@ -33,7 +59,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function SalePage() {
+export default async function SalePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const [products, t, ts] = await Promise.all([getSaleProducts(), getTranslations("category"), getTranslations("sale")]);
 
   return (
@@ -80,7 +107,7 @@ export default async function SalePage() {
                 return (
                   <Link
                     key={product.id}
-                    href={`/products/${product.slug}`}
+                    href={`/products/${resolveSlug(product, locale)}`}
                     className="group flex flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
                   >
                     <div className="relative aspect-[278/148] w-full dark:bg-zinc-800">
@@ -102,9 +129,9 @@ export default async function SalePage() {
                       <p className="line-clamp-2 text-lg font-bold leading-snug text-zinc-800 dark:text-zinc-100">
                         Zoom {product.name}
                       </p>
-                      {product.short_description && (
+                      {resolveShortDescription(product, locale) && (
                         <p className="line-clamp-2 text-sm text-zinc-500 dark:text-zinc-400">
-                          {product.short_description}
+                          {resolveShortDescription(product, locale)}
                         </p>
                       )}
                       <div className="mt-auto pt-2">

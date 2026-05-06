@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import GetInspired from "../../components/GetInspired";
 import PageBlocks from "../../components/PageBlocks";
 
@@ -9,6 +9,7 @@ export const metadata = {
 };
 
 export default async function SoundDesignPage() {
+  const locale = await getLocale();
   const t = await getTranslations("pages.soundDesign");
 
   return (
@@ -36,7 +37,7 @@ export default async function SoundDesignPage() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <PageBlocks page="sound-design" />
+        <PageBlocks page="sound-design" locale={locale} />
         <GetInspired />
       </div>
     </div>

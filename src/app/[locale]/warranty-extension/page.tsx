@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../../components/AuthContext";
-import { useRouter } from "next/navigation";
+import { useRouter } from "../../i18n/navigation";
 
 type ProductResult = {
   id: number;

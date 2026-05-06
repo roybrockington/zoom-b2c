@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { Link } from "../../../i18n/navigation";
+import { useTranslations, useLocale } from "next-intl";
 import ProductPrice from "../../components/ProductPrice";
 
 const IMG_BASE = "https://media.sound-service.eu/Artikelbilder/Shopsystem/278x148/";
@@ -19,10 +19,37 @@ type Product = {
   price_uk: string | null;
   img1: string | null;
   category: { name: string; slug: string } | null;
+  descriptions: {
+    slug_de: string | null; slug_fr: string | null; slug_nl: string | null; slug_pl: string | null; slug_cz: string | null;
+    short_description_de: string | null; short_description_fr: string | null; short_description_nl: string | null; short_description_pl: string | null; short_description_cz: string | null;
+  } | null;
 };
+
+function resolveSlug(product: Product, locale: string): string {
+  const map: Record<string, string | null | undefined> = {
+    de: product.descriptions?.slug_de,
+    fr: product.descriptions?.slug_fr,
+    nl: product.descriptions?.slug_nl,
+    pl: product.descriptions?.slug_pl,
+    cz: product.descriptions?.slug_cz,
+  };
+  return map[locale] ?? product.slug;
+}
+
+function resolveShortDescription(product: Product, locale: string): string | null {
+  const map: Record<string, string | null | undefined> = {
+    de: product.descriptions?.short_description_de,
+    fr: product.descriptions?.short_description_fr,
+    nl: product.descriptions?.short_description_nl,
+    pl: product.descriptions?.short_description_pl,
+    cz: product.descriptions?.short_description_cz,
+  };
+  return map[locale] ?? product.short_description;
+}
 
 export default function SearchPage() {
   const t = useTranslations("search");
+  const locale = useLocale();
   const searchParams = useSearchParams();
   const q = searchParams.get("q") ?? "";
 
@@ -40,7 +67,7 @@ export default function SearchPage() {
     setLoading(true);
     const params = new URLSearchParams({
       "filter[search]": q,
-      include: "category",
+      include: "category,productDescription",
       per_page: "40",
       sort: "name",
     });
@@ -95,7 +122,7 @@ export default function SearchPage() {
             return (
               <Link
                 key={product.id}
-                href={`/products/${product.slug}`}
+                href={`/products/${resolveSlug(product, locale)}`}
                 className="group flex flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
               >
                 <div className="relative aspect-[278/148] w-full bg-white dark:bg-zinc-800">
@@ -122,9 +149,9 @@ export default function SearchPage() {
                   <p className="line-clamp-2 text-lg font-bold leading-snug text-zinc-800 dark:text-zinc-100">
                     Zoom {product.name}
                   </p>
-                  {product.short_description && (
+                  {resolveShortDescription(product, locale) && (
                     <p className="line-clamp-2 text-sm text-zinc-500 dark:text-zinc-400">
-                      {product.short_description}
+                      {resolveShortDescription(product, locale)}
                     </p>
                   )}
                   <div className="mt-auto pt-2">

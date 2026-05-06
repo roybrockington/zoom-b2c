@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { useAuth } from "../../components/AuthContext";
-import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "../../i18n/navigation";
+import { Link } from "../../i18n/navigation";
 import Image from "next/image";
 
 export default function LoginPage() {
