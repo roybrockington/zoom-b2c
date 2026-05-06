@@ -75,7 +75,7 @@ export default function CartPage() {
                   {/* Details */}
                   <div className="flex flex-1 flex-col gap-1">
                     <Link
-                      href={`/products/${item.slug}`}
+                      href={{ pathname: "/products/[slug]", params: { slug: item.slug } }}
                       className="text-sm font-semibold text-zinc-900 hover:underline dark:text-white"
                     >
                       Zoom {item.name}

@@ -120,7 +120,7 @@ export default function AdminOrdersPage() {
             {filtered.map((o) => (
               <tr key={o.id} className="hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors">
                 <td className="px-4 py-3 font-mono text-xs font-medium text-zinc-900 dark:text-white">
-                  <Link href={`/admin/orders/${o.id}`} className="hover:underline">{o.order_number}</Link>
+                  <Link href={{ pathname: "/admin/orders/[id]", params: { id: String(o.id) } }} className="hover:underline">{o.order_number}</Link>
                 </td>
                 <td className="px-4 py-3">
                   <div className="font-medium text-zinc-900 dark:text-white">{o.customer_name}</div>

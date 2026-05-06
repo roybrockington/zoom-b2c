@@ -34,14 +34,14 @@ export default function Header({ categories }: { categories: Category[] }) {
     e.preventDefault();
     const q = searchQuery.trim();
     if (!q) return;
-    router.push(`${localeBase}/search?q=${encodeURIComponent(q)}`);
+    router.push({ pathname: "/search", query: { q } } as any);
   }
   const { currency: selectedCurrency, setCurrency: setSelectedCurrency } = useCurrency();
   const { user } = useAuth();
   const { totalItems, hydrated: cartHydrated } = useCart();
   const t = useTranslations();
 
-  const navLinks = [
+  const navLinks: { label: string; href: "/podcasting" | "/music" | "/filmmaking" | "/sound-design" | "/categories/sale"; isSale?: boolean }[] = [
     { label: t("nav.podcasting"), href: "/podcasting" },
     { label: t("nav.music"),      href: "/music" },
     { label: t("nav.filmmaking"), href: "/filmmaking" },
@@ -203,15 +203,14 @@ export default function Header({ categories }: { categories: Category[] }) {
             onMouseEnter={openDropdown}
             onMouseLeave={closeDropdown}
           >
-            <Link
-              href="#"
+            <button
               className="inline-flex items-center gap-1 px-4 py-3 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
             >
               {t("nav.categories")}
               <svg xmlns="http://www.w3.org/2000/svg" className={`h-3.5 w-3.5 transition-transform duration-200 ${categoriesOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
-            </Link>
+            </button>
 
             {categoriesOpen && categories.length > 0 && (
               <div
@@ -236,7 +235,7 @@ export default function Header({ categories }: { categories: Category[] }) {
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
-                href={`${localeBase}${link.href}`}
+                href={link.href}
                 className={`inline-block px-4 py-3 text-sm font-medium transition-colors hover:text-zinc-900 dark:hover:text-white ${
                   link.isSale
                     ? "text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-400"
@@ -324,7 +323,7 @@ export default function Header({ categories }: { categories: Category[] }) {
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
-                  href={`${localeBase}${link.href}`}
+                  href={link.href}
                   onClick={() => setMenuOpen(false)}
                   className={`block px-6 py-3 text-sm font-medium transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900 ${
                     link.isSale

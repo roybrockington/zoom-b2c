@@ -15,7 +15,7 @@ export default async function ImprintPage() {
                         <p>Moriz-Seeler-Straße 3</p>
                         <p>12489 Berlin</p>
                         <p>Germany</p>
-                        <Link className="text-blue-600 underline" href='mailto:info@zoom-europe.com'>Email: info@zoom-europe.com</Link>
+                        <a className="text-blue-600 underline" href='mailto:info@zoom-europe.com'>Email: info@zoom-europe.com</a>
                     </div>
                     <div className="w-full">
                         <ul>
@@ -25,7 +25,7 @@ export default async function ImprintPage() {
                             <li>{t("vatId")}</li>
                             <li>{t("wIdNr")}</li>
                             <li>{t("weee")}</li>
-                            <li>{t("odrLabel")} <Link className="text-blue-600 underline" href='https://ec.europa.eu/consumers/odr'>https://ec.europa.eu/consumers/odr</Link></li>
+                            <li>{t("odrLabel")} <a className="text-blue-600 underline" href='https://ec.europa.eu/consumers/odr'>https://ec.europa.eu/consumers/odr</a></li>
                             <li>{t("noArbitration")}</li>
                         </ul>
                     </div>

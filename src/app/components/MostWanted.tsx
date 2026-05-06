@@ -74,7 +74,7 @@ export default async function MostWanted({ locale }: { locale: string }) {
           return (
             <Link
               key={product.id}
-              href={`/products/${resolveSlug(product, locale)}`}
+              href={{ pathname: "/products/[slug]", params: { slug: resolveSlug(product, locale) } }}
               className="group flex flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
             >
               {/* Image */}

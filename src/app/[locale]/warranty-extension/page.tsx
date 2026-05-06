@@ -60,7 +60,7 @@ export default function WarrantyExtensionPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!authLoading && !user) router.replace("/login?redirect=/warranty-extension");
+    if (!authLoading && !user) router.replace({ pathname: "/login", query: { redirect: "/warranty-extension" } } as any);
   }, [user, authLoading, router]);
 
   // Fetch addresses once auth is ready

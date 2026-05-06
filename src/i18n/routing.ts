@@ -5,6 +5,14 @@ export const routing = defineRouting({
   defaultLocale: "en",
   localePrefix: "as-needed", // en → /*, de → /de/*, fr → /fr/*, etc.
   pathnames: {
+    "/": "/",
+    "/admin": "/admin",
+    "/admin/orders": "/admin/orders",
+    "/admin/orders/[id]": "/admin/orders/[id]",
+    "/admin/products": "/admin/products",
+    "/admin/categories": "/admin/categories",
+    "/admin/coupons": "/admin/coupons",
+    "/admin/users": "/admin/users",
     "/products/[slug]": {
       en: "/products/[slug]",
       de: "/produkte/[slug]",
@@ -29,6 +37,8 @@ export const routing = defineRouting({
       pl: "/koszyk",
       cz: "/kosik",
     },
+    "/checkout/success": "/checkout/success",
+    "/checkout/cancel": "/checkout/cancel",
     "/checkout": {
       en: "/checkout",
       de: "/kasse",

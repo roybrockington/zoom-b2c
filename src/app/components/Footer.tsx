@@ -10,13 +10,13 @@ export default function Footer() {
 
     type footerBadge = {
         altText: string;
-        linkUrl: string;
+        linkUrl: "/" | "/payment-methods" | "/shipping-and-delivery";
         imageUrl: string;
     }
 
     type menuItem = {
         name: string;
-        link: string;
+        link: "/returns" | "/support" | "/warranty-extension" | "/payment-methods" | "/shipping-and-delivery" | "/terms" | "/imprint" | "/withdrawal" | "/privacy-policy" | "/filmmaking" | "/music" | "/podcasting" | "/sound-design" | "/about-us";
     }
 
 const paymentMethods: footerBadge[] = [

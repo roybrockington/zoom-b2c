@@ -114,7 +114,7 @@ export default function AdminOrderShowPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <Link href="../orders" className="mb-2 inline-flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200">
+          <Link href="/admin/orders" className="mb-2 inline-flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200">
             ← Back to orders
           </Link>
           <h2 className="text-lg font-semibold text-zinc-900 dark:text-white">

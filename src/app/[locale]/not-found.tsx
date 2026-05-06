@@ -26,7 +26,7 @@ export default function NotFound() {
           Back to home
         </Link>
         <Link
-          href="/categories/handy-recorders"
+          href={{ pathname: "/categories/[slug]", params: { slug: "handy-recorders" } }}
           className="rounded-full border border-zinc-300 px-6 py-2.5 text-sm font-semibold text-zinc-700 transition hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
         >
           Browse products

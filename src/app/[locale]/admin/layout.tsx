@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "@i18n/navigation";
 import { useEffect } from "react";
 import { useAuth } from "../../components/AuthContext";
 
-const NAV = [
+const NAV: { label: string; href: "/admin/orders" | "/admin/products" | "/admin/categories" | "/admin/coupons" | "/admin/users" }[] = [
   { label: "Orders", href: "/admin/orders" },
   { label: "Products", href: "/admin/products" },
   { label: "Categories", href: "/admin/categories" },

@@ -21,7 +21,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (!loading && user) {
-      router.replace(redirect ?? (user.is_admin ? "/admin" : "/account"));
+      router.replace((redirect ?? (user.is_admin ? "/admin" : "/account")) as any);
     }
   }, [user, loading, router, redirect]);
 
@@ -31,7 +31,7 @@ export default function LoginPage() {
     setSubmitting(true);
     try {
       const loggedInUser = await login(email, password);
-      router.push(redirect ?? (loggedInUser?.is_admin ? "/admin" : "/account"));
+      router.push((redirect ?? (loggedInUser?.is_admin ? "/admin" : "/account")) as any);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Login failed.");
     } finally {
@@ -119,7 +119,7 @@ export default function LoginPage() {
           </form>
           <p className="mt-5 text-center text-sm text-zinc-500 dark:text-zinc-400">
             Don't have an account?{" "}
-            <Link href={redirect ? `/register?redirect=${redirect}` : "/register"} className="font-medium text-zinc-900 underline dark:text-white">
+            <Link href={redirect ? { pathname: "/register", query: { redirect } } as any : "/register"} className="font-medium text-zinc-900 underline dark:text-white">
               Create one
             </Link>
           </p>

@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 const IMG_BASE = "https://media.sound-service.eu/zoom/";
 
-const tiles: { key: string; image: string; link: string }[] = [
+const tiles: { key: string; image: string; link: "/music" | "/podcasting" | "/filmmaking" | "/sound-design" | "/about-us" }[] = [
     { key: "music",       image: "category-seo/inspiration-musicians.webp",      link: "/music"        },
     { key: "podcasting",  image: "category-seo/inspiration-podcasters.webp",     link: "/podcasting"   },
     { key: "filmmaking",  image: "category-seo/inspiration-filmmakers.webp",     link: "/filmmaking"   },

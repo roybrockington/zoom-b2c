@@ -36,7 +36,7 @@ export default function LanguageSelector() {
   function switchLocale(code: string) {
     setOpen(false);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    router.push({ pathname, params: params as any }, { locale: code });
+    router.push({ pathname, params: params as any } as any, { locale: code });
   }
 
   return (

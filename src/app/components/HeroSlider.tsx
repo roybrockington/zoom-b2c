@@ -85,12 +85,12 @@ export default function HeroSlider() {
                 <h2 className="max-w-xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
                   {slide.heading}
                 </h2>
-                <Link
+                <a
                   href={slide.linkUrl}
                   className="mt-6 inline-block rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-100"
                 >
                   {slide.linkText}
-                </Link>
+                </a>
               </div>
             </div>
           </div>

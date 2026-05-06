@@ -4,7 +4,7 @@ import { Mic, Film, Guitar, Headphones, type LucideIcon } from "lucide-react";
 
 const IMG_BASE = "https://media.sound-service.eu/zoom/home-profession/";
 
-const tiles: { key: string; icon: LucideIcon; image: string; link: string }[] = [
+const tiles: { key: string; icon: LucideIcon; image: string; link: "/podcasting" | "/filmmaking" | "/music" | "/sound-design" }[] = [
     { key: "podcasting",  icon: Mic,        image: "podcaster.webp",     link: "/podcasting"  },
     { key: "filmmaking",  icon: Film,       image: "filmmaker.webp",     link: "/filmmaking"  },
     { key: "music",       icon: Guitar,     image: "musician.webp",      link: "/music"       },

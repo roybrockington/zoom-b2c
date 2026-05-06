@@ -281,8 +281,8 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
                             <li>4-4-3 Kanda-surugadai, Chiyoda-ku</li> 
                             <li>101-0062 Tokyo</li> 
                             <li>Japan</li> 
-                            <li><Link href="https://www.zoomcorp.com/en/jp">https://www.zoomcorp.com/en/jp</Link></li> 
-                            <li><Link href="mailto:zoom@sound-service.eu">zoom@sound-service.eu</Link></li> 
+                            <li><a href="https://www.zoomcorp.com/en/jp">https://www.zoomcorp.com/en/jp</a></li>
+                            <li><a href="mailto:zoom@sound-service.eu">zoom@sound-service.eu</a></li>
                         </ul>
                     </div>
                     <div className="rounded-xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
@@ -293,20 +293,20 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
                             <li>Moriz-Seeler-Straße 3</li> 
                             <li>12489 Berlin</li> 
                             <li>Germany</li> 
-                            <li><Link href="https://sound-service.eu">https://sound-service.eu</Link></li> 
-                            <li><Link href="mailto:info@sound-service.eu">info@sound-service.eu</Link></li> 
+                            <li><a href="https://sound-service.eu">https://sound-service.eu</a></li>
+                            <li><a href="mailto:info@sound-service.eu">info@sound-service.eu</a></li>
                         </ul>
                     </div>
                     <div className="rounded-xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
                         <h3>{t("responsibleOffice")}</h3>
                         <ul className="mb-1 text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 py-3">
-                            <li>Firma</li> 
-                            <li>Sound-Service Musikanlagen-Vertr.-Ges. mbH</li> 
-                            <li>Moriz-Seeler-Straße 3</li> 
-                            <li>12489 Berlin</li> 
-                            <li>Germany</li> 
-                            <li><Link href="https://sound-service.eu">https://sound-service.eu</Link></li> 
-                            <li><Link href="mailto:info@sound-service.eu">info@sound-service.eu</Link></li> 
+                            <li>Firma</li>
+                            <li>Sound-Service Musikanlagen-Vertr.-Ges. mbH</li>
+                            <li>Moriz-Seeler-Straße 3</li>
+                            <li>12489 Berlin</li>
+                            <li>Germany</li>
+                            <li><a href="https://sound-service.eu">https://sound-service.eu</a></li>
+                            <li><a href="mailto:info@sound-service.eu">info@sound-service.eu</a></li>
                         </ul>
                     </div>
                 </div>
