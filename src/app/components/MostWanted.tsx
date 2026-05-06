@@ -21,6 +21,7 @@ type Product = {
   price_uk: string | null;
   img1: string | null;
   descriptions: LocaleSlugs;
+  category: { slug: string } | null;
 };
 
 function resolveSlug(product: Product, locale: string): string {
@@ -47,7 +48,7 @@ function resolveShortDescription(product: Product, locale: string): string | nul
 
 async function getWantedProducts(): Promise<Product[]> {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/products?filter[wanted]=1&per_page=12&include=productDescription`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/products?filter[wanted]=1&per_page=12&include=category,productDescription`,
     { next: { revalidate: 300 } }
   );
 
@@ -97,7 +98,7 @@ export default async function MostWanted({ locale }: { locale: string }) {
               {/* Info */}
               <div className="flex flex-1 flex-col gap-1 p-3">
                 <p className="line-clamp-2 text-lg font-bold leading-snug text-zinc-800 dark:text-zinc-100">
-                  Zoom {product.name}
+                  {product.category?.slug === 'instamic' ? 'Instamic' : 'Zoom'} {product.name}
                 </p>
                 {resolveShortDescription(product, locale) && (
                   <p className="line-clamp-2 text-sm text-zinc-500 dark:text-zinc-400">{resolveShortDescription(product, locale)}</p>

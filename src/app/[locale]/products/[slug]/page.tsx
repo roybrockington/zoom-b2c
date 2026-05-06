@@ -173,7 +173,7 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
                 <div className="flex flex-col gap-5">
                     <div>
                         <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-                            Zoom
+                            {product.category?.slug === 'instamic' ? 'Instamic' : 'Zoom'}
                         </p>
                         <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">
                             {product.name}

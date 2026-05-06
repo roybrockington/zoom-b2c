@@ -147,7 +147,7 @@ export default function SearchPage() {
                     </span>
                   )}
                   <p className="line-clamp-2 text-lg font-bold leading-snug text-zinc-800 dark:text-zinc-100">
-                    Zoom {product.name}
+                    {product.category?.slug === 'instamic' ? 'Instamic' : 'Zoom'} {product.name}
                   </p>
                   {resolveShortDescription(product, locale) && (
                     <p className="line-clamp-2 text-sm text-zinc-500 dark:text-zinc-400">

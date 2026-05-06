@@ -15,6 +15,7 @@ type Product = {
   effective_price: string;
   price_uk: string | null;
   img1: string | null;
+  category: { slug: string } | null;
   descriptions: {
     slug_de: string | null; slug_fr: string | null; slug_nl: string | null; slug_pl: string | null; slug_cz: string | null;
     short_description_de: string | null; short_description_fr: string | null; short_description_nl: string | null; short_description_pl: string | null; short_description_cz: string | null;
@@ -45,7 +46,7 @@ function resolveShortDescription(product: Product, locale: string): string | nul
 
 async function getSaleProducts(): Promise<Product[]> {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/products?filter[sale]=1&per_page=200&include=productDescription`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/products?filter[sale]=1&per_page=200&include=category,productDescription`,
     { next: { revalidate: 300 } }
   );
   if (!res.ok) return [];
@@ -127,7 +128,7 @@ export default async function SalePage({ params }: { params: Promise<{ locale: s
                     </div>
                     <div className="flex flex-1 flex-col gap-1 p-3">
                       <p className="line-clamp-2 text-lg font-bold leading-snug text-zinc-800 dark:text-zinc-100">
-                        Zoom {product.name}
+                        {product.category?.slug === 'instamic' ? 'Instamic' : 'Zoom'} {product.name}
                       </p>
                       {resolveShortDescription(product, locale) && (
                         <p className="line-clamp-2 text-sm text-zinc-500 dark:text-zinc-400">

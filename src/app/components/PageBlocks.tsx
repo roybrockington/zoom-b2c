@@ -13,6 +13,7 @@ type BlockProduct = {
   price_uk: string | null;
   img1: string | null;
   short_description: string | null;
+  category: { slug: string } | null;
   descriptions: {
     slug_de: string | null; slug_fr: string | null; slug_nl: string | null; slug_pl: string | null; slug_cz: string | null;
     short_description_de: string | null; short_description_fr: string | null; short_description_nl: string | null; short_description_pl: string | null; short_description_cz: string | null;
@@ -93,7 +94,7 @@ export default async function PageBlocks({ page, locale }: { page: string; local
                   </div>
                   <div className="flex flex-1 flex-col gap-1 p-3">
                     <p className="line-clamp-2 text-sm font-bold leading-snug text-zinc-800 dark:text-zinc-100">
-                      Zoom {product.name}
+                      {product.category?.slug === 'instamic' ? 'Instamic' : 'Zoom'} {product.name}
                     </p>
                     {resolveShortDescription(product, locale) && (
                       <p className="line-clamp-2 text-xs text-zinc-500 dark:text-zinc-400">

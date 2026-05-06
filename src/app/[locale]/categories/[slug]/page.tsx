@@ -156,7 +156,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ local
                     </div>
                     <div className="flex flex-1 flex-col gap-1 p-3">
                       <p className="line-clamp-2 text-lg font-bold leading-snug text-zinc-800 dark:text-zinc-100">
-                        Zoom {product.name}
+                        {slug === 'instamic' ? 'Instamic' : 'Zoom'} {product.name}
                       </p>
                       {resolveShortDescription(product, locale) && (
                         <p className="line-clamp-2 text-sm text-zinc-500 dark:text-zinc-400">
