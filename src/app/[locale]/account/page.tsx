@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "../../components/AuthContext";
-import { useRouter } from "../../i18n/navigation";
-import { Link } from "../../i18n/navigation";
+import { useRouter } from "@i18n/navigation";
+import { Link } from "@i18n/navigation";
 
 type OrderItem = {
   id: number;

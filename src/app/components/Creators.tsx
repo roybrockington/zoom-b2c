@@ -1,4 +1,4 @@
-import { Link } from "../../i18n/navigation";
+import { Link } from "@i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { Mic, Film, Guitar, Headphones, type LucideIcon } from "lucide-react";
 

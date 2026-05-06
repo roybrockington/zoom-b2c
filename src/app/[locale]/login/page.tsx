@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../components/AuthContext";
 import { useSearchParams } from "next/navigation";
-import { useRouter } from "../../i18n/navigation";
-import { Link } from "../../i18n/navigation";
+import { useRouter } from "@i18n/navigation";
+import { Link } from "@i18n/navigation";
 import Image from "next/image";
 
 export default function LoginPage() {

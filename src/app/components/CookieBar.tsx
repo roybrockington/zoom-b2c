@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "../../i18n/navigation";
+import { Link } from "@i18n/navigation";
 import { useTranslations } from "next-intl";
 
 export default function CookieBar() {

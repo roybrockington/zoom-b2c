@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Link } from "../../i18n/navigation";
+import { Link } from "@i18n/navigation";
 import ProductPrice from "./ProductPrice";
 import { getTranslations } from "next-intl/server";
 

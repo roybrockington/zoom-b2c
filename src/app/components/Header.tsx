@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Link } from "../../i18n/navigation";
+import { Link } from "@i18n/navigation";
 import { useState, useRef } from "react";
-import { useRouter, usePathname } from "../../i18n/navigation";
+import { useRouter, usePathname } from "@i18n/navigation";
 import { currencies, useCurrency } from "./CurrencyContext";
 import LanguageSelector from "./LanguageSelector";
 import { useTranslations } from "next-intl";

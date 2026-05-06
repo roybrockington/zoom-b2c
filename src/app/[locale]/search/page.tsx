@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
-import { Link } from "../../../i18n/navigation";
+import { Link } from "@i18n/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import ProductPrice from "../../components/ProductPrice";
 

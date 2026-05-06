@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { useRouter } from "../../i18n/navigation";
+import { useRouter } from "@i18n/navigation";
 
 type User = {
   id: number;

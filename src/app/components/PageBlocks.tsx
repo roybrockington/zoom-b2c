@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Link } from "../../i18n/navigation";
+import { Link } from "@i18n/navigation";
 import ProductPrice from "./ProductPrice";
 
 const IMG_BASE = "https://media.sound-service.eu/Artikelbilder/Shopsystem/278x148/";

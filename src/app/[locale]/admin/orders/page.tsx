@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../components/AuthContext";
-import { Link } from "../../../i18n/navigation";
+import { Link } from "@i18n/navigation";
 
 type Order = {
   id: number;

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../../components/AuthContext";
 import { useParams } from "next/navigation";
-import { Link } from "../../../../i18n/navigation";
+import { Link } from "@i18n/navigation";
 
 type OrderItem = {
   id: number;

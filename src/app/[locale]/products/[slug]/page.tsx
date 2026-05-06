@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import ImageGallery from "./ImageGallery";
 import ProductPagePrice from "./ProductPagePrice";
 import AddToCartButton from "./AddToCartButton";
-import { Link } from "../../../../i18n/navigation";
+import { Link } from "@i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
 type ProductDescriptions = {
