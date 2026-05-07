@@ -303,12 +303,12 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
                                 <dd className="font-medium text-zinc-900 dark:text-white">{product.ean}</dd>
                             </div>
                         )}
-                        {product.mpn && (
+                        {/*product.mpn && (
                             <div className="flex justify-between py-2.5">
                                 <dt className="text-zinc-500 dark:text-zinc-400">MPN</dt>
                                 <dd className="font-medium text-zinc-900 dark:text-white">{product.mpn}</dd>
                             </div>
-                        )}
+                        )*/}
                         {product.category && (
                             <div className="flex justify-between py-2.5">
                                 <dt className="text-zinc-500 dark:text-zinc-400">Category</dt>
