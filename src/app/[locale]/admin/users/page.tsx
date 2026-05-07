@@ -25,11 +25,23 @@ export default function AdminUsersPage() {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+      setPage(1);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [search]);
 
   useEffect(() => {
     if (!token) return;
     setLoading(true);
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/users?page=${page}`, {
+    const params = new URLSearchParams({ page: String(page) });
+    if (debouncedSearch) params.set("search", debouncedSearch);
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/users?${params}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((r) => r.json())
@@ -44,16 +56,25 @@ export default function AdminUsersPage() {
       })
       .catch(() => setError("Failed to load users."))
       .finally(() => setLoading(false));
-  }, [token, page]);
+  }, [token, page, debouncedSearch]);
 
   if (loading) return <p className="text-sm text-zinc-400">Loading…</p>;
   if (error)   return <p className="text-sm text-red-500">{error}</p>;
 
   return (
     <div>
-      <h2 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-white">
-        Users{meta && <span className="ml-1 text-sm font-normal text-zinc-400">({meta.total})</span>}
-      </h2>
+      <div className="mb-4 flex items-center justify-between gap-4">
+        <h2 className="text-lg font-semibold text-zinc-900 dark:text-white">
+          Users{meta && <span className="ml-1 text-sm font-normal text-zinc-400">({meta.total})</span>}
+        </h2>
+        <input
+          type="search"
+          placeholder="Search by name or email…"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-64 rounded-lg border border-zinc-200 bg-white px-3 py-1.5 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:placeholder-zinc-500 dark:focus:ring-zinc-600"
+        />
+      </div>
 
       <div className="overflow-x-auto rounded-xl border border-zinc-200 dark:border-zinc-800">
         <table className="min-w-full divide-y divide-zinc-200 dark:divide-zinc-800 text-sm">
