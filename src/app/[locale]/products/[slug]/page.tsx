@@ -49,6 +49,8 @@ type Product = {
     price_uk: string | null;
     in_stock: boolean;
     sku: string | null;
+    ean: string | null;
+    mpn: string | null;
     stock_quantity: number;
     manage_stock: boolean;
     weight: string | null;
@@ -142,7 +144,73 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
 
     const { description, short_description } = resolveDescriptions(product.descriptions, locale);
 
+    const canonicalSlug = resolveSlug(product, locale);
+    const productUrl = `https://zoom-europe.com/${locale}/products/${canonicalSlug}`;
+
+
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: product.name,
+        ...(short_description && { description: short_description }),
+        image: images,
+        brand: {
+            "@type": "Brand",
+            name: product.category?.slug === "instamic" ? "Instamic" : "Zoom",
+        },
+        ...(product.sku && { sku: product.sku }),
+        ...(product.ean && { gtin13: product.ean }),
+        ...(product.mpn && { mpn: product.mpn }),
+        offers: {
+            "@type": "Offer",
+            url: productUrl,
+            priceCurrency: "EUR",
+            price: product.sale_price ?? product.price,
+            availability: product.in_stock
+                ? "https://schema.org/InStock"
+                : "https://schema.org/OutOfStock",
+            itemCondition: "https://schema.org/NewCondition",
+            seller: {
+                "@type": "Organization",
+                name: "Zoom Europe",
+            },
+        },
+    };
+
+    const baseUrl = `https://zoom-europe.com/${locale}`;
+    const breadcrumbItems: { "@type": "ListItem"; position: number; name: string; item?: string }[] = [
+        { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+    ];
+    if (product.category) {
+        breadcrumbItems.push({
+            "@type": "ListItem",
+            position: 2,
+            name: product.category.name,
+            item: `${baseUrl}/categories/${product.category.slug}`,
+        });
+    }
+    breadcrumbItems.push({
+        "@type": "ListItem",
+        position: breadcrumbItems.length + 1,
+        name: product.name,
+    });
+
+    const breadcrumbJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbItems,
+    };
+
     return (
+        <>
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
 
             {/* Breadcrumb */}
@@ -229,6 +297,18 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
                                 <dd className="font-medium text-zinc-900 dark:text-white">{product.sku}</dd>
                             </div>
                         )}
+                        {product.ean && (
+                            <div className="flex justify-between py-2.5">
+                                <dt className="text-zinc-500 dark:text-zinc-400">EAN</dt>
+                                <dd className="font-medium text-zinc-900 dark:text-white">{product.ean}</dd>
+                            </div>
+                        )}
+                        {product.mpn && (
+                            <div className="flex justify-between py-2.5">
+                                <dt className="text-zinc-500 dark:text-zinc-400">MPN</dt>
+                                <dd className="font-medium text-zinc-900 dark:text-white">{product.mpn}</dd>
+                            </div>
+                        )}
                         {product.category && (
                             <div className="flex justify-between py-2.5">
                                 <dt className="text-zinc-500 dark:text-zinc-400">Category</dt>
@@ -312,5 +392,6 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
                 </div>
             </div>
         </div>
+        </>
     );
 }
