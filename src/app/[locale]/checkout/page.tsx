@@ -170,13 +170,13 @@ export default function CheckoutPage() {
     const country = countries.find((c) => c.code === shipping.country);
     if (!country) { setShippingCost(0); return; }
 
+    // TODO: re-enable free-over-threshold logic when promotions resume
     const carriage = currency.code === "GBP"
       ? parseFloat(country.carriage_gbp)
       : parseFloat(country.carriage_eur);
-    const freeOver = country.free_over ? parseFloat(country.free_over) : null;
 
-    setShippingCost(freeOver !== null && subtotal >= freeOver ? 0 : carriage);
-  }, [shipping.country, countries, currency.code, subtotal]);
+    setShippingCost(carriage);
+  }, [shipping.country, countries, currency.code]);
 
   useEffect(() => {
     if (!authLoading && !user) router.replace("/login");

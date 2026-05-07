@@ -35,8 +35,6 @@ export default async function ShippingAndDeliveryPage() {
               <th className="px-6 py-3 text-left font-semibold text-zinc-700 dark:text-zinc-300">{t("colRegion")}</th>
               <th className="px-6 py-3 text-left font-semibold text-zinc-700 dark:text-zinc-300">{t("colCarrier")}</th>
               <th className="px-6 py-3 text-left font-semibold text-zinc-700 dark:text-zinc-300">{t("colStandard")}</th>
-              <th className="px-6 py-3 text-left font-semibold text-zinc-700 dark:text-zinc-300">{t("colExpress")}</th>
-              <th className="px-6 py-3 text-left font-semibold text-zinc-700 dark:text-zinc-300">{t("colFreeOver")}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800 bg-white dark:bg-zinc-950">
@@ -45,7 +43,6 @@ export default async function ShippingAndDeliveryPage() {
                 <td className="px-6 py-4 font-medium text-zinc-900 dark:text-white">{t(row.regionKey as Parameters<typeof t>[0])}</td>
                 <td className="px-6 py-4 text-zinc-500 dark:text-zinc-400">{row.carrier}</td>
                 <td className="px-6 py-4 text-zinc-700 dark:text-zinc-300">{row.standard}</td>
-                <td className="px-6 py-4 text-zinc-500 dark:text-zinc-400">{row.freeOver}</td>
               </tr>
             ))}
           </tbody>
