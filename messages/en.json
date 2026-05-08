@@ -235,6 +235,22 @@
     "tile3": "In Europe, ZOOM products are distributed by the wholesaler Sound Service GmbH. After the company was founded in 1983, we at Sound Service focused on sales work in Germany, Austria and Benelux. Our distribution area has since expanded to cover the whole of Europe, and Sound Service has become one of the leading European distributors of musical instruments, sound and lighting equipment and recording supplies. We always work on the principle of supporting all our partners 100% in all matters: 360° all-round support is standard for us, there's no doubt about that. We work together with our partners to build their brands in Europe.",
     "tile4": "Our central location in the heart of Europe also means we can offer our business partners ideal distribution channels for our brands and products. To do this, we have developed excellent stocking systems, rely on state-of-the-art logistics processes, and offer outstanding reliability. Our passion and commitment to the ZOOM brand drive our work, even outside of the office. We are ZOOM users, and we familiarize ourselves with ZOOM products down to the finest detail, so we know exactly what we are talking about."
   },
+  "auth": {
+    "forgotPassword": "Forgot password?",
+    "forgotPasswordTitle": "Reset your password",
+    "forgotPasswordDesc": "Enter your email address and we'll send you a link to reset your password.",
+    "sendResetLink": "Send reset link",
+    "sending": "Sending…",
+    "backToLogin": "Back to sign in",
+    "resetEmailSent": "If an account exists for that email, a reset link has been sent.",
+    "resetPasswordTitle": "Choose a new password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "resetPassword": "Reset password",
+    "resetting": "Resetting…",
+    "resetSuccess": "Your password has been reset. You can now sign in.",
+    "invalidToken": "This reset link is invalid or has expired."
+  },
   "construction": {
     "line1": "Following recent changes to our site, this area is currently in the process of being rebuilt.",
     "line2": "Please check back soon when our form will be fully operational."

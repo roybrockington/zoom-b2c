@@ -211,6 +211,22 @@
     "tile3": "V Evropě jsou produkty ZOOM distribuovány velkoobchodem Sound Service GmbH. Po založení společnosti v roce 1983 jsme se ve Sound Service zaměřili na prodejní činnost v Německu, Rakousku a Beneluxu. Naše distribuční oblast se od té doby rozšířila na celou Evropu a Sound Service se stal jedním z předních evropských distributorů hudebních nástrojů, zvukového a osvětlovacího vybavení a nahrávacích potřeb.",
     "tile4": "Naše centrální poloha v srdci Evropy také znamená, že můžeme našim obchodním partnerům nabídnout ideální distribuční kanály pro naše značky a produkty. K tomu jsme vyvinuli vynikající skladovací systémy, spoléháme na nejmodernější logistické procesy a nabízíme vynikající spolehlivost. Naše vášeň a oddanost značce ZOOM pohánějí naši práci, i mimo kancelář."
   },
+  "auth": {
+    "forgotPassword": "Zapomněli jste heslo?",
+    "forgotPasswordTitle": "Obnovit heslo",
+    "forgotPasswordDesc": "Zadejte svou e-mailovou adresu a my vám pošleme odkaz pro obnovení hesla.",
+    "sendResetLink": "Odeslat odkaz",
+    "sending": "Odesílání…",
+    "backToLogin": "Zpět na přihlášení",
+    "resetEmailSent": "Pokud pro tento e-mail existuje účet, byl odeslán odkaz pro obnovení hesla.",
+    "resetPasswordTitle": "Zvolte nové heslo",
+    "newPassword": "Nové heslo",
+    "confirmPassword": "Potvrdit heslo",
+    "resetPassword": "Obnovit heslo",
+    "resetting": "Obnovování…",
+    "resetSuccess": "Vaše heslo bylo obnoveno. Nyní se můžete přihlásit.",
+    "invalidToken": "Tento odkaz pro obnovení hesla je neplatný nebo vypršel."
+  },
   "construction": {
     "line1": "Po nedávných změnách na našem webu je tato sekce právě přestavována.",
     "line2": "Brzy se vraťte, až bude náš formulář plně funkční."

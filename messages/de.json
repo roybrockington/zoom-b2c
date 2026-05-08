@@ -228,6 +228,22 @@
     "tile3": "In Europa werden ZOOM-Produkte vom Großhändler Sound Service GmbH vertrieben. Nach der Gründung des Unternehmens 1983 konzentrierten wir uns bei Sound Service zunächst auf den Vertrieb in Deutschland, Österreich und den Benelux-Ländern. Unser Vertriebsgebiet hat sich seitdem auf ganz Europa ausgedehnt, und Sound Service ist zu einem der führenden europäischen Distributoren für Musikinstrumente, Beschallungs- und Beleuchtungstechnik sowie Aufnahmezubehör geworden.",
     "tile4": "Unsere zentrale Lage im Herzen Europas bedeutet auch, dass wir unseren Geschäftspartnern ideale Vertriebskanäle für unsere Marken und Produkte anbieten können. Dazu haben wir exzellente Lagerhaltungssysteme entwickelt, setzen auf modernste Logistikprozesse und bieten herausragende Zuverlässigkeit. Unsere Leidenschaft und unser Engagement für die Marke ZOOM treiben unsere Arbeit an, auch außerhalb des Büros. Wir sind ZOOM-Nutzer und machen uns bis ins kleinste Detail mit ZOOM-Produkten vertraut, sodass wir genau wissen, wovon wir sprechen."
   },
+  "auth": {
+    "forgotPassword": "Passwort vergessen?",
+    "forgotPasswordTitle": "Passwort zurücksetzen",
+    "forgotPasswordDesc": "Gib deine E-Mail-Adresse ein und wir senden dir einen Link zum Zurücksetzen deines Passworts.",
+    "sendResetLink": "Reset-Link senden",
+    "sending": "Wird gesendet…",
+    "backToLogin": "Zurück zur Anmeldung",
+    "resetEmailSent": "Falls ein Konto für diese E-Mail-Adresse existiert, wurde ein Reset-Link gesendet.",
+    "resetPasswordTitle": "Neues Passwort wählen",
+    "newPassword": "Neues Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "resetPassword": "Passwort zurücksetzen",
+    "resetting": "Wird zurückgesetzt…",
+    "resetSuccess": "Dein Passwort wurde zurückgesetzt. Du kannst dich jetzt anmelden.",
+    "invalidToken": "Dieser Reset-Link ist ungültig oder abgelaufen."
+  },
   "construction": {
     "line1": "Nach kürzlichen Änderungen an unserer Website wird dieser Bereich derzeit neu aufgebaut.",
     "line2": "Bitte schauen Sie bald wieder vorbei, wenn unser Formular vollständig betriebsbereit ist."

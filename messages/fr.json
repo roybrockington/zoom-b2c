@@ -211,6 +211,22 @@
     "tile3": "En Europe, les produits ZOOM sont distribués par le grossiste Sound Service GmbH. Après la fondation de l'entreprise en 1983, nous nous sommes concentrés chez Sound Service sur les ventes en Allemagne, en Autriche et au Benelux. Notre zone de distribution s'est depuis étendue à toute l'Europe, et Sound Service est devenu l'un des principaux distributeurs européens d'instruments de musique, d'équipements sonores et d'éclairage et de fournitures d'enregistrement.",
     "tile4": "Notre emplacement central au cœur de l'Europe signifie également que nous pouvons offrir à nos partenaires commerciaux des canaux de distribution idéaux pour nos marques et produits. Pour ce faire, nous avons développé d'excellents systèmes de stockage, nous appuyons sur des processus logistiques de pointe et offrons une fiabilité exceptionnelle. Notre passion et notre engagement envers la marque ZOOM guident notre travail, même en dehors du bureau."
   },
+  "auth": {
+    "forgotPassword": "Mot de passe oublié ?",
+    "forgotPasswordTitle": "Réinitialiser votre mot de passe",
+    "forgotPasswordDesc": "Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+    "sendResetLink": "Envoyer le lien",
+    "sending": "Envoi en cours…",
+    "backToLogin": "Retour à la connexion",
+    "resetEmailSent": "Si un compte existe pour cet e-mail, un lien de réinitialisation a été envoyé.",
+    "resetPasswordTitle": "Choisir un nouveau mot de passe",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "resetPassword": "Réinitialiser le mot de passe",
+    "resetting": "Réinitialisation…",
+    "resetSuccess": "Votre mot de passe a été réinitialisé. Vous pouvez maintenant vous connecter.",
+    "invalidToken": "Ce lien de réinitialisation est invalide ou a expiré."
+  },
   "construction": {
     "line1": "Suite à des modifications récentes de notre site, cette section est actuellement en cours de reconstruction.",
     "line2": "Revenez bientôt, notre formulaire sera bientôt pleinement opérationnel."

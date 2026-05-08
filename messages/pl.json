@@ -211,6 +211,22 @@
     "tile3": "W Europie produkty ZOOM są dystrybuowane przez hurtownię Sound Service GmbH. Po założeniu firmy w 1983 roku skupiliśmy się w Sound Service na sprzedaży w Niemczech, Austrii i krajach Beneluksu. Nasz obszar dystrybucji rozszerzył się od tego czasu na całą Europę, a Sound Service stał się jednym z wiodących europejskich dystrybutorów instrumentów muzycznych, sprzętu nagłośnieniowego i oświetleniowego oraz materiałów nagraniowych.",
     "tile4": "Nasze centralne położenie w sercu Europy oznacza również, że możemy oferować naszym partnerom biznesowym idealne kanały dystrybucji naszych marek i produktów. W tym celu opracowaliśmy doskonałe systemy magazynowania, polegamy na najnowocześniejszych procesach logistycznych i oferujemy wyjątkową niezawodność. Nasza pasja i zaangażowanie w markę ZOOM napędzają naszą pracę, nawet poza biurem."
   },
+  "auth": {
+    "forgotPassword": "Nie pamiętasz hasła?",
+    "forgotPasswordTitle": "Zresetuj hasło",
+    "forgotPasswordDesc": "Podaj swój adres e-mail, a wyślemy Ci link do zresetowania hasła.",
+    "sendResetLink": "Wyślij link resetujący",
+    "sending": "Wysyłanie…",
+    "backToLogin": "Wróć do logowania",
+    "resetEmailSent": "Jeśli konto istnieje dla tego adresu e-mail, link resetujący został wysłany.",
+    "resetPasswordTitle": "Wybierz nowe hasło",
+    "newPassword": "Nowe hasło",
+    "confirmPassword": "Potwierdź hasło",
+    "resetPassword": "Zresetuj hasło",
+    "resetting": "Resetowanie…",
+    "resetSuccess": "Twoje hasło zostało zresetowane. Możesz się teraz zalogować.",
+    "invalidToken": "Ten link resetujący jest nieprawidłowy lub wygasł."
+  },
   "construction": {
     "line1": "W związku z niedawnymi zmianami na naszej stronie, ta sekcja jest obecnie przebudowywana.",
     "line2": "Zapraszamy wkrótce, gdy nasz formularz będzie w pełni sprawny."
