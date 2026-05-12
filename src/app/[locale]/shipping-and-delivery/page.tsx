@@ -10,12 +10,12 @@ export default async function ShippingAndDeliveryPage() {
 
   const shippingRates = [
 //    { regionKey: "regionUK", carrier: "DHL / UPS", standard: "£4.99", express: "£9.99", freeOver: "£50" },
-    { regionKey: "regionDE", carrier: "DHL",        standard: "€5.99", freeOver: "€50" },
-    { regionKey: "regionFR", carrier: "DHL",        standard: "€5.99", freeOver: "€75" },
-    { regionKey: "regionNL", carrier: "DHL",        standard: "€5.99", freeOver: "€50" },
-    { regionKey: "regionPL", carrier: "DHL / UPS",  standard: "€5.99", freeOver: "€75" },
-    { regionKey: "regionCZ", carrier: "DHL / UPS",  standard: "€5.99", freeOver: "€75" },
-    { regionKey: "regionEU", carrier: "DHL / UPS",  standard: "€5.99", freeOver: "€100" },
+    { regionKey: "regionDE", carrier: "DHL",        standard: "5,99 €", freeOver: "€50" },
+    { regionKey: "regionFR", carrier: "DHL",        standard: "5,99 €", freeOver: "€75" },
+    { regionKey: "regionNL", carrier: "DHL",        standard: "5,99 €", freeOver: "€50" },
+    { regionKey: "regionPL", carrier: "DHL / UPS",  standard: "5,99 €", freeOver: "€75" },
+    { regionKey: "regionCZ", carrier: "DHL / UPS",  standard: "5,99 €", freeOver: "€75" },
+    { regionKey: "regionEU", carrier: "DHL / UPS",  standard: "5,99 €", freeOver: "€100" },
 //    { regionKey: "regionWorld", carrier: "UPS",     standard: "€14.99", freeOver: "—" },
   ];
 
