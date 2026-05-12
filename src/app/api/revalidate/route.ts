@@ -16,8 +16,11 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ revalidated: true, path });
     }
 
-    // No specific target — revalidate all category and product paths + sitemap
+    // No specific target — revalidate all category and product paths + all sitemaps
     revalidatePath("/sitemap.xml");
+    for (const locale of ["de", "fr", "nl", "pl", "cz"]) {
+        revalidatePath(`/${locale}/sitemap.xml`);
+    }
     revalidatePath("/", "layout");
     return NextResponse.json({ revalidated: true, scope: "layout" });
 }
