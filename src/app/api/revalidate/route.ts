@@ -16,7 +16,8 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ revalidated: true, path });
     }
 
-    // No specific target — revalidate all category and product paths
+    // No specific target — revalidate all category and product paths + sitemap
+    revalidatePath("/sitemap.xml");
     revalidatePath("/", "layout");
     return NextResponse.json({ revalidated: true, scope: "layout" });
 }
