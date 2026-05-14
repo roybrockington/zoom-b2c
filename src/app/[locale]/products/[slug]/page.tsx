@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import ImageGallery from "./ImageGallery";
 import ProductPagePrice from "./ProductPagePrice";
 import AddToCartButton from "./AddToCartButton";
+import AlternateSlugRegistrar from "./AlternateSlugRegistrar";
 import { Link } from "@i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
@@ -132,6 +133,15 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
 
     if (!product) notFound();
 
+    const alternateSlugs: Partial<Record<string, string>> = {
+        en: product.slug,
+        de: product.descriptions?.slug_de ?? product.slug,
+        fr: product.descriptions?.slug_fr ?? product.slug,
+        nl: product.descriptions?.slug_nl ?? product.slug,
+        pl: product.descriptions?.slug_pl ?? product.slug,
+        cz: product.descriptions?.slug_cz ?? product.slug,
+    };
+
     const hasDiscount = product.sale_price !== null;
     const discountPct = hasDiscount
         ? Math.round((1 - parseFloat(product.sale_price!) / parseFloat(product.price)) * 100)
@@ -203,6 +213,7 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
 
     return (
         <>
+        <AlternateSlugRegistrar slugs={alternateSlugs} />
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

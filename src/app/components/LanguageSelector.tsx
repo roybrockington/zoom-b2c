@@ -4,6 +4,7 @@ import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "@i18n/navigation";
 import { useParams } from "next/navigation";
 import { useRef, useState } from "react";
+import { useAlternateLinks } from "./AlternateLinksContext";
 
 const languages = [
   { code: "en", label: "English",    flagCode: "gb" },
@@ -19,6 +20,7 @@ export default function LanguageSelector() {
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
+  const { alternates } = useAlternateLinks();
   const [open, setOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -35,8 +37,15 @@ export default function LanguageSelector() {
 
   function switchLocale(code: string) {
     setOpen(false);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    router.push({ pathname, params: params as any } as any, { locale: code });
+    // If we're on a product page and have a translated slug for the target locale, use it.
+    const targetSlug = alternates[code];
+    if (pathname.includes("/products/") && targetSlug) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      router.push({ pathname: "/products/[slug]", params: { slug: targetSlug } } as any, { locale: code });
+    } else {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      router.push({ pathname, params: params as any } as any, { locale: code });
+    }
   }
 
   return (
