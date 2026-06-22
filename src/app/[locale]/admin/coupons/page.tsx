@@ -35,7 +35,9 @@ function fmt(d: string) {
 
 function isActive(coupon: Coupon) {
   const today = new Date().toISOString().slice(0, 10);
-  return coupon.start <= today && coupon.end >= today && (coupon.uses === 0 || coupon.used < coupon.uses);
+  const start = coupon.start.slice(0, 10);
+  const end = coupon.end.slice(0, 10);
+  return start <= today && end >= today && (coupon.uses === 0 || (coupon.used ?? 0) < coupon.uses);
 }
 
 function CouponTable({
@@ -122,8 +124,8 @@ export default function AdminCouponsPage() {
 
   const today = new Date().toISOString().slice(0, 10);
   const active    = coupons.filter(isActive);
-  const expired   = coupons.filter((c) => !isActive(c) && c.end < today);
-  const exhausted = coupons.filter((c) => !isActive(c) && c.end >= today);
+  const expired   = coupons.filter((c) => !isActive(c) && c.end.slice(0, 10) < today);
+  const exhausted = coupons.filter((c) => !isActive(c) && c.end.slice(0, 10) >= today);
 
   useEffect(() => {
     if (!token) return;
