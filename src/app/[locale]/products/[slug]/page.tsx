@@ -7,409 +7,413 @@ import { Link } from "@i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
 type ProductDescriptions = {
-    description: string | null;
-    short_description: string | null;
-    description_de: string | null;
-    short_description_de: string | null;
-    description_fr: string | null;
-    description_nl: string | null;
-    description_cz: string | null;
-    description_pl: string | null;
-    short_description_fr: string | null;
-    short_description_nl: string | null;
-    short_description_cz: string | null;
-    short_description_pl: string | null;
-    slug_de: string | null;
-    slug_fr: string | null;
-    slug_nl: string | null;
-    slug_pl: string | null;
-    slug_cz: string | null;
+  description: string | null;
+  short_description: string | null;
+  description_de: string | null;
+  short_description_de: string | null;
+  description_fr: string | null;
+  description_nl: string | null;
+  description_cz: string | null;
+  description_pl: string | null;
+  short_description_fr: string | null;
+  short_description_nl: string | null;
+  short_description_cz: string | null;
+  short_description_pl: string | null;
+  slug_de: string | null;
+  slug_fr: string | null;
+  slug_nl: string | null;
+  slug_pl: string | null;
+  slug_cz: string | null;
 };
 
 function resolveSlug(product: Product, locale: string): string {
-    if (product.descriptions) {
-        const localeSlug: Record<string, string | null> = {
-            de: product.descriptions.slug_de,
-            fr: product.descriptions.slug_fr,
-            nl: product.descriptions.slug_nl,
-            pl: product.descriptions.slug_pl,
-            cz: product.descriptions.slug_cz,
-        };
-        if (localeSlug[locale]) return localeSlug[locale]!;
-    }
-    return product.slug;
+  if (product.descriptions) {
+    const localeSlug: Record<string, string | null> = {
+      de: product.descriptions.slug_de,
+      fr: product.descriptions.slug_fr,
+      nl: product.descriptions.slug_nl,
+      pl: product.descriptions.slug_pl,
+      cz: product.descriptions.slug_cz,
+    };
+    if (localeSlug[locale]) return localeSlug[locale]!;
+  }
+  return product.slug;
 }
 
 type Product = {
-    id: number;
-    name: string;
-    slug: string;
-    price: string;
-    sale_price: string | null;
-    effective_price: string;
-    price_uk: string | null;
-    in_stock: boolean;
-    is_active: boolean;
-    sku: string | null;
-    ean: string | null;
-    mpn: string | null;
-    stock_quantity: number;
-    manage_stock: boolean;
-    weight: string | null;
-    attributes: Record<string, string> | null;
-    img1: string | null;
-    img2: string | null;
-    img3: string | null;
-    img4: string | null;
-    img5: string | null;
-    img6: string | null;
-    category: { id: number; name: string; slug: string } | null;
-    descriptions: ProductDescriptions | null;
+  id: number;
+  name: string;
+  slug: string;
+  price: string;
+  sale_price: string | null;
+  effective_price: string;
+  price_uk: string | null;
+  in_stock: boolean;
+  is_active: boolean;
+  sku: string | null;
+  ean: string | null;
+  mpn: string | null;
+  stock_quantity: number;
+  manage_stock: boolean;
+  weight: string | null;
+  attributes: Record<string, string> | null;
+  img1: string | null;
+  img2: string | null;
+  img3: string | null;
+  img4: string | null;
+  img5: string | null;
+  img6: string | null;
+  category: { id: number; name: string; slug: string } | null;
+  descriptions: ProductDescriptions | null;
 };
 
 async function getProduct(slug: string, locale: string): Promise<Product | null> {
-    const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/products/${slug}?include=category,productDescription&locale=${locale}`,
-        { next: { revalidate: 300 } }
-    );
-    if (res.status === 404) return null;
-    if (!res.ok) return null;
-    const json = await res.json();
-    return json.data ?? null;
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/products/${slug}?include=category,productDescription&locale=${locale}`,
+    { next: { revalidate: 300 } }
+  );
+  if (res.status === 404) return null;
+  if (!res.ok) return null;
+  const json = await res.json();
+  return json.data ?? null;
 }
 
 function resolveDescriptions(
-    descriptions: ProductDescriptions | null,
-    locale: string
+  descriptions: ProductDescriptions | null,
+  locale: string
 ): { description: string | null; short_description: string | null } {
-    if (!descriptions) return { description: null, short_description: null };
+  if (!descriptions) return { description: null, short_description: null };
 
-    switch (locale) {
-        case "de":
-            return {
-                description: descriptions.description_de ?? descriptions.description ?? null,
-                short_description: descriptions.short_description_de ?? descriptions.short_description ?? null,
-            };
-        case "fr":
-            return {
-                description: descriptions.description_fr ?? descriptions.description ?? null,
-                short_description: descriptions.short_description_fr ?? descriptions.short_description ?? null,
-            };
-        case "nl":
-            return {
-                description: descriptions.description_nl ?? descriptions.description ?? null,
-                short_description: descriptions.short_description_nl ?? descriptions.short_description ?? null,
-            };
-        case "cz":
-            return {
-                description: descriptions.description_cz ?? descriptions.description ?? null,
-                short_description: descriptions.short_description_cz ?? descriptions.short_description ?? null,
-            };
-        case "pl":
-            return {
-                description: descriptions.description_pl ?? descriptions.description ?? null,
-                short_description: descriptions.short_description_pl ?? descriptions.short_description ?? null,
-            };
-        default: // en
-            return {
-                description: descriptions.description ?? null,
-                short_description: descriptions.short_description ?? null,
-            };
-    }
+  switch (locale) {
+    case "de":
+      return {
+        description: descriptions.description_de ?? descriptions.description ?? null,
+        short_description: descriptions.short_description_de ?? descriptions.short_description ?? null,
+      };
+    case "fr":
+      return {
+        description: descriptions.description_fr ?? descriptions.description ?? null,
+        short_description: descriptions.short_description_fr ?? descriptions.short_description ?? null,
+      };
+    case "nl":
+      return {
+        description: descriptions.description_nl ?? descriptions.description ?? null,
+        short_description: descriptions.short_description_nl ?? descriptions.short_description ?? null,
+      };
+    case "cz":
+      return {
+        description: descriptions.description_cz ?? descriptions.description ?? null,
+        short_description: descriptions.short_description_cz ?? descriptions.short_description ?? null,
+      };
+    case "pl":
+      return {
+        description: descriptions.description_pl ?? descriptions.description ?? null,
+        short_description: descriptions.short_description_pl ?? descriptions.short_description ?? null,
+      };
+    default: // en
+      return {
+        description: descriptions.description ?? null,
+        short_description: descriptions.short_description ?? null,
+      };
+  }
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
-    const { slug, locale } = await params;
-    const product = await getProduct(slug, locale);
-    const { short_description } = resolveDescriptions(product?.descriptions ?? null, locale);
-    return {
-        title: product ? `${product.name} - ZOOM EUROPE` : "Product - ZOOM EUROPE",
-        description: short_description ?? undefined,
-    };
+  const { slug, locale } = await params;
+  const product = await getProduct(slug, locale);
+  const { short_description } = resolveDescriptions(product?.descriptions ?? null, locale);
+  return {
+    title: product ? `${product.name} - ZOOM EUROPE` : "Product - ZOOM EUROPE",
+    description: short_description ?? undefined,
+  };
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
-    const { slug, locale } = await params;
-    const [product, t] = await Promise.all([getProduct(slug, locale), getTranslations("product")]);
+  const { slug, locale } = await params;
+  const [product, t] = await Promise.all([getProduct(slug, locale), getTranslations("product")]);
 
-    if (!product) notFound();
+  if (!product) notFound();
 
-    const alternateSlugs: Partial<Record<string, string>> = {
-        en: product.slug,
-        de: product.descriptions?.slug_de ?? product.slug,
-        fr: product.descriptions?.slug_fr ?? product.slug,
-        nl: product.descriptions?.slug_nl ?? product.slug,
-        pl: product.descriptions?.slug_pl ?? product.slug,
-        cz: product.descriptions?.slug_cz ?? product.slug,
-    };
+  const alternateSlugs: Partial<Record<string, string>> = {
+    en: product.slug,
+    de: product.descriptions?.slug_de ?? product.slug,
+    fr: product.descriptions?.slug_fr ?? product.slug,
+    nl: product.descriptions?.slug_nl ?? product.slug,
+    pl: product.descriptions?.slug_pl ?? product.slug,
+    cz: product.descriptions?.slug_cz ?? product.slug,
+  };
 
-    const hasDiscount = product.sale_price !== null;
-    const discountPct = hasDiscount
-        ? Math.round((1 - parseFloat(product.sale_price!) / parseFloat(product.price)) * 100)
-        : null;
+  const hasDiscount = product.sale_price !== null;
+  const discountPct = hasDiscount
+    ? Math.round((1 - parseFloat(product.sale_price!) / parseFloat(product.price)) * 100)
+    : null;
 
-    const images = [
-        product.img1, product.img2, product.img3,
-        product.img4, product.img5, product.img6,
-    ].filter((img): img is string => !!img);
+  const images = [
+    product.img1, product.img2, product.img3,
+    product.img4, product.img5, product.img6,
+  ].filter((img): img is string => !!img);
 
-    const { description, short_description } = resolveDescriptions(product.descriptions, locale);
+  const { description, short_description } = resolveDescriptions(product.descriptions, locale);
 
-    const canonicalSlug = resolveSlug(product, locale);
-    const productUrl = `https://zoom-europe.com/${locale}/products/${canonicalSlug}`;
+  const canonicalSlug = resolveSlug(product, locale);
+  const productUrl = `https://zoom-europe.com/${locale}/products/${canonicalSlug}`;
 
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        name: product.name,
-        ...(short_description && { description: short_description }),
-        image: images,
-        brand: {
-            "@type": "Brand",
-            name: product.category?.slug === "instamic" ? "Instamic" : "Zoom",
-        },
-        ...(product.sku && { sku: product.sku }),
-        ...(product.ean && { gtin13: product.ean }),
-        ...(product.mpn && { mpn: product.mpn }),
-        offers: {
-            "@type": "Offer",
-            url: productUrl,
-            priceCurrency: "EUR",
-            price: product.sale_price ?? product.price,
-            availability: product.in_stock
-                ? "https://schema.org/InStock"
-                : "https://schema.org/OutOfStock",
-            itemCondition: "https://schema.org/NewCondition",
-            seller: {
-                "@type": "Organization",
-                name: "Zoom Europe",
-            },
-        },
-    };
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    ...(short_description && { description: short_description }),
+    image: images,
+    brand: {
+      "@type": "Brand",
+      name: product.category?.slug === "instamic" ? "Instamic" : "Zoom",
+    },
+    ...(product.sku && { sku: product.sku }),
+    ...(product.ean && { gtin13: product.ean }),
+    ...(product.mpn && { mpn: product.mpn }),
+    offers: {
+      "@type": "Offer",
+      url: productUrl,
+      priceCurrency: "EUR",
+      price: product.sale_price ?? product.price,
+      availability: product.in_stock
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
+      itemCondition: "https://schema.org/NewCondition",
+      seller: {
+        "@type": "Organization",
+        name: "Zoom Europe",
+      },
+    },
+  };
 
-    const baseUrl = `https://zoom-europe.com/${locale}`;
-    const breadcrumbItems: { "@type": "ListItem"; position: number; name: string; item?: string }[] = [
-        { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
-    ];
-    if (product.category) {
-        breadcrumbItems.push({
-            "@type": "ListItem",
-            position: 2,
-            name: product.category.name,
-            item: `${baseUrl}/categories/${product.category.slug}`,
-        });
-    }
+  const baseUrl = `https://zoom-europe.com/${locale}`;
+  const breadcrumbItems: { "@type": "ListItem"; position: number; name: string; item?: string }[] = [
+    { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+  ];
+  if (product.category) {
     breadcrumbItems.push({
-        "@type": "ListItem",
-        position: breadcrumbItems.length + 1,
-        name: product.name,
+      "@type": "ListItem",
+      position: 2,
+      name: product.category.name,
+      item: `${baseUrl}/categories/${product.category.slug}`,
     });
+  }
+  breadcrumbItems.push({
+    "@type": "ListItem",
+    position: breadcrumbItems.length + 1,
+    name: product.name,
+  });
 
-    const breadcrumbJsonLd = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: breadcrumbItems,
-    };
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbItems,
+  };
 
-    return (
-        <>
-        <AlternateSlugRegistrar slugs={alternateSlugs} />
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-        />
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+  return (
+    <>
+      <AlternateSlugRegistrar slugs={alternateSlugs} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
 
-            {/* Breadcrumb */}
-            <nav className="mb-6 flex items-center gap-2 text-xs text-zinc-400 dark:text-zinc-500">
-                <a href="/" className="hover:text-zinc-600 dark:hover:text-zinc-300">Home</a>
-                <span>/</span>
-                {product.category && (
+        {/* Breadcrumb */}
+        <nav className="mb-6 flex items-center gap-2 text-xs text-zinc-400 dark:text-zinc-500">
+          <a href="/" className="hover:text-zinc-600 dark:hover:text-zinc-300">Home</a>
+          <span>/</span>
+          {product.category && (
+            <>
+              <Link
+                href={{ pathname: "/categories/[slug]", params: { slug: product.category.slug } }}
+                className="hover:text-zinc-600 dark:hover:text-zinc-300"
+              >
+                {product.category.name}
+              </Link>
+              <span>/</span>
+            </>
+          )}
+          <span className="text-zinc-600 dark:text-zinc-300">{product.name}</span>
+        </nav>
+
+        {/* Main layout */}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
+
+          {/* Left — image gallery */}
+          <ImageGallery images={images} name={product.name} />
+
+          {/* Right — product info */}
+          <div className="flex flex-col gap-5">
+            <div>
+              <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+                {product.category?.slug === 'instamic' ? 'Instamic' : 'Zoom'}
+              </p>
+              <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">
+                {product.name}
+              </h1>
+              {short_description && (
+                <p className="mt-2 text-base text-zinc-500 dark:text-zinc-400">
+                  {short_description}
+                </p>
+              )}
+            </div>
+
+            {/* Price */}
+            <ProductPagePrice
+              price={product.price}
+              salePrice={product.sale_price}
+              priceUk={product.price_uk}
+              discountPct={discountPct}
+            />
+
+            {/* Stock status */}
+            {product.is_active &&
+              <div className="flex items-center gap-2 text-sm">
+                {
+                  product.in_stock ? (
                     <>
-                        <Link
-                            href={{ pathname: "/categories/[slug]", params: { slug: product.category.slug } }}
-                            className="hover:text-zinc-600 dark:hover:text-zinc-300"
-                        >
-                            {product.category.name}
-                        </Link>
-                        <span>/</span>
+                      <span className="h-2 w-2 rounded-full bg-green-500" />
+                      <span className="text-green-600 dark:text-green-400">{t("inStock")}</span>
                     </>
-                )}
-                <span className="text-zinc-600 dark:text-zinc-300">{product.name}</span>
-            </nav>
+                  ) : (
+                    <>
+                      <span className="h-2 w-2 rounded-full bg-red-500" />
+                      <span className="text-red-600 dark:text-red-400">{t("outOfStock")}</span>
+                    </>
+                  )
+                }
+              </div>
+            }
 
-            {/* Main layout */}
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
+            {/* Add to cart */}
+            <div className="flex gap-3">
+              {product.is_active ? (
+                <AddToCartButton
+                  id={product.id}
+                  slug={product.slug}
+                  name={product.name}
+                  price={product.effective_price}
+                  price_uk={product.price_uk}
+                  img={product.img1}
+                  inStock={product.in_stock}
+                />
+              ) : (
+                <p className="text-sm font-medium text-red-600 dark:text-red-400">
+                  {t("notAvailable")}
+                </p>
+              )}
+            </div>
 
-                {/* Left — image gallery */}
-                <ImageGallery images={images} name={product.name} />
-
-                {/* Right — product info */}
-                <div className="flex flex-col gap-5">
-                    <div>
-                        <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-                            {product.category?.slug === 'instamic' ? 'Instamic' : 'Zoom'}
-                        </p>
-                        <h1 className="text-3xl font-bold text-zinc-900 dark:text-white">
-                            {product.name}
-                        </h1>
-                        {short_description && (
-                            <p className="mt-2 text-base text-zinc-500 dark:text-zinc-400">
-                                {short_description}
-                            </p>
-                        )}
-                    </div>
-
-                    {/* Price */}
-                    <ProductPagePrice
-                        price={product.price}
-                        salePrice={product.sale_price}
-                        priceUk={product.price_uk}
-                        discountPct={discountPct}
-                    />
-
-                    {/* Stock status */}
-                    <div className="flex items-center gap-2 text-sm">
-                        {product.in_stock ? (
-                            <>
-                                <span className="h-2 w-2 rounded-full bg-green-500" />
-                                <span className="text-green-600 dark:text-green-400">{t("inStock")}</span>
-                            </>
-                        ) : (
-                                <>
-                                    <span className="h-2 w-2 rounded-full bg-red-500" />
-                                    <span className="text-red-600 dark:text-red-400">{t("outOfStock")}</span>
-                                </>
-                            )}
-                    </div>
-
-                    {/* Add to cart */}
-                    <div className="flex gap-3">
-                        {product.is_active ? (
-                            <AddToCartButton
-                                id={product.id}
-                                slug={product.slug}
-                                name={product.name}
-                                price={product.effective_price}
-                                price_uk={product.price_uk}
-                                img={product.img1}
-                                inStock={product.in_stock}
-                            />
-                        ) : (
-                            <p className="text-sm font-medium text-red-600 dark:text-red-400">
-                                {t("notAvailable")}
-                            </p>
-                        )}
-                    </div>
-
-                    {/* Meta */}
-                    <dl className="divide-y divide-zinc-100 border-t border-zinc-100 text-sm dark:divide-zinc-800 dark:border-zinc-800">
-                        {product.sku && (
-                            <div className="flex justify-between py-2.5">
-                                <dt className="text-zinc-500 dark:text-zinc-400">SKU</dt>
-                                <dd className="font-medium text-zinc-900 dark:text-white">{product.sku}</dd>
-                            </div>
-                        )}
-                        {product.ean && (
-                            <div className="flex justify-between py-2.5">
-                                <dt className="text-zinc-500 dark:text-zinc-400">EAN</dt>
-                                <dd className="font-medium text-zinc-900 dark:text-white">{product.ean}</dd>
-                            </div>
-                        )}
-                        {/*product.mpn && (
+            {/* Meta */}
+            <dl className="divide-y divide-zinc-100 border-t border-zinc-100 text-sm dark:divide-zinc-800 dark:border-zinc-800">
+              {product.sku && (
+                <div className="flex justify-between py-2.5">
+                  <dt className="text-zinc-500 dark:text-zinc-400">SKU</dt>
+                  <dd className="font-medium text-zinc-900 dark:text-white">{product.sku}</dd>
+                </div>
+              )}
+              {product.ean && (
+                <div className="flex justify-between py-2.5">
+                  <dt className="text-zinc-500 dark:text-zinc-400">EAN</dt>
+                  <dd className="font-medium text-zinc-900 dark:text-white">{product.ean}</dd>
+                </div>
+              )}
+              {/*product.mpn && (
                             <div className="flex justify-between py-2.5">
                                 <dt className="text-zinc-500 dark:text-zinc-400">MPN</dt>
                                 <dd className="font-medium text-zinc-900 dark:text-white">{product.mpn}</dd>
                             </div>
                         )*/}
-                        {product.category && (
-                            <div className="flex justify-between py-2.5">
-                                <dt className="text-zinc-500 dark:text-zinc-400">Category</dt>
-                                <dd>
-                                    <Link
-                                        href={{ pathname: "/categories/[slug]", params: { slug: product.category.slug } }}
-                                        className="font-medium text-zinc-900 hover:underline dark:text-white"
-                                    >
-                                        {product.category.name}
-                                    </Link>
-                                </dd>
-                            </div>
-                        )}
-                        {product.weight && (
-                            <div className="flex justify-between py-2.5">
-                                <dt className="text-zinc-500 dark:text-zinc-400">Weight</dt>
-                                <dd className="font-medium text-zinc-900 dark:text-white">{product.weight} kg</dd>
-                            </div>
-                        )}
-                        {product.attributes && Object.entries(product.attributes).map(([key, val]) => (
-                            <div key={key} className="flex justify-between py-2.5">
-                                <dt className="capitalize text-zinc-500 dark:text-zinc-400">{key}</dt>
-                                <dd className="font-medium text-zinc-900 dark:text-white">{val}</dd>
-                            </div>
-                        ))}
-                    </dl>
+              {product.category && (
+                <div className="flex justify-between py-2.5">
+                  <dt className="text-zinc-500 dark:text-zinc-400">Category</dt>
+                  <dd>
+                    <Link
+                      href={{ pathname: "/categories/[slug]", params: { slug: product.category.slug } }}
+                      className="font-medium text-zinc-900 hover:underline dark:text-white"
+                    >
+                      {product.category.name}
+                    </Link>
+                  </dd>
                 </div>
-            </div>
-
-            {/* Description */}
-            {description && (
-                <div className="mt-16 border-t border-zinc-100 pt-10 dark:border-zinc-800">
-                    <h2 className="mb-6 text-xl font-bold text-zinc-900 dark:text-white">{t("productDetails")}</h2>
-                    <div
-                        className="prose prose-zinc max-w-none dark:prose-invert"
-                        dangerouslySetInnerHTML={{ __html: description }}
-                    />
+              )}
+              {product.weight && (
+                <div className="flex justify-between py-2.5">
+                  <dt className="text-zinc-500 dark:text-zinc-400">Weight</dt>
+                  <dd className="font-medium text-zinc-900 dark:text-white">{product.weight} kg</dd>
                 </div>
-            )}
-
-            {/* Article Origin */}
-            <div className="mt-16 border-t border-zinc-100 pt-10 dark:border-zinc-800">
-                <h2 className="mb-6 text-xl font-bold text-zinc-900 dark:text-white">{t("articleOrigin")}</h2>
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-                    <div className="rounded-xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
-                        <h3>{t("manufacturer")}</h3>
-                        <ul className="mb-1 text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 py-3">
-                            <li>Firma</li> 
-                            <li>Zoom Corporation</li> 
-                            <li>4-4-3 Kanda-surugadai, Chiyoda-ku</li> 
-                            <li>101-0062 Tokyo</li> 
-                            <li>Japan</li> 
-                            <li><a href="https://www.zoomcorp.com/en/jp">https://www.zoomcorp.com/en/jp</a></li>
-                            <li><a href="mailto:zoom@sound-service.eu">zoom@sound-service.eu</a></li>
-                        </ul>
-                    </div>
-                    <div className="rounded-xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
-                        <h3>{t("importer")}</h3>
-                        <ul className="mb-1 text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 py-3">
-                            <li>Firma</li> 
-                            <li>Sound-Service Musikanlagen-Vertr.-Ges. mbH</li> 
-                            <li>Moriz-Seeler-Straße 3</li> 
-                            <li>12489 Berlin</li> 
-                            <li>Germany</li> 
-                            <li><a href="https://sound-service.eu">https://sound-service.eu</a></li>
-                            <li><a href="mailto:info@sound-service.eu">info@sound-service.eu</a></li>
-                        </ul>
-                    </div>
-                    <div className="rounded-xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
-                        <h3>{t("responsibleOffice")}</h3>
-                        <ul className="mb-1 text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 py-3">
-                            <li>Firma</li>
-                            <li>Sound-Service Musikanlagen-Vertr.-Ges. mbH</li>
-                            <li>Moriz-Seeler-Straße 3</li>
-                            <li>12489 Berlin</li>
-                            <li>Germany</li>
-                            <li><a href="https://sound-service.eu">https://sound-service.eu</a></li>
-                            <li><a href="mailto:info@sound-service.eu">info@sound-service.eu</a></li>
-                        </ul>
-                    </div>
+              )}
+              {product.attributes && Object.entries(product.attributes).map(([key, val]) => (
+                <div key={key} className="flex justify-between py-2.5">
+                  <dt className="capitalize text-zinc-500 dark:text-zinc-400">{key}</dt>
+                  <dd className="font-medium text-zinc-900 dark:text-white">{val}</dd>
                 </div>
-            </div>
+              ))}
+            </dl>
+          </div>
         </div>
-        </>
-    );
+
+        {/* Description */}
+        {description && (
+          <div className="mt-16 border-t border-zinc-100 pt-10 dark:border-zinc-800">
+            <h2 className="mb-6 text-xl font-bold text-zinc-900 dark:text-white">{t("productDetails")}</h2>
+            <div
+              className="prose prose-zinc max-w-none dark:prose-invert"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+          </div>
+        )}
+
+        {/* Article Origin */}
+        <div className="mt-16 border-t border-zinc-100 pt-10 dark:border-zinc-800">
+          <h2 className="mb-6 text-xl font-bold text-zinc-900 dark:text-white">{t("articleOrigin")}</h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+            <div className="rounded-xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <h3>{t("manufacturer")}</h3>
+              <ul className="mb-1 text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 py-3">
+                <li>Firma</li>
+                <li>Zoom Corporation</li>
+                <li>4-4-3 Kanda-surugadai, Chiyoda-ku</li>
+                <li>101-0062 Tokyo</li>
+                <li>Japan</li>
+                <li><a href="https://www.zoomcorp.com/en/jp">https://www.zoomcorp.com/en/jp</a></li>
+                <li><a href="mailto:zoom@sound-service.eu">zoom@sound-service.eu</a></li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <h3>{t("importer")}</h3>
+              <ul className="mb-1 text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 py-3">
+                <li>Firma</li>
+                <li>Sound-Service Musikanlagen-Vertr.-Ges. mbH</li>
+                <li>Moriz-Seeler-Straße 3</li>
+                <li>12489 Berlin</li>
+                <li>Germany</li>
+                <li><a href="https://sound-service.eu">https://sound-service.eu</a></li>
+                <li><a href="mailto:info@sound-service.eu">info@sound-service.eu</a></li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <h3>{t("responsibleOffice")}</h3>
+              <ul className="mb-1 text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 py-3">
+                <li>Firma</li>
+                <li>Sound-Service Musikanlagen-Vertr.-Ges. mbH</li>
+                <li>Moriz-Seeler-Straße 3</li>
+                <li>12489 Berlin</li>
+                <li>Germany</li>
+                <li><a href="https://sound-service.eu">https://sound-service.eu</a></li>
+                <li><a href="mailto:info@sound-service.eu">info@sound-service.eu</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
