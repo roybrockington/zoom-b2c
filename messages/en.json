@@ -18,6 +18,7 @@
   "product": {
     "inStock": "In stock",
     "outOfStock": "Out of stock",
+    "notAvailable": "Not currently available",
     "addToCart": "Add to Cart",
     "added": "Added!",
     "sku": "SKU",

@@ -49,6 +49,7 @@ type Product = {
     effective_price: string;
     price_uk: string | null;
     in_stock: boolean;
+    is_active: boolean;
     sku: string | null;
     ean: string | null;
     mpn: string | null;
@@ -289,15 +290,21 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
 
                     {/* Add to cart */}
                     <div className="flex gap-3">
-                        <AddToCartButton
-                            id={product.id}
-                            slug={product.slug}
-                            name={product.name}
-                            price={product.effective_price}
-                            price_uk={product.price_uk}
-                            img={product.img1}
-                            inStock={product.in_stock}
-                        />
+                        {product.is_active ? (
+                            <AddToCartButton
+                                id={product.id}
+                                slug={product.slug}
+                                name={product.name}
+                                price={product.effective_price}
+                                price_uk={product.price_uk}
+                                img={product.img1}
+                                inStock={product.in_stock}
+                            />
+                        ) : (
+                            <p className="text-sm font-medium text-red-600 dark:text-red-400">
+                                {t("notAvailable")}
+                            </p>
+                        )}
                     </div>
 
                     {/* Meta */}

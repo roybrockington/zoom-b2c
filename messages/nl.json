@@ -18,6 +18,7 @@
   "product": {
     "inStock": "Op voorraad",
     "outOfStock": "Niet op voorraad",
+    "notAvailable": "Momenteel niet beschikbaar",
     "addToCart": "In winkelwagen",
     "added": "Toegevoegd!",
     "sku": "Artikelnummer",

@@ -18,6 +18,7 @@
   "product": {
     "inStock": "Na stanie",
     "outOfStock": "Brak na stanie",
+    "notAvailable": "Obecnie niedostępny",
     "addToCart": "Dodaj do koszyka",
     "added": "Dodano!",
     "sku": "Numer katalogowy",

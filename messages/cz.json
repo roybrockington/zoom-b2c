@@ -18,6 +18,7 @@
   "product": {
     "inStock": "Skladem",
     "outOfStock": "Není skladem",
+    "notAvailable": "Momentálně nedostupné",
     "addToCart": "Přidat do košíku",
     "added": "Přidáno!",
     "sku": "Katalogové číslo",
