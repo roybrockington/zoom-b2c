@@ -1,26 +1,10 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect, useState } from "react";
 
 const PIXEL_ID = "1128247570557270";
 
 export default function MetaPixel() {
-  const [consented, setConsented] = useState(false);
-
-  useEffect(() => {
-    const checkConsent = () => {
-      if (localStorage.getItem("cookie_consent") === "accepted") {
-        setConsented(true);
-      }
-    };
-    checkConsent();
-    window.addEventListener("cookie_consent_accepted", checkConsent);
-    return () => window.removeEventListener("cookie_consent_accepted", checkConsent);
-  }, []);
-
-  if (!consented) return null;
-
   return (
     <Script id="meta-pixel" strategy="afterInteractive">
       {`
@@ -32,8 +16,15 @@ export default function MetaPixel() {
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
+
+        var consented = localStorage.getItem('cookie_consent') === 'accepted';
+        fbq('dataProcessingOptions', consented ? [] : ['LDU'], 0, 0);
         fbq('init', '${PIXEL_ID}');
         fbq('track', 'PageView');
+
+        window.addEventListener('cookie_consent_accepted', function () {
+          fbq('dataProcessingOptions', []);
+        });
       `}
     </Script>
   );
