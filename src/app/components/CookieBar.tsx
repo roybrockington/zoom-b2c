@@ -16,6 +16,7 @@ export default function CookieBar() {
 
   function accept() {
     localStorage.setItem("cookie_consent", "accepted");
+    window.dispatchEvent(new Event("cookie_consent_accepted"));
     setVisible(false);
   }
 
