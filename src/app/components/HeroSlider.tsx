@@ -9,7 +9,7 @@ type Slide = {
   heading: string;
   subheading: string;
   linkText: string;
-  linkUrl: string;
+  linkHref: { pathname: "/categories/[slug]" | "/products/[slug]"; params: { slug: string } };
   imageUrl: string;
 };
 
@@ -17,13 +17,13 @@ const slideData = [
   {
     heading: "ESSENTIAL SERIES",
     subheading: "32-Bit-Float",
-    linkUrl: "/categories/handy-recorders",
+    linkHref: { pathname: "/categories/[slug]" as const, params: { slug: "handy-recorders" } },
     imageUrl: "https://media.sound-service.eu/zoom/home-slides/HARessential.webp",
   },
   {
     heading: "L6 LIVETRAK",
     subheading: "10-TRACK DIGITAL MIXER/RECORDER",
-    linkUrl: "/products/livetrak-l6-eu-10-channel-mixer-recorder-eu",
+    linkHref: { pathname: "/products/[slug]" as const, params: { slug: "livetrak-l6-eu-10-channel-mixer-recorder-eu" } },
     imageUrl: "https://media.sound-service.eu/zoom/home-slides/L6_Livetrak_Banner.webp",
   }
 ];
@@ -85,12 +85,12 @@ export default function HeroSlider() {
                 <h2 className="max-w-xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
                   {slide.heading}
                 </h2>
-                <a
-                  href={slide.linkUrl}
+                <Link
+                  href={slide.linkHref}
                   className="mt-6 inline-block rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-100"
                 >
                   {slide.linkText}
-                </a>
+                </Link>
               </div>
             </div>
           </div>
