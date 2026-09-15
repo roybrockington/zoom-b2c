@@ -93,7 +93,6 @@
     "faq": "FAQ",
     "returns": "Returns & Retours",
     "support": "Support",
-    "productRegistration": "Product Registration",
     "howCanIPay": "How can I pay?",
     "shippingAndDelivery": "Shipping & Delivery",
     "ourAdvantages": "Our Advantages",
@@ -145,12 +144,6 @@
       "titleBold": "Newsletter",
       "body": "Stay informed about partner artists, groundbreaking news and the latest technological developments.",
       "cta": "Sign Up"
-    },
-    "warranty": {
-      "title": "Warranty",
-      "titleBold": "Extension",
-      "body": "By registering your product within three months from the date of purchase (as indicated on the proof of purchase), you will receive a 1-year warranty extension on your ZOOM product. A free customer account in our web shop is required for product registration.",
-      "cta": "Register Products"
     },
     "webshopProse": {
       "title": "WE ARE THE OFFICIAL",

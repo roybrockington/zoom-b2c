@@ -63,7 +63,6 @@
     "faq": "FAQ",
     "returns": "Rücksendungen & Retouren",
     "support": "Support",
-    "productRegistration": "Produktregistrierung",
     "howCanIPay": "Wie kann ich bezahlen?",
     "shippingAndDelivery": "Versand & Lieferung",
     "ourAdvantages": "Unsere Vorteile",
@@ -145,12 +144,6 @@
       "titleBold": "Newsletter",
       "body": "Bleiben Sie über Partnerkünstler, bahnbrechende Neuigkeiten und die neuesten technologischen Entwicklungen informiert.",
       "cta": "Anmelden"
-    },
-    "warranty": {
-      "title": "Garantie",
-      "titleBold": "Verlängerung",
-      "body": "Durch die Registrierung Ihres Produkts innerhalb von drei Monaten nach dem Kaufdatum (wie auf dem Kaufbeleg angegeben) erhalten Sie eine 1-jährige Garantieverlängerung auf Ihr ZOOM-Produkt. Für die Produktregistrierung ist ein kostenloses Kundenkonto in unserem Webshop erforderlich.",
-      "cta": "Produkte registrieren"
     },
     "webshopProse": {
       "title": "WIR SIND DER OFFIZIELLE",

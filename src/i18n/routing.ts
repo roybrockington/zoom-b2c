@@ -87,14 +87,6 @@ export const routing = defineRouting({
       pl: "/o-nas",
       cz: "/o-nas",
     },
-    "/warranty-extension": {
-      en: "/warranty-extension",
-      de: "/garantieverlangerung",
-      fr: "/extension-garantie",
-      nl: "/garantieverlenging",
-      pl: "/przedluzenie-gwarancji",
-      cz: "/prodlouzeni-zaruky",
-    },
     "/support": {
       en: "/support",
       de: "/support",

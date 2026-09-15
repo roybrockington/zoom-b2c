@@ -25,10 +25,6 @@ export const STATIC_PAGES: Record<string, Partial<Record<Locale, string>>> = {
     en: "/support", de: "/support", fr: "/support",
     nl: "/support", pl: "/support", cz: "/podpora",
   },
-  "/warranty-extension": {
-    en: "/warranty-extension", de: "/garantieverlangerung", fr: "/extension-garantie",
-    nl: "/garantieverlenging", pl: "/przedluzenie-gwarancji", cz: "/prodlouzeni-zaruky",
-  },
   "/returns": {
     en: "/returns", de: "/retouren", fr: "/retours",
     nl: "/retourzendingen", pl: "/zwroty", cz: "/vraceni",

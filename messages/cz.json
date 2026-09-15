@@ -63,7 +63,6 @@
     "faq": "Časté dotazy",
     "returns": "Vrácení zboží",
     "support": "Podpora",
-    "productRegistration": "Registrace produktu",
     "howCanIPay": "Jak mohu platit?",
     "shippingAndDelivery": "Doprava & Doručení",
     "ourAdvantages": "Naše výhody",
@@ -128,12 +127,6 @@
       "titleBold": "Newsletter",
       "body": "Zůstaňte informováni o partnerských umělcích, průlomových novinkách a nejnovějším technologickém vývoji.",
       "cta": "Přihlásit se"
-    },
-    "warranty": {
-      "title": "Prodloužení",
-      "titleBold": "záruky",
-      "body": "Registrací svého produktu do tří měsíců od data nákupu (jak je uvedeno na dokladu o koupi) získáte 1roční prodloužení záruky na váš produkt ZOOM. K registraci produktu je nutný bezplatný zákaznický účet v našem webovém obchodě.",
-      "cta": "Registrovat produkty"
     },
     "webshopProse": {
       "title": "JSME OFICIÁLNÍ",

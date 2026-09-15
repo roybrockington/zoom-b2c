@@ -7,7 +7,7 @@ const Newsletter = () => {
     const t = useTranslations("home.newsletter");
 
     return (
-        <section className="py-10 bg-gray-700 text-white md:w-1/2 p-8 flex flex-col justify-between gap-2 rounded">
+        <section className="py-10 bg-gray-700 text-white p-8 flex flex-col justify-between gap-2 rounded">
             <h2 className="mb-6 text-2xl font-normal dark:text-white">
                 {t("title")} <span className="font-black">{t("titleBold")}</span>
             </h2>

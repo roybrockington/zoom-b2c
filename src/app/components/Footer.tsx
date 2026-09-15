@@ -16,7 +16,7 @@ export default function Footer() {
 
     type menuItem = {
         name: string;
-        link: "/returns" | "/support" | "/warranty-extension" | "/payment-methods" | "/shipping-and-delivery" | "/terms" | "/imprint" | "/withdrawal" | "/privacy-policy" | "/filmmaking" | "/music" | "/podcasting" | "/sound-design" | "/about-us";
+        link: "/returns" | "/support" | "/payment-methods" | "/shipping-and-delivery" | "/terms" | "/imprint" | "/withdrawal" | "/privacy-policy" | "/filmmaking" | "/music" | "/podcasting" | "/sound-design" | "/about-us";
     }
 
 const paymentMethods: footerBadge[] = [
@@ -54,7 +54,6 @@ const shippingMethods: footerBadge[] = [
     const faqMenu: menuItem[] = [
         {name: t("returns"), link: "/returns"},
         {name: t("support"), link: "/support"},
-        {name: t("productRegistration"), link: "/warranty-extension"},
         {name: t("howCanIPay"), link: "/payment-methods"},
         {name: t("shippingAndDelivery"), link: "/shipping-and-delivery"},
     ]

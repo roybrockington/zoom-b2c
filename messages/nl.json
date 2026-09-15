@@ -63,7 +63,6 @@
     "faq": "FAQ",
     "returns": "Retourzendingen",
     "support": "Support",
-    "productRegistration": "Productregistratie",
     "howCanIPay": "Hoe kan ik betalen?",
     "shippingAndDelivery": "Verzending & Levering",
     "ourAdvantages": "Onze voordelen",
@@ -128,12 +127,6 @@
       "titleBold": "Nieuwsbrief",
       "body": "Blijf op de hoogte van partnerartisten, baanbrekend nieuws en de nieuwste technologische ontwikkelingen.",
       "cta": "Aanmelden"
-    },
-    "warranty": {
-      "title": "Garantie",
-      "titleBold": "Verlenging",
-      "body": "Door uw product binnen drie maanden na de aankoopdatum (zoals vermeld op het aankoopbewijs) te registreren, ontvangt u een garantieverlenging van 1 jaar op uw ZOOM-product. Voor productregistratie is een gratis klantaccount in onze webshop vereist.",
-      "cta": "Producten registreren"
     },
     "webshopProse": {
       "title": "WIJ ZIJN DE OFFICIËLE",

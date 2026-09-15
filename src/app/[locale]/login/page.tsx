@@ -13,7 +13,6 @@ export default function LoginPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirect = searchParams.get("redirect") ?? null;
-  const isWarrantyRedirect = redirect === "/warranty-extension";
   const t = useTranslations("auth");
 
   const [email, setEmail] = useState("");
@@ -76,15 +75,6 @@ export default function LoginPage() {
             <Image src="/logo.svg" alt="Zoom" width={140} height={60} />
           </Link>
         </div>
-
-        {isWarrantyRedirect && view === "login" && (
-          <div className="mb-6 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
-            <h2 className="mb-2 text-base font-bold text-zinc-900 dark:text-white">Warranty Extension</h2>
-            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              By registering your product within three months from the date of purchase (as indicated on the proof of purchase), you will receive a 1-year warranty extension on your ZOOM product. A free customer account in our web shop is required for product registration.
-            </p>
-          </div>
-        )}
 
         <div className="rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
           {view === "login" ? (

@@ -63,7 +63,6 @@
     "faq": "FAQ",
     "returns": "Retours & Échanges",
     "support": "Support",
-    "productRegistration": "Enregistrement du produit",
     "howCanIPay": "Comment puis-je payer ?",
     "shippingAndDelivery": "Livraison & Expédition",
     "ourAdvantages": "Nos avantages",
@@ -128,12 +127,6 @@
       "titleBold": "Newsletter",
       "body": "Restez informé des artistes partenaires, des nouvelles révolutionnaires et des derniers développements technologiques.",
       "cta": "S'inscrire"
-    },
-    "warranty": {
-      "title": "Extension de",
-      "titleBold": "Garantie",
-      "body": "En enregistrant votre produit dans les trois mois suivant la date d'achat (telle qu'indiquée sur le justificatif d'achat), vous bénéficierez d'une extension de garantie d'1 an sur votre produit ZOOM. Un compte client gratuit dans notre boutique en ligne est requis pour l'enregistrement du produit.",
-      "cta": "Enregistrer des produits"
     },
     "webshopProse": {
       "title": "NOUS SOMMES LA BOUTIQUE EN LIGNE OFFICIELLE",

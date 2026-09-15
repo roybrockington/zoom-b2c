@@ -2,7 +2,6 @@ import HeroSlider from "../components/HeroSlider";
 import MostWanted from "../components/MostWanted";
 import CategoryGrid from "../components/CategoryGrid";
 import Newsletter from "../components/Newsletter";
-import Warranty from "../components/Warranty";
 import WebshopProse from "../components/WebshopProse";
 import Creators from "../components/Creators";
 import CreatorProse from "../components/CreatorProse";
@@ -16,10 +15,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <MostWanted locale={locale} />
         <Creators />
         <CategoryGrid locale={locale} />
-        <section className="flex gap-6 md:flex-row flex-col">
-          <Warranty />
-          <Newsletter />
-        </section>
+        <Newsletter />
         <CreatorProse />
         <WebshopProse />
       </div>
