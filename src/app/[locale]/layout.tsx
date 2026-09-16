@@ -28,16 +28,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Welcome to ZOOM - ZOOM EUROPE",
   description: "ZOOM, ZOOM Corp, podcasting, sound design, music production, film production, mobile recorders, field recorders, podcast recorders, video recorders, iOS and Android recorders, audio interfaces, digital mixers, multi-effects devices, vocal processors, voice processors, vocal microphones, podcast microphones",
-    icons: {
-    icon: '//media.sound-service.eu/zoom/touch-icon-32.png',
-    shortcut: '//media.sound-service.eu/zoom/touch-icon-32.png',
-    apple: [
-      { url: '//media.sound-service.eu/zoom/touch-icon-57.png', sizes: '57x57' },
-      { url: '//media.sound-service.eu/zoom/touch-icon-72.png', sizes: '72x72' },
-      { url: '//media.sound-service.eu/zoom/touch-icon-114.png', sizes: '114x114' },
-      { url: '//media.sound-service.eu/zoom/touch-icon-144.png', sizes: '144x144' },
-    ],
-  },
   alternates: {
     canonical: 'https://www.zoom-europe.com/',
     languages: {
