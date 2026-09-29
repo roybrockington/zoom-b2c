@@ -29,7 +29,10 @@
     "manufacturer": "Producent",
     "importer": "Importer",
     "responsibleOffice": "Odpowiedzialne biuro",
-    "noImage": "Brak zdjęcia"
+    "noImage": "Brak zdjęcia",
+    "legalGuarantee": "Gwarancja prawna",
+    "legalGuaranteeAlt": "Informacja UE o gwarancji prawnej: co najmniej dwuletnia ochrona w ramach gwarancji prawnej dla towarów sprzedawanych w Unii Europejskiej. Jeśli towar nie odpowiada opisowi lub nie działa zgodnie z przeznaczeniem, sprzedawca ponosi odpowiedzialność i musi zaoferować bezpłatną naprawę lub wymianę, a w niektórych przypadkach obniżenie ceny lub pełny zwrot pieniędzy.",
+    "legalGuaranteeMoreInfo": "Więcej informacji o Twoich prawach z tytułu gwarancji prawnej:"
   },
   "category": {
     "products": "produktów",

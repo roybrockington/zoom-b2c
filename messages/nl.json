@@ -29,7 +29,10 @@
     "manufacturer": "Fabrikant",
     "importer": "Importeur",
     "responsibleOffice": "Verantwoordelijk kantoor",
-    "noImage": "Geen afbeelding"
+    "noImage": "Geen afbeelding",
+    "legalGuarantee": "Wettelijke garantie",
+    "legalGuaranteeAlt": "EU-kennisgeving wettelijke garantie: minimaal twee jaar wettelijke garantie op goederen die in de Europese Unie worden verkocht. Als goederen niet overeenkomen met de beschrijving of niet werken zoals bedoeld, is de verkoper aansprakelijk en moet deze gratis reparatie of vervanging aanbieden, of in sommige gevallen een prijsverlaging of volledige terugbetaling.",
+    "legalGuaranteeMoreInfo": "Meer informatie over uw wettelijke garantierechten:"
   },
   "category": {
     "products": "producten",

@@ -29,7 +29,10 @@
     "manufacturer": "Hersteller",
     "importer": "Importeur",
     "responsibleOffice": "Verantwortliche Stelle",
-    "noImage": "Kein Bild"
+    "noImage": "Kein Bild",
+    "legalGuarantee": "Gesetzliche Gewährleistung",
+    "legalGuaranteeAlt": "EU-Hinweis zur gesetzlichen Gewährleistung: Mindestens zwei Jahre gesetzliche Gewährleistung für in der Europäischen Union verkaufte Waren. Entsprechen Waren nicht der Beschreibung oder funktionieren sie nicht wie vorgesehen, haftet der Verkäufer und muss kostenlose Reparatur oder Ersatz anbieten, in bestimmten Fällen auch eine Preisminderung oder volle Erstattung.",
+    "legalGuaranteeMoreInfo": "Weitere Informationen zu Ihren Gewährleistungsrechten:"
   },
   "category": {
     "products": "Produkte",

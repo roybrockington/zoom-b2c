@@ -3,6 +3,7 @@ import ImageGallery from "./ImageGallery";
 import ProductPagePrice from "./ProductPagePrice";
 import AddToCartButton from "./AddToCartButton";
 import AlternateSlugRegistrar from "./AlternateSlugRegistrar";
+import LegalGuaranteeNotice from "./LegalGuaranteeNotice";
 import { Link } from "@i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
@@ -370,6 +371,9 @@ export default async function ProductPage({ params }: { params: Promise<{ locale
             />
           </div>
         )}
+
+        {/* EU legal guarantee notice (mandatory, must stay visible — do not collapse) */}
+        <LegalGuaranteeNotice locale={locale} />
 
         {/* Article Origin */}
         <div className="mt-16 border-t border-zinc-100 pt-10 dark:border-zinc-800">

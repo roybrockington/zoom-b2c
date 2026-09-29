@@ -29,7 +29,10 @@
     "manufacturer": "Manufacturer",
     "importer": "Importer",
     "responsibleOffice": "Responsible Office",
-    "noImage": "No image"
+    "noImage": "No image",
+    "legalGuarantee": "Legal Guarantee",
+    "legalGuaranteeAlt": "EU legal guarantee notice: minimum two-year legal guarantee protection for goods sold in the European Union. If goods do not match the description or do not function as intended, sellers are liable and must offer free repair or replacement, or in some cases a price reduction or full reimbursement.",
+    "legalGuaranteeMoreInfo": "More information on your legal guarantee rights:"
   },
   "category": {
     "products": "products",

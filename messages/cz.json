@@ -29,7 +29,10 @@
     "manufacturer": "Výrobce",
     "importer": "Dovozce",
     "responsibleOffice": "Odpovědné místo",
-    "noImage": "Žádný obrázek"
+    "noImage": "Žádný obrázek",
+    "legalGuarantee": "Zákonná záruka",
+    "legalGuaranteeAlt": "Oznámení EU o zákonné záruce: nejméně dvouletá zákonná záruka na zboží prodávané v Evropské unii. Pokud zboží neodpovídá popisu nebo nefunguje, jak má, prodávající odpovídá za vadu a musí nabídnout bezplatnou opravu nebo výměnu, případně slevu z ceny nebo úplné vrácení peněz.",
+    "legalGuaranteeMoreInfo": "Více informací o vašich právech ze zákonné záruky:"
   },
   "category": {
     "products": "produktů",

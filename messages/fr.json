@@ -29,7 +29,10 @@
     "manufacturer": "Fabricant",
     "importer": "Importateur",
     "responsibleOffice": "Bureau responsable",
-    "noImage": "Pas d'image"
+    "noImage": "Pas d'image",
+    "legalGuarantee": "Garantie légale",
+    "legalGuaranteeAlt": "Avis de l'UE sur la garantie légale : protection de garantie légale d'au moins deux ans pour les biens vendus dans l'Union européenne. Si les biens ne correspondent pas à la description ou ne fonctionnent pas comme prévu, le vendeur est responsable et doit proposer la réparation ou le remplacement gratuit, ou dans certains cas une réduction du prix ou un remboursement intégral.",
+    "legalGuaranteeMoreInfo": "Plus d'informations sur vos droits de garantie légale :"
   },
   "category": {
     "products": "produits",
