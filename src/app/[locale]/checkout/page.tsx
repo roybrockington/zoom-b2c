@@ -25,6 +25,8 @@ type AddressFields = {
   country: string;
 };
 
+const ADDRESS_FIELD_MAX_LENGTH = 50;
+
 const emptyAddress = (): AddressFields => ({
   first_name: "",
   last_name: "",
@@ -56,7 +58,7 @@ function AddressForm({
   countries?: CountryRate[];
 }) {
   function set(key: keyof AddressFields, val: string) {
-    onChange({ ...values, [key]: val });
+    onChange({ ...values, [key]: key === "country" ? val : val.slice(0, ADDRESS_FIELD_MAX_LENGTH) });
   }
 
   const inputClass =
@@ -71,31 +73,40 @@ function AddressForm({
       <div className="grid grid-cols-2 gap-3">
         <div>
           <label className={labelClass}>First name</label>
-          <input required className={inputClass} value={values.first_name} onChange={(e) => set("first_name", e.target.value)} />
+          <input required maxLength={ADDRESS_FIELD_MAX_LENGTH} className={inputClass} value={values.first_name} onChange={(e) => set("first_name", e.target.value)} />
         </div>
         <div>
           <label className={labelClass}>Last name</label>
-          <input required className={inputClass} value={values.last_name} onChange={(e) => set("last_name", e.target.value)} />
+          <input required maxLength={ADDRESS_FIELD_MAX_LENGTH} className={inputClass} value={values.last_name} onChange={(e) => set("last_name", e.target.value)} />
         </div>
         <div className="col-span-2">
           <label className={labelClass}>Address</label>
           <AddressAutocomplete
             value={values.address_line_1}
             onChange={(raw) => set("address_line_1", raw)}
-            onSelect={(fields) => onChange({ ...values, ...fields })}
+            onSelect={(fields) =>
+              onChange({
+                ...values,
+                ...fields,
+                address_line_1: fields.address_line_1.slice(0, ADDRESS_FIELD_MAX_LENGTH),
+                city: fields.city.slice(0, ADDRESS_FIELD_MAX_LENGTH),
+                postcode: fields.postcode.slice(0, ADDRESS_FIELD_MAX_LENGTH),
+              })
+            }
+            maxLength={ADDRESS_FIELD_MAX_LENGTH}
             inputClass={inputClass}
           />
         </div>
         <div className="col-span-2">
-          <input className={inputClass} placeholder="Apartment, suite, etc. (optional)" value={values.address_line_2} onChange={(e) => set("address_line_2", e.target.value)} />
+          <input maxLength={ADDRESS_FIELD_MAX_LENGTH} className={inputClass} placeholder="Apartment, suite, etc. (optional)" value={values.address_line_2} onChange={(e) => set("address_line_2", e.target.value)} />
         </div>
         <div>
           <label className={labelClass}>City</label>
-          <input required className={inputClass} value={values.city} onChange={(e) => set("city", e.target.value)} />
+          <input required maxLength={ADDRESS_FIELD_MAX_LENGTH} className={inputClass} value={values.city} onChange={(e) => set("city", e.target.value)} />
         </div>
         <div>
           <label className={labelClass}>Postcode</label>
-          <input required className={inputClass} value={values.postcode} onChange={(e) => set("postcode", e.target.value)} />
+          <input required maxLength={ADDRESS_FIELD_MAX_LENGTH} className={inputClass} value={values.postcode} onChange={(e) => set("postcode", e.target.value)} />
         </div>
         <div className="col-span-2">
           <label className={labelClass}>Country</label>

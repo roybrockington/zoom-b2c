@@ -17,9 +17,10 @@ type Props = {
   onSelect: (fields: { address_line_1: string; city: string; postcode: string; country: string }) => void;
   inputClass: string;
   placeholder?: string;
+  maxLength?: number;
 };
 
-export default function AddressAutocomplete({ value, onChange, onSelect, inputClass, placeholder }: Props) {
+export default function AddressAutocomplete({ value, onChange, onSelect, inputClass, placeholder, maxLength }: Props) {
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -107,6 +108,7 @@ export default function AddressAutocomplete({ value, onChange, onSelect, inputCl
       <input
         required
         type="text"
+        maxLength={maxLength}
         className={inputClass}
         placeholder={placeholder ?? "Street and number"}
         value={value}
