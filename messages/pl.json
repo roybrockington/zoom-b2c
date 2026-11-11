@@ -140,11 +140,26 @@
     },
     "getInspired": {
       "title": "Zainspiruj się",
-      "music": { "name": "Muzyka", "description": "Muzycy nigdy nie przestają tworzyć, samplować, nagrywać, miksować i słuchać." },
-      "podcasting": { "name": "Podcasting", "description": "Twórcy ewoluują – i my też." },
-      "filmmaking": { "name": "Filmowanie", "description": "Dźwięk jest kluczową częścią Twojej pracy." },
-      "soundDesign": { "name": "Projektowanie dźwięku", "description": "Design to sposób działania." },
-      "aboutUs": { "name": "O nas", "description": "Jesteśmy ZOOM. I jesteśmy dla twórców." }
+      "music": {
+        "name": "Muzyka",
+        "description": "Muzycy nigdy nie przestają tworzyć, samplować, nagrywać, miksować i słuchać."
+      },
+      "podcasting": {
+        "name": "Podcasting",
+        "description": "Twórcy ewoluują – i my też."
+      },
+      "filmmaking": {
+        "name": "Filmowanie",
+        "description": "Dźwięk jest kluczową częścią Twojej pracy."
+      },
+      "soundDesign": {
+        "name": "Projektowanie dźwięku",
+        "description": "Design to sposób działania."
+      },
+      "aboutUs": {
+        "name": "O nas",
+        "description": "Jesteśmy ZOOM. I jesteśmy dla twórców."
+      }
     },
     "creatorProse": {
       "heading": "I JESTEŚMY DLA TWÓRCÓW.",
@@ -261,5 +276,50 @@
     "seeAlso": "Zobacz również nasze",
     "imprint": "Impressum",
     "accept": "Akceptuj & zamknij"
+  },
+  "support": {
+    "title": "Wsparcie",
+    "requiredNote": "Pola oznaczone <star>*</star> są wymagane.",
+    "personalData": "Dane osobowe",
+    "salutation": "Zwrot grzecznościowy",
+    "select": "Wybierz…",
+    "mr": "Pan",
+    "ms": "Pani",
+    "company": "Firma",
+    "optional": "Opcjonalnie",
+    "name": "Imię i nazwisko",
+    "email": "Adres e-mail",
+    "phone": "Telefon",
+    "phonePlaceholder": "+48 …",
+    "supportDetails": "Szczegóły zgłoszenia",
+    "product": "Produkt",
+    "productPlaceholder": "Szukaj po nazwie produktu lub SKU…",
+    "searching": "Wyszukiwanie…",
+    "clearProduct": "Wyczyść produkt",
+    "requestType": "Rodzaj zgłoszenia",
+    "technicalSupport": "Wsparcie techniczne",
+    "salesSupport": "Wsparcie sprzedaży",
+    "subject": "Temat",
+    "message": "Wiadomość",
+    "messagePlaceholder": "Opisz swój problem możliwie szczegółowo…",
+    "address": "Adres",
+    "street": "Ulica i numer",
+    "postcodeCity": "Kod pocztowy / Miejscowość",
+    "postcodePlaceholder": "00-001 Warszawa",
+    "country": "Kraj",
+    "selectCountry": "Wybierz kraj…",
+    "otherCountry": "Inny",
+    "attachment": "Załącznik",
+    "file": "Plik",
+    "fileHint": "(jpg, png, pdf, txt, zip — maks. 10 MB)",
+    "consent": "Wyrażam zgodę na przekazanie moich danych podmiotom trzecim w celu obsługi tego zgłoszenia.",
+    "submit": "Wyślij zgłoszenie",
+    "submitting": "Wysyłanie…",
+    "selectProductError": "Wybierz produkt z listy.",
+    "submissionFailed": "Wysyłanie nie powiodło się. Spróbuj ponownie.",
+    "successTitle": "Zgłoszenie wysłane",
+    "successBody": "Twoje zgłoszenie zostało przyjęte. Numer referencyjny: <strong>#{id}</strong>",
+    "successContact": "Nasz zespół skontaktuje się z Tobą pod adresem <strong>{email}</strong>.",
+    "submitAnother": "Wyślij kolejne zgłoszenie"
   }
 }

@@ -111,7 +111,7 @@
     "tryDifferent": "Versuche einen anderen Suchbegriff.",
     "noImage": "Kein Bild"
   },
-    "imprint": {
+  "imprint": {
     "title": "Impressum",
     "companyName": "Sound Service Musikanlagen-Vertriebsgesellschaft mbH",
     "disclaimer": "Haftungsausschluss",
@@ -157,11 +157,26 @@
     },
     "getInspired": {
       "title": "Lass dich inspirieren",
-      "music": { "name": "Musik", "description": "Musiker hören nie auf zu kreieren, zu sampeln, aufzunehmen, zu mixen und zu hören." },
-      "podcasting": { "name": "Podcasting", "description": "Creator entwickeln sich weiter – und wir auch." },
-      "filmmaking": { "name": "Filmproduktion", "description": "Sound ist ein wesentlicher Teil Ihrer Arbeit." },
-      "soundDesign": { "name": "Sound Design", "description": "Design ist, wie es funktioniert." },
-      "aboutUs": { "name": "Über uns", "description": "Wir sind ZOOM. Und wir sind für Creator." }
+      "music": {
+        "name": "Musik",
+        "description": "Musiker hören nie auf zu kreieren, zu sampeln, aufzunehmen, zu mixen und zu hören."
+      },
+      "podcasting": {
+        "name": "Podcasting",
+        "description": "Creator entwickeln sich weiter – und wir auch."
+      },
+      "filmmaking": {
+        "name": "Filmproduktion",
+        "description": "Sound ist ein wesentlicher Teil Ihrer Arbeit."
+      },
+      "soundDesign": {
+        "name": "Sound Design",
+        "description": "Design ist, wie es funktioniert."
+      },
+      "aboutUs": {
+        "name": "Über uns",
+        "description": "Wir sind ZOOM. Und wir sind für Creator."
+      }
     },
     "creatorProse": {
       "heading": "AND WE'RE FOR CREATORS",
@@ -278,6 +293,50 @@
     "seeAlso": "Siehe auch unser",
     "imprint": "Impressum",
     "accept": "Akzeptieren & schließen"
+  },
+  "support": {
+    "title": "Support",
+    "requiredNote": "Mit <star>*</star> markierte Felder sind Pflichtfelder.",
+    "personalData": "Persönliche Daten",
+    "salutation": "Anrede",
+    "select": "Bitte wählen…",
+    "mr": "Herr",
+    "ms": "Frau",
+    "company": "Firma",
+    "optional": "Optional",
+    "name": "Name",
+    "email": "E-Mail-Adresse",
+    "phone": "Telefon",
+    "phonePlaceholder": "+49 …",
+    "supportDetails": "Support-Details",
+    "product": "Produkt",
+    "productPlaceholder": "Nach Produktname oder Artikelnummer suchen…",
+    "searching": "Suche läuft…",
+    "clearProduct": "Produkt entfernen",
+    "requestType": "Art der Anfrage",
+    "technicalSupport": "Technischer Support",
+    "salesSupport": "Vertriebssupport",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "messagePlaceholder": "Bitte beschreibe dein Anliegen so detailliert wie möglich…",
+    "address": "Adresse",
+    "street": "Straße und Hausnummer",
+    "postcodeCity": "PLZ / Ort",
+    "postcodePlaceholder": "10115 Berlin",
+    "country": "Land",
+    "selectCountry": "Land auswählen…",
+    "otherCountry": "Sonstiges",
+    "attachment": "Anhang",
+    "file": "Datei",
+    "fileHint": "(jpg, png, pdf, txt, zip — max. 10 MB)",
+    "consent": "Ich stimme der Weitergabe meiner Daten an Dritte zum Zweck der Bearbeitung dieser Support-Anfrage zu.",
+    "submit": "Support-Anfrage senden",
+    "submitting": "Wird gesendet…",
+    "selectProductError": "Bitte wähle ein Produkt aus der Liste aus.",
+    "submissionFailed": "Senden fehlgeschlagen. Bitte versuche es erneut.",
+    "successTitle": "Ticket übermittelt",
+    "successBody": "Deine Support-Anfrage ist bei uns eingegangen. Referenz: <strong>#{id}</strong>",
+    "successContact": "Unser Team meldet sich unter <strong>{email}</strong> bei dir.",
+    "submitAnother": "Weitere Anfrage senden"
   }
-
 }

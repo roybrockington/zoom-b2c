@@ -140,11 +140,26 @@
     },
     "getInspired": {
       "title": "Laat je inspireren",
-      "music": { "name": "Muziek", "description": "Muzikanten stoppen nooit met creëren, samplen, opnemen, mixen en luisteren." },
-      "podcasting": { "name": "Podcasting", "description": "Creators evolueren – en wij ook." },
-      "filmmaking": { "name": "Filmproductie", "description": "Geluid is een essentieel onderdeel van uw werk." },
-      "soundDesign": { "name": "Geluidsontwerp", "description": "Design is hoe het werkt." },
-      "aboutUs": { "name": "Over ons", "description": "Wij zijn ZOOM. En wij zijn voor creators." }
+      "music": {
+        "name": "Muziek",
+        "description": "Muzikanten stoppen nooit met creëren, samplen, opnemen, mixen en luisteren."
+      },
+      "podcasting": {
+        "name": "Podcasting",
+        "description": "Creators evolueren – en wij ook."
+      },
+      "filmmaking": {
+        "name": "Filmproductie",
+        "description": "Geluid is een essentieel onderdeel van uw werk."
+      },
+      "soundDesign": {
+        "name": "Geluidsontwerp",
+        "description": "Design is hoe het werkt."
+      },
+      "aboutUs": {
+        "name": "Over ons",
+        "description": "Wij zijn ZOOM. En wij zijn voor creators."
+      }
     },
     "creatorProse": {
       "heading": "EN WIJ ZIJN VOOR CREATORS.",
@@ -261,5 +276,50 @@
     "seeAlso": "Zie ook ons",
     "imprint": "Impressum",
     "accept": "Accepteren & sluiten"
+  },
+  "support": {
+    "title": "Support",
+    "requiredNote": "Velden gemarkeerd met <star>*</star> zijn verplicht.",
+    "personalData": "Persoonsgegevens",
+    "salutation": "Aanhef",
+    "select": "Selecteer…",
+    "mr": "Dhr.",
+    "ms": "Mevr.",
+    "company": "Bedrijf",
+    "optional": "Optioneel",
+    "name": "Naam",
+    "email": "E-mailadres",
+    "phone": "Telefoon",
+    "phonePlaceholder": "+31 …",
+    "supportDetails": "Supportgegevens",
+    "product": "Product",
+    "productPlaceholder": "Zoek op productnaam of artikelnummer…",
+    "searching": "Zoeken…",
+    "clearProduct": "Product wissen",
+    "requestType": "Soort aanvraag",
+    "technicalSupport": "Technische ondersteuning",
+    "salesSupport": "Verkoopondersteuning",
+    "subject": "Onderwerp",
+    "message": "Bericht",
+    "messagePlaceholder": "Beschrijf je probleem zo gedetailleerd mogelijk…",
+    "address": "Adres",
+    "street": "Straat en huisnummer",
+    "postcodeCity": "Postcode / Plaats",
+    "postcodePlaceholder": "1012 AB Amsterdam",
+    "country": "Land",
+    "selectCountry": "Selecteer land…",
+    "otherCountry": "Overig",
+    "attachment": "Bijlage",
+    "file": "Bestand",
+    "fileHint": "(jpg, png, pdf, txt, zip — max. 10 MB)",
+    "consent": "Ik ga akkoord met het doorgeven van mijn gegevens aan derden ten behoeve van de afhandeling van deze supportaanvraag.",
+    "submit": "Supportaanvraag versturen",
+    "submitting": "Bezig met versturen…",
+    "selectProductError": "Selecteer een product uit de lijst.",
+    "submissionFailed": "Versturen mislukt. Probeer het opnieuw.",
+    "successTitle": "Ticket verstuurd",
+    "successBody": "Je supportaanvraag is ontvangen. Referentie: <strong>#{id}</strong>",
+    "successContact": "Ons team neemt contact met je op via <strong>{email}</strong>.",
+    "submitAnother": "Nog een aanvraag versturen"
   }
 }

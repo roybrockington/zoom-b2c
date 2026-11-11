@@ -157,11 +157,26 @@
     },
     "getInspired": {
       "title": "Get Inspired",
-      "music": { "name": "Music", "description": "Musicians never stop creating, sampling, recording, mixing and listening." },
-      "podcasting": { "name": "Podcasting", "description": "Creators are evolving - and so are we." },
-      "filmmaking": { "name": "Filmmaking", "description": "Sound is a vital part of your work." },
-      "soundDesign": { "name": "Sound Design", "description": "Design is how it works." },
-      "aboutUs": { "name": "About Us", "description": "We're ZOOM. And We're For Creators." }
+      "music": {
+        "name": "Music",
+        "description": "Musicians never stop creating, sampling, recording, mixing and listening."
+      },
+      "podcasting": {
+        "name": "Podcasting",
+        "description": "Creators are evolving - and so are we."
+      },
+      "filmmaking": {
+        "name": "Filmmaking",
+        "description": "Sound is a vital part of your work."
+      },
+      "soundDesign": {
+        "name": "Sound Design",
+        "description": "Design is how it works."
+      },
+      "aboutUs": {
+        "name": "About Us",
+        "description": "We're ZOOM. And We're For Creators."
+      }
     },
     "creatorProse": {
       "heading": "AND WE'RE FOR CREATORS.",
@@ -301,5 +316,50 @@
     "formLink": "this form",
     "specialTitle": "Special notes",
     "specialText": "If you finance this contract by means of a loan and later revoke it, you are also no longer bound by the loan agreement, provided that both contracts form an economic unit. This is to be assumed in particular if we are your lender at the same time or if your lender makes use of our cooperation with regard to the financing. If the loan has already accrued to us when the revocation takes effect, your lender shall be subrogated to our rights and obligations under the financed contract in relation to you with regard to the legal consequences of the revocation or return. The latter shall not apply if the subject matter of the present contract is the acquisition of financial instruments (e.g. securities, foreign exchange or derivatives). If you wish to avoid a contractual obligation as far as possible, exercise your right of revocation and also revoke the loan agreement if you are also entitled to a right of revocation for this."
+  },
+  "support": {
+    "title": "Support",
+    "requiredNote": "Fields marked <star>*</star> are required.",
+    "personalData": "Personal Data",
+    "salutation": "Title",
+    "select": "Select…",
+    "mr": "Mr",
+    "ms": "Ms",
+    "company": "Company",
+    "optional": "Optional",
+    "name": "Name",
+    "email": "E-mail address",
+    "phone": "Phone",
+    "phonePlaceholder": "+44 …",
+    "supportDetails": "Support Details",
+    "product": "Product",
+    "productPlaceholder": "Search by product name or SKU…",
+    "searching": "Searching…",
+    "clearProduct": "Clear product",
+    "requestType": "Request type",
+    "technicalSupport": "Technical Support",
+    "salesSupport": "Sales Support",
+    "subject": "Subject",
+    "message": "Message",
+    "messagePlaceholder": "Please describe your issue in as much detail as possible…",
+    "address": "Address",
+    "street": "Street",
+    "postcodeCity": "Postcode / City",
+    "postcodePlaceholder": "SW1A 2AA London",
+    "country": "Country",
+    "selectCountry": "Select country…",
+    "otherCountry": "Other",
+    "attachment": "Attachment",
+    "file": "File",
+    "fileHint": "(jpg, png, pdf, txt, zip — max 10 MB)",
+    "consent": "I agree to the transfer of my data to third parties for the purpose of processing this support request.",
+    "submit": "Submit support request",
+    "submitting": "Submitting…",
+    "selectProductError": "Please select a product from the list.",
+    "submissionFailed": "Submission failed. Please try again.",
+    "successTitle": "Ticket submitted",
+    "successBody": "Your support request has been received. Reference: <strong>#{id}</strong>",
+    "successContact": "Our team will be in touch at <strong>{email}</strong>.",
+    "submitAnother": "Submit another request"
   }
 }

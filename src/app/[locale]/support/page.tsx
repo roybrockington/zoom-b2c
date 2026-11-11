@@ -1,18 +1,25 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "../../components/AuthContext";
 
 const API = process.env.NEXT_PUBLIC_API_URL;
 
-const COUNTRIES = [
-  "United Kingdom", "Germany", "France", "Netherlands", "Poland",
-  "Czech Republic", "Austria", "Belgium", "Switzerland", "Spain",
-  "Italy", "Sweden", "Denmark", "Norway", "Finland", "Ireland",
-  "Portugal", "Hungary", "Romania", "Bulgaria", "Croatia",
-  "Slovakia", "Slovenia", "Estonia", "Latvia", "Lithuania",
-  "Luxembourg", "Malta", "Cyprus", "Greece", "United States",
-  "Canada", "Australia", "Japan", "Other",
+// Submitted value stays in English for the support team; the label is localised.
+const COUNTRIES: { name: string; code: string | null }[] = [
+  { name: "United Kingdom", code: "GB" }, { name: "Germany", code: "DE" }, { name: "France", code: "FR" },
+  { name: "Netherlands", code: "NL" }, { name: "Poland", code: "PL" }, { name: "Czech Republic", code: "CZ" },
+  { name: "Austria", code: "AT" }, { name: "Belgium", code: "BE" }, { name: "Switzerland", code: "CH" },
+  { name: "Spain", code: "ES" }, { name: "Italy", code: "IT" }, { name: "Sweden", code: "SE" },
+  { name: "Denmark", code: "DK" }, { name: "Norway", code: "NO" }, { name: "Finland", code: "FI" },
+  { name: "Ireland", code: "IE" }, { name: "Portugal", code: "PT" }, { name: "Hungary", code: "HU" },
+  { name: "Romania", code: "RO" }, { name: "Bulgaria", code: "BG" }, { name: "Croatia", code: "HR" },
+  { name: "Slovakia", code: "SK" }, { name: "Slovenia", code: "SI" }, { name: "Estonia", code: "EE" },
+  { name: "Latvia", code: "LV" }, { name: "Lithuania", code: "LT" }, { name: "Luxembourg", code: "LU" },
+  { name: "Malta", code: "MT" }, { name: "Cyprus", code: "CY" }, { name: "Greece", code: "GR" },
+  { name: "United States", code: "US" }, { name: "Canada", code: "CA" }, { name: "Australia", code: "AU" },
+  { name: "Japan", code: "JP" }, { name: "Other", code: null },
 ];
 
 type ProductResult = { id: number; name: string; sku: string | null };
@@ -40,6 +47,16 @@ const empty = (): FormState => ({
 
 export default function TechnicalSupportPage() {
   const { user } = useAuth();
+  const t = useTranslations("support");
+  const locale = useLocale();
+  const countryNames = useMemo(() => {
+    try {
+      // The site uses "cz" in its URLs; the BCP 47 code for Czech is "cs".
+      return new Intl.DisplayNames([locale === "cz" ? "cs" : locale], { type: "region" });
+    } catch {
+      return null;
+    }
+  }, [locale]);
 
   const [form, setForm] = useState<FormState>(empty);
   const [file, setFile] = useState<File | null>(null);
@@ -125,7 +142,7 @@ export default function TechnicalSupportPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!selectedProduct) { setError("Please select a product from the list."); return; }
+    if (!selectedProduct) { setError(t("selectProductError")); return; }
     setError(null);
     setSubmitting(true);
 
@@ -143,12 +160,12 @@ export default function TechnicalSupportPage() {
 
       const data = await res.json();
       if (!res.ok) {
-        const msg = (Object.values(data?.errors ?? {}) as string[][])?.[0]?.[0] ?? data?.message ?? "Submission failed.";
+        const msg = (Object.values(data?.errors ?? {}) as string[][])?.[0]?.[0] ?? data?.message ?? t("submissionFailed");
         throw new Error(msg as string);
       }
       setSuccess(data.ticket_id);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Submission failed. Please try again.");
+      setError(err instanceof Error ? err.message : t("submissionFailed"));
     } finally {
       setSubmitting(false);
     }
@@ -163,18 +180,18 @@ export default function TechnicalSupportPage() {
       <div className="mx-auto max-w-xl px-4 py-20 sm:px-6 text-center">
         <div className="rounded-2xl border border-green-200 bg-green-50 p-10 dark:border-green-800 dark:bg-green-900/20">
           <div className="mb-3 text-4xl">✓</div>
-          <h2 className="mb-2 text-xl font-bold text-green-800 dark:text-green-300">Ticket submitted</h2>
+          <h2 className="mb-2 text-xl font-bold text-green-800 dark:text-green-300">{t("successTitle")}</h2>
           <p className="text-sm text-green-700 dark:text-green-400">
-            Your support request has been received. Reference: <strong>#{success}</strong>
+            {t.rich("successBody", { id: success, strong: (c) => <strong>{c}</strong> })}
           </p>
           <p className="mt-2 text-sm text-green-600 dark:text-green-500">
-            Our team will be in touch at <strong>{form.email}</strong>.
+            {t.rich("successContact", { email: form.email, strong: (c) => <strong>{c}</strong> })}
           </p>
           <button
             onClick={() => { setSuccess(null); setForm(empty()); setFile(null); setSelectedProduct(null); setProductQuery(""); }}
             className="mt-6 rounded-full bg-green-700 px-5 py-2 text-sm font-semibold text-white transition hover:bg-green-800"
           >
-            Submit another request
+            {t("submitAnother")}
           </button>
         </div>
       </div>
@@ -183,66 +200,66 @@ export default function TechnicalSupportPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
-      <h1 className="mb-2 text-2xl font-bold text-zinc-900 dark:text-white">Support</h1>
+      <h1 className="mb-2 text-2xl font-bold text-zinc-900 dark:text-white">{t("title")}</h1>
       <p className="mb-8 text-sm text-zinc-500 dark:text-zinc-400">
-        Fields marked <span className="text-red-500">*</span> are required.
+        {t.rich("requiredNote", { star: (c) => <span className="text-red-500">{c}</span> })}
       </p>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-6">
 
         {/* Personal data */}
         <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-          <h2 className="mb-5 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Personal Data</h2>
+          <h2 className="mb-5 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">{t("personalData")}</h2>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className={labelClass}>Title {reqStar}</label>
+              <label className={labelClass}>{t("salutation")} {reqStar}</label>
               <select required className={inputClass} value={form.title} onChange={(e) => set("title", e.target.value as "Mr" | "Ms")}>
-                <option value="">Select…</option>
-                <option value="Mr">Mr</option>
-                <option value="Ms">Ms</option>
+                <option value="">{t("select")}</option>
+                <option value="Mr">{t("mr")}</option>
+                <option value="Ms">{t("ms")}</option>
               </select>
             </div>
             <div>
-              <label className={labelClass}>Company</label>
-              <input type="text" className={inputClass} value={form.company} onChange={(e) => set("company", e.target.value)} placeholder="Optional" />
+              <label className={labelClass}>{t("company")}</label>
+              <input type="text" className={inputClass} value={form.company} onChange={(e) => set("company", e.target.value)} placeholder={t("optional")} />
             </div>
             <div className="col-span-2">
-              <label className={labelClass}>Name {reqStar}</label>
+              <label className={labelClass}>{t("name")} {reqStar}</label>
               <input required type="text" className={inputClass} value={form.name} onChange={(e) => set("name", e.target.value)} />
             </div>
             <div>
-              <label className={labelClass}>E-mail address {reqStar}</label>
+              <label className={labelClass}>{t("email")} {reqStar}</label>
               <input required type="email" className={inputClass} value={form.email} onChange={(e) => set("email", e.target.value)} />
             </div>
             <div>
-              <label className={labelClass}>Phone {reqStar}</label>
-              <input required type="tel" className={inputClass} value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder="+44 …" />
+              <label className={labelClass}>{t("phone")} {reqStar}</label>
+              <input required type="tel" className={inputClass} value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder={t("phonePlaceholder")} />
             </div>
           </div>
         </div>
 
         {/* Support details */}
         <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-          <h2 className="mb-5 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Support Details</h2>
+          <h2 className="mb-5 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">{t("supportDetails")}</h2>
           <div className="flex flex-col gap-4">
 
             {/* Product autocomplete */}
             <div>
-              <label className={labelClass}>Product {reqStar}</label>
+              <label className={labelClass}>{t("product")} {reqStar}</label>
               <div ref={productWrapperRef} className="relative">
                 <input
                   type="text"
                   value={productQuery}
                   onChange={(e) => { setProductQuery(e.target.value); setSelectedProduct(null); }}
                   onKeyDown={handleProductKeyDown}
-                  placeholder="Search by product name or SKU…"
+                  placeholder={t("productPlaceholder")}
                   className={inputClass}
                   autoComplete="off"
                 />
                 {selectedProduct && (
-                  <button type="button" onClick={clearProduct} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200">✕</button>
+                  <button type="button" onClick={clearProduct} aria-label={t("clearProduct")} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200">✕</button>
                 )}
-                {productSearching && <p className="mt-1 text-xs text-zinc-400">Searching…</p>}
+                {productSearching && <p className="mt-1 text-xs text-zinc-400">{t("searching")}</p>}
                 {productSuggestions.length > 0 && (
                   <ul className="absolute z-20 mt-1 w-full overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
                     {productSuggestions.map((p, i) => (
@@ -263,27 +280,27 @@ export default function TechnicalSupportPage() {
             </div>
 
             <div>
-              <label className={labelClass}>Request type {reqStar}</label>
+              <label className={labelClass}>{t("requestType")} {reqStar}</label>
               <select required className={inputClass} value={form.request_type} onChange={(e) => set("request_type", e.target.value)}>
-                <option value="Technical Support">Technical Support</option>
-                <option value="Sales Support">Sales Support</option>
+                <option value="Technical Support">{t("technicalSupport")}</option>
+                <option value="Sales Support">{t("salesSupport")}</option>
               </select>
             </div>
 
             <div>
-              <label className={labelClass}>Subject {reqStar}</label>
+              <label className={labelClass}>{t("subject")} {reqStar}</label>
               <input required type="text" className={inputClass} value={form.subject} onChange={(e) => set("subject", e.target.value)} />
             </div>
 
             <div>
-              <label className={labelClass}>Message {reqStar}</label>
+              <label className={labelClass}>{t("message")} {reqStar}</label>
               <textarea
                 required
                 rows={5}
                 className={inputClass}
                 value={form.message}
                 onChange={(e) => set("message", e.target.value)}
-                placeholder="Please describe your issue in as much detail as possible…"
+                placeholder={t("messagePlaceholder")}
               />
             </div>
           </div>
@@ -291,22 +308,26 @@ export default function TechnicalSupportPage() {
 
         {/* Address */}
         <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-          <h2 className="mb-5 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Address</h2>
+          <h2 className="mb-5 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">{t("address")}</h2>
           <div className="flex flex-col gap-4">
             <div>
-              <label className={labelClass}>Street {reqStar}</label>
+              <label className={labelClass}>{t("street")} {reqStar}</label>
               <input required type="text" className={inputClass} value={form.street} onChange={(e) => set("street", e.target.value)} />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className={labelClass}>Postcode / City {reqStar}</label>
-                <input required type="text" className={inputClass} value={form.postcode_city} onChange={(e) => set("postcode_city", e.target.value)} placeholder="SW1A 2AA London" />
+                <label className={labelClass}>{t("postcodeCity")} {reqStar}</label>
+                <input required type="text" className={inputClass} value={form.postcode_city} onChange={(e) => set("postcode_city", e.target.value)} placeholder={t("postcodePlaceholder")} />
               </div>
               <div>
-                <label className={labelClass}>Country {reqStar}</label>
+                <label className={labelClass}>{t("country")} {reqStar}</label>
                 <select required className={inputClass} value={form.country} onChange={(e) => set("country", e.target.value)}>
-                  <option value="">Select country…</option>
-                  {COUNTRIES.map((c) => <option key={c} value={c}>{c}</option>)}
+                  <option value="">{t("selectCountry")}</option>
+                  {COUNTRIES.map((c) => (
+                    <option key={c.name} value={c.name}>
+                      {c.code ? countryNames?.of(c.code) ?? c.name : t("otherCountry")}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -315,8 +336,8 @@ export default function TechnicalSupportPage() {
 
         {/* Attachment */}
         <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-          <h2 className="mb-5 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Attachment</h2>
-          <label className={labelClass}>File <span className="text-zinc-400 font-normal">(jpg, png, pdf, txt, zip — max 10 MB)</span></label>
+          <h2 className="mb-5 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">{t("attachment")}</h2>
+          <label className={labelClass}>{t("file")} <span className="text-zinc-400 font-normal">{t("fileHint")}</span></label>
           <input
             type="file"
             accept=".jpg,.jpeg,.png,.pdf,.txt,.zip"
@@ -338,7 +359,7 @@ export default function TechnicalSupportPage() {
             className="mt-0.5 h-4 w-4 shrink-0 rounded border-zinc-300 accent-zinc-900 dark:border-zinc-600"
           />
           <span className="text-sm text-zinc-600 dark:text-zinc-400">
-            I agree to the transfer of my data to third parties for the purpose of processing this support request. {reqStar}
+            {t("consent")} {reqStar}
           </span>
         </label>
 
@@ -351,7 +372,7 @@ export default function TechnicalSupportPage() {
           disabled={submitting}
           className="w-full rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
         >
-          {submitting ? "Submitting…" : "Submit support request"}
+          {submitting ? t("submitting") : t("submit")}
         </button>
       </form>
     </div>

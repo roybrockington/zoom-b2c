@@ -140,11 +140,26 @@
     },
     "getInspired": {
       "title": "Trouvez l'inspiration",
-      "music": { "name": "Musique", "description": "Les musiciens ne cessent jamais de créer, d'échantillonner, d'enregistrer, de mixer et d'écouter." },
-      "podcasting": { "name": "Podcasting", "description": "Les créateurs évoluent – et nous aussi." },
-      "filmmaking": { "name": "Réalisation", "description": "Le son est une partie essentielle de votre travail." },
-      "soundDesign": { "name": "Design sonore", "description": "Le design, c'est comment ça fonctionne." },
-      "aboutUs": { "name": "À propos", "description": "Nous sommes ZOOM. Et nous sommes pour les créateurs." }
+      "music": {
+        "name": "Musique",
+        "description": "Les musiciens ne cessent jamais de créer, d'échantillonner, d'enregistrer, de mixer et d'écouter."
+      },
+      "podcasting": {
+        "name": "Podcasting",
+        "description": "Les créateurs évoluent – et nous aussi."
+      },
+      "filmmaking": {
+        "name": "Réalisation",
+        "description": "Le son est une partie essentielle de votre travail."
+      },
+      "soundDesign": {
+        "name": "Design sonore",
+        "description": "Le design, c'est comment ça fonctionne."
+      },
+      "aboutUs": {
+        "name": "À propos",
+        "description": "Nous sommes ZOOM. Et nous sommes pour les créateurs."
+      }
     },
     "creatorProse": {
       "heading": "ET NOUS SOMMES POUR LES CRÉATEURS.",
@@ -261,5 +276,50 @@
     "seeAlso": "Voir aussi notre",
     "imprint": "Mentions légales",
     "accept": "Accepter & fermer"
+  },
+  "support": {
+    "title": "Support",
+    "requiredNote": "Les champs marqués d'un <star>*</star> sont obligatoires.",
+    "personalData": "Données personnelles",
+    "salutation": "Civilité",
+    "select": "Sélectionner…",
+    "mr": "M.",
+    "ms": "Mme",
+    "company": "Société",
+    "optional": "Facultatif",
+    "name": "Nom",
+    "email": "Adresse e-mail",
+    "phone": "Téléphone",
+    "phonePlaceholder": "+33 …",
+    "supportDetails": "Détails de la demande",
+    "product": "Produit",
+    "productPlaceholder": "Rechercher par nom de produit ou référence…",
+    "searching": "Recherche…",
+    "clearProduct": "Effacer le produit",
+    "requestType": "Type de demande",
+    "technicalSupport": "Support technique",
+    "salesSupport": "Support commercial",
+    "subject": "Objet",
+    "message": "Message",
+    "messagePlaceholder": "Veuillez décrire votre problème de manière aussi détaillée que possible…",
+    "address": "Adresse",
+    "street": "Rue et numéro",
+    "postcodeCity": "Code postal / Ville",
+    "postcodePlaceholder": "75001 Paris",
+    "country": "Pays",
+    "selectCountry": "Sélectionner un pays…",
+    "otherCountry": "Autre",
+    "attachment": "Pièce jointe",
+    "file": "Fichier",
+    "fileHint": "(jpg, png, pdf, txt, zip — 10 Mo max.)",
+    "consent": "J'accepte la transmission de mes données à des tiers aux fins du traitement de cette demande de support.",
+    "submit": "Envoyer la demande de support",
+    "submitting": "Envoi en cours…",
+    "selectProductError": "Veuillez sélectionner un produit dans la liste.",
+    "submissionFailed": "L'envoi a échoué. Veuillez réessayer.",
+    "successTitle": "Demande envoyée",
+    "successBody": "Votre demande de support a bien été reçue. Référence : <strong>#{id}</strong>",
+    "successContact": "Notre équipe vous contactera à l'adresse <strong>{email}</strong>.",
+    "submitAnother": "Envoyer une autre demande"
   }
 }

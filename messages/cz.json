@@ -140,11 +140,26 @@
     },
     "getInspired": {
       "title": "Nechte se inspirovat",
-      "music": { "name": "Hudba", "description": "Hudebníci nikdy nepřestanou tvořit, vzorkovat, nahrávat, mixovat a poslouchat." },
-      "podcasting": { "name": "Podcasting", "description": "Tvůrci se vyvíjejí – a my také." },
-      "filmmaking": { "name": "Filmová tvorba", "description": "Zvuk je zásadní součástí vaší práce." },
-      "soundDesign": { "name": "Zvukový design", "description": "Design je způsob, jakým to funguje." },
-      "aboutUs": { "name": "O nás", "description": "Jsme ZOOM. A jsme pro tvůrce." }
+      "music": {
+        "name": "Hudba",
+        "description": "Hudebníci nikdy nepřestanou tvořit, vzorkovat, nahrávat, mixovat a poslouchat."
+      },
+      "podcasting": {
+        "name": "Podcasting",
+        "description": "Tvůrci se vyvíjejí – a my také."
+      },
+      "filmmaking": {
+        "name": "Filmová tvorba",
+        "description": "Zvuk je zásadní součástí vaší práce."
+      },
+      "soundDesign": {
+        "name": "Zvukový design",
+        "description": "Design je způsob, jakým to funguje."
+      },
+      "aboutUs": {
+        "name": "O nás",
+        "description": "Jsme ZOOM. A jsme pro tvůrce."
+      }
     },
     "creatorProse": {
       "heading": "A JSME PRO TVŮRCE.",
@@ -261,5 +276,50 @@
     "seeAlso": "Viz také naše",
     "imprint": "Tiráž",
     "accept": "Přijmout & zavřít"
+  },
+  "support": {
+    "title": "Podpora",
+    "requiredNote": "Pole označená <star>*</star> jsou povinná.",
+    "personalData": "Osobní údaje",
+    "salutation": "Oslovení",
+    "select": "Vyberte…",
+    "mr": "Pan",
+    "ms": "Paní",
+    "company": "Společnost",
+    "optional": "Nepovinné",
+    "name": "Jméno a příjmení",
+    "email": "E-mailová adresa",
+    "phone": "Telefon",
+    "phonePlaceholder": "+420 …",
+    "supportDetails": "Podrobnosti požadavku",
+    "product": "Produkt",
+    "productPlaceholder": "Hledat podle názvu produktu nebo SKU…",
+    "searching": "Vyhledávání…",
+    "clearProduct": "Zrušit výběr produktu",
+    "requestType": "Typ požadavku",
+    "technicalSupport": "Technická podpora",
+    "salesSupport": "Obchodní podpora",
+    "subject": "Předmět",
+    "message": "Zpráva",
+    "messagePlaceholder": "Popište prosím svůj problém co nejpodrobněji…",
+    "address": "Adresa",
+    "street": "Ulice a číslo popisné",
+    "postcodeCity": "PSČ / Město",
+    "postcodePlaceholder": "110 00 Praha",
+    "country": "Země",
+    "selectCountry": "Vyberte zemi…",
+    "otherCountry": "Jiná",
+    "attachment": "Příloha",
+    "file": "Soubor",
+    "fileHint": "(jpg, png, pdf, txt, zip — max. 10 MB)",
+    "consent": "Souhlasím s předáním svých údajů třetím stranám za účelem vyřízení tohoto požadavku na podporu.",
+    "submit": "Odeslat požadavek",
+    "submitting": "Odesílání…",
+    "selectProductError": "Vyberte prosím produkt ze seznamu.",
+    "submissionFailed": "Odeslání se nezdařilo. Zkuste to prosím znovu.",
+    "successTitle": "Požadavek odeslán",
+    "successBody": "Váš požadavek na podporu byl přijat. Číslo: <strong>#{id}</strong>",
+    "successContact": "Náš tým vás bude kontaktovat na adrese <strong>{email}</strong>.",
+    "submitAnother": "Odeslat další požadavek"
   }
 }
