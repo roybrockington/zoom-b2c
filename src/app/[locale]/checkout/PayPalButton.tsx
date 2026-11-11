@@ -5,6 +5,7 @@ import { useAuth } from "../../components/AuthContext";
 import { useCart } from "../../components/CartContext";
 import { useCurrency } from "../../components/CurrencyContext";
 import { useRouter } from "@i18n/navigation";
+import { useTranslations } from "next-intl";
 
 type Props = {
   orderId: number;
@@ -16,6 +17,7 @@ export default function PayPalButton({ orderId, onError }: Props) {
   const { clearCart } = useCart();
   const { currency } = useCurrency();
   const router = useRouter();
+  const t = useTranslations("checkout");
 
   // Don't render PayPal buttons until the auth token is restored from localStorage
   if (authLoading || !token) return null;
@@ -33,12 +35,12 @@ export default function PayPalButton({ orderId, onError }: Props) {
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
       const msg = data?.message ?? data?.error ?? `Server error ${res.status}`;
-      onError(`PayPal setup failed: ${msg}`);
+      onError(t("paypalSetupFailed", { message: msg }));
       throw new Error(msg);
     }
     const data = await res.json();
     if (!data.paypal_order_id) {
-      onError("PayPal setup failed: no order ID returned.");
+      onError(t("paypalNoOrderId"));
       throw new Error("No paypal_order_id in response");
     }
     return data.paypal_order_id;
@@ -55,7 +57,7 @@ export default function PayPalButton({ orderId, onError }: Props) {
       body: JSON.stringify({ paypal_order_id: data.orderID }),
     });
     if (!res.ok) {
-      onError("Payment capture failed. Please try again.");
+      onError(t("paymentCaptureFailed"));
       return;
     }
     clearCart();
@@ -68,7 +70,7 @@ export default function PayPalButton({ orderId, onError }: Props) {
         style={{ layout: "vertical", shape: "pill", label: "pay" }}
         createOrder={createPayPalOrder}
         onApprove={onApprove}
-        onError={(err) => { console.error("PayPal SDK error:", err); onError("Something went wrong with PayPal. Please try again."); }}
+        onError={(err) => { console.error("PayPal SDK error:", err); onError(t("paypalError")); }}
         onCancel={() => router.push("/checkout/cancel")}
       />
     </PayPalScriptProvider>

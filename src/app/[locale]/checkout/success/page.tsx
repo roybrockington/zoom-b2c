@@ -1,10 +1,14 @@
 import { Link } from "@i18n/navigation";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = {
-  title: "Order Confirmed — Zoom",
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "checkout" });
+  return { title: t("successMetaTitle") };
+}
 
-export default function CheckoutSuccessPage() {
+export default async function CheckoutSuccessPage() {
+  const t = await getTranslations("checkout");
   return (
     <div className="mx-auto max-w-lg px-4 py-24 text-center sm:px-6">
       <div className="mb-6 flex justify-center">
@@ -14,22 +18,22 @@ export default function CheckoutSuccessPage() {
           </svg>
         </span>
       </div>
-      <h1 className="mb-3 text-2xl font-bold text-zinc-900 dark:text-white">Order Confirmed!</h1>
+      <h1 className="mb-3 text-2xl font-bold text-zinc-900 dark:text-white">{t("successTitle")}</h1>
       <p className="mb-8 text-zinc-500 dark:text-zinc-400">
-        Thank you for your purchase. You will receive a confirmation email shortly. You can track your order in your account.
+        {t("successBody")}
       </p>
       <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
         <Link
           href="/account"
           className="rounded-full bg-zinc-900 px-8 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
         >
-          View My Orders
+          {t("viewOrders")}
         </Link>
         <Link
           href="/"
           className="rounded-full border border-zinc-300 px-8 py-3 text-sm font-semibold text-zinc-700 transition hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
         >
-          Continue Shopping
+          {t("continueShoppingButton")}
         </Link>
       </div>
     </div>

@@ -1,10 +1,14 @@
 import { Link } from "@i18n/navigation";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = {
-  title: "Payment Cancelled — Zoom",
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "checkout" });
+  return { title: t("cancelMetaTitle") };
+}
 
-export default function CheckoutCancelPage() {
+export default async function CheckoutCancelPage() {
+  const t = await getTranslations("checkout");
   return (
     <div className="mx-auto max-w-lg px-4 py-24 text-center sm:px-6">
       <div className="mb-6 flex justify-center">
@@ -14,22 +18,22 @@ export default function CheckoutCancelPage() {
           </svg>
         </span>
       </div>
-      <h1 className="mb-3 text-2xl font-bold text-zinc-900 dark:text-white">Payment Cancelled</h1>
+      <h1 className="mb-3 text-2xl font-bold text-zinc-900 dark:text-white">{t("cancelTitle")}</h1>
       <p className="mb-8 text-zinc-500 dark:text-zinc-400">
-        Your payment was cancelled. Your cart has been saved — you can return and try again whenever you're ready.
+        {t("cancelBody")}
       </p>
       <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
         <Link
           href="/cart"
           className="rounded-full bg-zinc-900 px-8 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
         >
-          Return to Cart
+          {t("returnToCart")}
         </Link>
         <Link
           href="/"
           className="rounded-full border border-zinc-300 px-8 py-3 text-sm font-semibold text-zinc-700 transition hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
         >
-          Continue Shopping
+          {t("continueShoppingButton")}
         </Link>
       </div>
     </div>

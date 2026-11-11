@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { useAuth } from "../../components/AuthContext";
 import { useCart } from "../../components/CartContext";
 import { useCurrency } from "../../components/CurrencyContext";
@@ -57,6 +58,24 @@ function AddressForm({
   onChange: (f: AddressFields) => void;
   countries?: CountryRate[];
 }) {
+  const t = useTranslations("checkout");
+  const locale = useLocale();
+  // Show country names in the visitor's language; the submitted value stays the ISO code.
+  const localisedCountries = useMemo(() => {
+    let names: Intl.DisplayNames | null = null;
+    try {
+      // The site uses "cz" in its URLs; the BCP 47 code for Czech is "cs".
+      names = new Intl.DisplayNames([locale === "cz" ? "cs" : locale], { type: "region" });
+    } catch {}
+    return countries
+      .map((c) => {
+        let label = c.name;
+        try { label = names?.of(c.code) ?? c.name; } catch {}
+        return { code: c.code, label };
+      })
+      .sort((a, b) => a.label.localeCompare(b.label, locale === "cz" ? "cs" : locale));
+  }, [countries, locale]);
+
   function set(key: keyof AddressFields, val: string) {
     onChange({ ...values, [key]: key === "country" ? val : val.slice(0, ADDRESS_FIELD_MAX_LENGTH) });
   }
@@ -72,15 +91,15 @@ function AddressForm({
       </h3>
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className={labelClass}>First name</label>
+          <label className={labelClass}>{t("firstName")}</label>
           <input required maxLength={ADDRESS_FIELD_MAX_LENGTH} className={inputClass} value={values.first_name} onChange={(e) => set("first_name", e.target.value)} />
         </div>
         <div>
-          <label className={labelClass}>Last name</label>
+          <label className={labelClass}>{t("lastName")}</label>
           <input required maxLength={ADDRESS_FIELD_MAX_LENGTH} className={inputClass} value={values.last_name} onChange={(e) => set("last_name", e.target.value)} />
         </div>
         <div className="col-span-2">
-          <label className={labelClass}>Address</label>
+          <label className={labelClass}>{t("address")}</label>
           <AddressAutocomplete
             value={values.address_line_1}
             onChange={(raw) => set("address_line_1", raw)}
@@ -95,25 +114,26 @@ function AddressForm({
             }
             maxLength={ADDRESS_FIELD_MAX_LENGTH}
             inputClass={inputClass}
+            placeholder={t("addressPlaceholder")}
           />
         </div>
         <div className="col-span-2">
-          <input maxLength={ADDRESS_FIELD_MAX_LENGTH} className={inputClass} placeholder="Apartment, suite, etc. (optional)" value={values.address_line_2} onChange={(e) => set("address_line_2", e.target.value)} />
+          <input maxLength={ADDRESS_FIELD_MAX_LENGTH} className={inputClass} placeholder={t("address2Placeholder")} value={values.address_line_2} onChange={(e) => set("address_line_2", e.target.value)} />
         </div>
         <div>
-          <label className={labelClass}>City</label>
+          <label className={labelClass}>{t("city")}</label>
           <input required maxLength={ADDRESS_FIELD_MAX_LENGTH} className={inputClass} value={values.city} onChange={(e) => set("city", e.target.value)} />
         </div>
         <div>
-          <label className={labelClass}>Postcode</label>
+          <label className={labelClass}>{t("postcode")}</label>
           <input required maxLength={ADDRESS_FIELD_MAX_LENGTH} className={inputClass} value={values.postcode} onChange={(e) => set("postcode", e.target.value)} />
         </div>
         <div className="col-span-2">
-          <label className={labelClass}>Country</label>
+          <label className={labelClass}>{t("country")}</label>
           <select required className={inputClass} value={values.country} onChange={(e) => set("country", e.target.value)}>
-            <option value="">Select country…</option>
-            {countries.map((c) => (
-              <option key={c.code} value={c.code}>{c.name}</option>
+            <option value="">{t("selectCountry")}</option>
+            {localisedCountries.map((c) => (
+              <option key={c.code} value={c.code}>{c.label}</option>
             ))}
           </select>
         </div>
@@ -127,6 +147,7 @@ export default function CheckoutPage() {
   const { items, totalItems, clearCart } = useCart();
   const { currency } = useCurrency();
   const router = useRouter();
+  const t = useTranslations("checkout");
 
   const [shipping, setShipping] = useState<AddressFields>(emptyAddress());
   const [billing, setBilling] = useState<AddressFields>(emptyAddress());
@@ -209,11 +230,11 @@ export default function CheckoutPage() {
         body: JSON.stringify({ code }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.message ?? "Invalid coupon.");
+      if (!res.ok) throw new Error(data.message ?? t("invalidCoupon"));
       setAppliedCoupon(data);
       setCouponInput("");
     } catch (err) {
-      setCouponError(err instanceof Error ? err.message : "Invalid coupon.");
+      setCouponError(err instanceof Error ? err.message : t("invalidCoupon"));
       setAppliedCoupon(null);
     } finally {
       setApplyingCoupon(false);
@@ -232,7 +253,7 @@ export default function CheckoutPage() {
     setError(null);
 
     if (!token) {
-      setError("Your session has expired. Please log in again.");
+      setError(t("sessionExpired"));
       return;
     }
 
@@ -271,7 +292,7 @@ export default function CheckoutPage() {
         const msg =
           (Object.values(data?.errors ?? {}) as string[][])?.[0]?.[0] ??
           data?.message ??
-          "Failed to place order.";
+          t("orderFailed");
         throw new Error(msg as string);
       }
 
@@ -280,7 +301,7 @@ export default function CheckoutPage() {
       setCreatedOrderNumber(data.data.order_number);
       setConfirmedTotal(Math.max(0, subtotal - discount + shippingCost));
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : "Failed to place order.");
+      setError(err instanceof Error ? err.message : t("orderFailed"));
     } finally {
       setSubmitting(false);
     }
@@ -292,9 +313,9 @@ export default function CheckoutPage() {
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
       <div className="mb-8 flex items-center gap-4">
         <Link href="/cart" className="text-sm text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300">
-          ← Back to cart
+          {t("backToCart")}
         </Link>
-        <h1 className="text-2xl font-bold text-zinc-900 dark:text-white">Checkout</h1>
+        <h1 className="text-2xl font-bold text-zinc-900 dark:text-white">{t("title")}</h1>
       </div>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
@@ -307,11 +328,11 @@ export default function CheckoutPage() {
               {/* Contact */}
               <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
                 <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-                  Contact
+                  {t("contact")}
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="col-span-2 sm:col-span-1">
-                    <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">Email</label>
+                    <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">{t("email")}</label>
                     <input
                       type="email"
                       disabled
@@ -320,13 +341,13 @@ export default function CheckoutPage() {
                     />
                   </div>
                   <div className="col-span-2 sm:col-span-1">
-                    <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">Phone (optional)</label>
+                    <label className="mb-1 block text-sm font-medium text-zinc-700 dark:text-zinc-300">{t("phoneOptional")}</label>
                     <input
                       type="tel"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none transition focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:focus:border-zinc-500 dark:focus:ring-zinc-700"
-                      placeholder="+49 123 456789"
+                      placeholder={t("phonePlaceholder")}
                     />
                   </div>
                 </div>
@@ -334,14 +355,14 @@ export default function CheckoutPage() {
 
               {/* Shipping address */}
               <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-                <AddressForm title="Shipping Address" values={shipping} onChange={setShipping} countries={countries} />
+                <AddressForm title={t("shippingAddress")} values={shipping} onChange={setShipping} countries={countries} />
               </div>
 
               {/* Billing address */}
               <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
                 <div className="mb-4 flex items-center justify-between">
                   <h3 className="text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-                    Billing Address
+                    {t("billingAddress")}
                   </h3>
                   <label className="flex cursor-pointer items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400">
                     <input
@@ -350,27 +371,27 @@ export default function CheckoutPage() {
                       onChange={(e) => setBillingSameAsShipping(e.target.checked)}
                       className="rounded"
                     />
-                    Same as shipping
+                    {t("sameAsShipping")}
                   </label>
                 </div>
                 {!billingSameAsShipping && (
                   <AddressForm title="" values={billing} onChange={setBilling} countries={countries} />
                 )}
                 {billingSameAsShipping && (
-                  <p className="text-sm text-zinc-400 dark:text-zinc-500">Using shipping address.</p>
+                  <p className="text-sm text-zinc-400 dark:text-zinc-500">{t("usingShippingAddress")}</p>
                 )}
               </div>
 
               {/* Notes */}
               <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
                 <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-                  Order Notes (optional)
+                  {t("orderNotes")}
                 </h3>
                 <textarea
                   rows={3}
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Any special instructions…"
+                  placeholder={t("notesPlaceholder")}
                   className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none transition focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:focus:border-zinc-500 dark:focus:ring-zinc-700"
                 />
               </div>
@@ -378,7 +399,7 @@ export default function CheckoutPage() {
               {/* Coupon */}
               <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
                 <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-                  Coupon Code
+                  {t("couponCode")}
                 </h3>
                 {appliedCoupon ? (
                   <div className="flex items-center justify-between rounded-lg bg-green-50 px-4 py-3 dark:bg-green-900/20">
@@ -395,7 +416,7 @@ export default function CheckoutPage() {
                       onClick={() => setAppliedCoupon(null)}
                       className="text-xs text-zinc-400 underline hover:text-red-500"
                     >
-                      Remove
+                      {t("remove")}
                     </button>
                   </div>
                 ) : (
@@ -405,7 +426,7 @@ export default function CheckoutPage() {
                       value={couponInput}
                       onChange={(e) => { setCouponInput(e.target.value.toUpperCase()); setCouponError(null); }}
                       onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), applyCoupon())}
-                      placeholder="Enter code…"
+                      placeholder={t("couponPlaceholder")}
                       className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none transition focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:focus:border-zinc-500"
                     />
                     <button
@@ -414,7 +435,7 @@ export default function CheckoutPage() {
                       disabled={applyingCoupon || !couponInput.trim()}
                       className="shrink-0 rounded-lg bg-zinc-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-zinc-700 disabled:opacity-50 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
                     >
-                      {applyingCoupon ? "…" : "Apply"}
+                      {applyingCoupon ? "…" : t("apply")}
                     </button>
                   </div>
                 )}
@@ -426,7 +447,7 @@ export default function CheckoutPage() {
               {/* Payment method */}
               <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
                 <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-                  Payment Method
+                  {t("paymentMethod")}
                 </h3>
                 <div className="flex flex-col gap-3">
                   <label className={`flex cursor-pointer items-center gap-3 rounded-xl border p-4 transition ${paymentMethod === "paypal" ? "border-zinc-900 dark:border-white" : "border-zinc-200 dark:border-zinc-700"}`}>
@@ -438,7 +459,7 @@ export default function CheckoutPage() {
                       onChange={() => setPaymentMethod("paypal")}
                       className="accent-zinc-900 dark:accent-white"
                     />
-                    <span className="text-sm font-medium text-zinc-900 dark:text-white">PayPal</span>
+                    <span className="text-sm font-medium text-zinc-900 dark:text-white">{t("paypal")}</span>
                   </label>
                   <label className={`flex cursor-pointer items-center gap-3 rounded-xl border p-4 transition ${paymentMethod === "prepayment" ? "border-zinc-900 dark:border-white" : "border-zinc-200 dark:border-zinc-700"}`}>
                     <input
@@ -449,7 +470,7 @@ export default function CheckoutPage() {
                       onChange={() => setPaymentMethod("prepayment")}
                       className="accent-zinc-900 dark:accent-white"
                     />
-                    <span className="text-sm font-medium text-zinc-900 dark:text-white">Prepayment (Bank Transfer)</span>
+                    <span className="text-sm font-medium text-zinc-900 dark:text-white">{t("prepayment")}</span>
                   </label>
                 </div>
               </div>
@@ -465,7 +486,7 @@ export default function CheckoutPage() {
                 disabled={submitting || authLoading || !token}
                 className="w-full rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
               >
-                {submitting ? "Placing order…" : "Continue to Payment"}
+                {submitting ? t("placingOrder") : t("continueToPayment")}
               </button>
             </form>
           ) : paymentMethod === "prepayment" ? (
@@ -473,49 +494,49 @@ export default function CheckoutPage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
               <div className="mb-4 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-lg">✓</span>
-                <h2 className="text-lg font-bold text-zinc-900 dark:text-white">Order confirmed</h2>
+                <h2 className="text-lg font-bold text-zinc-900 dark:text-white">{t("orderConfirmed")}</h2>
               </div>
               <p className="mb-6 text-sm text-zinc-500 dark:text-zinc-400">
-                Please transfer the order total to our bank account using your order number as the payment reference.
+                {t("prepaymentInstructions")}
               </p>
               <div className="mb-6 rounded-xl bg-zinc-50 p-4 dark:bg-zinc-800">
-                <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Payment reference</p>
+                <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">{t("paymentReference")}</p>
                 <p className="font-mono text-lg font-bold text-zinc-900 dark:text-white">{createdOrderNumber}</p>
               </div>
               <dl className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <dt className="text-zinc-500 dark:text-zinc-400">Receiver</dt>
+                  <dt className="text-zinc-500 dark:text-zinc-400">{t("receiver")}</dt>
                   <dd className="font-medium text-zinc-900 dark:text-white">Sound Service GmbH</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-zinc-500 dark:text-zinc-400">Bank</dt>
+                  <dt className="text-zinc-500 dark:text-zinc-400">{t("bank")}</dt>
                   <dd className="font-medium text-zinc-900 dark:text-white">Deutsche Bank AG</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-zinc-500 dark:text-zinc-400">IBAN</dt>
+                  <dt className="text-zinc-500 dark:text-zinc-400">{t("iban")}</dt>
                   <dd className="font-mono font-medium text-zinc-900 dark:text-white">DE80 1007 0000 0650 2900 00</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-zinc-500 dark:text-zinc-400">BIC</dt>
+                  <dt className="text-zinc-500 dark:text-zinc-400">{t("bic")}</dt>
                   <dd className="font-mono font-medium text-zinc-900 dark:text-white">DEUTDEBBXXX</dd>
                 </div>
               </dl>
               <p className="mt-6 text-xs text-zinc-400 dark:text-zinc-500">
-                Your order will be shipped once payment has been received. A confirmation email will be sent to {user.email}.
+                {t("prepaymentNote", { email: user.email })}
               </p>
               <button
                 onClick={() => { clearCart(); router.push("/"); }}
                 className="mt-6 w-full rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
               >
-                Continue shopping
+                {t("continueShopping")}
               </button>
             </div>
           ) : (
             /* PayPal payment step */
             <div className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-              <h2 className="mb-2 text-lg font-bold text-zinc-900 dark:text-white">Pay with PayPal</h2>
+              <h2 className="mb-2 text-lg font-bold text-zinc-900 dark:text-white">{t("payWithPaypal")}</h2>
               <p className="mb-6 text-sm text-zinc-500 dark:text-zinc-400">
-                Your order has been created. Complete payment below to confirm.
+                {t("paypalIntro")}
               </p>
               {error && (
                 <p className="mb-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400">
@@ -531,7 +552,7 @@ export default function CheckoutPage() {
         <div className="lg:col-span-2">
           <div className="sticky top-6 rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
             <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-              Order Summary
+              {t("orderSummary")}
             </h2>
             <ul className="mb-4 divide-y divide-zinc-100 dark:divide-zinc-800">
               {items.map((item) => {
@@ -550,7 +571,7 @@ export default function CheckoutPage() {
                     </div>
                     <div className="flex flex-1 flex-col">
                       <span className="text-sm font-medium text-zinc-900 dark:text-white line-clamp-1">Zoom {item.name}</span>
-                      <span className="text-xs text-zinc-400">Qty: {item.quantity}</span>
+                      <span className="text-xs text-zinc-400">{t("qty", { quantity: item.quantity })}</span>
                     </div>
                     <span className="text-sm font-semibold text-zinc-900 dark:text-white">
                       {currency.symbol}{fmt(unitPrice * item.quantity)}
@@ -561,38 +582,38 @@ export default function CheckoutPage() {
             </ul>
             <dl className="space-y-2 border-t border-zinc-100 pt-4 text-sm dark:border-zinc-800">
               <div className="flex justify-between">
-                <dt className="text-zinc-500 dark:text-zinc-400">Subtotal</dt>
+                <dt className="text-zinc-500 dark:text-zinc-400">{t("subtotal")}</dt>
                 <dd className="font-medium text-zinc-900 dark:text-white">{currency.symbol}{fmt(subtotal)}</dd>
               </div>
               {discount > 0 && (
                 <div className="flex justify-between">
                   <dt className="text-green-600 dark:text-green-400">
-                    Discount
+                    {t("discount")}
                     {appliedCoupon && <span className="ml-1 font-mono text-xs">({appliedCoupon.code})</span>}
                   </dt>
                   <dd className="font-medium text-green-600 dark:text-green-400">−{currency.symbol}{fmt(discount)}</dd>
                 </div>
               )}
               <div className="flex justify-between">
-                <dt className="text-zinc-500 dark:text-zinc-400">Shipping</dt>
+                <dt className="text-zinc-500 dark:text-zinc-400">{t("shipping")}</dt>
                 <dd className="text-zinc-500 dark:text-zinc-400">
                   {shipping.country
                     ? shippingCost === 0
-                      ? "Free"
+                      ? t("free")
                       : `${currency.symbol}${fmt(shippingCost)}`
-                    : "Select a country"}
+                    : t("selectACountry")}
                 </dd>
               </div>
               {vatAmount > 0 && (
                 <div className="flex justify-between">
                   <dt className="text-zinc-500 dark:text-zinc-400">
-                    VAT ({Math.round(vatRate * 100)}%) included
+                    {t("vatIncluded", { rate: Math.round(vatRate * 100) })}
                   </dt>
                   <dd className="text-zinc-500 dark:text-zinc-400">{currency.symbol}{fmt(vatAmount)}</dd>
                 </div>
               )}
               <div className="flex justify-between border-t border-zinc-100 pt-3 text-base font-bold dark:border-zinc-800">
-                <dt className="text-zinc-900 dark:text-white">Total</dt>
+                <dt className="text-zinc-900 dark:text-white">{t("total")}</dt>
                 <dd className="text-zinc-900 dark:text-white">{currency.symbol}{fmt(confirmedTotal ?? Math.max(0, subtotal - discount + shippingCost))}</dd>
               </div>
             </dl>
